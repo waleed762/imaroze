@@ -9,7 +9,7 @@
 
 <!-- Schema Markup -->
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Store","name":"IMAROZE","description":"Luxury perfume house — handcrafted fragrances","url":"https://imaroze.com","logo":"https://imaroze.com/logo.png","sameAs":["https://instagram.com/imaroze","https://facebook.com/imaroze"]}
+{"@context":"https://schema.org","@type":"Store","name":"IMAROZE","description":"Luxury perfume house — handcrafted fragrances","url":"https://imaroze.com","logo":"https://imaroze.com/logo.png","sameAs":["https://instagram.com/imaroze.official","https://facebook.com/imaroze.official","https://tiktok.com/@imaroze.official"]}
 </script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,7 +18,7 @@
 
 <style>
 /* ═══════════════════════════════════════
-   DESIGN TOKENS
+   DESIGN TOKENS (YOUR ORIGINAL CSS - KEPT INTACT)
 ═══════════════════════════════════════ */
 :root {
   --ink:        #080807;
@@ -304,6 +304,26 @@ button{font-family:inherit;cursor:pointer}
 }
 .mob-menu a:hover{color:var(--gold)}
 
+/* WhatsApp Floating Button - ADDED */
+.wa-float {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 55px;
+  height: 55px;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  transition: transform 0.3s;
+  cursor: pointer;
+}
+.wa-float:hover { transform: scale(1.08); }
+.wa-float svg { width: 30px; height: 30px; fill: white; }
+
 /* ═══════════════════════════════════════
    HERO
 ═══════════════════════════════════════ */
@@ -342,7 +362,7 @@ button{font-family:inherit;cursor:pointer}
   100%{transform:scale(1.6);opacity:0}
 }
 
-/* Hero perfume image */
+/* Hero perfume image - UPDATED with consistent image */
 .hero-perfume{
   position:absolute;
   right:10%;top:50%;
@@ -445,6 +465,8 @@ button{font-family:inherit;cursor:pointer}
   from{opacity:0;transform:translateY(28px)}
   to{opacity:1;transform:translateY(0)}
 }
+
+
 
 /* ─── MARQUEE ─── */
 .marquee{
@@ -945,6 +967,9 @@ button{font-family:inherit;cursor:pointer}
 }
 .s-dot.on{background:var(--gold);width:22px;border-radius:3px}
 
+
+
+
 /* ═══════════════════════════════════════
    ABOUT
 ═══════════════════════════════════════ */
@@ -1127,7 +1152,7 @@ button{font-family:inherit;cursor:pointer}
 }
 
 /* ═══════════════════════════════════════
-   CONTACT
+   CONTACT - UPDATED with Google Sheets
 ═══════════════════════════════════════ */
 #contact{padding:9rem 0}
 .contact-grid{
@@ -1193,7 +1218,7 @@ button{font-family:inherit;cursor:pointer}
 .cf-field input::placeholder,.cf-field textarea::placeholder{color:rgba(242,235,217,.2)}
 
 /* ═══════════════════════════════════════
-   FOOTER
+   FOOTER - UPDATED with social links
 ═══════════════════════════════════════ */
 footer{
   background:#060605;
@@ -1464,7 +1489,8 @@ footer{
   letter-spacing:.28em;text-transform:uppercase;color:var(--cream-dim);
 }
 .cart-total-row strong{
-  font-family:var(--f-display);font-size:1.6rem;color:var(--gold);
+  font-family:var(--f-display);
+  font-size:1.6rem;color:var(--gold);
 }
 
 /* ═══════════════════════════════════════
@@ -1540,6 +1566,14 @@ footer{
 <!-- Toast -->
 <div class="toast" id="toast"></div>
 
+<!-- WHATSAPP FLOATING BUTTON - ADDED -->
+<a href="https://wa.me/971501234567?text=Hello%20IMAROZE%2C%20I%27m%20interested%20in%20your%20luxury%20fragrances" 
+   class="wa-float" target="_blank" rel="noopener noreferrer">
+  <svg viewBox="0 0 24 24">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+  </svg>
+</a>
+
 <!-- Cart Overlay + Sidebar -->
 <div class="cart-bg" id="cartBg" onclick="closeCart()"></div>
 <div class="cart-side" id="cartSide">
@@ -1555,7 +1589,7 @@ footer{
       <span>Total</span>
       <strong id="cartTotal">$0</strong>
     </div>
-    <button class="btn-gold" style="width:100%;justify-content:center;">Proceed to Checkout</button>
+    <button class="btn-gold" style="width:100%;justify-content:center;" onclick="checkout()">Proceed to Checkout</button>
   </div>
 </div>
 
@@ -1571,13 +1605,15 @@ footer{
   </div>
 </div>
 
-<!-- Mobile Menu -->
+<!-- Mobile Menu - UPDATED with social links -->
 <div class="mob-menu" id="mobMenu">
   <a href="#hero" onclick="closeMob()">Home</a>
   <a href="#collection" onclick="closeMob()">Collection</a>
   <a href="#categories" onclick="closeMob()">Categories</a>
   <a href="#about" onclick="closeMob()">Maison</a>
   <a href="#contact" onclick="closeMob()">Contact</a>
+  <a href="https://www.instagram.com/imaroze.official" target="_blank" onclick="closeMob()">Instagram</a>
+  <a href="https://www.tiktok.com/@imaroze.official" target="_blank" onclick="closeMob()">TikTok</a>
 </div>
 
 <!-- ═══ NAVBAR ═══ -->
@@ -1594,12 +1630,12 @@ footer{
         <li><a href="#contact">Contact</a></li>
       </ul>
       <div class="nav-actions">
-        <button class="nav-btn" aria-label="Search" title="Search">
+        <button class="nav-btn" aria-label="Search" title="Search" onclick="alert('Search functionality coming soon!')">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
             <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
           </svg>
         </button>
-        <button class="nav-btn" aria-label="Wishlist" title="Wishlist">
+        <button class="nav-btn" aria-label="Wishlist" title="Wishlist" onclick="alert('Wishlist feature coming soon!')">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
             <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
           </svg>
@@ -2090,7 +2126,7 @@ footer{
   </div>
 </section>
 
-<!-- ═══ CONTACT ═══ -->
+<!-- ═══ CONTACT ═══ - UPDATED with Google Sheets -->
 <section id="contact" aria-label="Contact Imaroze">
   <div class="container">
     <header class="section-head" data-reveal>
@@ -2111,7 +2147,7 @@ footer{
         <div class="c-row">
           <div class="c-ico"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.01 2.19 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/></svg></div>
           <div>
-            <div class="c-row-label">Phone</div>
+            <div class="c-row-label">Phone / WhatsApp</div>
             <div class="c-row-val">+971 4 000 0000</div>
           </div>
         </div>
@@ -2175,7 +2211,7 @@ footer{
   </div>
 </section>
 
-<!-- ═══ FOOTER ═══ -->
+<!-- ═══ FOOTER ═══ - UPDATED with social media links -->
 <footer>
   <div class="container">
     <div class="foot-grid">
@@ -2183,20 +2219,14 @@ footer{
         <span class="f-logo">IMAROZE</span>
         <p>Haute parfumerie from the heart of Dubai. Every fragrance is a story — crafted for those who wear their identity with conviction.</p>
         <div class="socials">
-          <a href="#" class="soc" aria-label="Instagram">
+          <a href="https://www.instagram.com/imaroze.official" class="soc" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
             <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
           </a>
-          <a href="#" class="soc" aria-label="Facebook">
+          <a href="https://www.facebook.com/share/175FcaNHRu" class="soc" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
             <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
           </a>
-          <a href="#" class="soc" aria-label="Twitter/X">
-            <svg viewBox="0 0 24 24"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
-          </a>
-          <a href="#" class="soc" aria-label="Pinterest">
-            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.24 2.65 7.86 6.39 9.29-.09-.78-.17-1.98.03-2.83.19-.77 1.28-5.43 1.28-5.43s-.33-.65-.33-1.62c0-1.52.88-2.65 1.98-2.65.93 0 1.39.7 1.39 1.54 0 .94-.6 2.34-.91 3.64-.26 1.09.54 1.97 1.6 1.97 1.92 0 3.4-2.02 3.4-4.95 0-2.59-1.86-4.4-4.52-4.4-3.08 0-4.89 2.31-4.89 4.7 0 .93.36 1.93.8 2.47.09.11.1.2.07.31-.08.33-.26 1.09-.3 1.24-.05.2-.17.24-.39.14-1.45-.68-2.35-2.8-2.35-4.51 0-3.66 2.66-7.03 7.67-7.03 4.03 0 7.16 2.87 7.16 6.71 0 4-2.52 7.22-6.02 7.22-1.18 0-2.29-.61-2.67-1.33l-.72 2.7c-.26 1-.97 2.26-1.45 3.02C10.68 21.96 11.33 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2z"/></svg>
-          </a>
-          <a href="#" class="soc" aria-label="YouTube">
-            <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+          <a href="https://www.tiktok.com/@imaroze.official" class="soc" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+            <svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.75a4.85 4.85 0 01-1.01-.06z"/></svg>
           </a>
         </div>
       </div>
@@ -2252,518 +2282,311 @@ footer{
   </div>
 </footer>
 
-<!-- ═══════════════════════════════════════
-     JAVASCRIPT
-═══════════════════════════════════════ -->
 <script>
 // ─── PRODUCTS DATA ───
+const PRODUCT_IMAGE = "https://cdn.parfoom.com/products/ibrahim-al-qurashi-balas-rose-bffcf840.webp";
+
 const PRODUCTS = [
-  {
-    id:1, name:'Royal Oud', price:185, size:'100ml',
-    badge:'Best Seller', badgeType:'badge-bs',
-    img:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_yrLtvKh4w9nTEOzzhuPnpVX73be384GeDhg5qm6Q9A&s=10',
-    notes:'Cambodian Oud · Saffron · Amber',
-    desc:'Regal and commanding — Cambodian agarwood aged 50 years forms the heart of this composition, lifted by Iranian saffron and darkened by golden amber. The definitive statement fragrance.',
-    stars:5
-  },
-  {
-    id:2, name:'Black Gold', price:220, size:'100ml',
-    badge:'Limited', badgeType:'badge-ltd',
-    img:'https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=600&q=85&auto=format&fit=crop',
-    notes:'Black Truffle · Oud · Leather',
-    desc:'A bold collision of black truffle accord, dark Laotian oud, and tobacco leaf — for the individual who refuses to go unnoticed. Incredibly long-lasting.',
-    stars:5
-  },
-  {
-    id:3, name:'Imperial Musk', price:165, size:'50ml',
-    badge:'New', badgeType:'badge-new',
-    img:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_yrLtvKh4w9nTEOzzhuPnpVX73be384GeDhg5qm6Q9A&s=10',
-    notes:'White Musk · Cashmere · Iris',
-    desc:'A whisper of extraordinary refinement. White Egyptian musk intertwined with cashmere wood and powdery Florentine iris — intimacy distilled.',
-    stars:5
-  },
-  {
-    id:4, name:'Amber Signature', price:195, size:'100ml',
-    badge:null, badgeType:'',
-    img:'https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?w=600&q=85&auto=format&fit=crop',
-    notes:'Golden Amber · Benzoin · Vanilla',
-    desc:'The house amber composition — warm, resinous, and profoundly sensual. Omani golden amber fused with Sumatran benzoin and Madagascar vanilla absolute.',
-    stars:5
-  },
-  {
-    id:5, name:'Midnight Noir', price:210, size:'100ml',
-    badge:'Best Seller', badgeType:'badge-bs',
-    img:'https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?w=600&q=85&auto=format&fit=crop',
-    notes:'Midnight Oud · Smoke · Leather',
-    desc:'Inspired by the darkness before dawn — smoked oud, cold leather, and dark incense create a fragrance of intense, brooding masculinity.',
-    stars:5
-  },
-  {
-    id:6, name:'Arabian Velvet', price:175, size:'100ml',
-    badge:'New', badgeType:'badge-new',
-    img:'https://images.unsplash.com/photo-1619994403073-2cec844b8e63?w=600&q=85&auto=format&fit=crop',
-    notes:'Taif Rose · Oud · Saffron',
-    desc:'The quintessential Arabic luxury fragrance — celebrated Taif rose from Saudi Arabia\'s Aseer highlands, noble oud, and Iranian saffron in perfect harmony.',
-    stars:5
-  },
-  {
-    id:7, name:'Prestige Gold', price:240, size:'100ml',
-    badge:'Limited', badgeType:'badge-ltd',
-    img:'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=85&auto=format&fit=crop',
-    notes:'Neroli · Sandalwood · Golden Amber',
-    desc:'The pinnacle of the Imaroze collection. Calabrian bergamot and Tunisian neroli descend into Mysore sandalwood and 24k gold-infused amber absolute.',
-    stars:5
-  },
-  {
-    id:8, name:'Royal Amber', price:155, size:'50ml',
-    badge:null, badgeType:'',
-    img:'https://images.unsplash.com/photo-1567177662154-dfeb4c93b6ae?w=600&q=85&auto=format&fit=crop',
-    notes:'Labdanum · Patchouli · Vetiver',
-    desc:'A meditation on warmth. Cistus labdanum from southern Spain and Indonesian patchouli build into a deep, earthy vetiver foundation — grounding and timeless.',
-    stars:4
-  },
-  {
-    id:9, name:'Desert Rose', price:185, size:'100ml',
-    badge:'New', badgeType:'badge-new',
-    img:'https://images.unsplash.com/photo-1545178803-4056771d60a3?w=600&q=85&auto=format&fit=crop',
-    notes:'Damascus Rose · Oud · Jasmine',
-    desc:'A tribute to Arabia\'s most prized flower — Damascus rose absolute at extraordinary concentration, joined by wild oud and Indian jasmine sambac.',
-    stars:5
-  },
-  {
-    id:10, name:'Platinum Oud', price:260, size:'100ml',
-    badge:'Limited', badgeType:'badge-ltd',
-    img:'https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=600&q=85&auto=format&fit=crop',
-    notes:'Hindi Oud · Bergamot · Musk',
-    desc:'The rarest composition in the Imaroze collection. 30-year aged Hindi oud from Bangladesh, brightened by cold-pressed Sicilian bergamot.',
-    stars:5
-  },
-  {
-    id:11, name:'Sapphire Musk', price:145, size:'50ml',
-    badge:'New', badgeType:'badge-new',
-    img:'https://images.unsplash.com/photo-1561541821-c83e2f64d17c?w=600&q=85&auto=format&fit=crop',
-    notes:'Violet · White Musk · Sandalwood',
-    desc:'Cool, crystalline, and effortlessly modern — Parma violet and white musk accord over warm Australian sandalwood. Unisex, luminous, enduring.',
-    stars:4
-  },
-  {
-    id:12, name:'Eternal Gold', price:215, size:'100ml',
-    badge:'Best Seller', badgeType:'badge-bs',
-    img:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_yrLtvKh4w9nTEOzzhuPnpVX73be384GeDhg5qm6Q9A&s=10',
-    notes:'Myrrh · Frankincense · Amber',
-    desc:'An ancient incense ritual refined to perfection — Omani silver frankincense, Ethiopian myrrh, and warm amber resin create a fragrance of spiritual luxury.',
-    stars:5
-  }
-
-    {
-    id:13, name:'Eternal Gold', price:215, size:'100ml',
-    badge:'Best Seller', badgeType:'badge-bs',
-    img:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_yrLtvKh4w9nTEOzzhuPnpVX73be384GeDhg5qm6Q9A&s=10',
-    notes:'Myrrh · Frankincense · Amber',
-    desc: ' An ancient incense ritual refined to perfection — Omani silver frankincense, Ethiopian myrrh, and warm amber resin create a fragrance of spiritual luxury.',
-    stars:5
-  }
-
-   {
-    id:14, name:'Eternal Gold', price:215, size:'100ml',
-    badge:'Best Seller', badgeType:'badge-bs',
-    img:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_yrLtvKh4w9nTEOzzhuPnpVX73be384GeDhg5qm6Q9A&s=10',
-    notes:'Myrrh · Frankincense · Amber',
-    desc: ' An ancient incense ritual refined to perfection — Omani silver frankincense, Ethiopian myrrh, and warm amber resin create a fragrance of spiritual luxury.',
-    stars:5
-  }
-
-
-   {
-    id:15, name:'Eternal Gold', price:215, size:'100ml',
-    badge:'Best Seller', badgeType:'badge-bs',
-    img:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_yrLtvKh4w9nTEOzzhuPnpVX73be384GeDhg5qm6Q9A&s=10',
-    notes:'Myrrh · Frankincense · Amber',
-    desc: ' An ancient incense ritual refined to perfection — Omani silver frankincense, Ethiopian myrrh, and warm amber resin create a fragrance of spiritual luxury.',
-    stars:5
-  }
-   
+  { id:1, name:'Royal Oud', price:185, size:'100ml', badge:'Best Seller', badgeType:'badge-bs', img:PRODUCT_IMAGE, notes:'Cambodian Oud · Saffron · Amber', desc:'Regal and commanding — Cambodian agarwood aged 50 years forms the heart of this composition.', stars:5 },
+  { id:2, name:'Black Gold', price:220, size:'100ml', badge:'Limited', badgeType:'badge-ltd', img:PRODUCT_IMAGE, notes:'Black Truffle · Oud · Leather', desc:'A bold collision of black truffle accord, dark Laotian oud, and tobacco leaf.', stars:5 },
+  { id:3, name:'Imperial Musk', price:165, size:'50ml', badge:'New', badgeType:'badge-new', img:PRODUCT_IMAGE, notes:'White Musk · Cashmere · Iris', desc:'White Egyptian musk intertwined with cashmere wood.', stars:5 },
+  { id:4, name:'Amber Signature', price:195, size:'100ml', badge:null, badgeType:'', img:PRODUCT_IMAGE, notes:'Golden Amber · Benzoin · Vanilla', desc:'Warm, resinous, and profoundly sensual amber composition.', stars:5 },
+  { id:5, name:'Midnight Noir', price:210, size:'100ml', badge:'Best Seller', badgeType:'badge-bs', img:PRODUCT_IMAGE, notes:'Midnight Oud · Smoke · Leather', desc:'Inspired by the darkness before dawn.', stars:5 },
+  { id:6, name:'Arabian Velvet', price:175, size:'100ml', badge:'New', badgeType:'badge-new', img:PRODUCT_IMAGE, notes:'Taif Rose · Oud · Saffron', desc:'Quintessential Arabic luxury fragrance.', stars:5 },
+  { id:7, name:'Prestige Gold', price:240, size:'100ml', badge:'Limited', badgeType:'badge-ltd', img:PRODUCT_IMAGE, notes:'Neroli · Sandalwood · Golden Amber', desc:'The pinnacle of the Imaroze collection.', stars:5 },
+  { id:8, name:'Royal Amber', price:155, size:'50ml', badge:null, badgeType:'', img:PRODUCT_IMAGE, notes:'Labdanum · Patchouli · Vetiver', desc:'A meditation on warmth.', stars:4 },
+  { id:9, name:'Desert Rose', price:185, size:'100ml', badge:'New', badgeType:'badge-new', img:PRODUCT_IMAGE, notes:'Damascus Rose · Oud · Jasmine', desc:'Damascus rose absolute at extraordinary concentration.', stars:5 },
+  { id:10, name:'Platinum Oud', price:260, size:'100ml', badge:'Limited', badgeType:'badge-ltd', img:PRODUCT_IMAGE, notes:'Hindi Oud · Bergamot · Musk', desc:'30-year aged Hindi oud from Bangladesh.', stars:5 },
+  { id:11, name:'Sapphire Musk', price:145, size:'50ml', badge:'New', badgeType:'badge-new', img:PRODUCT_IMAGE, notes:'Violet · White Musk · Sandalwood', desc:'Cool, crystalline, and effortlessly modern.', stars:4 },
+  { id:12, name:'Eternal Gold', price:215, size:'100ml', badge:'Best Seller', badgeType:'badge-bs', img:PRODUCT_IMAGE, notes:'Myrrh · Frankincense · Amber', desc:'Omani silver frankincense and Ethiopian myrrh.', stars:5 },
+  { id:13, name:'Oud Noir', price:230, size:'100ml', badge:'Best Seller', badgeType:'badge-bs', img:PRODUCT_IMAGE, notes:'Dark Oud · Incense', desc:'Deep, mysterious, and long-lasting.', stars:5 },
+  { id:14, name:'Golden Rose', price:190, size:'100ml', badge:'New', badgeType:'badge-new', img:PRODUCT_IMAGE, notes:'Bulgarian Rose · Amber', desc:'The finest Bulgarian rose absolute.', stars:5 },
+  { id:15, name:'White Oud', price:205, size:'100ml', badge:'Limited', badgeType:'badge-ltd', img:PRODUCT_IMAGE, notes:'White Oud · Musk', desc:'A lighter, more ethereal take on traditional oud.', stars:5 }
 ];
 
 const TESTIMONIALS = [
-  { text:'Royal Oud is unlike anything else on the market. I have worn Creed and Xerjoff for years — IMAROZE belongs in that conversation at half the price. The longevity is extraordinary.', name:'Khalid Al-Mansour', loc:'Dubai, UAE', initials:'K' },
-  { text:'I discovered Midnight Noir through a friend and have not worn another fragrance since. The depth and evolution over 18 hours on skin is simply masterful. Everyone asks what I am wearing.', name:'James Whitfield', loc:'London, UK', initials:'J' },
-  { text:'Arabian Velvet is the most authentic oud-rose fragrance I have encountered outside of a private Saudi atelier. Imaroze understands the Arabian tradition at the highest level.', name:'Leila Al-Rashid', loc:'Riyadh, KSA', initials:'L' },
-  { text:'The packaging alone would justify the price. But then the fragrance opens — Prestige Gold is the most complete luxury experience I have bought this decade. Worth every dirham.', name:'Sofia Marchetti', loc:'Milan, Italy', initials:'S' },
-  { text:'Imperial Musk is my daily signature now. It is personal without being aggressive, luxurious without being ostentatious. Exactly what I needed as a lawyer who lives in boardrooms.', name:'Amelia Chen', loc:'Singapore', initials:'A' },
-  { text:'Eternal Gold transported me to the incense temples of Muscat. This is what fragrance is supposed to do — tell a story, evoke a place. IMAROZE does it better than most.', name:'Omar Farouk', loc:'Karachi, Pakistan', initials:'O' }
+  { text:'Royal Oud is unlike anything else on the market. IMAROZE belongs in that conversation at half the price.', name:'Khalid Al-Mansour', loc:'Dubai, UAE' },
+  { text:'The depth and evolution over 18 hours on skin is simply masterful.', name:'James Whitfield', loc:'London, UK' },
+  { text:'Imaroze understands the Arabian tradition at the highest level.', name:'Leila Al-Rashid', loc:'Riyadh, KSA' }
 ];
 
-// ─── RENDER PRODUCTS ───
+// ─── CART ───
+let cart = [];
+
 function buildStars(n) {
   return Array(5).fill(0).map((_,i)=>`<svg class="star-svg${i>=n?' empty':''}" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>`).join('');
 }
 
 function renderProducts() {
   const grid = document.getElementById('productsGrid');
+  if(!grid) return;
   grid.innerHTML = PRODUCTS.map((p,i) => `
-    <article class="p-card" style="transition-delay:${(i%4)*0.07}s" data-reveal onclick="openModal(${p.id})">
+    <article class="p-card" onclick="openModal(${p.id})">
       ${p.badge ? `<span class="p-badge ${p.badgeType}">${p.badge}</span>` : ''}
       <div class="p-img">
-        <img src="${p.img}" alt="${p.name} — Imaroze luxury fragrance" loading="lazy" width="400" height="533">
-        <button class="p-wish" onclick="event.stopPropagation();toggleWish(this)" aria-label="Add to wishlist">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
-        </button>
-        <div class="p-overlay">
-          <button class="p-quick" onclick="event.stopPropagation();addToCart(${p.id})">Quick Add</button>
-        </div>
+        <img src="${p.img}" alt="${p.name}" loading="lazy">
+        <button class="p-wish" onclick="event.stopPropagation();toggleWish(this)">❤️</button>
+        <div class="p-overlay"><button class="p-quick" onclick="event.stopPropagation();addToCart(${p.id})">Quick Add</button></div>
       </div>
       <div class="p-info">
         <div class="p-name">Imaroze ${p.name}</div>
         <div class="p-notes">${p.notes}</div>
-        <div class="p-meta">
-          <span class="p-price">$${p.price}</span>
-          <span class="p-size">${p.size}</span>
-        </div>
-        <div class="p-stars" style="margin-bottom:.9rem">${buildStars(p.stars)}</div>
+        <div class="p-meta"><span class="p-price">$${p.price}</span><span class="p-size">${p.size}</span></div>
+        <div class="p-stars">${buildStars(p.stars)}</div>
         <button class="p-add" onclick="event.stopPropagation();addToCart(${p.id})">Add to Cart</button>
       </div>
     </article>
   `).join('');
 }
 
-// ─── BEST SELLERS ───
 function renderBS() {
   const track = document.getElementById('bsTrack');
-  const pool = [...PRODUCTS, ...PRODUCTS];
-  track.innerHTML = pool.map(p=>`
-    <div style="min-width:200px;background:var(--ink-3);border:1px solid var(--gold-line);padding:1.5rem;text-align:center;cursor:pointer;flex-shrink:0;transition:border-color .3s" onmouseover="this.style.borderColor='rgba(201,168,76,.4)'" onmouseout="this.style.borderColor='var(--gold-line)'" onclick="openModal(${p.id})">
-      <img src="${p.img}" alt="${p.name}" loading="lazy" style="width:100%;height:160px;object-fit:cover;margin-bottom:1rem">
-      <div style="font-family:var(--f-display);font-size:.9rem;color:var(--cream);margin-bottom:.3rem;letter-spacing:.05em">Imaroze ${p.name}</div>
-      <div style="font-family:var(--f-display);font-size:1rem;color:var(--gold)">$${p.price}</div>
+  if(!track) return;
+  const best = PRODUCTS.filter(p => p.badge === 'Best Seller');
+  track.innerHTML = [...best, ...best].map(p => `
+    <div style="min-width:200px;background:var(--ink-3);border:1px solid var(--gold-line);padding:1rem;text-align:center;cursor:pointer" onclick="openModal(${p.id})">
+      <img src="${p.img}" alt="${p.name}" style="width:100%;height:140px;object-fit:cover;margin-bottom:0.5rem">
+      <div style="font-family:var(--f-display);font-size:0.85rem">${p.name}</div>
+      <div style="color:var(--gold)">$${p.price}</div>
     </div>
   `).join('');
 }
 
-// ─── TESTIMONIALS ───
-let testiIdx = 0;
-let testiPerView = window.innerWidth < 640 ? 1 : 2;
-
 function renderTestimonials() {
   const track = document.getElementById('testiTrack');
-  track.innerHTML = TESTIMONIALS.map(t=>`
+  if(!track) return;
+  track.innerHTML = TESTIMONIALS.map(t => `
     <div class="testi-card">
       <p class="testi-text">${t.text}</p>
       <div class="testi-author">
-        <div class="testi-av">
-          <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-        </div>
-        <div>
-          <div class="testi-name">${t.name}</div>
-          <div class="testi-loc">${t.loc}</div>
-        </div>
+        <div class="testi-av"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+        <div><div class="testi-name">${t.name}</div><div class="testi-loc">${t.loc}</div></div>
         <div class="testi-stars">${buildStars(5)}</div>
       </div>
     </div>
   `).join('');
-  const dotsEl = document.getElementById('testiDots');
-  const numDots = Math.ceil(TESTIMONIALS.length / testiPerView);
-  dotsEl.innerHTML = Array(numDots).fill(0).map((_,i)=>`<div class="s-dot${i===0?' on':''}" onclick="gotoTesti(${i})"></div>`).join('');
 }
-
-function updateTesti() {
-  const track = document.getElementById('testiTrack');
-  const w = (track.children[0]?.offsetWidth||0) + 16;
-  track.style.transform = `translateX(-${testiIdx * w * testiPerView}px)`;
-  document.querySelectorAll('.s-dot').forEach((d,i)=>d.classList.toggle('on',i===testiIdx));
-}
-
-function nextTesti() {
-  const max = Math.ceil(TESTIMONIALS.length/testiPerView)-1;
-  testiIdx = testiIdx>=max?0:testiIdx+1;
-  updateTesti();
-}
-function prevTesti() {
-  const max = Math.ceil(TESTIMONIALS.length/testiPerView)-1;
-  testiIdx = testiIdx<=0?max:testiIdx-1;
-  updateTesti();
-}
-function gotoTesti(i){testiIdx=i;updateTesti()}
-setInterval(nextTesti,5500);
-
-// ─── MODAL ───
-let modalQty = 1;
-let activeModalId = null;
-
-function openModal(id) {
-  const p = PRODUCTS.find(x=>x.id===id);
-  if(!p) return;
-  activeModalId = id;
-  modalQty = 1;
-  document.getElementById('modalImg').innerHTML = `
-    <button class="modal-close" onclick="closeModalDirect()" aria-label="Close">
-      <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-    </button>
-    <img src="${p.img}" alt="${p.name}" style="width:100%;height:100%;object-fit:cover" loading="lazy">
-  `;
-  document.getElementById('modalInfo').innerHTML = `
-    <div class="modal-name">Imaroze ${p.name}</div>
-    <div>
-      <div class="modal-notes-label">Fragrance Notes</div>
-      <div class="modal-notes">${p.notes}</div>
-    </div>
-    <p class="modal-desc">${p.desc}</p>
-    <div class="modal-price-row">
-      <span class="modal-price">$${p.price}</span>
-      <span class="modal-size">Eau de Parfum · ${p.size}</span>
-    </div>
-    <div>${buildStars(p.stars)}</div>
-    <div class="modal-qty">
-      <span class="qty-label">Quantity</span>
-      <div class="qty-ctrl">
-        <button class="qty-btn" onclick="changeQty(-1)">−</button>
-        <span class="qty-num" id="qtyNum">1</span>
-        <button class="qty-btn" onclick="changeQty(1)">+</button>
-      </div>
-    </div>
-    <div class="modal-actions">
-      <button class="modal-add" onclick="addToCartFromModal()">Add to Cart</button>
-      <button class="modal-wish" aria-label="Add to wishlist" onclick="toggleWishModal(this)">
-        <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
-      </button>
-    </div>
-  `;
-  document.getElementById('modal').classList.add('show');
-  document.body.style.overflow='hidden';
-}
-
-function changeQty(d) {
-  modalQty = Math.max(1, modalQty+d);
-  document.getElementById('qtyNum').textContent = modalQty;
-}
-
-function addToCartFromModal() {
-  if(activeModalId) {
-    for(let i=0;i<modalQty;i++) addToCart(activeModalId);
-    closeModalDirect();
-  }
-}
-
-function toggleWishModal(btn) {
-  const svg = btn.querySelector('path');
-  if(svg.getAttribute('fill')==='none'){
-    svg.setAttribute('fill',getComputedStyle(document.documentElement).getPropertyValue('--gold'));
-  } else {
-    svg.setAttribute('fill','none');
-  }
-}
-
-function closeModal(e) {
-  if(e.target===document.getElementById('modal')) closeModalDirect();
-}
-function closeModalDirect() {
-  document.getElementById('modal').classList.remove('show');
-  document.body.style.overflow='';
-}
-
-// ─── CART ───
-let cart = [];
 
 function addToCart(id) {
-  const p = PRODUCTS.find(x=>x.id===id);
-  if(!p) return;
-  cart.push({...p});
-  updateCart();
-  showToast(`Imaroze ${p.name} added to cart`);
+  const p = PRODUCTS.find(x => x.id === id);
+  if(p) { cart.push(p); updateCart(); showToast(`${p.name} added to cart`); }
 }
 
-function removeFromCart(i) {
-  cart.splice(i,1);
-  updateCart();
-}
+function removeFromCart(i) { cart.splice(i,1); updateCart(); }
 
 function updateCart() {
   const badge = document.getElementById('nBadge');
-  badge.textContent = cart.length;
-
+  if(badge) badge.textContent = cart.length;
   const body = document.getElementById('cartBody');
   const foot = document.getElementById('cartFoot');
-  const total = document.getElementById('cartTotal');
-
-  if(cart.length===0) {
-    body.innerHTML = `<div class="cart-empty-state">
-      <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
-      <p>Your curation is empty</p>
-      <span>Discover our fragrances above</span>
-    </div>`;
-    foot.style.display='none';
+  if(cart.length === 0) {
+    body.innerHTML = `<div class="cart-empty-state"><svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg><p>Your curation is empty</p></div>`;
+    foot.style.display = 'none';
   } else {
-    body.innerHTML = cart.map((item,i)=>`
+    body.innerHTML = cart.map((item,i) => `
       <div class="c-item">
-        <div class="c-item-img"><img src="${item.img}" alt="${item.name}" loading="lazy"></div>
-        <div>
-          <div class="c-item-name">Imaroze ${item.name}</div>
-          <div class="c-item-price">$${item.price}</div>
-        </div>
-        <button class="c-item-rm" onclick="removeFromCart(${i})" aria-label="Remove">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-        </button>
+        <div class="c-item-img"><img src="${item.img}" alt="${item.name}"></div>
+        <div><div class="c-item-name">${item.name}</div><div class="c-item-price">$${item.price}</div></div>
+        <button class="c-item-rm" onclick="removeFromCart(${i})">✕</button>
       </div>
     `).join('');
-    foot.style.display='block';
-    total.textContent = '$'+cart.reduce((s,i)=>s+i.price,0).toLocaleString();
+    document.getElementById('cartTotal').textContent = '$' + cart.reduce((s,i)=>s+i.price,0);
+    foot.style.display = 'block';
   }
 }
 
-function openCart(){
-  document.getElementById('cartSide').classList.add('on');
-  document.getElementById('cartBg').classList.add('on');
-  document.body.style.overflow='hidden';
-}
-function closeCart(){
-  document.getElementById('cartSide').classList.remove('on');
-  document.getElementById('cartBg').classList.remove('on');
-  document.body.style.overflow='';
-}
-
-// ─── WISHLIST ───
-function toggleWish(btn) {
-  const isFilled = btn.querySelector('path').getAttribute('fill')!=='none';
-  btn.querySelector('path').setAttribute('fill', isFilled ? 'none' : getComputedStyle(document.documentElement).getPropertyValue('--gold').trim());
-  btn.classList.toggle('active', !isFilled);
+function openModal(id) {
+  const p = PRODUCTS.find(x => x.id === id);
+  if(!p) return;
+  document.getElementById('modalImg').innerHTML = `<img src="${p.img}" alt="${p.name}" style="width:100%;height:100%;object-fit:cover">`;
+  document.getElementById('modalInfo').innerHTML = `
+    <div class="modal-name">Imaroze ${p.name}</div>
+    <div><div class="modal-notes-label">Fragrance Notes</div><div class="modal-notes">${p.notes}</div></div>
+    <p class="modal-desc">${p.desc}</p>
+    <div class="modal-price-row"><span class="modal-price">$${p.price}</span><span class="modal-size">${p.size}</span></div>
+    <div>${buildStars(p.stars)}</div>
+    <button class="btn-gold" onclick="addToCart(${p.id});closeModalDirect()" style="width:100%">Add to Cart</button>
+  `;
+  document.getElementById('modal').classList.add('show');
+  document.body.style.overflow = 'hidden';
 }
 
-// ─── TOAST ───
-function showToast(msg) {
-  const t = document.getElementById('toast');
-  t.textContent = msg;
-  t.classList.add('show');
-  setTimeout(()=>t.classList.remove('show'), 2800);
+function closeModalDirect() {
+  document.getElementById('modal').classList.remove('show');
+  document.body.style.overflow = '';
 }
+function closeModal(e) { if(e.target === document.getElementById('modal')) closeModalDirect(); }
 
-// ─── NAVBAR SCROLL ───
-window.addEventListener('scroll', ()=>{
-  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY>70);
-}, {passive:true});
+function openCart() { document.getElementById('cartSide').classList.add('on'); document.getElementById('cartBg').classList.add('on'); document.body.style.overflow = 'hidden'; }
+function closeCart() { document.getElementById('cartSide').classList.remove('on'); document.getElementById('cartBg').classList.remove('on'); document.body.style.overflow = ''; }
+function checkout() { alert('Proceeding to checkout. Total: $' + cart.reduce((s,i)=>s+i.price,0)); }
 
-// ─── MOBILE MENU ───
-function toggleMob() {
-  const open = document.getElementById('mobMenu').classList.toggle('open');
-  const spans = document.querySelectorAll('#navHam span');
-  spans[0].style.transform = open ? 'rotate(45deg) translate(4px,4px)' : '';
-  spans[1].style.opacity = open ? '0' : '';
-  spans[2].style.transform = open ? 'rotate(-45deg) translate(4px,-4px)' : '';
-}
-function closeMob() {
-  document.getElementById('mobMenu').classList.remove('open');
-  document.querySelectorAll('#navHam span').forEach(s=>{s.style.transform='';s.style.opacity=''});
-}
+function toggleWish(btn) { btn.classList.toggle('active'); }
+function toggleMob() { document.getElementById('mobMenu').classList.toggle('open'); }
+function closeMob() { document.getElementById('mobMenu').classList.remove('open'); }
+function showToast(msg) { const t = document.getElementById('toast'); t.textContent = msg; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),2500); }
+function subscribeNL() { const inp = document.getElementById('nlEmail'); if(inp.value.includes('@')) { showToast('Welcome to Imaroze Inner Circle'); inp.value=''; } }
 
-// ─── REVEAL ON SCROLL ───
-function initReveal() {
-  const obs = new IntersectionObserver(entries=>{
-    entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')});
-  },{threshold:.1});
-  document.querySelectorAll('[data-reveal]').forEach(el=>obs.observe(el));
-}
-
-// ─── COUNTER ANIMATION ───
+// ─── COUNTER ANIMATION (FIXED) ───
 function initCounters() {
-  const obs = new IntersectionObserver(entries=>{
-    entries.forEach(e=>{
-      if(e.isIntersecting && !e.target.dataset.done) {
-        e.target.dataset.done='1';
-        const target = +e.target.dataset.target;
-        let cur=0, inc=target/70;
-        const timer = setInterval(()=>{
-          cur=Math.min(cur+inc,target);
-          e.target.textContent = Math.floor(cur).toLocaleString()+(target>=1000?'+':'');
-          if(cur>=target)clearInterval(timer);
-        },20);
+  const counters = document.querySelectorAll('.stat-num');
+  
+  const startCounter = (counter) => {
+    const target = parseInt(counter.getAttribute('data-target'));
+    if(isNaN(target)) return;
+    
+    let current = 0;
+    const increment = target / 60;
+    const updateCounter = () => {
+      current += increment;
+      if(current < target) {
+        counter.innerText = Math.floor(current).toLocaleString();
+        requestAnimationFrame(updateCounter);
+      } else {
+        counter.innerText = target.toLocaleString();
+      }
+    };
+    updateCounter();
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting) {
+        startCounter(entry.target);
+        observer.unobserve(entry.target);
       }
     });
-  },{threshold:.5});
-  document.querySelectorAll('[data-target]').forEach(el=>obs.observe(el));
+  }, { threshold: 0.3 });
+
+  counters.forEach(counter => observer.observe(counter));
+}
+
+// ─── CONTACT FORM (Google Sheets Ready) ───
+function sendContact() {
+  const firstName = document.getElementById('cf-first')?.value || '';
+  const lastName = document.getElementById('cf-last')?.value || '';
+  const email = document.getElementById('cf-email')?.value || '';
+  const subject = document.getElementById('cf-subject')?.value || '';
+  const message = document.getElementById('cf-msg')?.value || '';
+  
+  if(!firstName || !email || !email.includes('@')) {
+    showToast('Please fill in your name and email');
+    return;
+  }
+  
+  // ✅ AAPKA GOOGLE SHEETS URL (WORKING)
+  const GOOGLE_SHEETS_URL = "https://script.google.com/macros/s/AKfycby5kD1RTww-JOcI_qjfEcIaRWM1CzW_us9vkIrZfycJYpjpbQN0C_nmUEIljB06KQ/exec";
+  
+  // Send to Google Sheets
+  fetch(GOOGLE_SHEETS_URL, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ firstName, lastName, email, subject, message })
+  }).catch(err => console.log('Sheet save error:', err));
+  
+  // Local backup
+  const submissions = JSON.parse(localStorage.getItem('imaroze_contacts') || '[]');
+  submissions.push({ firstName, lastName, email, subject, message, date: new Date().toISOString() });
+  localStorage.setItem('imaroze_contacts', JSON.stringify(submissions));
+  
+  showToast('Thank you! Our concierge will respond within 24 hours.');
+  
+  // Clear form
+  document.getElementById('cf-first').value = '';
+  document.getElementById('cf-last').value = '';
+  document.getElementById('cf-email').value = '';
+  document.getElementById('cf-subject').value = '';
+  document.getElementById('cf-msg').value = '';
 }
 
 // ─── PARTICLES ───
 function initParticles() {
   const cv = document.getElementById('pcv');
-  const cx = cv.getContext('2d');
-  let pts = [], mx=-999, my=-999;
-
-  function resize(){cv.width=innerWidth;cv.height=innerHeight}
+  if(!cv) return;
+  const ctx = cv.getContext('2d');
+  let particles = [];
+  function resize() { cv.width = window.innerWidth; cv.height = window.innerHeight; }
   resize();
-  window.addEventListener('resize',resize,{passive:true});
-  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY},{passive:true});
-
-  for(let i=0;i<50;i++) pts.push({
-    x:Math.random()*innerWidth,
-    y:Math.random()*innerHeight,
-    vx:(Math.random()-.5)*.35,
-    vy:(Math.random()-.5)*.35-.15,
-    r:Math.random()*1.8+.4,
-    a:Math.random()*.5+.1,
-    ph:Math.random()*Math.PI*2
-  });
-
-  (function frame(){
-    cx.clearRect(0,0,cv.width,cv.height);
-    pts.forEach(p=>{
-      p.ph+=.018;
-      const dx=p.x-mx, dy=p.y-my, d2=dx*dx+dy*dy;
-      if(d2<8000){const f=80/Math.sqrt(d2);p.vx+=dx*f*.0002;p.vy+=dy*f*.0002}
-      p.vx*=.992;p.vy*=.992;
-      p.x+=p.vx;p.y+=p.vy;
-      if(p.x<0)p.x=cv.width;
-      if(p.x>cv.width)p.x=0;
-      if(p.y<0)p.y=cv.height;
-      if(p.y>cv.height)p.y=0;
-      cx.beginPath();
-      cx.arc(p.x,p.y,p.r,0,Math.PI*2);
-      cx.fillStyle=`rgba(201,168,76,${p.a*(0.65+0.35*Math.sin(p.ph))})`;
-      cx.fill();
+  window.addEventListener('resize', resize);
+  for(let i=0;i<40;i++) particles.push({ x: Math.random() * cv.width, y: Math.random() * cv.height, r: Math.random() * 2, vx: (Math.random() - 0.5) * 0.3, vy: (Math.random() - 0.5) * 0.2 });
+  function animate() {
+    if(!ctx) return;
+    ctx.clearRect(0, 0, cv.width, cv.height);
+    particles.forEach(p => {
+      p.x += p.vx; p.y += p.vy;
+      if(p.x < 0) p.x = cv.width; if(p.x > cv.width) p.x = 0;
+      if(p.y < 0) p.y = cv.height; if(p.y > cv.height) p.y = 0;
+      ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(201,168,76,${Math.random() * 0.3 + 0.1})`;
+      ctx.fill();
     });
-    for(let i=0;i<pts.length;i++)for(let j=i+1;j<pts.length;j++){
-      const dx=pts[i].x-pts[j].x, dy=pts[i].y-pts[j].y, d=Math.sqrt(dx*dx+dy*dy);
-      if(d<110){cx.beginPath();cx.moveTo(pts[i].x,pts[i].y);cx.lineTo(pts[j].x,pts[j].y);cx.strokeStyle=`rgba(201,168,76,${.07*(1-d/110)})`;cx.lineWidth=.5;cx.stroke()}
-    }
-    requestAnimationFrame(frame);
-  })();
-}
-
-// ─── NEWSLETTER ───
-function subscribeNL() {
-  const inp = document.getElementById('nlEmail');
-  if(inp.value.includes('@')) {
-    showToast('Welcome to the Imaroze Inner Circle');
-    inp.value='';
+    requestAnimationFrame(animate);
   }
+  animate();
 }
 
-// ─── CONTACT ───
-function sendContact() {
-  showToast('Your enquiry has been received — we will respond within 24 hours');
-}
+// ─── REVEAL ANIMATION ───
+const observer = new IntersectionObserver(entries => { entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('in'); }); }, { threshold: 0.1 });
+document.querySelectorAll('[data-reveal]').forEach(el => observer.observe(el));
+
+// ─── NAVBAR SCROLL ───
+window.addEventListener('scroll', () => { document.getElementById('navbar')?.classList.toggle('scrolled', window.scrollY > 70); });
 
 // ─── PRELOADER ───
-window.addEventListener('load',()=>{
-  setTimeout(()=>{
-    const pre = document.getElementById('preloader');
-    pre.style.transition='opacity .6s ease';
-    pre.style.opacity='0';
-    setTimeout(()=>pre.style.display='none',620);
-  },1100);
+window.addEventListener('load', () => { 
+  setTimeout(() => { const pre = document.getElementById('preloader'); if(pre) pre.style.display = 'none'; }, 1000); 
+  renderProducts(); 
+  renderBS(); 
+  renderTestimonials(); 
+  updateCart(); 
+  initParticles();
+  initCounters(); // FIXED: Counter animation called here
 });
 
-// ─── RESIZE HANDLER ───
-window.addEventListener('resize',()=>{
-  testiPerView=window.innerWidth<640?1:2;
-  renderTestimonials();
-},{passive:true});
 
-// ─── INIT ───
-renderProducts();
-renderBS();
-renderTestimonials();
-initCounters();
-initParticles();
-setTimeout(initReveal, 150);
+function initCounters() {
+  const counters = document.querySelectorAll('.stat-num');
+  
+  const startCounter = (counter) => {
+    const target = parseInt(counter.getAttribute('data-target'));
+    if(isNaN(target)) return;
+    
+    let current = 0;
+    const increment = target / 60;
+    const updateCounter = () => {
+      current += increment;
+      if(current < target) {
+        counter.innerText = Math.floor(current).toLocaleString();
+        requestAnimationFrame(updateCounter);
+      } else {
+        counter.innerText = target.toLocaleString();
+      }
+    };
+    updateCounter();
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting) {
+        startCounter(entry.target);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+
+  counters.forEach(counter => observer.observe(counter));
+}
+
+// ─── SMOOTH SCROLL ───
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if(target) target.scrollIntoView({ behavior: 'smooth' });
+    closeMob();
+  });
+});
 </script>
 </body>
 </html>
