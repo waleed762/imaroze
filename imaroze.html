@@ -1,0 +1,2010 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Imaroze – Crafted For Timeless Elegance. Discover the art of luxury fragrance.">
+<title>IMAROZE | Luxury Perfumes & Fragrances</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@200;300;400;500;600&family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
+<style>
+/* ===== DESIGN TOKENS ===== */
+:root {
+  --black: #0B0B0B;
+  --charcoal: #1A1A1A;
+  --gold: #D4AF37;
+  --gold-light: #E8C94A;
+  --gold-dark: #A88A1A;
+  --gold-muted: rgba(212,175,55,0.15);
+  --white: #F5F0E8;
+  --white-dim: rgba(245,240,232,0.6);
+  --white-faint: rgba(245,240,232,0.08);
+  --font-display: 'Cinzel', serif;
+  --font-body: 'Cormorant Garamond', serif;
+  --font-ui: 'Montserrat', sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--charcoal); }
+::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 2px; }
+
+/* ===== UTILITIES ===== */
+.gold { color: var(--gold); }
+.container { max-width: 1280px; margin: 0 auto; padding: 0 2rem; }
+.section-label {
+  font-family: var(--font-ui);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 1rem;
+}
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 400;
+  line-height: 1.15;
+  color: var(--white);
+}
+.divider {
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 1.5rem auto;
+}
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  font-family: var(--font-ui);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--black);
+  background: linear-gradient(135deg, var(--gold-light), var(--gold), var(--gold-dark));
+  padding: 0.9rem 2.2rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.35s ease;
+  position: relative;
+  overflow: hidden;
+  clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+}
+.btn-primary::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: rgba(255,255,255,0.2);
+  transform: translateX(-100%);
+  transition: transform 0.4s ease;
+}
+.btn-primary:hover::after { transform: translateX(0); }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(212,175,55,0.4); }
+
+.btn-outline {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  font-family: var(--font-ui);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--gold);
+  background: transparent;
+  padding: 0.9rem 2.2rem;
+  border: 1px solid rgba(212,175,55,0.5);
+  cursor: pointer;
+  transition: all 0.35s ease;
+}
+.btn-outline:hover {
+  border-color: var(--gold);
+  background: var(--gold-muted);
+  transform: translateY(-2px);
+}
+
+/* ===== PARTICLES CANVAS ===== */
+#particles-canvas {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.4;
+}
+
+/* ===== PRELOADER ===== */
+#preloader {
+  position: fixed; inset: 0;
+  background: var(--black);
+  z-index: 9999;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 2rem;
+}
+.preloader-logo {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  letter-spacing: 0.4em;
+  color: var(--gold);
+  animation: pulseGold 1.5s ease-in-out infinite;
+}
+.preloader-bar {
+  width: 200px; height: 1px;
+  background: var(--charcoal);
+  position: relative;
+  overflow: hidden;
+}
+.preloader-bar::after {
+  content: '';
+  position: absolute; top: 0; left: -100%;
+  width: 100%; height: 100%;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  animation: loadBar 1.8s ease-in-out infinite;
+}
+@keyframes pulseGold { 0%,100%{opacity:.6} 50%{opacity:1} }
+@keyframes loadBar { to{left:100%} }
+
+/* ===== NAVBAR ===== */
+#navbar {
+  position: fixed; top: 0; left: 0; right: 0;
+  z-index: 1000;
+  padding: 1.5rem 0;
+  transition: all 0.4s ease;
+}
+#navbar.scrolled {
+  padding: 1rem 0;
+  background: rgba(11,11,11,0.95);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(212,175,55,0.15);
+}
+.nav-inner {
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  letter-spacing: 0.35em;
+  color: var(--gold);
+  text-decoration: none;
+  font-weight: 600;
+}
+.nav-links {
+  display: flex; align-items: center; gap: 2.5rem;
+  list-style: none;
+}
+.nav-links a {
+  font-family: var(--font-ui);
+  font-size: 0.65rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--white-dim);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  position: relative;
+}
+.nav-links a::after {
+  content: '';
+  position: absolute; bottom: -4px; left: 0; right: 0;
+  height: 1px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+.nav-links a:hover { color: var(--gold); }
+.nav-links a:hover::after { transform: scaleX(1); }
+.nav-actions { display: flex; align-items: center; gap: 1.2rem; }
+.nav-icon {
+  background: none; border: none; cursor: pointer;
+  color: var(--white-dim); font-size: 1rem; transition: color 0.3s;
+  position: relative;
+}
+.nav-icon:hover { color: var(--gold); }
+.cart-badge {
+  position: absolute; top: -8px; right: -8px;
+  background: var(--gold); color: var(--black);
+  width: 16px; height: 16px; border-radius: 50%;
+  font-size: 0.55rem; font-family: var(--font-ui); font-weight: 600;
+  display: flex; align-items: center; justify-content: center;
+}
+.nav-hamburger {
+  display: none; flex-direction: column; gap: 5px;
+  background: none; border: none; cursor: pointer; padding: 4px;
+}
+.nav-hamburger span {
+  display: block; width: 24px; height: 1px;
+  background: var(--gold);
+  transition: all 0.3s ease;
+}
+.mobile-menu {
+  position: fixed; inset: 0;
+  background: rgba(11,11,11,0.98);
+  backdrop-filter: blur(30px);
+  z-index: 999;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2.5rem;
+  transform: translateX(100%);
+  transition: transform 0.5s cubic-bezier(0.77,0,0.175,1);
+}
+.mobile-menu.open { transform: translateX(0); }
+.mobile-menu a {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  color: var(--white);
+  text-decoration: none;
+  letter-spacing: 0.15em;
+  transition: color 0.3s;
+}
+.mobile-menu a:hover { color: var(--gold); }
+
+/* ===== HERO ===== */
+#hero {
+  position: relative;
+  height: 100vh; min-height: 700px;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 80% 60% at 65% 50%, rgba(212,175,55,0.08) 0%, transparent 60%),
+              radial-gradient(ellipse 40% 40% at 30% 70%, rgba(212,175,55,0.05) 0%, transparent 50%),
+              linear-gradient(180deg, #0B0B0B 0%, #111008 50%, #0B0B0B 100%);
+}
+.hero-bottle {
+  position: absolute;
+  right: 8%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: min(38vw, 480px);
+  animation: floatBottle 6s ease-in-out infinite;
+}
+.bottle-svg { width: 100%; filter: drop-shadow(0 0 60px rgba(212,175,55,0.3)); }
+
+@keyframes floatBottle {
+  0%,100% { transform: translateY(-50%) translateX(0) rotate(-1deg); }
+  33% { transform: translateY(calc(-50% - 15px)) translateX(4px) rotate(1deg); }
+  66% { transform: translateY(calc(-50% + 8px)) translateX(-3px) rotate(-0.5deg); }
+}
+
+.hero-content {
+  position: relative; z-index: 2;
+  max-width: 640px;
+  padding: 0 2rem;
+  animation: heroReveal 1.2s cubic-bezier(0.16,1,0.3,1) 0.3s both;
+}
+@keyframes heroReveal {
+  from { opacity:0; transform: translateY(40px); }
+  to { opacity:1; transform: translateY(0); }
+}
+.hero-eyebrow {
+  font-family: var(--font-ui);
+  font-size: 0.65rem;
+  font-weight: 400;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+  display: flex; align-items: center; gap: 1rem;
+}
+.hero-eyebrow::before {
+  content: '';
+  width: 40px; height: 1px;
+  background: var(--gold);
+}
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--white);
+  margin-bottom: 1.5rem;
+}
+.hero-title em {
+  font-style: italic;
+  color: var(--gold);
+  font-weight: 300;
+}
+.hero-sub {
+  font-family: var(--font-body);
+  font-size: 1.15rem;
+  font-weight: 300;
+  color: var(--white-dim);
+  margin-bottom: 2.5rem;
+  letter-spacing: 0.05em;
+}
+.hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
+.hero-scroll {
+  position: absolute; bottom: 2.5rem; left: 50%;
+  transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+  cursor: pointer; animation: fadeInUp 1s 1.5s both;
+}
+.hero-scroll span {
+  font-family: var(--font-ui); font-size: 0.55rem;
+  letter-spacing: 0.3em; text-transform: uppercase; color: var(--white-dim);
+}
+.scroll-line {
+  width: 1px; height: 50px;
+  background: linear-gradient(to bottom, var(--gold), transparent);
+  animation: scrollPulse 1.5s ease-in-out infinite;
+}
+@keyframes scrollPulse { 0%{opacity:1;transform:scaleY(1)} 50%{opacity:.4} 100%{opacity:1} }
+@keyframes fadeInUp { from{opacity:0;transform:translate(-50%,20px)} to{opacity:1;transform:translate(-50%,0)} }
+
+/* ===== MARQUEE ===== */
+.marquee-strip {
+  background: linear-gradient(135deg, var(--gold-dark), var(--gold), var(--gold-dark));
+  padding: 0.8rem 0;
+  overflow: hidden;
+}
+.marquee-track {
+  display: flex;
+  animation: marqueeScroll 20s linear infinite;
+  white-space: nowrap;
+}
+.marquee-track span {
+  font-family: var(--font-ui);
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--black);
+  padding: 0 3rem;
+}
+.marquee-track span::before {
+  content: '✦';
+  margin-right: 3rem;
+}
+@keyframes marqueeScroll { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+
+/* ===== FEATURED COLLECTION ===== */
+#collection {
+  padding: 8rem 0;
+  position: relative;
+}
+.section-header {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+.section-header p {
+  font-size: 1.05rem;
+  color: var(--white-dim);
+  max-width: 520px;
+  margin: 1rem auto 0;
+  font-weight: 300;
+  letter-spacing: 0.03em;
+}
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: 2rem;
+}
+.product-card {
+  background: var(--charcoal);
+  border: 1px solid rgba(212,175,55,0.1);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  transform-style: preserve-3d;
+}
+.product-card:hover {
+  border-color: rgba(212,175,55,0.5);
+  transform: translateY(-8px);
+  box-shadow: 0 20px 60px rgba(212,175,55,0.15);
+}
+.product-badge {
+  position: absolute; top: 1rem; left: 1rem;
+  font-family: var(--font-ui); font-size: 0.55rem; font-weight: 600;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  padding: 0.3rem 0.8rem;
+  z-index: 2;
+}
+.badge-new { background: var(--gold); color: var(--black); }
+.badge-best { background: transparent; border: 1px solid var(--gold); color: var(--gold); }
+
+.product-img-wrap {
+  aspect-ratio: 4/5;
+  background: linear-gradient(145deg, #141410, #1e1c14);
+  display: flex; align-items: center; justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.product-img-wrap::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 60% 40% at 50% 80%, rgba(212,175,55,0.12), transparent);
+}
+.product-bottle {
+  width: 55%;
+  transition: transform 0.5s ease;
+  filter: drop-shadow(0 10px 30px rgba(212,175,55,0.25));
+}
+.product-card:hover .product-bottle { transform: scale(1.06) translateY(-8px); }
+
+.product-wishlist {
+  position: absolute; top: 1rem; right: 1rem;
+  background: rgba(11,11,11,0.7); border: 1px solid rgba(212,175,55,0.2);
+  width: 36px; height: 36px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; transition: all 0.3s; z-index: 2;
+  font-size: 0.85rem; color: var(--white-dim);
+}
+.product-wishlist:hover { background: var(--gold-muted); color: var(--gold); }
+
+.product-info { padding: 1.5rem; }
+.product-name {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--white);
+  margin-bottom: 0.35rem;
+}
+.product-desc {
+  font-size: 0.85rem;
+  color: var(--white-dim);
+  font-weight: 300;
+  margin-bottom: 0.8rem;
+  font-family: var(--font-ui);
+  letter-spacing: 0.02em;
+}
+.product-meta {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 1.2rem;
+}
+.product-price {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  color: var(--gold);
+  font-weight: 500;
+}
+.product-rating { display: flex; gap: 2px; align-items: center; }
+.star { color: var(--gold); font-size: 0.75rem; }
+.star.empty { color: var(--charcoal); filter: brightness(2); }
+.add-cart {
+  width: 100%;
+  font-family: var(--font-ui);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  background: transparent;
+  border: 1px solid rgba(212,175,55,0.4);
+  padding: 0.8rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.add-cart:hover {
+  background: var(--gold);
+  color: var(--black);
+}
+
+/* ===== BANNER STRIP ===== */
+.banner-strip {
+  padding: 7rem 0;
+  background: linear-gradient(135deg, #0e0d09 0%, #1a1810 50%, #0e0d09 100%);
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+.banner-strip::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 70% 70% at 50% 50%, rgba(212,175,55,0.06) 0%, transparent 70%);
+}
+.banner-strip-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 5vw, 4.5rem);
+  font-weight: 400;
+  color: var(--white);
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+.banner-strip-title span { color: var(--gold); font-style: italic; }
+.banner-strip p {
+  font-size: 1.05rem;
+  color: var(--white-dim);
+  max-width: 500px;
+  margin: 0 auto 2.5rem;
+  font-weight: 300;
+}
+
+/* ===== CATEGORIES ===== */
+#categories { padding: 8rem 0; }
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 4rem;
+}
+.cat-card {
+  position: relative;
+  aspect-ratio: 3/4;
+  overflow: hidden;
+  cursor: pointer;
+  background: var(--charcoal);
+  border: 1px solid rgba(212,175,55,0.1);
+  transition: all 0.4s ease;
+}
+.cat-card:first-child { grid-row: span 2; }
+.cat-card:hover { border-color: rgba(212,175,55,0.4); }
+.cat-bg {
+  position: absolute; inset: 0;
+  transition: transform 0.6s ease;
+}
+.cat-card:hover .cat-bg { transform: scale(1.05); }
+.cat-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(11,11,11,0.9) 30%, transparent);
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding: 2rem;
+}
+.cat-name {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  color: var(--white);
+  margin-bottom: 0.3rem;
+}
+.cat-count {
+  font-family: var(--font-ui);
+  font-size: 0.6rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.cat-gradient-1 { background: linear-gradient(145deg, #1a1505, #2a1e08, #0e0d09); }
+.cat-gradient-2 { background: linear-gradient(145deg, #0e1020, #131520, #0b0b0b); }
+.cat-gradient-3 { background: linear-gradient(145deg, #160a0a, #200e0e, #0b0b0b); }
+.cat-gradient-4 { background: linear-gradient(145deg, #080e14, #0e1a20, #0b0b0b); }
+.cat-gradient-5 { background: linear-gradient(145deg, #140a14, #1a0f1a, #0b0b0b); }
+
+/* ===== WHY IMAROZE ===== */
+#why { padding: 8rem 0; background: var(--charcoal); }
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+  margin-top: 4rem;
+}
+.feature-item { text-align: center; }
+.feature-icon {
+  width: 70px; height: 70px;
+  border: 1px solid rgba(212,175,55,0.3);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 1.5rem;
+  font-size: 1.5rem;
+  background: radial-gradient(circle, rgba(212,175,55,0.08), transparent);
+  transition: all 0.3s ease;
+}
+.feature-item:hover .feature-icon {
+  border-color: var(--gold);
+  box-shadow: 0 0 20px rgba(212,175,55,0.25);
+}
+.feature-title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  color: var(--white);
+  margin-bottom: 0.6rem;
+}
+.feature-desc {
+  font-size: 0.9rem;
+  color: var(--white-dim);
+  font-weight: 300;
+  font-family: var(--font-ui);
+  letter-spacing: 0.02em;
+  line-height: 1.7;
+}
+
+/* ===== STATS ===== */
+.stats-strip {
+  padding: 5rem 0;
+  border-top: 1px solid rgba(212,175,55,0.1);
+  border-bottom: 1px solid rgba(212,175,55,0.1);
+}
+.stats-grid {
+  display: grid; grid-template-columns: repeat(4,1fr);
+  text-align: center; gap: 2rem;
+}
+.stat-num {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem,4vw,3.5rem);
+  color: var(--gold);
+  font-weight: 400;
+  display: block;
+}
+.stat-label {
+  font-family: var(--font-ui);
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--white-dim);
+  margin-top: 0.3rem;
+}
+
+/* ===== TESTIMONIALS ===== */
+#testimonials { padding: 8rem 0; }
+.testimonials-slider { position: relative; overflow: hidden; margin-top: 4rem; }
+.testimonials-track {
+  display: flex;
+  transition: transform 0.6s cubic-bezier(0.77,0,0.175,1);
+}
+.testimonial-card {
+  min-width: calc(50% - 1rem);
+  margin: 0 0.5rem;
+  background: rgba(255,255,255,0.03);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(212,175,55,0.12);
+  padding: 2.5rem;
+  position: relative;
+}
+.testimonial-card::before {
+  content: '"';
+  font-family: var(--font-display);
+  font-size: 5rem;
+  color: var(--gold);
+  opacity: 0.2;
+  position: absolute;
+  top: 0.5rem; left: 1.5rem;
+  line-height: 1;
+}
+.testimonial-text {
+  font-size: 1.05rem;
+  color: var(--white);
+  font-style: italic;
+  margin-bottom: 2rem;
+  font-weight: 300;
+  line-height: 1.8;
+}
+.testimonial-author {
+  display: flex; align-items: center; gap: 1rem;
+}
+.author-avatar {
+  width: 50px; height: 50px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--black);
+  font-weight: 600;
+  flex-shrink: 0;
+}
+.author-info .name {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  color: var(--white);
+}
+.author-info .location {
+  font-family: var(--font-ui);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+}
+.slider-controls {
+  display: flex; align-items: center; justify-content: center; gap: 1rem;
+  margin-top: 2.5rem;
+}
+.slider-btn {
+  width: 44px; height: 44px;
+  border: 1px solid rgba(212,175,55,0.3);
+  background: transparent;
+  color: var(--gold);
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s;
+  display: flex; align-items: center; justify-content: center;
+}
+.slider-btn:hover { background: var(--gold); color: var(--black); }
+.slider-dots { display: flex; gap: 8px; align-items: center; }
+.dot {
+  width: 6px; height: 6px; background: rgba(212,175,55,0.3);
+  border-radius: 50%; cursor: pointer; transition: all 0.3s;
+}
+.dot.active { background: var(--gold); width: 20px; border-radius: 3px; }
+
+/* ===== ABOUT ===== */
+#about { padding: 8rem 0; }
+.about-inner {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 6rem; align-items: center;
+}
+.about-visual {
+  position: relative;
+  aspect-ratio: 4/5;
+  background: var(--charcoal);
+  border: 1px solid rgba(212,175,55,0.15);
+}
+.about-visual::before {
+  content: '';
+  position: absolute; inset: -15px 15px 15px -15px;
+  border: 1px solid rgba(212,175,55,0.15);
+  z-index: -1;
+}
+.about-visual-content {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(145deg, #141410, #1e1c14);
+  font-family: var(--font-display);
+  font-size: 6rem;
+  color: rgba(212,175,55,0.08);
+  letter-spacing: 0.2em;
+  overflow: hidden;
+}
+.about-text .section-title { text-align: left; }
+.about-text .divider { margin: 1.5rem 0; }
+.about-body {
+  font-size: 1.05rem;
+  color: var(--white-dim);
+  font-weight: 300;
+  line-height: 1.9;
+  margin-bottom: 1rem;
+}
+.about-signature {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  color: var(--gold);
+  font-style: italic;
+  margin: 2rem 0;
+}
+
+/* ===== NEWSLETTER ===== */
+#newsletter {
+  padding: 7rem 0;
+  background: linear-gradient(135deg, #0e0d09, #1a1810, #0e0d09);
+  position: relative;
+  overflow: hidden;
+}
+#newsletter::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 80% 80% at 50% 50%, rgba(212,175,55,0.05), transparent);
+}
+.newsletter-inner {
+  position: relative;
+  text-align: center;
+  max-width: 580px;
+  margin: 0 auto;
+}
+.newsletter-form {
+  display: flex; gap: 0; margin-top: 2.5rem;
+  border: 1px solid rgba(212,175,55,0.3);
+}
+.newsletter-form input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  padding: 1rem 1.5rem;
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  color: var(--white);
+  outline: none;
+}
+.newsletter-form input::placeholder { color: rgba(245,240,232,0.3); }
+.newsletter-form button {
+  font-family: var(--font-ui);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  background: var(--gold);
+  color: var(--black);
+  border: none;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  white-space: nowrap;
+}
+.newsletter-form button:hover { background: var(--gold-light); }
+
+/* ===== CONTACT ===== */
+#contact { padding: 8rem 0; }
+.contact-grid {
+  display: grid; grid-template-columns: 1fr 1.4fr;
+  gap: 5rem; margin-top: 4rem;
+}
+.contact-info h3 {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: var(--white);
+}
+.contact-detail {
+  display: flex; align-items: flex-start; gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.contact-detail-icon {
+  width: 40px; height: 40px;
+  border: 1px solid rgba(212,175,55,0.2);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--gold); font-size: 0.85rem; flex-shrink: 0;
+}
+.contact-detail-text .label {
+  font-family: var(--font-ui);
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.2rem;
+}
+.contact-detail-text .val {
+  font-size: 0.95rem;
+  color: var(--white);
+  font-weight: 300;
+}
+.contact-form { display: flex; flex-direction: column; gap: 1rem; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.form-field {
+  display: flex; flex-direction: column; gap: 0.4rem;
+}
+.form-field label {
+  font-family: var(--font-ui);
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.form-field input,
+.form-field textarea {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(212,175,55,0.15);
+  padding: 0.9rem 1.1rem;
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  color: var(--white);
+  outline: none;
+  transition: border-color 0.3s;
+  resize: none;
+}
+.form-field input:focus,
+.form-field textarea:focus { border-color: rgba(212,175,55,0.5); }
+.form-field input::placeholder,
+.form-field textarea::placeholder { color: rgba(245,240,232,0.2); }
+
+/* ===== FOOTER ===== */
+footer {
+  background: #080808;
+  border-top: 1px solid rgba(212,175,55,0.1);
+  padding: 5rem 0 2rem;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+  gap: 3rem; margin-bottom: 4rem;
+}
+.footer-brand .logo {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  letter-spacing: 0.35em;
+  color: var(--gold);
+  display: block; margin-bottom: 1rem;
+}
+.footer-brand p {
+  font-size: 0.9rem;
+  color: var(--white-dim);
+  font-weight: 300;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  max-width: 280px;
+}
+.social-links { display: flex; gap: 0.8rem; }
+.social-link {
+  width: 36px; height: 36px;
+  border: 1px solid rgba(212,175,55,0.2);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--white-dim); font-size: 0.85rem;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+.social-link:hover { border-color: var(--gold); color: var(--gold); }
+.footer-col h4 {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  color: var(--white);
+  margin-bottom: 1.5rem;
+}
+.footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.8rem; }
+.footer-links a {
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  color: var(--white-dim);
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  transition: color 0.3s;
+}
+.footer-links a:hover { color: var(--gold); }
+.footer-bottom {
+  border-top: 1px solid rgba(212,175,55,0.08);
+  padding-top: 2rem;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.footer-bottom p {
+  font-family: var(--font-ui);
+  font-size: 0.7rem;
+  color: rgba(245,240,232,0.3);
+  letter-spacing: 0.05em;
+}
+
+/* ===== BEST SELLERS CAROUSEL ===== */
+#bestsellers { padding: 8rem 0; background: var(--charcoal); }
+.bs-slider { position: relative; overflow: hidden; margin-top: 4rem; }
+.bs-track {
+  display: flex;
+  gap: 1.5rem;
+  animation: bsScroll 25s linear infinite;
+}
+.bs-track:hover { animation-play-state: paused; }
+.bs-item {
+  min-width: 220px;
+  background: rgba(11,11,11,0.8);
+  border: 1px solid rgba(212,175,55,0.1);
+  padding: 1.5rem;
+  text-align: center;
+  flex-shrink: 0;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+.bs-item:hover { border-color: rgba(212,175,55,0.4); }
+.bs-bottle { font-size: 3.5rem; margin-bottom: 1rem; display: block; filter: drop-shadow(0 5px 15px rgba(212,175,55,0.2)); }
+.bs-name {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  color: var(--white);
+  margin-bottom: 0.3rem;
+}
+.bs-price { color: var(--gold); font-family: var(--font-display); font-size: 1.1rem; }
+@keyframes bsScroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* ===== REVEAL ANIMATIONS ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+.reveal-right {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .categories-grid { grid-template-columns: repeat(2,1fr); }
+  .cat-card:first-child { grid-row: span 1; }
+  .features-grid { grid-template-columns: repeat(2,1fr); }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 768px) {
+  .nav-links, .nav-actions { display: none; }
+  .nav-hamburger { display: flex; }
+  .hero-bottle { opacity: 0.2; right: -5%; width: 70vw; }
+  .about-inner { grid-template-columns: 1fr; }
+  .about-visual { display: none; }
+  .contact-grid { grid-template-columns: 1fr; }
+  .categories-grid { grid-template-columns: 1fr 1fr; }
+  .features-grid { grid-template-columns: 1fr; }
+  .stats-grid { grid-template-columns: 1fr 1fr; }
+  .testimonial-card { min-width: calc(100% - 1rem); }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+  .form-row { grid-template-columns: 1fr; }
+  .hero-cta { flex-direction: column; align-items: flex-start; }
+}
+@media (max-width: 480px) {
+  .products-grid { grid-template-columns: 1fr; }
+  .categories-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .newsletter-form { flex-direction: column; }
+  .newsletter-form input, .newsletter-form button { border: none; border-bottom: 1px solid rgba(212,175,55,0.3); }
+}
+
+/* ===== CART SIDEBAR ===== */
+.cart-sidebar {
+  position: fixed; top: 0; right: -420px;
+  width: 420px; max-width: 100vw;
+  height: 100vh;
+  background: rgba(11,11,11,0.98);
+  backdrop-filter: blur(20px);
+  border-left: 1px solid rgba(212,175,55,0.15);
+  z-index: 2000;
+  transition: right 0.5s cubic-bezier(0.77,0,0.175,1);
+  display: flex; flex-direction: column;
+  padding: 2rem;
+}
+.cart-sidebar.open { right: 0; }
+.cart-overlay {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.7);
+  z-index: 1999;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.4s;
+}
+.cart-overlay.open { opacity: 1; pointer-events: all; }
+.cart-header {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 2rem;
+}
+.cart-header h2 {
+  font-family: var(--font-display);
+  font-size: 1.5rem; color: var(--gold);
+}
+.cart-close {
+  background: none; border: 1px solid rgba(212,175,55,0.3);
+  color: var(--gold); width: 36px; height: 36px;
+  cursor: pointer; font-size: 1rem;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.3s;
+}
+.cart-close:hover { background: var(--gold); color: var(--black); }
+.cart-empty {
+  flex: 1; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 1rem;
+  color: var(--white-dim); text-align: center;
+}
+.cart-empty span { font-size: 3rem; }
+.cart-items { flex: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 1rem; }
+.cart-item {
+  display: flex; gap: 1rem; align-items: center;
+  border-bottom: 1px solid rgba(212,175,55,0.08);
+  padding-bottom: 1rem;
+}
+.cart-item-img {
+  width: 60px; height: 70px;
+  background: var(--charcoal);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 2rem; flex-shrink: 0;
+}
+.cart-item-name { font-family: var(--font-display); font-size: 0.95rem; color: var(--white); }
+.cart-item-price { color: var(--gold); font-family: var(--font-display); margin-top: 0.2rem; }
+.cart-item-remove {
+  margin-left: auto; background: none; border: none;
+  color: rgba(245,240,232,0.3); cursor: pointer; font-size: 0.85rem;
+  transition: color 0.3s;
+}
+.cart-item-remove:hover { color: #e05; }
+.cart-footer { border-top: 1px solid rgba(212,175,55,0.15); padding-top: 1.5rem; }
+.cart-total {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 1.5rem;
+}
+.cart-total span { font-family: var(--font-ui); font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--white-dim); }
+.cart-total strong { font-family: var(--font-display); font-size: 1.5rem; color: var(--gold); }
+
+/* top reveal */
+.page-loaded #preloader {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s 0.5s;
+}
+</style>
+</head>
+<body>
+
+<!-- Preloader -->
+<div id="preloader">
+  <div class="preloader-logo">IMAROZE</div>
+  <div class="preloader-bar"></div>
+</div>
+
+<!-- Particles -->
+<canvas id="particles-canvas"></canvas>
+
+<!-- Cart Overlay -->
+<div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+
+<!-- Cart Sidebar -->
+<div class="cart-sidebar" id="cartSidebar">
+  <div class="cart-header">
+    <h2>Your Cart</h2>
+    <button class="cart-close" onclick="closeCart()">✕</button>
+  </div>
+  <div class="cart-items" id="cartItems">
+    <div class="cart-empty">
+      <span>🛒</span>
+      <p style="font-family:var(--font-display);font-size:1.1rem;color:var(--white)">Your cart is empty</p>
+      <p style="font-family:var(--font-ui);font-size:0.8rem;">Discover our luxury fragrances</p>
+    </div>
+  </div>
+  <div class="cart-footer" id="cartFooter" style="display:none">
+    <div class="cart-total">
+      <span>Total</span>
+      <strong id="cartTotal">$0</strong>
+    </div>
+    <button class="btn-primary" style="width:100%;justify-content:center;">Proceed to Checkout</button>
+  </div>
+</div>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#hero" onclick="closeMobile()">Home</a>
+  <a href="#collection" onclick="closeMobile()">Collection</a>
+  <a href="#bestsellers" onclick="closeMobile()">Best Sellers</a>
+  <a href="#categories" onclick="closeMobile()">Categories</a>
+  <a href="#about" onclick="closeMobile()">About</a>
+  <a href="#contact" onclick="closeMobile()">Contact</a>
+</div>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">IMAROZE</a>
+      <ul class="nav-links">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#collection">Collection</a></li>
+        <li><a href="#bestsellers">Best Sellers</a></li>
+        <li><a href="#categories">Categories</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="nav-icon" title="Search">🔍</button>
+        <button class="nav-icon" title="Wishlist">♡</button>
+        <button class="nav-icon" title="Cart" onclick="openCart()" style="position:relative;">
+          🛍
+          <span class="cart-badge" id="cartBadge">0</span>
+        </button>
+        <button class="nav-hamburger" onclick="toggleMobile()" id="hamburger">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-bottle">
+    <svg class="bottle-svg" viewBox="0 0 300 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="bottleGrad" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stop-color="#1a1810"/>
+          <stop offset="30%" stop-color="#2a2418"/>
+          <stop offset="50%" stop-color="#D4AF37" stop-opacity="0.6"/>
+          <stop offset="70%" stop-color="#2a2418"/>
+          <stop offset="100%" stop-color="#1a1810"/>
+        </linearGradient>
+        <linearGradient id="capGrad" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stop-color="#A88A1A"/>
+          <stop offset="50%" stop-color="#D4AF37"/>
+          <stop offset="100%" stop-color="#A88A1A"/>
+        </linearGradient>
+        <linearGradient id="liquidGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#1a1505" stop-opacity="0.9"/>
+          <stop offset="100%" stop-color="#0e0b03" stop-opacity="0.95"/>
+        </linearGradient>
+        <filter id="glow">
+          <feGaussianBlur stdDeviation="6" result="blur"/>
+          <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+        </filter>
+      </defs>
+      <!-- Base/platform -->
+      <ellipse cx="150" cy="468" rx="70" ry="12" fill="rgba(212,175,55,0.15)"/>
+      <!-- Bottle body -->
+      <rect x="70" y="200" width="160" height="260" rx="6" fill="url(#bottleGrad)"/>
+      <!-- Liquid inside -->
+      <rect x="75" y="210" width="150" height="244" rx="4" fill="url(#liquidGrad)" opacity="0.95"/>
+      <!-- Shoulder -->
+      <path d="M70 200 Q60 170 90 145 L210 145 Q240 170 230 200 Z" fill="url(#bottleGrad)"/>
+      <!-- Neck -->
+      <rect x="110" y="100" width="80" height="48" rx="4" fill="url(#capGrad)" opacity="0.8"/>
+      <!-- Cap -->
+      <rect x="100" y="65" width="100" height="38" rx="3" fill="url(#capGrad)"/>
+      <!-- Cap top detail -->
+      <rect x="120" y="55" width="60" height="12" rx="2" fill="url(#capGrad)"/>
+      <!-- Label area -->
+      <rect x="85" y="275" width="130" height="120" rx="2" fill="rgba(212,175,55,0.08)" stroke="rgba(212,175,55,0.3)" stroke-width="0.5"/>
+      <!-- Label text lines -->
+      <text x="150" y="320" text-anchor="middle" font-family="serif" font-size="14" fill="rgba(212,175,55,0.9)" letter-spacing="4">IMAROZE</text>
+      <line x1="100" y1="330" x2="200" y2="330" stroke="rgba(212,175,55,0.4)" stroke-width="0.5"/>
+      <text x="150" y="348" text-anchor="middle" font-family="serif" font-size="7" fill="rgba(212,175,55,0.6)" letter-spacing="2">ROYAL OUD</text>
+      <text x="150" y="362" text-anchor="middle" font-family="serif" font-size="6" fill="rgba(212,175,55,0.4)" letter-spacing="1.5">EAU DE PARFUM</text>
+      <!-- Highlight reflection -->
+      <rect x="82" y="205" width="18" height="240" rx="4" fill="rgba(255,255,255,0.04)"/>
+      <line x1="96" y1="200" x2="96" y2="455" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+      <!-- Glow base -->
+      <ellipse cx="150" cy="460" rx="60" ry="8" fill="url(#capGrad)" opacity="0.2" filter="url(#glow)"/>
+    </svg>
+  </div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-eyebrow">Luxury Perfumery Since 2018</div>
+      <h1 class="hero-title">
+        Crafted For<br>
+        <em>Timeless</em><br>
+        Elegance
+      </h1>
+      <p class="hero-sub">Discover the art of luxury fragrance — where every drop tells a story of refinement.</p>
+      <div class="hero-cta">
+        <a href="#collection" class="btn-primary">Shop Collection →</a>
+        <a href="#categories" class="btn-outline">Explore Fragrances</a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll" onclick="document.getElementById('collection').scrollIntoView({behavior:'smooth'})">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-strip">
+  <div class="marquee-track" id="marqueeTrack">
+    <span>Premium Ingredients</span><span>Long Lasting Fragrance</span><span>Luxury Packaging</span>
+    <span>Worldwide Delivery</span><span>Exclusive Collections</span><span>Handcrafted Perfumes</span>
+    <span>Premium Ingredients</span><span>Long Lasting Fragrance</span><span>Luxury Packaging</span>
+    <span>Worldwide Delivery</span><span>Exclusive Collections</span><span>Handcrafted Perfumes</span>
+  </div>
+</div>
+
+<!-- FEATURED COLLECTION -->
+<section id="collection">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">Featured Collection</span>
+      <h2 class="section-title">Signature Fragrances</h2>
+      <div class="divider"></div>
+      <p>Each fragrance is a masterpiece — crafted with the finest ingredients from around the world.</p>
+    </div>
+    <div class="products-grid" id="productsGrid"></div>
+  </div>
+</section>
+
+<!-- BANNER -->
+<div class="banner-strip">
+  <div class="container">
+    <div class="reveal">
+      <h2 class="banner-strip-title">Every Fragrance<br><span>Tells A Story</span></h2>
+      <p>From the first spritz to the lingering dry-down — Imaroze fragrances are an experience, not just a scent.</p>
+      <a href="#collection" class="btn-primary">Discover Now →</a>
+    </div>
+  </div>
+</div>
+
+<!-- BEST SELLERS -->
+<section id="bestsellers">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">Most Loved</span>
+      <h2 class="section-title">Best Sellers</h2>
+      <div class="divider"></div>
+    </div>
+  </div>
+  <div class="bs-slider">
+    <div class="bs-track" id="bsTrack"></div>
+  </div>
+</section>
+
+<!-- CATEGORIES -->
+<section id="categories">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">Browse By</span>
+      <h2 class="section-title">Fragrance Collections</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="categories-grid">
+      <div class="cat-card reveal">
+        <div class="cat-bg cat-gradient-1" style="display:flex;align-items:center;justify-content:center;font-size:6rem;">🪔</div>
+        <div class="cat-overlay">
+          <div class="cat-name">Oud Collection</div>
+          <div class="cat-count">18 Fragrances</div>
+        </div>
+      </div>
+      <div class="cat-card reveal" style="transition-delay:.1s">
+        <div class="cat-bg cat-gradient-2" style="display:flex;align-items:center;justify-content:center;font-size:6rem;">🌙</div>
+        <div class="cat-overlay">
+          <div class="cat-name">Arabic Collection</div>
+          <div class="cat-count">12 Fragrances</div>
+        </div>
+      </div>
+      <div class="cat-card reveal" style="transition-delay:.2s">
+        <div class="cat-bg" style="background:linear-gradient(145deg,#14100a,#1e1c14);display:flex;align-items:center;justify-content:center;font-size:6rem;">👑</div>
+        <div class="cat-overlay">
+          <div class="cat-name">Luxury Collection</div>
+          <div class="cat-count">24 Fragrances</div>
+        </div>
+      </div>
+      <div class="cat-card reveal" style="transition-delay:.15s">
+        <div class="cat-bg cat-gradient-4" style="display:flex;align-items:center;justify-content:center;font-size:6rem;">⚓</div>
+        <div class="cat-overlay">
+          <div class="cat-name">Men's Collection</div>
+          <div class="cat-count">16 Fragrances</div>
+        </div>
+      </div>
+      <div class="cat-card reveal" style="transition-delay:.25s">
+        <div class="cat-bg cat-gradient-3" style="display:flex;align-items:center;justify-content:center;font-size:6rem;">🌹</div>
+        <div class="cat-overlay">
+          <div class="cat-name">Women's Collection</div>
+          <div class="cat-count">20 Fragrances</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-strip">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="reveal">
+        <span class="stat-num" data-target="50000">0</span>
+        <div class="stat-label">Happy Customers</div>
+      </div>
+      <div class="reveal" style="transition-delay:.1s">
+        <span class="stat-num" data-target="120">0</span>
+        <div class="stat-label">Unique Fragrances</div>
+      </div>
+      <div class="reveal" style="transition-delay:.2s">
+        <span class="stat-num" data-target="35">0</span>
+        <div class="stat-label">Countries Shipped</div>
+      </div>
+      <div class="reveal" style="transition-delay:.3s">
+        <span class="stat-num" data-target="6">0</span>
+        <div class="stat-label">Years of Excellence</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WHY IMAROZE -->
+<section id="why">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">Our Promise</span>
+      <h2 class="section-title">Why Choose Imaroze</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="features-grid">
+      <div class="feature-item reveal">
+        <div class="feature-icon">🌿</div>
+        <div class="feature-title">Premium Ingredients</div>
+        <p class="feature-desc">Sourced from the finest regions — Bulgarian rose, Cambodian oud, and Moroccan amber.</p>
+      </div>
+      <div class="feature-item reveal" style="transition-delay:.1s">
+        <div class="feature-icon">⏳</div>
+        <div class="feature-title">Long Lasting</div>
+        <p class="feature-desc">Fragrances crafted to endure — 12 to 24 hours of captivating projection and longevity.</p>
+      </div>
+      <div class="feature-item reveal" style="transition-delay:.2s">
+        <div class="feature-icon">✈️</div>
+        <div class="feature-title">Worldwide Delivery</div>
+        <p class="feature-desc">Discreet, secure delivery to over 35 countries with premium packaging preserved.</p>
+      </div>
+      <div class="feature-item reveal" style="transition-delay:.05s">
+        <div class="feature-icon">🎁</div>
+        <div class="feature-title">Luxury Packaging</div>
+        <p class="feature-desc">Every bottle arrives in a handcrafted gift box, worthy of the finest occasions.</p>
+      </div>
+      <div class="feature-item reveal" style="transition-delay:.15s">
+        <div class="feature-icon">💎</div>
+        <div class="feature-title">Exclusive Collections</div>
+        <p class="feature-desc">Limited edition releases and exclusive blends unavailable anywhere else.</p>
+      </div>
+      <div class="feature-item reveal" style="transition-delay:.25s">
+        <div class="feature-icon">⭐</div>
+        <div class="feature-title">Satisfaction Guarantee</div>
+        <p class="feature-desc">30-day satisfaction guarantee — if you're not delighted, we make it right.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">Client Reviews</span>
+      <h2 class="section-title">Words of Distinction</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="testimonials-slider">
+      <div class="testimonials-track" id="testimonialsTrack"></div>
+    </div>
+    <div class="slider-controls">
+      <button class="slider-btn" onclick="prevTestimonial()">←</button>
+      <div class="slider-dots" id="testimonialDots"></div>
+      <button class="slider-btn" onclick="nextTestimonial()">→</button>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="about-inner">
+      <div class="about-visual reveal-left">
+        <div class="about-visual-content">
+          <span style="font-size:8rem;opacity:0.05;letter-spacing:0.1em;color:var(--gold);">IMAROZE</span>
+          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:2rem;padding:3rem;">
+            <div style="font-size:4rem;filter:drop-shadow(0 0 20px rgba(212,175,55,0.4))">🕯️</div>
+            <div style="text-align:center">
+              <div style="font-family:var(--font-display);font-size:1.8rem;color:var(--gold);letter-spacing:0.3em">IMAROZE</div>
+              <div style="font-family:var(--font-ui);font-size:0.6rem;letter-spacing:0.4em;color:rgba(212,175,55,0.5);margin-top:0.5rem">EST. 2018</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="about-text reveal-right">
+        <span class="section-label">Our Story</span>
+        <h2 class="section-title">The Art Behind<br><em style="font-style:italic;color:var(--gold)">Every Bottle</em></h2>
+        <div class="divider" style="margin:1.5rem 0;"></div>
+        <p class="about-body">Imaroze was born from a singular obsession: the belief that a fragrance should be more than a scent — it should be an emotion, a memory, an identity.</p>
+        <p class="about-body">Founded in 2018 by master perfumer Imara Al-Zeid, each composition begins with a journey — to the oud forests of Cambodia, the rose fields of Grasse, the amber deserts of Arabia.</p>
+        <p class="about-body">Today, Imaroze stands as a symbol of ultra-luxury craftsmanship, with over 50,000 clients across 35 countries who carry our fragrances as their signature.</p>
+        <div class="about-signature">Imara Al-Zeid</div>
+        <p style="font-family:var(--font-ui);font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);">Founder & Master Perfumer</p>
+        <div style="margin-top:2rem">
+          <a href="#contact" class="btn-outline">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section id="newsletter">
+  <div class="container">
+    <div class="newsletter-inner reveal">
+      <span class="section-label">Stay Connected</span>
+      <h2 class="section-title" style="text-align:center">Join the Inner Circle</h2>
+      <div class="divider"></div>
+      <p style="color:var(--white-dim);font-weight:300;margin-bottom:0">Be the first to discover new collections, exclusive launches, and private events for Imaroze patrons.</p>
+      <div class="newsletter-form">
+        <input type="email" placeholder="Enter your email address" id="newsletterEmail">
+        <button onclick="subscribeNewsletter()">Subscribe</button>
+      </div>
+      <p style="font-family:var(--font-ui);font-size:0.65rem;color:rgba(245,240,232,0.3);margin-top:1rem;letter-spacing:0.05em">We respect your privacy. No spam, ever.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">Get In Touch</span>
+      <h2 class="section-title">Contact Imaroze</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="contact-grid">
+      <div class="reveal-left">
+        <h3>We'd Love to Hear From You</h3>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">📍</div>
+          <div class="contact-detail-text">
+            <div class="label">Address</div>
+            <div class="val">The Perfume Quarter, Al Barsha,<br>Dubai, UAE 00000</div>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">📞</div>
+          <div class="contact-detail-text">
+            <div class="label">Phone</div>
+            <div class="val">+971 4 000 0000</div>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">✉️</div>
+          <div class="contact-detail-text">
+            <div class="label">Email</div>
+            <div class="val">hello@imaroze.com</div>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">🕐</div>
+          <div class="contact-detail-text">
+            <div class="label">Hours</div>
+            <div class="val">Mon–Sat: 10am – 8pm<br>Sunday: 12pm – 6pm</div>
+          </div>
+        </div>
+        <!-- Map placeholder -->
+        <div style="margin-top:2rem;border:1px solid rgba(212,175,55,0.15);background:var(--charcoal);aspect-ratio:16/7;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:0.8rem;color:var(--white-dim)">
+          <span style="font-size:2rem;">🗺️</span>
+          <span style="font-family:var(--font-ui);font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold)">View on Google Maps</span>
+        </div>
+      </div>
+      <div class="reveal-right">
+        <div class="contact-form">
+          <div class="form-row">
+            <div class="form-field">
+              <label>First Name</label>
+              <input type="text" placeholder="Your first name">
+            </div>
+            <div class="form-field">
+              <label>Last Name</label>
+              <input type="text" placeholder="Your last name">
+            </div>
+          </div>
+          <div class="form-field">
+            <label>Email Address</label>
+            <input type="email" placeholder="your@email.com">
+          </div>
+          <div class="form-field">
+            <label>Subject</label>
+            <input type="text" placeholder="How can we help?">
+          </div>
+          <div class="form-field">
+            <label>Message</label>
+            <textarea rows="6" placeholder="Tell us about your inquiry..."></textarea>
+          </div>
+          <button class="btn-primary" style="align-self:flex-start" onclick="sendContactForm()">Send Message →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="logo">IMAROZE</span>
+        <p>Where luxury meets art. Every fragrance is a story of refinement, crafted for those who appreciate the extraordinary.</p>
+        <div class="social-links">
+          <a href="#" class="social-link" title="Instagram">📷</a>
+          <a href="#" class="social-link" title="Facebook">f</a>
+          <a href="#" class="social-link" title="Twitter">𝕏</a>
+          <a href="#" class="social-link" title="Pinterest">📌</a>
+          <a href="#" class="social-link" title="TikTok">♪</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Collections</h4>
+        <ul class="footer-links">
+          <li><a href="#">Oud Collection</a></li>
+          <li><a href="#">Arabic Collection</a></li>
+          <li><a href="#">Men's Fragrances</a></li>
+          <li><a href="#">Women's Fragrances</a></li>
+          <li><a href="#">Luxury Edition</a></li>
+          <li><a href="#">New Arrivals</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Information</h4>
+        <ul class="footer-links">
+          <li><a href="#">About Imaroze</a></li>
+          <li><a href="#">Our Story</a></li>
+          <li><a href="#">Sustainability</a></li>
+          <li><a href="#">Press & Media</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Customer Care</h4>
+        <ul class="footer-links">
+          <li><a href="#">Shipping Policy</a></li>
+          <li><a href="#">Returns & Exchanges</a></li>
+          <li><a href="#">Track Your Order</a></li>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 Imaroze. All rights reserved. Crafted with passion.</p>
+      <p style="display:flex;gap:1.5rem;">
+        <a href="#" style="color:inherit;text-decoration:none;">Privacy</a>
+        <a href="#" style="color:inherit;text-decoration:none;">Terms</a>
+        <a href="#" style="color:inherit;text-decoration:none;">Cookies</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ===== PRODUCTS DATA =====
+const products = [
+  { name: 'Royal Oud', desc: 'Deep oud, saffron & amber — regal and commanding', price: 185, rating: 5, badge: 'Best Seller', badgeType: 'badge-best', emoji: '🪔' },
+  { name: 'Noir Essence', desc: 'Black musk, vetiver & dark rose — mysterious allure', price: 165, rating: 5, badge: 'New', badgeType: 'badge-new', emoji: '🌑' },
+  { name: 'Gold Prestige', desc: 'Bergamot, sandalwood & golden amber — radiant luxury', price: 220, rating: 5, badge: null, emoji: '✨' },
+  { name: 'Velvet Musk', desc: 'White musk, cashmere & iris — soft and sensual', price: 145, rating: 4, badge: 'New', badgeType: 'badge-new', emoji: '🌸' },
+  { name: 'Black Amber', desc: 'Labdanum, patchouli & incense — dark sophistication', price: 195, rating: 5, badge: null, emoji: '🖤' },
+  { name: 'Imperial Rose', desc: 'Taif rose, oud & honey — the queen of florals', price: 240, rating: 5, badge: 'Limited', badgeType: 'badge-best', emoji: '🌹' },
+  { name: 'Midnight Oud', desc: 'Cambodian oud, smoke & leather — intensely bold', price: 210, rating: 5, badge: 'Best Seller', badgeType: 'badge-best', emoji: '🌙' },
+  { name: 'Signature Gold', desc: 'Neroli, myrrh & vanilla — the house signature', price: 175, rating: 5, badge: null, emoji: '💛' }
+];
+
+function renderProducts() {
+  const grid = document.getElementById('productsGrid');
+  grid.innerHTML = products.map((p, i) => `
+    <div class="product-card reveal" style="transition-delay:${i*0.07}s">
+      ${p.badge ? `<span class="product-badge ${p.badgeType}">${p.badge}</span>` : ''}
+      <div class="product-img-wrap">
+        <span class="product-bottle" style="font-size:5rem;filter:drop-shadow(0 10px 30px rgba(212,175,55,0.25))">${p.emoji}</span>
+        <button class="product-wishlist" onclick="toggleWishlist(this)" title="Add to Wishlist">♡</button>
+      </div>
+      <div class="product-info">
+        <div class="product-name">Imaroze ${p.name}</div>
+        <div class="product-desc">${p.desc}</div>
+        <div class="product-meta">
+          <span class="product-price">$${p.price}</span>
+          <div class="product-rating">
+            ${[1,2,3,4,5].map(s => `<span class="star${s>p.rating?' empty':''}">${s<=p.rating?'★':'☆'}</span>`).join('')}
+          </div>
+        </div>
+        <button class="add-cart" onclick="addToCart('Imaroze ${p.name}', ${p.price}, '${p.emoji}')">Add to Cart</button>
+      </div>
+    </div>
+  `).join('');
+  initReveal();
+}
+
+// ===== BEST SELLERS CAROUSEL =====
+function renderBestSellers() {
+  const track = document.getElementById('bsTrack');
+  const bsItems = [...products, ...products]; // duplicate for infinite
+  track.innerHTML = bsItems.map(p => `
+    <div class="bs-item" onclick="addToCart('Imaroze ${p.name}', ${p.price}, '${p.emoji}')">
+      <span class="bs-bottle">${p.emoji}</span>
+      <div class="bs-name">Imaroze ${p.name}</div>
+      <div class="bs-price">$${p.price}</div>
+    </div>
+  `).join('');
+}
+
+// ===== TESTIMONIALS =====
+const testimonials = [
+  { text: 'Royal Oud is simply extraordinary. The longevity and projection are unmatched — I receive compliments everywhere I go. This is luxury personified.', name: 'Fatima Al-Sayed', location: 'Dubai, UAE', initials: 'FA', rating: 5 },
+  { text: 'I have tried Tom Ford and Creed, but Imaroze Midnight Oud stands on its own level. The smokiness evolves so beautifully over 18 hours.', name: 'James Whitfield', location: 'London, UK', initials: 'JW', rating: 5 },
+  { text: 'The packaging alone tells you this is a premium brand. Imperial Rose is my signature scent now — everyone asks what I am wearing.', name: 'Sofia Marchetti', location: 'Milan, Italy', initials: 'SM', rating: 5 },
+  { text: 'Gold Prestige is a masterpiece. Complex, warm, and surprisingly versatile. Worth every penny — will be reordering immediately.', name: 'Hassan Al-Rashid', location: 'Riyadh, KSA', initials: 'HA', rating: 5 },
+  { text: 'Velvet Musk is the most beautiful skin scent I have ever experienced. Imaroze has earned a customer for life.', name: 'Amelia Chen', location: 'Singapore', initials: 'AC', rating: 5 },
+  { text: 'The customer service is as luxurious as the fragrances. My order arrived beautifully packaged like a gift. Absolutely world-class.', name: 'Omar Khalid', location: 'Karachi, Pakistan', initials: 'OK', rating: 5 },
+];
+
+let testimonialIndex = 0;
+let testimonialsPerView = window.innerWidth < 768 ? 1 : 2;
+
+function renderTestimonials() {
+  const track = document.getElementById('testimonialsTrack');
+  track.innerHTML = testimonials.map(t => `
+    <div class="testimonial-card">
+      <p class="testimonial-text">${t.text}</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">${t.initials}</div>
+        <div class="author-info">
+          <div class="name">${t.name}</div>
+          <div class="location">${t.location}</div>
+        </div>
+        <div class="product-rating" style="margin-left:auto">
+          ${[1,2,3,4,5].map(s=>`<span class="star">★</span>`).join('')}
+        </div>
+      </div>
+    </div>
+  `).join('');
+
+  const dots = document.getElementById('testimonialDots');
+  const numDots = Math.ceil(testimonials.length / testimonialsPerView);
+  dots.innerHTML = Array(numDots).fill(0).map((_, i) =>
+    `<div class="dot${i===0?' active':''}" onclick="goToTestimonial(${i})"></div>`
+  ).join('');
+}
+
+function updateTestimonialPos() {
+  const track = document.getElementById('testimonialsTrack');
+  const itemW = track.children[0].offsetWidth + 16;
+  track.style.transform = `translateX(-${testimonialIndex * itemW * testimonialsPerView}px)`;
+  document.querySelectorAll('.dot').forEach((d,i) => d.classList.toggle('active', i===testimonialIndex));
+}
+
+function nextTestimonial() {
+  const max = Math.ceil(testimonials.length / testimonialsPerView) - 1;
+  testimonialIndex = testimonialIndex >= max ? 0 : testimonialIndex + 1;
+  updateTestimonialPos();
+}
+
+function prevTestimonial() {
+  const max = Math.ceil(testimonials.length / testimonialsPerView) - 1;
+  testimonialIndex = testimonialIndex <= 0 ? max : testimonialIndex - 1;
+  updateTestimonialPos();
+}
+
+function goToTestimonial(i) {
+  testimonialIndex = i;
+  updateTestimonialPos();
+}
+
+// auto testimonials
+setInterval(nextTestimonial, 5000);
+
+// ===== CART =====
+let cart = [];
+
+function addToCart(name, price, emoji) {
+  cart.push({ name, price, emoji });
+  updateCartUI();
+  openCart();
+
+  // Feedback
+  const btn = event?.target;
+  if(btn) {
+    const orig = btn.textContent;
+    btn.textContent = '✓ Added!';
+    btn.style.background = 'var(--gold)';
+    btn.style.color = 'var(--black)';
+    setTimeout(() => {
+      btn.textContent = orig;
+      btn.style.background = '';
+      btn.style.color = '';
+    }, 1500);
+  }
+}
+
+function updateCartUI() {
+  const badge = document.getElementById('cartBadge');
+  badge.textContent = cart.length;
+
+  const items = document.getElementById('cartItems');
+  const footer = document.getElementById('cartFooter');
+  const total = document.getElementById('cartTotal');
+
+  if(cart.length === 0) {
+    items.innerHTML = `<div class="cart-empty"><span>🛒</span><p style="font-family:var(--font-display);font-size:1.1rem;color:var(--white)">Your cart is empty</p><p style="font-family:var(--font-ui);font-size:0.8rem;">Discover our luxury fragrances</p></div>`;
+    footer.style.display = 'none';
+  } else {
+    items.innerHTML = cart.map((item, i) => `
+      <div class="cart-item">
+        <div class="cart-item-img">${item.emoji}</div>
+        <div>
+          <div class="cart-item-name">${item.name}</div>
+          <div class="cart-item-price">$${item.price}</div>
+        </div>
+        <button class="cart-item-remove" onclick="removeFromCart(${i})">✕</button>
+      </div>
+    `).join('');
+    footer.style.display = 'block';
+    total.textContent = '$' + cart.reduce((s, i) => s + i.price, 0);
+  }
+}
+
+function removeFromCart(i) {
+  cart.splice(i, 1);
+  updateCartUI();
+}
+
+function openCart() {
+  document.getElementById('cartSidebar').classList.add('open');
+  document.getElementById('cartOverlay').classList.add('open');
+}
+
+function closeCart() {
+  document.getElementById('cartSidebar').classList.remove('open');
+  document.getElementById('cartOverlay').classList.remove('open');
+}
+
+// ===== WISHLIST =====
+function toggleWishlist(btn) {
+  btn.textContent = btn.textContent === '♡' ? '♥' : '♡';
+  btn.style.color = btn.textContent === '♥' ? 'var(--gold)' : '';
+}
+
+// ===== NAVBAR SCROLL =====
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// ===== MOBILE MENU =====
+function toggleMobile() {
+  document.getElementById('mobileMenu').classList.toggle('open');
+  const spans = document.querySelectorAll('#hamburger span');
+  const open = document.getElementById('mobileMenu').classList.contains('open');
+  if(open) {
+    spans[0].style.transform = 'rotate(45deg) translate(5px,5px)';
+    spans[1].style.opacity = '0';
+    spans[2].style.transform = 'rotate(-45deg) translate(5px,-5px)';
+  } else {
+    spans[0].style.transform = '';
+    spans[1].style.opacity = '';
+    spans[2].style.transform = '';
+  }
+}
+
+function closeMobile() {
+  document.getElementById('mobileMenu').classList.remove('open');
+  document.querySelectorAll('#hamburger span').forEach(s => {
+    s.style.transform = '';
+    s.style.opacity = '';
+  });
+}
+
+// ===== REVEAL ON SCROLL =====
+function initReveal() {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => observer.observe(el));
+}
+
+// ===== COUNTER ANIMATION =====
+function animateCounters() {
+  const counters = document.querySelectorAll('[data-target]');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting && !entry.target.dataset.done) {
+        const target = parseInt(entry.target.dataset.target);
+        entry.target.dataset.done = 'true';
+        let current = 0;
+        const increment = target / 80;
+        const timer = setInterval(() => {
+          current = Math.min(current + increment, target);
+          entry.target.textContent = Math.floor(current).toLocaleString() + (target >= 1000 ? '+' : '');
+          if(current >= target) clearInterval(timer);
+        }, 20);
+      }
+    });
+  }, { threshold: 0.5 });
+  counters.forEach(c => observer.observe(c));
+}
+
+// ===== PARTICLES =====
+function initParticles() {
+  const canvas = document.getElementById('particles-canvas');
+  const ctx = canvas.getContext('2d');
+  let particles = [];
+  let mouse = { x: -1000, y: -1000 };
+
+  function resize() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  document.addEventListener('mousemove', e => {
+    mouse.x = e.clientX;
+    mouse.y = e.clientY;
+  });
+
+  for(let i = 0; i < 60; i++) {
+    particles.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      vx: (Math.random() - 0.5) * 0.4,
+      vy: (Math.random() - 0.5) * 0.4 - 0.2,
+      size: Math.random() * 2 + 0.5,
+      alpha: Math.random() * 0.6 + 0.1,
+      pulse: Math.random() * Math.PI * 2,
+    });
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    particles.forEach(p => {
+      p.pulse += 0.02;
+      const alpha = p.alpha * (0.7 + 0.3 * Math.sin(p.pulse));
+
+      // Mouse repulsion
+      const dx = p.x - mouse.x, dy = p.y - mouse.y;
+      const dist = Math.sqrt(dx*dx+dy*dy);
+      if(dist < 100) {
+        p.vx += dx/dist * 0.3;
+        p.vy += dy/dist * 0.3;
+      }
+
+      p.vx *= 0.99; p.vy *= 0.99;
+      p.x += p.vx; p.y += p.vy;
+
+      if(p.x < 0) p.x = canvas.width;
+      if(p.x > canvas.width) p.x = 0;
+      if(p.y < 0) p.y = canvas.height;
+      if(p.y > canvas.height) p.y = 0;
+
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.size, 0, Math.PI*2);
+      ctx.fillStyle = `rgba(212,175,55,${alpha})`;
+      ctx.fill();
+    });
+
+    // Draw connections
+    particles.forEach((a, i) => {
+      particles.slice(i+1).forEach(b => {
+        const d = Math.hypot(a.x-b.x, a.y-b.y);
+        if(d < 120) {
+          ctx.beginPath();
+          ctx.moveTo(a.x, a.y);
+          ctx.lineTo(b.x, b.y);
+          ctx.strokeStyle = `rgba(212,175,55,${0.08 * (1-d/120)})`;
+          ctx.lineWidth = 0.5;
+          ctx.stroke();
+        }
+      });
+    });
+
+    requestAnimationFrame(draw);
+  }
+  draw();
+}
+
+// ===== NEWSLETTER =====
+function subscribeNewsletter() {
+  const input = document.getElementById('newsletterEmail');
+  if(input.value.includes('@')) {
+    input.value = '✓ You\'re now part of the Inner Circle!';
+    input.style.color = 'var(--gold)';
+    setTimeout(() => { input.value = ''; input.style.color = ''; }, 3000);
+  }
+}
+
+// ===== CONTACT FORM =====
+function sendContactForm() {
+  const btn = event.target;
+  btn.textContent = '✓ Message Sent!';
+  btn.style.background = 'linear-gradient(135deg,#2a6a2a,#1a5a1a)';
+  setTimeout(() => {
+    btn.textContent = 'Send Message →';
+    btn.style.background = '';
+  }, 3000);
+}
+
+// ===== PRELOADER =====
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    const preloader = document.getElementById('preloader');
+    preloader.style.transition = 'opacity 0.7s ease';
+    preloader.style.opacity = '0';
+    setTimeout(() => preloader.style.display = 'none', 700);
+  }, 1200);
+});
+
+// ===== INIT =====
+renderProducts();
+renderBestSellers();
+renderTestimonials();
+animateCounters();
+initParticles();
+initReveal();
+
+// Re-init reveal after dynamic content
+setTimeout(initReveal, 200);
+
+// Testimonial resize handler
+window.addEventListener('resize', () => {
+  testimonialsPerView = window.innerWidth < 768 ? 1 : 2;
+  renderTestimonials();
+});
+</script>
+</body>
+</html>
