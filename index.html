@@ -811,9 +811,9 @@ footer{background:#060605;border-top:1px solid var(--gold-line);padding:5rem 0 2
       <div class="rule"></div>
     </header>
   </div>
-  <div class="bs-track">
-    <div class="bs-row" id="bsRow"></div>
-  </div>
+ <div class="bs-wrap">
+    <div class="bs-track" id="bsRow"></div>
+</div>
 </section>
 <!-- CATEGORIES -->
 <section id="cats">
@@ -1209,32 +1209,28 @@ function initStars() {
 
 // Best Sellers strip
 function initBS() {
+  const row = document.getElementById('bsRow');
+  if (!row) return;
 
-    const row = document.getElementById('bsRow');
-    if (!row) return;
+  const keys = [
+    'denve','broute','aurex',
+    'denve','broute','aurex'
+  ];
 
-    const keys = [
-        'denve',
-        'broute',
-        'aurex',
-        'denve',
-        'broute',
-        'aurex'
-    ];
+  const cards = keys.map(k => {
+    const p = PRODS[k];
 
-    row.innerHTML = keys.map(k => {
+    return `
+      <div class="bs-item" onclick="openModal('${k}')">
+        <img src="${IMG[k]}" alt="${p.name}">
+        <div class="bs-name">${p.name}</div>
+        <div class="bs-price">Rs. ${p.price.toLocaleString()}</div>
+      </div>
+    `;
+  }).join('');
 
-        const p = PRODS[k];
-
-        return `
-        <div class="bs-item" onclick="openModal('${k}')">
-            <img src="${IMG[k]}" alt="${p.name}" loading="lazy">
-            <div class="bs-name">${p.name}</div>
-            <div class="bs-price">Rs. ${p.price.toLocaleString()}</div>
-        </div>
-        `;
-
-    }).join('');
+  // Duplicate for infinite loop
+  row.innerHTML = cards + cards + cards;
 }
 // Testimonials
 let tIdx=0, tPV=()=>window.innerWidth<640?1:2;
