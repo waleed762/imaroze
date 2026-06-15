@@ -1160,9 +1160,9 @@ footer{background:#060605;border-top:1px solid var(--gold-line);padding:5rem 0 2
 <script>
 // ─── IMAGE DATA ───
 const IMG = {
-  denve:  "{DENVE}",
+  denve: "DENVE.png",
   broute: "BROUTE.png",
-  aurex:  "{AUREX}"
+  aurex: "AUREX.png"
 };
 
 // ─── PRODUCTS ───
@@ -1209,24 +1209,33 @@ function initStars() {
 
 // Best Sellers strip
 function initBS() {
-  const row = document.getElementById('bsRow');
-  if(!row) return;
- const keys = ['denve', 'broute', 'aurex', 'denve', 'broute', 'aurex'];
- const IMG = {
-  denve: "images/denve.jpg",
-  broute: "images/broute.jpg",
-  aurex: "images/aurex.jpg"
-};
-  row.innerHTML = keys.map(k => {
-    const p = PRODS[k];
-    return `<div class="bs-item" onclick="openModal('${k}')">
-      <img src="${IMG[k]}" alt="${p.name}" loading="lazy">
-      <div class="bs-name">${p.name}</div>
-      <div class="bs-price">Rs. ${p.price.toLocaleString()}</div>
-    </div>`;
-  }).join('');
-}
 
+    const row = document.getElementById('bsRow');
+    if (!row) return;
+
+    const keys = [
+        'denve',
+        'broute',
+        'aurex',
+        'denve',
+        'broute',
+        'aurex'
+    ];
+
+    row.innerHTML = keys.map(k => {
+
+        const p = PRODS[k];
+
+        return `
+        <div class="bs-item" onclick="openModal('${k}')">
+            <img src="${IMG[k]}" alt="${p.name}" loading="lazy">
+            <div class="bs-name">${p.name}</div>
+            <div class="bs-price">Rs. ${p.price.toLocaleString()}</div>
+        </div>
+        `;
+
+    }).join('');
+}
 // Testimonials
 let tIdx=0, tPV=()=>window.innerWidth<640?1:2;
 function initTestis() {
@@ -1282,28 +1291,64 @@ function toggleFAQ(i){
 
 // Modal
 function openModal(id){
-  mId=id; mQty=1;
+  mId=id;
+  mQty=1;
+
   const p=PRODS[id];
+
   document.getElementById('mLeft').innerHTML=`
-    <button class="m-cl" onclick="mCloseDirect()"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
-    <img src="BROUTE.png" alt="${p.name}" style="width:100%;height:100%;object-fit:cover" loading="lazy">
+    <button class="m-cl" onclick="mCloseDirect()">
+      <svg viewBox="0 0 24 24">
+        <line x1="18" y1="6" x2="6" y2="18"/>
+        <line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+
+    <img src="${IMG[id]}"
+         alt="${p.name}"
+         style="width:100%;height:100%;object-fit:cover"
+         loading="lazy">
   `;
+
   document.getElementById('mRight').innerHTML=`
     <div class="m-name">${p.name}</div>
-    <div><div class="m-nl">Fragrance Notes</div><div class="m-notes">${p.notes}</div></div>
+    <div>
+      <div class="m-nl">Fragrance Notes</div>
+      <div class="m-notes">${p.notes}</div>
+    </div>
+
     <p class="m-desc">${p.desc}</p>
-    <div class="m-pr-row"><span class="m-price">Rs. ${p.price.toLocaleString()}</span><span class="m-size">Eau de Parfum &middot; ${p.size}</span></div>
-    <div style="display:flex;gap:3px">${buildStars(p.stars)}</div>
-    <div class="m-qty"><span class="q-lbl">Qty</span><div class="q-ctrl"><button class="q-btn" onclick="chQty(-1)">&#8722;</button><span class="q-num" id="qNum">1</span><button class="q-btn" onclick="chQty(1)">&#43;</button></div></div>
+
+    <div class="m-pr-row">
+      <span class="m-price">Rs. ${p.price.toLocaleString()}</span>
+      <span class="m-size">Eau de Parfum · ${p.size}</span>
+    </div>
+
+    <div style="display:flex;gap:3px">
+      ${buildStars(p.stars)}
+    </div>
+
+    <div class="m-qty">
+      <span class="q-lbl">Qty</span>
+      <div class="q-ctrl">
+        <button class="q-btn" onclick="chQty(-1)">−</button>
+        <span class="q-num" id="qNum">1</span>
+        <button class="q-btn" onclick="chQty(1)">+</button>
+      </div>
+    </div>
+
     <div class="m-acts">
       <button class="m-add" onclick="addCartM()">Add to Cart</button>
-      <button class="m-wish" onclick="showToast('Added to wishlist')"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></button>
+      <button class="m-wish" onclick="showToast('Added to wishlist')">
+        ❤
+      </button>
     </div>
   `;
+
   document.getElementById('modal').classList.add('show');
   document.body.style.overflow='hidden';
 }
-function chQty(d){mQty=Math.max(1,mQty+d);document.getElementById('qNum').textContent=mQty;}
+   function chQty(d){mQty=Math.max(1,mQty+d);document.getElementById('qNum').textContent=mQty;}
 function addCartM(){if(mId){for(let i=0;i<mQty;i++) addCart(mId);mCloseDirect();}}
 function mClose(e){if(e.target===document.getElementById('modal')) mCloseDirect()}
 function mCloseDirect(){document.getElementById('modal').classList.remove('show');document.body.style.overflow='';}
