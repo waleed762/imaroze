@@ -1,1554 +1,554 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="IMAROZE — Haute Parfumerie. Where luxury meets artistry. Discover rare, handcrafted fragrances inspired by the finest oud, rose, and amber traditions.">
-<meta name="keywords" content="luxury perfume, oud fragrance, Arabic perfume, IMAROZE, haute parfumerie, premium scent">
-<title>IMAROZE | Haute Parfumerie</title>
-
-<!-- Schema Markup -->
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Store","name":"IMAROZE","description":"Luxury perfume house — handcrafted fragrances","url":"https://imaroze.com","logo":"https://imaroze.com/logo.png","sameAs":["https://instagram.com/imaroze.official","https://facebook.com/imaroze.official","https://tiktok.com/@imaroze.official"]}
-</script>
+<meta name="description" content="IMAROZE Perfume — Luxury long-lasting fragrances in Pakistan. Shop Denve, BrouTe, Aurex. Premium Eau De Parfum for men and women.">
+<meta name="keywords" content="IMAROZE, luxury perfume Pakistan, long lasting perfume, Denve, BrouTe, Aurex, oud perfume, eau de parfum, best perfume Pakistan">
+<meta property="og:title" content="IMAROZE | Luxury Perfumes Pakistan">
+<meta property="og:description" content="Premium long-lasting fragrances crafted for confidence and elegance.">
+<title>IMAROZE | Luxury Perfumes — Pakistan</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
-/* ═══════════════════════════════════════
-   DESIGN TOKENS (YOUR ORIGINAL CSS - KEPT INTACT)
-═══════════════════════════════════════ */
+/* =============================================
+   IMAROZE — DESIGN SYSTEM
+============================================= */
 :root {
-  --ink:        #080807;
-  --ink-2:      #111009;
-  --ink-3:      #1C1A12;
-  --gold:       #C9A84C;
-  --gold-hi:    #E2C16E;
-  --gold-lo:    #9A7A2E;
-  --gold-glow:  rgba(201,168,76,0.18);
-  --gold-line:  rgba(201,168,76,0.22);
-  --cream:      #F2EBD9;
-  --cream-dim:  rgba(242,235,217,0.55);
-  --cream-faint:rgba(242,235,217,0.07);
-  --white:      #FAF7F0;
-
-  --f-display: 'Cinzel', serif;
-  --f-body:    'Cormorant Garamond', serif;
-  --f-ui:      'Montserrat', sans-serif;
-
-  --ease-luxury: cubic-bezier(0.19,1,0.22,1);
-  --ease-smooth: cubic-bezier(0.4,0,0.2,1);
-
-  --radius-sm: 2px;
-  --radius-md: 4px;
+  --black:       #080807;
+  --black2:      #101009;
+  --black3:      #1A1810;
+  --gold:        #C9A84C;
+  --gold-hi:     #E2C16E;
+  --gold-lo:     #9A7A2E;
+  --gold-glow:   rgba(201,168,76,.18);
+  --gold-line:   rgba(201,168,76,.2);
+  --cream:       #F2EBD9;
+  --cream-dim:   rgba(242,235,217,.55);
+  --cream-ghost: rgba(242,235,217,.07);
+  --fd: 'Cinzel', serif;
+  --fb: 'Cormorant Garamond', serif;
+  --fu: 'Montserrat', sans-serif;
+  --ease: cubic-bezier(0.19,1,0.22,1);
 }
-
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;font-size:16px}
-
-body{
-  background:var(--ink);
-  color:var(--cream);
-  font-family:var(--f-body);
-  font-size:1rem;
-  line-height:1.7;
-  overflow-x:hidden;
-}
-
-::-webkit-scrollbar{width:3px}
-::-webkit-scrollbar-track{background:var(--ink-2)}
-::-webkit-scrollbar-thumb{background:var(--gold)}
-
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--cream);font-family:var(--fb);font-size:16px;line-height:1.7;overflow-x:hidden}
 img{display:block;max-width:100%}
 a{text-decoration:none;color:inherit}
-button{font-family:inherit;cursor:pointer}
+button{font-family:inherit;cursor:pointer;border:none}
+::-webkit-scrollbar{width:3px}
+::-webkit-scrollbar-track{background:var(--black2)}
+::-webkit-scrollbar-thumb{background:var(--gold)}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
 
-/* Reduce motion */
-@media(prefers-reduced-motion:reduce){
-  *{animation-duration:0.01ms!important;transition-duration:0.01ms!important}
-}
+/* Layout */
+.wrap{max-width:1320px;margin:0 auto;padding:0 2rem}
+.section-pad{padding:7rem 0}
+.section-head{text-align:center;margin-bottom:4.5rem}
+.eyebrow{font-family:var(--fu);font-size:.58rem;font-weight:500;letter-spacing:.45em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:.9rem}
+.eyebrow::before{content:'';width:32px;height:1px;background:var(--gold);flex-shrink:0}
+.h-title{font-family:var(--fd);font-size:clamp(1.9rem,3.5vw,3.4rem);font-weight:400;line-height:1.12;color:var(--cream);letter-spacing:.04em}
+.h-title em{font-style:italic;color:var(--gold);font-family:var(--fb);font-weight:300;font-size:1.12em}
+.rule{width:44px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:1.3rem auto}
+.section-sub{font-family:var(--fu);font-size:.82rem;color:var(--cream-dim);max-width:520px;margin:.8rem auto 0;line-height:1.85;letter-spacing:.03em}
 
-/* ─── UTILITIES ─── */
-.container{max-width:1340px;margin:0 auto;padding:0 2.5rem}
-.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+/* Buttons */
+.btn-g{display:inline-flex;align-items:center;gap:.6rem;font-family:var(--fu);font-size:.6rem;font-weight:600;letter-spacing:.25em;text-transform:uppercase;color:var(--black);background:linear-gradient(135deg,var(--gold-hi),var(--gold),var(--gold-lo));padding:.85rem 2.2rem;position:relative;overflow:hidden;transition:transform .3s var(--ease),box-shadow .3s var(--ease);clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%)}
+.btn-g::after{content:'';position:absolute;inset:0;background:rgba(255,255,255,.18);transform:translateX(-110%);transition:transform .5s var(--ease)}
+.btn-g:hover::after{transform:translateX(0)}
+.btn-g:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(201,168,76,.35)}
+.btn-o{display:inline-flex;align-items:center;gap:.6rem;font-family:var(--fu);font-size:.6rem;font-weight:500;letter-spacing:.25em;text-transform:uppercase;color:var(--cream);background:transparent;border:1px solid var(--gold-line);padding:.85rem 2.2rem;transition:all .3s}
+.btn-o:hover{border-color:var(--gold);color:var(--gold);background:var(--gold-glow)}
 
-.eyebrow{
-  font-family:var(--f-ui);
-  font-size:.6rem;
-  font-weight:500;
-  letter-spacing:.45em;
-  text-transform:uppercase;
-  color:var(--gold);
-  display:flex;
-  align-items:center;
-  gap:.9rem;
-}
-.eyebrow::before{
-  content:'';
-  display:inline-block;
-  width:36px;
-  height:1px;
-  background:var(--gold);
-  flex-shrink:0;
-}
+/* Preloader */
+#preloader{position:fixed;inset:0;background:var(--black);z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2rem;transition:opacity .6s ease}
+#preloader.out{opacity:0;pointer-events:none}
+.pre-logo{font-family:var(--fd);font-size:1.9rem;letter-spacing:.55em;color:var(--gold);animation:pulse 1.5s ease-in-out infinite}
+.pre-bar{width:160px;height:1px;background:var(--black3);position:relative;overflow:hidden}
+.pre-bar::after{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,var(--gold),transparent);animation:sweep 1.8s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:.4}50%{opacity:1}}
+@keyframes sweep{to{left:100%}}
 
-.display-title{
-  font-family:var(--f-display);
-  font-size:clamp(2rem,3.8vw,3.6rem);
-  font-weight:400;
-  line-height:1.12;
-  color:var(--cream);
-  letter-spacing:.04em;
-}
-.display-title em{
-  font-style:italic;
-  color:var(--gold);
-  font-family:var(--f-body);
-  font-weight:300;
-  font-size:1.15em;
-}
+/* Particles */
+#pcv{position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.45}
 
-.rule{
-  width:48px;
-  height:1px;
-  background:linear-gradient(90deg,transparent,var(--gold),transparent);
-  margin:1.4rem auto;
-}
+/* Toast */
+.toast{position:fixed;bottom:1.5rem;left:50%;transform:translateX(-50%) translateY(120%);z-index:2000;background:var(--black3);border:1px solid var(--gold-line);padding:.8rem 2rem;font-family:var(--fu);font-size:.68rem;letter-spacing:.1em;color:var(--gold);white-space:nowrap;transition:transform .4s var(--ease)}
+.toast.on{transform:translateX(-50%) translateY(0)}
 
-/* ─── BUTTONS ─── */
-.btn-gold{
-  display:inline-flex;
-  align-items:center;
-  gap:.65rem;
-  font-family:var(--f-ui);
-  font-size:.62rem;
-  font-weight:600;
-  letter-spacing:.25em;
-  text-transform:uppercase;
-  color:var(--ink);
-  background:linear-gradient(135deg,var(--gold-hi),var(--gold),var(--gold-lo));
-  border:none;
-  padding:.85rem 2.4rem;
-  position:relative;
-  overflow:hidden;
-  transition:transform .3s var(--ease-luxury), box-shadow .3s var(--ease-luxury);
-  clip-path:polygon(10px 0%,100% 0%,calc(100% - 10px) 100%,0% 100%);
-}
-.btn-gold::after{
-  content:'';
-  position:absolute;inset:0;
-  background:rgba(255,255,255,.18);
-  transform:translateX(-110%);
-  transition:transform .5s var(--ease-luxury);
-}
-.btn-gold:hover::after{transform:translateX(0)}
-.btn-gold:hover{
-  transform:translateY(-3px);
-  box-shadow:0 12px 40px rgba(201,168,76,.35);
-}
+/* WhatsApp */
+.wa{position:fixed;bottom:24px;right:24px;width:52px;height:52px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;z-index:400;box-shadow:0 4px 18px rgba(0,0,0,.35);transition:transform .3s}
+.wa:hover{transform:scale(1.1)}
+.wa svg{width:28px;height:28px;fill:#fff}
 
-.btn-ghost{
-  display:inline-flex;
-  align-items:center;
-  gap:.65rem;
-  font-family:var(--f-ui);
-  font-size:.62rem;
-  font-weight:500;
-  letter-spacing:.25em;
-  text-transform:uppercase;
-  color:var(--cream);
-  background:transparent;
-  border:1px solid var(--gold-line);
-  padding:.85rem 2.4rem;
-  transition:all .3s var(--ease-smooth);
-}
-.btn-ghost:hover{
-  border-color:var(--gold);
-  color:var(--gold);
-  background:var(--gold-glow);
-}
-
-/* ─── PRELOADER ─── */
-#preloader{
-  position:fixed;inset:0;
-  background:var(--ink);
-  z-index:9999;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2.2rem;
-}
-.pre-logo{
-  font-family:var(--f-display);
-  font-size:2rem;
-  letter-spacing:.55em;
-  color:var(--gold);
-  animation:pre-pulse 1.6s ease-in-out infinite;
-}
-.pre-line{
-  width:180px;height:1px;
-  background:var(--ink-3);
-  position:relative;overflow:hidden;
-}
-.pre-line::after{
-  content:'';
-  position:absolute;top:0;left:-100%;
-  width:100%;height:100%;
-  background:linear-gradient(90deg,transparent,var(--gold),transparent);
-  animation:pre-sweep 1.8s var(--ease-luxury) infinite;
-}
-@keyframes pre-pulse{0%,100%{opacity:.5}50%{opacity:1}}
-@keyframes pre-sweep{to{left:100%}}
-
-/* ─── PARTICLES ─── */
-#pcv{
-  position:fixed;inset:0;
-  pointer-events:none;
-  z-index:1;
-  opacity:.5;
-}
-
-/* ═══════════════════════════════════════
+/* =============================================
    NAVBAR
-═══════════════════════════════════════ */
-#navbar{
-  position:fixed;top:0;left:0;right:0;
-  z-index:500;
-  padding:1.6rem 0;
-  transition:all .45s var(--ease-smooth);
-}
-#navbar.scrolled{
-  padding:1rem 0;
-  background:rgba(8,8,7,.93);
-  backdrop-filter:blur(24px);
-  -webkit-backdrop-filter:blur(24px);
-  border-bottom:1px solid var(--gold-line);
-}
-.nav-wrap{display:flex;align-items:center;justify-content:space-between;gap:2rem}
-.nav-logo{
-  font-family:var(--f-display);
-  font-size:1.3rem;
-  letter-spacing:.45em;
-  color:var(--gold);
-  font-weight:600;
-  flex-shrink:0;
-}
-.nav-links{
-  display:flex;align-items:center;gap:2.8rem;
-  list-style:none;
-  flex:1;justify-content:center;
-}
-.nav-links a{
-  font-family:var(--f-ui);
-  font-size:.6rem;
-  font-weight:400;
-  letter-spacing:.22em;
-  text-transform:uppercase;
-  color:var(--cream-dim);
-  position:relative;
-  transition:color .3s;
-  padding-bottom:2px;
-}
-.nav-links a::after{
-  content:'';
-  position:absolute;bottom:0;left:0;right:0;
-  height:1px;background:var(--gold);
-  transform:scaleX(0);transform-origin:left;
-  transition:transform .35s var(--ease-luxury);
-}
+============================================= */
+#nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:1.5rem 0;transition:all .4s}
+#nav.scrolled{padding:1rem 0;background:rgba(8,8,7,.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--gold-line)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between}
+.nav-logo img{height:40px;width:auto}
+.nav-logo span{font-family:var(--fd);font-size:1.25rem;letter-spacing:.4em;color:var(--gold);font-weight:600}
+.nav-links{display:flex;align-items:center;gap:2.5rem;list-style:none}
+.nav-links a{font-family:var(--fu);font-size:.58rem;font-weight:400;letter-spacing:.22em;text-transform:uppercase;color:var(--cream-dim);transition:color .3s;position:relative;padding-bottom:2px}
+.nav-links a::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease)}
 .nav-links a:hover{color:var(--gold)}
 .nav-links a:hover::after{transform:scaleX(1)}
-.nav-actions{display:flex;align-items:center;gap:1.4rem;flex-shrink:0}
-.nav-btn{
-  background:none;border:none;
-  color:var(--cream-dim);
-  transition:color .3s;
-  display:flex;align-items:center;justify-content:center;
-  width:28px;height:28px;
-  position:relative;
-}
-.nav-btn:hover{color:var(--gold)}
-.n-badge{
-  position:absolute;top:-7px;right:-7px;
-  background:var(--gold);color:var(--ink);
-  width:15px;height:15px;border-radius:50%;
-  font-size:.5rem;font-family:var(--f-ui);font-weight:700;
-  display:flex;align-items:center;justify-content:center;
-}
-.nav-ham{
-  display:none;
-  flex-direction:column;gap:5px;
-  background:none;border:none;
-  padding:4px;
-}
-.nav-ham span{
-  display:block;width:22px;height:1px;
-  background:var(--gold);
-  transition:all .35s var(--ease-luxury);
-}
+.nav-acts{display:flex;align-items:center;gap:1.2rem}
+.ni{background:none;border:none;color:var(--cream-dim);transition:color .3s;width:26px;height:26px;display:flex;align-items:center;justify-content:center;position:relative}
+.ni:hover{color:var(--gold)}
+.ni svg{width:19px;height:19px;stroke:currentColor;stroke-width:1.5;fill:none}
+.cart-badge{position:absolute;top:-7px;right:-7px;background:var(--gold);color:var(--black);width:14px;height:14px;border-radius:50%;font-size:.48rem;font-family:var(--fu);font-weight:700;display:flex;align-items:center;justify-content:center}
+.ham{display:none;flex-direction:column;gap:5px;background:none;border:none;padding:4px}
+.ham span{display:block;width:22px;height:1px;background:var(--gold);transition:all .35s var(--ease)}
 
-/* mobile overlay */
-.mob-menu{
-  position:fixed;inset:0;
-  background:rgba(8,8,7,.98);
-  backdrop-filter:blur(30px);
-  z-index:499;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2.8rem;
-  transform:translateX(100%);
-  transition:transform .6s var(--ease-luxury);
-}
-.mob-menu.open{transform:translateX(0)}
-.mob-menu a{
-  font-family:var(--f-display);
-  font-size:1.8rem;letter-spacing:.15em;
-  color:var(--cream);transition:color .3s;
-}
-.mob-menu a:hover{color:var(--gold)}
+/* Mobile menu */
+.mob{position:fixed;inset:0;background:rgba(8,8,7,.98);backdrop-filter:blur(24px);z-index:499;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2.5rem;transform:translateX(100%);transition:transform .6s var(--ease)}
+.mob.open{transform:translateX(0)}
+.mob a{font-family:var(--fd);font-size:1.6rem;letter-spacing:.15em;color:var(--cream);transition:color .3s}
+.mob a:hover{color:var(--gold)}
+.mob-social{display:flex;gap:1.5rem;margin-top:1rem}
+.mob-social a{font-family:var(--fu);font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);border:1px solid var(--gold-line);padding:.5rem 1rem;transition:all .3s}
+.mob-social a:hover{background:var(--gold-glow)}
 
-/* WhatsApp Floating Button - ADDED */
-.wa-float {
-  position: fixed;
-  bottom: 25px;
-  right: 25px;
-  width: 55px;
-  height: 55px;
-  background: #25D366;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-  transition: transform 0.3s;
-  cursor: pointer;
-}
-.wa-float:hover { transform: scale(1.08); }
-.wa-float svg { width: 30px; height: 30px; fill: white; }
-
-/* ═══════════════════════════════════════
+/* =============================================
    HERO
-═══════════════════════════════════════ */
-#hero{
-  position:relative;
-  min-height:100vh;
-  display:flex;align-items:center;
-  overflow:hidden;
-}
-.hero-bg{
-  position:absolute;inset:0;
-  background:
-    radial-gradient(ellipse 90% 60% at 70% 50%, rgba(201,168,76,.07) 0%,transparent 55%),
-    radial-gradient(ellipse 50% 50% at 25% 65%, rgba(201,168,76,.04) 0%,transparent 50%),
-    linear-gradient(165deg, #0d0c08 0%, #080807 55%, #0e0c07 100%);
-}
+============================================= */
+#hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 85% 55% at 68% 50%,rgba(201,168,76,.07),transparent 55%),linear-gradient(165deg,#0d0c08,#080807 55%,#0e0c07)}
+.smoke-wrap{position:absolute;right:6%;top:50%;transform:translateY(-50%);width:min(42vw,580px);aspect-ratio:1;pointer-events:none}
+.s-ring{position:absolute;inset:0;border-radius:50%;border:1px solid rgba(201,168,76,.07);animation:sExp 8s linear infinite}
+.s-ring:nth-child(2){animation-delay:-2.7s;border-color:rgba(201,168,76,.04)}.s-ring:nth-child(3){animation-delay:-5.4s;border-color:rgba(201,168,76,.02)}
+@keyframes sExp{0%{transform:scale(.25);opacity:.9}100%{transform:scale(1.7);opacity:0}}
+.hero-img{position:absolute;right:9%;top:50%;transform:translateY(-50%);width:min(30vw,400px);z-index:2;animation:hFloat 7s ease-in-out infinite;filter:drop-shadow(0 0 70px rgba(201,168,76,.2)) drop-shadow(0 25px 50px rgba(0,0,0,.7))}
+.hero-img img{width:100%;object-fit:contain}
+@keyframes hFloat{0%,100%{transform:translateY(-50%) rotate(-.8deg)}50%{transform:translateY(calc(-50% - 16px)) rotate(.5deg)}}
+.hero-copy{position:relative;z-index:3;max-width:580px;padding-top:5rem}
+.h-ey{font-family:var(--fu);font-size:.56rem;font-weight:400;letter-spacing:.52em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:1rem;margin-bottom:1.8rem;opacity:0;animation:fUp .9s var(--ease) .4s forwards}
+.h-ey::before{content:'';width:38px;height:1px;background:var(--gold)}
+.h-h1{font-family:var(--fd);font-size:clamp(2.8rem,6vw,5.5rem);font-weight:400;line-height:1.05;color:var(--cream);letter-spacing:.04em;margin-bottom:1.5rem;opacity:0;animation:fUp 1s var(--ease) .55s forwards}
+.h-h1 .il{display:block;font-family:var(--fb);font-style:italic;color:var(--gold);font-size:1.1em;font-weight:300;letter-spacing:.02em}
+.h-sub{font-family:var(--fb);font-size:1.1rem;font-weight:300;color:var(--cream-dim);letter-spacing:.04em;line-height:1.8;max-width:420px;margin-bottom:2.5rem;opacity:0;animation:fUp 1s var(--ease) .7s forwards}
+.h-cta{display:flex;align-items:center;gap:1.2rem;flex-wrap:wrap;opacity:0;animation:fUp 1s var(--ease) .85s forwards}
+.h-scroll{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.5rem;cursor:pointer;z-index:3;opacity:0;animation:fUp .8s var(--ease) 1.3s forwards}
+.h-scroll-t{font-family:var(--fu);font-size:.5rem;letter-spacing:.35em;text-transform:uppercase;color:var(--cream-dim)}
+.h-scroll-l{width:1px;height:48px;background:linear-gradient(to bottom,var(--gold),transparent);animation:sPulse 1.6s ease-in-out infinite}
+@keyframes fUp{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:translateY(0)}}
+@keyframes sPulse{0%,100%{opacity:1}50%{opacity:.3}}
 
-/* Gold smoke rings */
-.hero-smoke{
-  position:absolute;
-  right:5%;top:50%;transform:translateY(-50%);
-  width:min(44vw,600px);
-  aspect-ratio:1;
-  pointer-events:none;
-}
-.smoke-ring{
-  position:absolute;inset:0;
-  border-radius:50%;
-  border:1px solid rgba(201,168,76,.08);
-  animation:smokeExpand 8s linear infinite;
-}
-.smoke-ring:nth-child(2){animation-delay:-2.7s;border-color:rgba(201,168,76,.05)}
-.smoke-ring:nth-child(3){animation-delay:-5.3s;border-color:rgba(201,168,76,.03)}
-@keyframes smokeExpand{
-  0%{transform:scale(.3);opacity:.8}
-  100%{transform:scale(1.6);opacity:0}
-}
+/* Marquee */
+.mq{background:linear-gradient(90deg,var(--gold-lo),var(--gold),var(--gold-lo));padding:.7rem 0;overflow:hidden}
+.mq-inner{display:flex;white-space:nowrap;animation:mqScroll 22s linear infinite}
+.mq-inner:hover{animation-play-state:paused}
+.mq-item{font-family:var(--fu);font-size:.56rem;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--black);padding:0 2.2rem}
+.mq-item::before{content:'';display:inline-block;width:4px;height:4px;background:var(--black);border-radius:50%;margin-right:2.2rem;vertical-align:middle}
+@keyframes mqScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
-/* Hero perfume image - UPDATED with consistent image */
-.hero-perfume{
-  position:absolute;
-  right:10%;top:50%;
-  transform:translateY(-50%);
-  width:min(32vw,420px);
-  z-index:2;
-  animation:heroFloat 7s ease-in-out infinite;
-  filter:drop-shadow(0 0 80px rgba(201,168,76,.22)) drop-shadow(0 30px 60px rgba(0,0,0,.6));
-}
-.hero-perfume img{
-  width:100%;
-  object-fit:contain;
-  border-radius:var(--radius-sm);
-}
-@keyframes heroFloat{
-  0%,100%{transform:translateY(-50%) rotate(-.8deg)}
-  50%{transform:translateY(calc(-50% - 18px)) rotate(.5deg)}
-}
+/* Press */
+#press{padding:4.5rem 0;border-bottom:1px solid var(--gold-line)}
+.press-lbl{text-align:center;font-family:var(--fu);font-size:.56rem;font-weight:400;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);margin-bottom:2.5rem}
+.press-row{display:flex;align-items:center;justify-content:center;gap:3.5rem;flex-wrap:wrap}
+.press-nm{font-family:var(--fd);font-size:.85rem;letter-spacing:.3em;color:rgba(242,235,217,.18);text-transform:uppercase;transition:color .3s;white-space:nowrap}
+.press-nm:hover{color:var(--gold)}
 
-/* Reflection */
-.hero-reflection{
-  position:absolute;
-  right:10%;
-  top:calc(50% + 200px);
-  width:min(32vw,420px);
-  height:80px;
-  background:linear-gradient(to bottom,rgba(201,168,76,.06),transparent);
-  filter:blur(8px);
-  transform:scaleY(-1);
-  opacity:.4;
-}
+/* =============================================
+   REVEAL ANIMATIONS
+============================================= */
+[data-r]{opacity:0;transition:opacity .9s var(--ease),transform .9s var(--ease)}
+[data-r]{transform:translateY(28px)}
+[data-r="l"]{transform:translateX(-28px)}
+[data-r="r"]{transform:translateX(28px)}
+[data-r].vis{opacity:1;transform:none}
 
-.hero-content{
-  position:relative;z-index:3;
-  max-width:600px;
-  padding-top:5rem;
-}
-.hero-eyebrow{
-  font-family:var(--f-ui);
-  font-size:.58rem;font-weight:400;
-  letter-spacing:.55em;text-transform:uppercase;
-  color:var(--gold);
-  display:flex;align-items:center;gap:1rem;
-  margin-bottom:2rem;
-  opacity:0;animation:fadeUp .9s var(--ease-luxury) .4s forwards;
-}
-.hero-eyebrow::before{content:'';width:40px;height:1px;background:var(--gold)}
-.hero-h1{
-  font-family:var(--f-display);
-  font-size:clamp(3rem,6.5vw,5.8rem);
-  font-weight:400;
-  line-height:1.05;
-  color:var(--cream);
-  letter-spacing:.04em;
-  margin-bottom:1.8rem;
-  opacity:0;animation:fadeUp 1s var(--ease-luxury) .55s forwards;
-}
-.hero-h1 .italic-line{
-  display:block;
-  font-family:var(--f-body);
-  font-style:italic;
-  color:var(--gold);
-  font-size:1.12em;
-  font-weight:300;
-  letter-spacing:.02em;
-}
-.hero-sub{
-  font-family:var(--f-body);
-  font-size:1.15rem;font-weight:300;
-  color:var(--cream-dim);
-  letter-spacing:.04em;
-  line-height:1.8;
-  max-width:440px;
-  margin-bottom:3rem;
-  opacity:0;animation:fadeUp 1s var(--ease-luxury) .7s forwards;
-}
-.hero-cta{
-  display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;
-  opacity:0;animation:fadeUp 1s var(--ease-luxury) .85s forwards;
-}
+/* =============================================
+   PRODUCTS
+============================================= */
+#collection{padding:8rem 0}
+.prod-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+.pc{background:var(--black2);border:1px solid var(--gold-line);position:relative;overflow:hidden;cursor:pointer;transition:border-color .4s,transform .4s var(--ease),box-shadow .4s}
+.pc:hover{border-color:rgba(201,168,76,.5);transform:translateY(-10px);box-shadow:0 24px 70px rgba(201,168,76,.12)}
+.pc-badge{position:absolute;top:1rem;left:1rem;z-index:2;font-family:var(--fu);font-size:.48rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;padding:.28rem .75rem}
+.bn{background:var(--gold);color:var(--black)}
+.bl{background:transparent;border:1px solid var(--gold);color:var(--gold)}
+.bb{background:var(--black3);border:1px solid rgba(201,168,76,.3);color:var(--gold)}
+.pc-img{aspect-ratio:3/4;overflow:hidden;position:relative;background:linear-gradient(145deg,#100f0a,#1a1810)}
+.pc-img img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+.pc:hover .pc-img img{transform:scale(1.07)}
+.pc-wish{position:absolute;top:1rem;right:1rem;z-index:2;width:34px;height:34px;border-radius:50%;background:rgba(8,8,7,.75);border:1px solid var(--gold-line);display:flex;align-items:center;justify-content:center;color:var(--cream-dim);transition:all .3s}
+.pc-wish:hover,.pc-wish.on{background:var(--gold-glow);color:var(--gold);border-color:var(--gold)}
+.pc-wish svg{width:14px;height:14px;stroke:currentColor;stroke-width:1.8;fill:none}
+.pc-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,8,7,.9) 0%,transparent 50%);display:flex;align-items:flex-end;justify-content:center;padding-bottom:1.1rem;opacity:0;transition:opacity .35s}
+.pc:hover .pc-ov{opacity:1}
+.pc-quick{font-family:var(--fu);font-size:.58rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--black);background:var(--gold);padding:.58rem 1.5rem;transition:background .3s}
+.pc-quick:hover{background:var(--gold-hi)}
+.pc-info{padding:1.5rem 1.4rem}
+.pc-name{font-family:var(--fd);font-size:.95rem;font-weight:400;color:var(--cream);margin-bottom:.2rem;letter-spacing:.05em}
+.pc-notes{font-family:var(--fu);font-size:.58rem;letter-spacing:.1em;color:var(--gold);margin-bottom:.8rem;text-transform:uppercase}
+.pc-meta{display:flex;align-items:center;justify-content:space-between;margin-bottom:.8rem}
+.pc-price{font-family:var(--fd);font-size:1.2rem;color:var(--gold)}
+.pc-size{font-family:var(--fu);font-size:.58rem;letter-spacing:.15em;color:var(--cream-dim)}
+.stars{display:flex;gap:2px;margin-bottom:.9rem}
+.star{width:11px;height:11px;fill:var(--gold)}
+.star.e{fill:rgba(201,168,76,.18)}
+.pc-add{width:100%;font-family:var(--fu);font-size:.58rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);background:transparent;border:1px solid var(--gold-line);padding:.72rem;transition:all .3s}
+.pc-add:hover{background:var(--gold);color:var(--black);border-color:var(--gold)}
 
-.hero-scroll{
-  position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);
-  display:flex;flex-direction:column;align-items:center;gap:.6rem;
-  opacity:0;animation:fadeUp .8s var(--ease-luxury) 1.3s forwards;
-  cursor:pointer;z-index:3;
-}
-.scroll-text{
-  font-family:var(--f-ui);font-size:.52rem;
-  letter-spacing:.38em;text-transform:uppercase;color:var(--cream-dim);
-}
-.scroll-bar{
-  width:1px;height:52px;
-  background:linear-gradient(to bottom,var(--gold),transparent);
-  animation:scrollBar 1.6s ease-in-out infinite;
-}
-@keyframes scrollBar{0%,100%{opacity:1;transform:scaleY(1)}50%{opacity:.3;transform:scaleY(.5)}}
+/* Trust Bar */
+.trust{background:var(--black3);border-top:1px solid var(--gold-line);border-bottom:1px solid var(--gold-line);padding:2.2rem 0}
+.trust-g{display:grid;grid-template-columns:repeat(6,1fr);gap:.8rem;text-align:center;align-items:start}
+.ti{display:flex;flex-direction:column;align-items:center;gap:.55rem}
+.ti svg{width:26px;height:26px;stroke:var(--gold);stroke-width:1.5;fill:none}
+.ti-l{font-family:var(--fu);font-size:.52rem;letter-spacing:.18em;text-transform:uppercase;color:var(--cream-dim);line-height:1.5}
 
-@keyframes fadeUp{
-  from{opacity:0;transform:translateY(28px)}
-  to{opacity:1;transform:translateY(0)}
-}
+/* Banner */
+.bnr{position:relative;min-height:540px;display:flex;align-items:center;overflow:hidden}
+.bnr img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.32) saturate(.7);transition:transform 8s linear}
+.bnr:hover img{transform:scale(1.04)}
+.bnr-ov{position:absolute;inset:0;background:linear-gradient(to right,rgba(8,8,7,.88) 40%,transparent),linear-gradient(to top,rgba(8,8,7,.5),transparent 50%)}
+.bnr-c{position:relative;z-index:2;max-width:560px}
+.bnr-c p{font-family:var(--fb);font-size:1.05rem;font-weight:300;color:var(--cream-dim);line-height:1.85;margin:1.1rem 0 2.3rem}
 
+/* Best Sellers */
+#bs{padding:8rem 0;background:var(--black2)}
+.bs-track{overflow:hidden}
+.bs-row{display:flex;gap:1.5rem;animation:mqScroll 26s linear infinite;width:max-content}
+.bs-row:hover{animation-play-state:paused}
+.bs-item{min-width:190px;background:var(--black3);border:1px solid var(--gold-line);padding:1.2rem;text-align:center;cursor:pointer;transition:border-color .3s,transform .3s}
+.bs-item:hover{border-color:rgba(201,168,76,.4);transform:translateY(-5px)}
+.bs-item img{width:100%;height:145px;object-fit:cover;margin-bottom:.9rem}
+.bs-name{font-family:var(--fd);font-size:.85rem;color:var(--cream);margin-bottom:.3rem;letter-spacing:.05em}
+.bs-price{font-family:var(--fd);font-size:1rem;color:var(--gold)}
 
+/* Categories */
+#cats{padding:8rem 0}
+.cats-g{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:4rem}
+.cat{position:relative;aspect-ratio:3/4;overflow:hidden;border:1px solid var(--gold-line);cursor:pointer;transition:border-color .4s,transform .4s var(--ease)}
+.cat:hover{border-color:rgba(201,168,76,.5);transform:translateY(-6px)}
+.cat img{width:100%;height:100%;object-fit:cover;filter:brightness(.4) saturate(.6);transition:transform .7s var(--ease),filter .4s}
+.cat:hover img{transform:scale(1.08);filter:brightness(.55) saturate(.9)}
+.cat-inf{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:1.5rem;background:linear-gradient(to top,rgba(8,8,7,.92) 40%,transparent)}
+.cat-nm{font-family:var(--fd);font-size:1rem;letter-spacing:.08em;color:var(--cream);margin-bottom:.2rem}
+.cat-ct{font-family:var(--fu);font-size:.5rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold)}
 
-/* ─── MARQUEE ─── */
-.marquee{
-  background:linear-gradient(90deg,var(--gold-lo),var(--gold),var(--gold-lo));
-  padding:.75rem 0;overflow:hidden;
-}
-.marquee-inner{
-  display:flex;white-space:nowrap;
-  animation:marquee 22s linear infinite;
-}
-.marquee-inner:hover{animation-play-state:paused}
-.m-item{
-  font-family:var(--f-ui);
-  font-size:.58rem;font-weight:600;
-  letter-spacing:.3em;text-transform:uppercase;
-  color:var(--ink);padding:0 2.5rem;
-}
-.m-item::before{
-  content:'';
-  display:inline-block;
-  width:4px;height:4px;
-  background:var(--ink);
-  border-radius:50%;
-  margin-right:2.5rem;
-  vertical-align:middle;
-}
-@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+/* Stats */
+.stats{padding:5rem 0;border-top:1px solid var(--gold-line);border-bottom:1px solid var(--gold-line);background:var(--black2)}
+.stats-g{display:grid;grid-template-columns:repeat(4,1fr);text-align:center;gap:2rem}
+.st-num{font-family:var(--fd);font-size:clamp(2.2rem,4vw,3.5rem);color:var(--gold);display:block;line-height:1.1}
+.st-lbl{font-family:var(--fu);font-size:.56rem;letter-spacing:.26em;text-transform:uppercase;color:var(--cream-dim);margin-top:.45rem}
 
-/* ═══════════════════════════════════════
-   PRESS / FEATURED IN
-═══════════════════════════════════════ */
-#press{padding:5rem 0;border-bottom:1px solid var(--gold-line)}
-.press-label{
-  text-align:center;
-  font-family:var(--f-ui);font-size:.58rem;font-weight:400;
-  letter-spacing:.4em;text-transform:uppercase;
-  color:var(--gold);margin-bottom:2.5rem;
-}
-.press-logos{
-  display:flex;align-items:center;justify-content:center;
-  gap:4rem;flex-wrap:wrap;
-}
-.press-logo{
-  font-family:var(--f-display);
-  font-size:.9rem;letter-spacing:.35em;
-  color:rgba(242,235,217,.2);
-  text-transform:uppercase;
-  transition:color .3s;
-  white-space:nowrap;
-}
-.press-logo:hover{color:var(--gold)}
+/* Why */
+#why{padding:8rem 0}
+.why-g{display:grid;grid-template-columns:repeat(3,1fr);gap:2.5rem;margin-top:4.5rem}
+.w-item{text-align:center;padding:2.2rem 1.8rem;border:1px solid transparent;transition:border-color .4s,background .4s}
+.w-item:hover{border-color:var(--gold-line);background:var(--cream-ghost)}
+.w-icon{width:60px;height:60px;border:1px solid var(--gold-line);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1.6rem;color:var(--gold);transition:all .35s}
+.w-icon svg{width:24px;height:24px;stroke:currentColor;stroke-width:1.5;fill:none}
+.w-item:hover .w-icon{background:var(--gold-glow);border-color:var(--gold);box-shadow:0 0 18px var(--gold-glow)}
+.w-title{font-family:var(--fd);font-size:1.05rem;color:var(--cream);margin-bottom:.6rem;letter-spacing:.05em}
+.w-desc{font-family:var(--fu);font-size:.76rem;color:var(--cream-dim);line-height:1.75;letter-spacing:.02em}
 
-/* ═══════════════════════════════════════
-   SECTION BASE
-═══════════════════════════════════════ */
-.section-head{text-align:center;margin-bottom:5rem}
-.section-head p{
-  font-size:1.05rem;font-weight:300;
-  color:var(--cream-dim);
-  max-width:500px;margin:.9rem auto 0;
-  letter-spacing:.03em;line-height:1.85;
-}
+/* Notes */
+#notes{padding:8rem 0;background:var(--black2)}
+.notes-g{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center}
+.notes-img{position:relative;aspect-ratio:4/5;border:1px solid var(--gold-line)}
+.notes-img img{width:100%;height:100%;object-fit:cover;filter:brightness(.8) saturate(.9)}
+.notes-img::before{content:'';position:absolute;inset:-12px 12px 12px -12px;border:1px solid var(--gold-line);z-index:-1}
+.tier{position:relative;padding:1.6rem 1.8rem;border:1px solid var(--gold-line);background:var(--cream-ghost);transition:border-color .3s,background .3s;margin-bottom:1.5rem}
+.tier:last-child{margin-bottom:0}
+.tier:hover{border-color:rgba(201,168,76,.38);background:rgba(201,168,76,.04)}
+.tier-lbl{font-family:var(--fu);font-size:.52rem;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem;display:flex;align-items:center;gap:.7rem}
+.tier-lbl::before{content:'';flex:1;height:1px;background:var(--gold-line)}
+.tier-notes{font-family:var(--fb);font-size:1.2rem;font-weight:300;color:var(--cream);font-style:italic;letter-spacing:.04em}
 
-/* ─── REVEAL ─── */
-[data-reveal]{
-  opacity:0;
-  transform:translateY(32px);
-  transition:opacity .9s var(--ease-luxury),transform .9s var(--ease-luxury);
-}
-[data-reveal].in{opacity:1;transform:translateY(0)}
-[data-reveal="left"]{transform:translateX(-32px)}
-[data-reveal="left"].in{transform:translateX(0)}
-[data-reveal="right"]{transform:translateX(32px)}
-[data-reveal="right"].in{transform:translateX(0)}
+/* Products Details (actual 3 products) */
+#products{padding:8rem 0;background:var(--black3)}
+.prod3-g{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:1rem}
+.p3{background:var(--black2);border:1px solid var(--gold-line);overflow:hidden;transition:border-color .4s,transform .4s var(--ease),box-shadow .4s;cursor:pointer}
+.p3:hover{border-color:rgba(201,168,76,.5);transform:translateY(-8px);box-shadow:0 20px 60px rgba(201,168,76,.12)}
+.p3-img{aspect-ratio:3/4;overflow:hidden;background:linear-gradient(145deg,#100f0a,#1a1810)}
+.p3-img img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+.p3:hover .p3-img img{transform:scale(1.06)}
+.p3-info{padding:1.8rem}
+.p3-name{font-family:var(--fd);font-size:1.3rem;color:var(--cream);margin-bottom:.3rem;letter-spacing:.06em}
+.p3-short{font-family:var(--fu);font-size:.72rem;color:var(--cream-dim);line-height:1.7;margin-bottom:1rem;letter-spacing:.02em}
+.p3-notes{font-family:var(--fu);font-size:.58rem;letter-spacing:.1em;color:var(--gold);text-transform:uppercase;margin-bottom:1rem}
+.p3-price{font-family:var(--fd);font-size:1.5rem;color:var(--gold);margin-bottom:1.2rem}
+.p3-add{width:100%;font-family:var(--fu);font-size:.6rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--black);background:linear-gradient(135deg,var(--gold-hi),var(--gold));padding:.8rem;transition:opacity .3s}
+.p3-add:hover{opacity:.88}
+.p3-love-bar{display:flex;gap:.8rem;margin-top:.8rem}
+.p3-love{flex:1;font-family:var(--fu);font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);background:transparent;border:1px solid var(--gold-line);padding:.7rem;transition:all .3s;text-align:center}
+.p3-love:hover{background:var(--gold-glow)}
 
-/* ═══════════════════════════════════════
-   COLLECTION / PRODUCTS
-═══════════════════════════════════════ */
-#collection{padding:9rem 0}
+/* Testimonials */
+#testi{padding:8rem 0}
+.testi-slider{position:relative;overflow:hidden;margin-top:4rem}
+.testi-track{display:flex;transition:transform .7s var(--ease)}
+.tc{min-width:calc(50% - 1rem);margin:0 .5rem;padding:2.5rem;border:1px solid var(--gold-line);background:rgba(255,255,255,.02);backdrop-filter:blur(10px);position:relative}
+.tc::before{content:'"';font-family:var(--fd);font-size:5.5rem;line-height:1;color:var(--gold);opacity:.12;position:absolute;top:.2rem;left:1.3rem}
+.tc-text{font-family:var(--fb);font-size:1.02rem;font-weight:300;font-style:italic;color:var(--cream);line-height:1.9;margin-bottom:1.8rem}
+.tc-auth{display:flex;align-items:center;gap:1rem}
+.tc-av{width:46px;height:46px;border-radius:50%;background:var(--black3);border:1px solid var(--gold-line);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.tc-av svg{width:22px;height:22px;stroke:var(--gold);stroke-width:1.5;fill:none;opacity:.5}
+.tc-name{font-family:var(--fd);font-size:.92rem;color:var(--cream);letter-spacing:.05em}
+.tc-loc{font-family:var(--fu);font-size:.56rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-top:.15rem}
+.tc-stars{margin-left:auto;display:flex;gap:3px}
+.s-nav{display:flex;align-items:center;justify-content:center;gap:1rem;margin-top:2.5rem}
+.s-btn{width:42px;height:42px;border:1px solid var(--gold-line);background:transparent;color:var(--gold);display:flex;align-items:center;justify-content:center;transition:all .3s}
+.s-btn:hover{background:var(--gold);color:var(--black)}
+.s-btn svg{width:17px;height:17px;stroke:currentColor;stroke-width:2;fill:none}
+.s-dots{display:flex;gap:7px}
+.s-dot{width:5px;height:5px;border-radius:50%;background:rgba(201,168,76,.3);cursor:pointer;transition:all .3s}
+.s-dot.on{background:var(--gold);width:20px;border-radius:3px}
 
-.products-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:1.8rem;
-}
+/* About */
+#about{padding:8rem 0}
+.about-g{display:grid;grid-template-columns:1fr 1fr;gap:7rem;align-items:center}
+.about-vis{position:relative;aspect-ratio:4/5}
+.about-vis img{width:100%;height:100%;object-fit:cover;filter:brightness(.85) saturate(.9)}
+.about-vis::after{content:'';position:absolute;inset:-12px 12px 12px -12px;border:1px solid var(--gold-line);z-index:-1;pointer-events:none}
+.about-badge{position:absolute;bottom:-1.5rem;right:-1.5rem;width:90px;height:90px;border-radius:50%;background:var(--gold);display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ab-y{font-family:var(--fd);font-size:1.4rem;font-weight:600;color:var(--black);line-height:1}
+.ab-l{font-family:var(--fu);font-size:.4rem;letter-spacing:.18em;color:var(--black);text-transform:uppercase;margin-top:.2rem}
+.ab-body{font-family:var(--fu);font-size:.82rem;color:var(--cream-dim);line-height:1.9;margin-bottom:.9rem;letter-spacing:.02em}
+.ab-sig{font-family:var(--fb);font-size:1.8rem;font-style:italic;color:var(--gold);margin:1.8rem 0 .3rem;font-weight:300}
+.ab-role{font-family:var(--fu);font-size:.55rem;letter-spacing:.28em;text-transform:uppercase;color:var(--cream-dim)}
 
-.p-card{
-  background:var(--ink-2);
-  border:1px solid var(--gold-line);
-  position:relative;overflow:hidden;
-  cursor:pointer;
-  transition:border-color .4s,transform .4s var(--ease-luxury),box-shadow .4s;
-}
-.p-card:hover{
-  border-color:rgba(201,168,76,.45);
-  transform:translateY(-10px);
-  box-shadow:0 24px 70px rgba(201,168,76,.12);
-}
+/* Mission */
+#mission{padding:8rem 0;background:var(--black2)}
+.mission-g{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;margin-top:4rem}
+.mission-list{list-style:none;display:flex;flex-direction:column;gap:1.2rem}
+.mission-list li{display:flex;align-items:flex-start;gap:1rem;font-family:var(--fu);font-size:.8rem;color:var(--cream-dim);line-height:1.75;letter-spacing:.02em}
+.mission-list li::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0;margin-top:.6rem}
+.mission-img{position:relative;aspect-ratio:4/5;border:1px solid var(--gold-line)}
+.mission-img img{width:100%;height:100%;object-fit:cover;filter:brightness(.75) saturate(.8)}
 
-.p-badge{
-  position:absolute;top:1rem;left:1rem;z-index:2;
-  font-family:var(--f-ui);font-size:.5rem;font-weight:600;
-  letter-spacing:.18em;text-transform:uppercase;
-  padding:.28rem .8rem;
-}
-.badge-new{background:var(--gold);color:var(--ink)}
-.badge-ltd{background:transparent;border:1px solid var(--gold);color:var(--gold)}
-.badge-bs{background:var(--ink-3);border:1px solid rgba(201,168,76,.3);color:var(--gold)}
+/* FAQ */
+#faq{padding:8rem 0}
+.faq-list{max-width:780px;margin:3.5rem auto 0;display:flex;flex-direction:column;gap:1rem}
+.faq-item{border:1px solid var(--gold-line);transition:border-color .3s}
+.faq-item.open{border-color:rgba(201,168,76,.4)}
+.faq-q{font-family:var(--fd);font-size:1.05rem;color:var(--cream);padding:1.4rem 1.5rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;letter-spacing:.04em;transition:color .3s}
+.faq-q:hover{color:var(--gold)}
+.faq-ico{width:20px;height:20px;stroke:var(--gold);stroke-width:1.8;fill:none;flex-shrink:0;transition:transform .35s var(--ease)}
+.faq-item.open .faq-ico{transform:rotate(45deg)}
+.faq-a{font-family:var(--fu);font-size:.8rem;color:var(--cream-dim);line-height:1.8;letter-spacing:.02em;max-height:0;overflow:hidden;transition:max-height .4s var(--ease),padding .3s;padding:0 1.5rem}
+.faq-item.open .faq-a{max-height:200px;padding:0 1.5rem 1.4rem}
 
-.p-img{
-  aspect-ratio:3/4;
-  overflow:hidden;
-  position:relative;
-  background:linear-gradient(145deg,#100f0a,#1a1810);
-}
-.p-img img{
-  width:100%;height:100%;
-  object-fit:cover;
-  transition:transform .8s var(--ease-luxury);
-  will-change:transform;
-}
-.p-card:hover .p-img img{transform:scale(1.07)}
+/* Why Love */
+#love{padding:8rem 0;background:var(--black3)}
+.love-g{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:4rem}
+.lv{padding:2rem;border:1px solid var(--gold-line);background:var(--cream-ghost);display:flex;align-items:flex-start;gap:1rem;transition:border-color .3s,background .3s}
+.lv:hover{border-color:rgba(201,168,76,.4);background:rgba(201,168,76,.05)}
+.lv-icon{width:40px;height:40px;flex-shrink:0;border:1px solid var(--gold-line);border-radius:50%;display:flex;align-items:center;justify-content:center}
+.lv-icon svg{width:18px;height:18px;stroke:var(--gold);stroke-width:1.5;fill:none}
+.lv-t{font-family:var(--fd);font-size:.88rem;color:var(--cream);letter-spacing:.04em;margin-bottom:.35rem}
+.lv-d{font-family:var(--fu);font-size:.72rem;color:var(--cream-dim);line-height:1.7;letter-spacing:.02em}
 
-.p-wish{
-  position:absolute;top:1rem;right:1rem;z-index:2;
-  width:36px;height:36px;border-radius:50%;
-  background:rgba(8,8,7,.75);
-  border:1px solid var(--gold-line);
-  display:flex;align-items:center;justify-content:center;
-  color:var(--cream-dim);
-  transition:all .3s;
-}
-.p-wish:hover{background:var(--gold-glow);color:var(--gold);border-color:var(--gold)}
-.p-wish.active{color:var(--gold)}
+/* Packaging */
+#pkg{padding:8rem 0;background:var(--black2)}
+.pkg-g{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:3.5rem}
+.pk{position:relative;overflow:hidden;aspect-ratio:3/4;border:1px solid var(--gold-line);transition:border-color .4s}
+.pk:hover{border-color:rgba(201,168,76,.45)}
+.pk img{width:100%;height:100%;object-fit:cover;filter:brightness(.65) saturate(.7);transition:transform .7s var(--ease),filter .4s}
+.pk:hover img{transform:scale(1.06);filter:brightness(.8) saturate(1)}
+.pk-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,8,7,.88) 30%,transparent);display:flex;flex-direction:column;justify-content:flex-end;padding:1.8rem}
+.pk-t{font-family:var(--fd);font-size:1.1rem;color:var(--cream);margin-bottom:.35rem;letter-spacing:.05em}
+.pk-s{font-family:var(--fu);font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
 
-.p-overlay{
-  position:absolute;inset:0;
-  background:linear-gradient(to top, rgba(8,8,7,.9) 0%, transparent 50%);
-  display:flex;align-items:flex-end;justify-content:center;
-  padding-bottom:1.2rem;
-  opacity:0;transition:opacity .35s;
-}
-.p-card:hover .p-overlay{opacity:1}
-.p-quick{
-  font-family:var(--f-ui);font-size:.6rem;font-weight:500;
-  letter-spacing:.2em;text-transform:uppercase;
-  color:var(--ink);background:var(--gold);
-  border:none;padding:.6rem 1.6rem;
-  transition:background .3s;
-}
-.p-quick:hover{background:var(--gold-hi)}
-
-.p-info{padding:1.5rem 1.4rem}
-.p-name{
-  font-family:var(--f-display);
-  font-size:1rem;font-weight:400;
-  color:var(--cream);margin-bottom:.2rem;letter-spacing:.05em;
-}
-.p-notes{
-  font-family:var(--f-ui);font-size:.6rem;
-  letter-spacing:.1em;color:var(--gold);
-  margin-bottom:.8rem;
-  text-transform:uppercase;
-}
-.p-meta{
-  display:flex;align-items:center;justify-content:space-between;
-  margin-bottom:1.1rem;
-}
-.p-price{
-  font-family:var(--f-display);
-  font-size:1.25rem;color:var(--gold);
-}
-.p-size{
-  font-family:var(--f-ui);font-size:.6rem;
-  letter-spacing:.15em;color:var(--cream-dim);
-}
-.p-stars{display:flex;gap:2px}
-.star-svg{width:11px;height:11px;fill:var(--gold)}
-.star-svg.empty{fill:rgba(201,168,76,.2)}
-
-.p-add{
-  width:100%;
-  font-family:var(--f-ui);font-size:.6rem;font-weight:500;
-  letter-spacing:.22em;text-transform:uppercase;
-  color:var(--gold);
-  background:transparent;
-  border:1px solid var(--gold-line);
-  padding:.75rem;
-  transition:all .3s;
-}
-.p-add:hover{background:var(--gold);color:var(--ink);border-color:var(--gold)}
-
-/* ─── VIEW MORE ─── */
-.view-more{
-  text-align:center;margin-top:4rem;
-  opacity:0;transform:translateY(20px);
-  animation:fadeUp .8s var(--ease-luxury) .3s forwards;
-}
-
-/* ═══════════════════════════════════════
-   TRUST BAR
-═══════════════════════════════════════ */
-.trust-bar{
-  background:var(--ink-3);
-  border-top:1px solid var(--gold-line);
-  border-bottom:1px solid var(--gold-line);
-  padding:2.5rem 0;
-}
-.trust-grid{
-  display:grid;grid-template-columns:repeat(6,1fr);
-  gap:1rem;text-align:center;
-  align-items:center;
-}
-.trust-item{
-  display:flex;flex-direction:column;align-items:center;gap:.6rem;
-  padding:0 .5rem;
-}
-.trust-icon{color:var(--gold);width:28px;height:28px}
-.trust-label{
-  font-family:var(--f-ui);font-size:.55rem;
-  letter-spacing:.2em;text-transform:uppercase;
-  color:var(--cream-dim);line-height:1.5;
-}
-
-/* ═══════════════════════════════════════
-   BANNER (FULL BLEED)
-═══════════════════════════════════════ */
-.banner-full{
-  position:relative;
-  min-height:580px;
-  display:flex;align-items:center;
-  overflow:hidden;
-}
-.banner-full img{
-  position:absolute;inset:0;
-  width:100%;height:100%;
-  object-fit:cover;
-  filter:brightness(.35) saturate(.7);
-  transition:transform 8s linear;
-}
-.banner-full:hover img{transform:scale(1.04)}
-.banner-overlay{
-  position:absolute;inset:0;
-  background:
-    linear-gradient(to right, rgba(8,8,7,.85) 40%, transparent),
-    linear-gradient(to top, rgba(8,8,7,.5) 0%, transparent 50%);
-}
-.banner-content{
-  position:relative;z-index:2;
-  max-width:580px;
-}
-.banner-content .display-title{font-size:clamp(2.2rem,4.5vw,4rem)}
-.banner-content p{
-  font-family:var(--f-body);font-size:1.1rem;font-weight:300;
-  color:var(--cream-dim);line-height:1.85;
-  margin:1.2rem 0 2.5rem;
-}
-
-/* ═══════════════════════════════════════
-   CATEGORIES
-═══════════════════════════════════════ */
-#categories{padding:9rem 0;background:var(--ink-2)}
-.cats-grid{
-  display:grid;
-  grid-template-columns:repeat(6,1fr);
-  gap:1rem;
-  margin-top:4rem;
-}
-.cat-card{
-  position:relative;
-  aspect-ratio:2/3;
-  overflow:hidden;
-  border:1px solid var(--gold-line);
-  cursor:pointer;
-  transition:border-color .4s,transform .4s var(--ease-luxury);
-}
-.cat-card:hover{
-  border-color:rgba(201,168,76,.5);
-  transform:translateY(-6px);
-}
-.cat-card img{
-  width:100%;height:100%;
-  object-fit:cover;
-  filter:brightness(.45) saturate(.6);
-  transition:transform .7s var(--ease-luxury),filter .4s;
-}
-.cat-card:hover img{transform:scale(1.08);filter:brightness(.55) saturate(.8)}
-.cat-info{
-  position:absolute;inset:0;
-  display:flex;flex-direction:column;
-  justify-content:flex-end;padding:1.2rem;
-  background:linear-gradient(to top,rgba(8,8,7,.9) 40%,transparent);
-}
-.cat-name{
-  font-family:var(--f-display);
-  font-size:.85rem;letter-spacing:.08em;
-  color:var(--cream);margin-bottom:.2rem;
-}
-.cat-count{
-  font-family:var(--f-ui);font-size:.52rem;
-  letter-spacing:.22em;text-transform:uppercase;
-  color:var(--gold);
-}
-
-/* ═══════════════════════════════════════
-   WHY IMAROZE
-═══════════════════════════════════════ */
-#why{padding:9rem 0}
-.why-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:3rem;
-  margin-top:5rem;
-}
-.why-item{
-  text-align:center;
-  padding:2.5rem 2rem;
-  border:1px solid transparent;
-  transition:border-color .4s,background .4s;
-}
-.why-item:hover{
-  border-color:var(--gold-line);
-  background:var(--cream-faint);
-}
-.why-icon{
-  width:64px;height:64px;
-  border:1px solid var(--gold-line);
-  border-radius:50%;
-  display:flex;align-items:center;justify-content:center;
-  margin:0 auto 1.8rem;
-  color:var(--gold);
-  transition:all .35s;
-}
-.why-item:hover .why-icon{
-  background:var(--gold-glow);
-  border-color:var(--gold);
-  box-shadow:0 0 20px var(--gold-glow);
-}
-.why-icon svg{width:26px;height:26px;stroke:currentColor;stroke-width:1.5;fill:none}
-.why-title{
-  font-family:var(--f-display);
-  font-size:1.1rem;color:var(--cream);
-  margin-bottom:.7rem;letter-spacing:.05em;
-}
-.why-desc{
-  font-family:var(--f-ui);font-size:.78rem;
-  color:var(--cream-dim);line-height:1.75;
-  letter-spacing:.02em;
-}
-
-/* ═══════════════════════════════════════
-   STATS
-═══════════════════════════════════════ */
-.stats-strip{
-  padding:5.5rem 0;
-  border-top:1px solid var(--gold-line);
-  border-bottom:1px solid var(--gold-line);
-  background:var(--ink-2);
-}
-.stats-grid{
-  display:grid;grid-template-columns:repeat(4,1fr);
-  text-align:center;gap:2rem;
-  position:relative;
-}
-.stats-grid::before{
-  content:'';
-  position:absolute;top:0;left:0;right:0;bottom:0;
-  background:radial-gradient(ellipse 60% 100% at 50% 50%,rgba(201,168,76,.04),transparent);
-  pointer-events:none;
-}
-.stat-num{
-  font-family:var(--f-display);
-  font-size:clamp(2.4rem,4vw,3.8rem);
-  color:var(--gold);font-weight:400;
-  display:block;line-height:1.1;
-}
-.stat-unit{font-size:.7em;vertical-align:super}
-.stat-label{
-  font-family:var(--f-ui);font-size:.58rem;
-  letter-spacing:.28em;text-transform:uppercase;
-  color:var(--cream-dim);margin-top:.5rem;
-}
-
-/* ═══════════════════════════════════════
-   FRAGRANCE NOTES TIMELINE
-═══════════════════════════════════════ */
-#notes-section{padding:9rem 0;background:var(--ink-2)}
-.notes-inner{
-  display:grid;grid-template-columns:1fr 1fr;
-  gap:7rem;align-items:center;
-}
-.notes-img{
-  position:relative;
-  aspect-ratio:4/5;
-  border:1px solid var(--gold-line);
-}
-.notes-img img{
-  width:100%;height:100%;
-  object-fit:cover;
-  filter:brightness(.8) saturate(.9);
-}
-.notes-img::before{
-  content:'';
-  position:absolute;inset:-14px 14px 14px -14px;
-  border:1px solid var(--gold-line);
-  z-index:-1;
-}
-.notes-pyramid{display:flex;flex-direction:column;gap:2rem}
-.notes-tier{
-  position:relative;
-  padding:1.8rem 2rem;
-  border:1px solid var(--gold-line);
-  background:var(--cream-faint);
-  transition:border-color .3s,background .3s;
-}
-.notes-tier:hover{border-color:rgba(201,168,76,.4);background:rgba(201,168,76,.05)}
-.tier-label{
-  font-family:var(--f-ui);font-size:.55rem;
-  letter-spacing:.35em;text-transform:uppercase;
-  color:var(--gold);margin-bottom:.6rem;
-  display:flex;align-items:center;gap:.8rem;
-}
-.tier-label::before{content:'';flex:1;height:1px;background:var(--gold-line)}
-.tier-notes{
-  font-family:var(--f-body);font-size:1.3rem;
-  font-weight:300;color:var(--cream);
-  font-style:italic;letter-spacing:.05em;
-}
-
-/* ═══════════════════════════════════════
-   TESTIMONIALS
-═══════════════════════════════════════ */
-#testimonials{padding:9rem 0}
-.testi-slider{position:relative;overflow:hidden;margin-top:4.5rem}
-.testi-track{
-  display:flex;
-  transition:transform .7s var(--ease-luxury);
-}
-.testi-card{
-  min-width:calc(50% - 1rem);
-  margin:0 .5rem;
-  padding:2.8rem;
-  border:1px solid var(--gold-line);
-  background:rgba(255,255,255,.02);
-  backdrop-filter:blur(12px);
-  position:relative;
-}
-.testi-card::before{
-  content:'\201C';
-  font-family:var(--f-display);
-  font-size:6rem;line-height:1;
-  color:var(--gold);opacity:.14;
-  position:absolute;top:.3rem;left:1.5rem;
-}
-.testi-text{
-  font-family:var(--f-body);
-  font-size:1.05rem;font-weight:300;font-style:italic;
-  color:var(--cream);line-height:1.9;
-  margin-bottom:2rem;
-}
-.testi-author{display:flex;align-items:center;gap:1.2rem}
-.testi-av{
-  width:50px;height:50px;border-radius:50%;
-  overflow:hidden;border:1px solid var(--gold-line);
-  flex-shrink:0;background:var(--ink-3);
-  display:flex;align-items:center;justify-content:center;
-}
-.testi-av svg{width:24px;height:24px;fill:var(--gold);opacity:.5}
-.testi-name{
-  font-family:var(--f-display);
-  font-size:.95rem;color:var(--cream);letter-spacing:.05em;
-}
-.testi-loc{
-  font-family:var(--f-ui);font-size:.58rem;
-  letter-spacing:.15em;text-transform:uppercase;
-  color:var(--gold);margin-top:.2rem;
-}
-.testi-stars{margin-left:auto;display:flex;gap:3px}
-
-.slider-nav{
-  display:flex;align-items:center;justify-content:center;
-  gap:1rem;margin-top:2.8rem;
-}
-.s-btn{
-  width:44px;height:44px;
-  border:1px solid var(--gold-line);
-  background:transparent;color:var(--gold);
-  display:flex;align-items:center;justify-content:center;
-  transition:all .3s;
-}
-.s-btn:hover{background:var(--gold);color:var(--ink)}
-.s-btn svg{width:18px;height:18px;stroke:currentColor;stroke-width:2;fill:none}
-.s-dots{display:flex;gap:8px}
-.s-dot{
-  width:6px;height:6px;border-radius:50%;
-  background:rgba(201,168,76,.3);cursor:pointer;
-  transition:all .3s;
-}
-.s-dot.on{background:var(--gold);width:22px;border-radius:3px}
-
-
-
-
-/* ═══════════════════════════════════════
-   ABOUT
-═══════════════════════════════════════ */
-#about{padding:9rem 0}
-.about-grid{
-  display:grid;grid-template-columns:1fr 1fr;
-  gap:8rem;align-items:center;
-}
-.about-vis{
-  position:relative;
-  aspect-ratio:4/5;
-}
-.about-vis img{
-  width:100%;height:100%;
-  object-fit:cover;
-  filter:brightness(.85) saturate(.9);
-}
-.about-vis::after{
-  content:'';
-  position:absolute;inset:-14px 14px 14px -14px;
-  border:1px solid var(--gold-line);
-  z-index:-1;pointer-events:none;
-}
-.about-badge{
-  position:absolute;bottom:-2rem;right:-2rem;
-  width:100px;height:100px;
-  border-radius:50%;
-  background:var(--gold);
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  font-family:var(--f-display);
-}
-.about-badge .y{font-size:1.5rem;font-weight:600;color:var(--ink);line-height:1}
-.about-badge .l{font-size:.42rem;letter-spacing:.18em;color:var(--ink);text-transform:uppercase;margin-top:.2rem}
-
-.about-text .rule{margin:1.6rem 0}
-.about-text .display-title{text-align:left}
-.about-body{
-  font-size:1.05rem;font-weight:300;
-  color:var(--cream-dim);line-height:1.95;
-  margin-bottom:1rem;
-  letter-spacing:.02em;
-}
-.about-sig{
-  font-family:var(--f-body);
-  font-size:1.9rem;
-  font-style:italic;color:var(--gold);
-  margin:2rem 0 .3rem;
-  font-weight:300;
-}
-.about-sig-role{
-  font-family:var(--f-ui);font-size:.58rem;
-  letter-spacing:.3em;text-transform:uppercase;
-  color:var(--cream-dim);
-}
-
-/* ═══════════════════════════════════════
-   PACKAGING SHOWCASE
-═══════════════════════════════════════ */
-#packaging{padding:9rem 0;background:var(--ink-2)}
-.pack-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);
-  gap:1.5rem;margin-top:4rem;
-}
-.pack-item{
-  position:relative;overflow:hidden;
-  aspect-ratio:3/4;
-  border:1px solid var(--gold-line);
-  transition:border-color .4s;
-}
-.pack-item:hover{border-color:rgba(201,168,76,.45)}
-.pack-item img{
-  width:100%;height:100%;
-  object-fit:cover;
-  filter:brightness(.7) saturate(.8);
-  transition:transform .7s var(--ease-luxury),filter .4s;
-}
-.pack-item:hover img{transform:scale(1.06);filter:brightness(.85) saturate(1)}
-.pack-overlay{
-  position:absolute;inset:0;
-  background:linear-gradient(to top,rgba(8,8,7,.85) 30%,transparent);
-  display:flex;flex-direction:column;
-  justify-content:flex-end;padding:2rem;
-}
-.pack-title{
-  font-family:var(--f-display);
-  font-size:1.2rem;color:var(--cream);
-  margin-bottom:.4rem;letter-spacing:.05em;
-}
-.pack-sub{
-  font-family:var(--f-ui);font-size:.6rem;
-  letter-spacing:.2em;text-transform:uppercase;
-  color:var(--gold);
-}
-
-/* ═══════════════════════════════════════
-   AWARDS
-═══════════════════════════════════════ */
+/* Awards */
 #awards{padding:7rem 0}
-.awards-grid{
-  display:grid;grid-template-columns:repeat(4,1fr);
-  gap:2rem;margin-top:4rem;
-}
-.award-item{
-  text-align:center;
-  padding:2.5rem 1.5rem;
-  border:1px solid var(--gold-line);
-  background:var(--cream-faint);
-  transition:all .35s;
-}
-.award-item:hover{
-  border-color:rgba(201,168,76,.4);
-  background:rgba(201,168,76,.05);
-  transform:translateY(-5px);
-}
-.award-icon{
-  width:56px;height:56px;
-  border-radius:50%;
-  border:1px solid var(--gold-line);
-  display:flex;align-items:center;justify-content:center;
-  margin:0 auto 1.5rem;
-  color:var(--gold);
-}
-.award-icon svg{width:24px;height:24px;stroke:currentColor;stroke-width:1.5;fill:none}
-.award-name{
-  font-family:var(--f-display);
-  font-size:.85rem;color:var(--cream);letter-spacing:.06em;
-  margin-bottom:.4rem;
-}
-.award-org{
-  font-family:var(--f-ui);font-size:.58rem;
-  letter-spacing:.15em;text-transform:uppercase;
-  color:var(--gold);
-}
+.aw-g{display:grid;grid-template-columns:repeat(4,1fr);gap:1.8rem;margin-top:3.5rem}
+.aw{text-align:center;padding:2.2rem 1.4rem;border:1px solid var(--gold-line);background:var(--cream-ghost);transition:all .35s}
+.aw:hover{border-color:rgba(201,168,76,.38);background:rgba(201,168,76,.04);transform:translateY(-5px)}
+.aw-ico{width:50px;height:50px;border-radius:50%;border:1px solid var(--gold-line);display:flex;align-items:center;justify-content:center;margin:0 auto 1.3rem}
+.aw-ico svg{width:22px;height:22px;stroke:var(--gold);stroke-width:1.5;fill:none}
+.aw-name{font-family:var(--fd);font-size:.82rem;color:var(--cream);letter-spacing:.05em;margin-bottom:.35rem}
+.aw-org{font-family:var(--fu);font-size:.55rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold)}
 
-/* ═══════════════════════════════════════
-   NEWSLETTER
-═══════════════════════════════════════ */
-#newsletter{
-  padding:8rem 0;
-  background:linear-gradient(135deg,#0e0d09,#1a1810,#0e0d09);
-  position:relative;overflow:hidden;
-}
-#newsletter::before{
-  content:'';
-  position:absolute;inset:0;
-  background:radial-gradient(ellipse 80% 80% at 50% 50%,rgba(201,168,76,.05),transparent);
-}
-.nl-inner{
-  position:relative;
-  max-width:560px;margin:0 auto;text-align:center;
-}
-.nl-inner .display-title{font-size:clamp(1.9rem,3vw,3rem)}
-.nl-form{
-  display:flex;
-  border:1px solid var(--gold-line);
-  margin-top:2.5rem;
-  transition:border-color .3s;
-}
+/* Newsletter */
+#nl{padding:7rem 0;background:linear-gradient(135deg,#0e0d09,#1a1810,#0e0d09);position:relative;overflow:hidden}
+#nl::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 80% at 50% 50%,rgba(201,168,76,.05),transparent)}
+.nl-in{position:relative;max-width:540px;margin:0 auto;text-align:center}
+.nl-form{display:flex;border:1px solid var(--gold-line);margin-top:2.2rem;transition:border-color .3s}
 .nl-form:focus-within{border-color:var(--gold)}
-.nl-input{
-  flex:1;background:transparent;border:none;
-  padding:1rem 1.4rem;
-  font-family:var(--f-ui);font-size:.8rem;
-  color:var(--cream);outline:none;
-  letter-spacing:.04em;
-}
-.nl-input::placeholder{color:rgba(242,235,217,.25)}
-.nl-btn{
-  font-family:var(--f-ui);font-size:.6rem;font-weight:600;
-  letter-spacing:.22em;text-transform:uppercase;
-  background:var(--gold);color:var(--ink);
-  border:none;padding:1rem 2rem;
-  transition:background .3s;white-space:nowrap;
-}
-.nl-btn:hover{background:var(--gold-hi)}
-.nl-note{
-  font-family:var(--f-ui);font-size:.62rem;
-  color:rgba(242,235,217,.3);
-  margin-top:1rem;letter-spacing:.05em;
-}
+.nl-inp{flex:1;background:transparent;border:none;padding:.9rem 1.2rem;font-family:var(--fu);font-size:.78rem;color:var(--cream);outline:none;letter-spacing:.04em}
+.nl-inp::placeholder{color:rgba(242,235,217,.22)}
+.nl-sub{font-family:var(--fu);font-size:.58rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;background:var(--gold);color:var(--black);border:none;padding:.9rem 1.8rem;transition:background .3s;white-space:nowrap}
+.nl-sub:hover{background:var(--gold-hi)}
+.nl-note{font-family:var(--fu);font-size:.6rem;color:rgba(242,235,217,.28);margin-top:.9rem;letter-spacing:.05em}
 
-/* ═══════════════════════════════════════
-   CONTACT - UPDATED with Google Sheets
-═══════════════════════════════════════ */
-#contact{padding:9rem 0}
-.contact-grid{
-  display:grid;grid-template-columns:1fr 1.5fr;
-  gap:6rem;margin-top:4.5rem;
-}
-.c-info h3{
-  font-family:var(--f-display);
-  font-size:1.7rem;color:var(--cream);
-  margin-bottom:2rem;letter-spacing:.06em;
-}
-.c-row{
-  display:flex;align-items:flex-start;gap:1.2rem;
-  margin-bottom:1.8rem;
-}
-.c-ico{
-  width:42px;height:42px;
-  border:1px solid var(--gold-line);
-  display:flex;align-items:center;justify-content:center;
-  flex-shrink:0;color:var(--gold);
-}
-.c-ico svg{width:18px;height:18px;stroke:currentColor;stroke-width:1.5;fill:none}
-.c-row-label{
-  font-family:var(--f-ui);font-size:.55rem;
-  letter-spacing:.25em;text-transform:uppercase;
-  color:var(--gold);margin-bottom:.25rem;
-}
-.c-row-val{
-  font-family:var(--f-body);font-size:1rem;
-  font-weight:300;color:var(--cream);
-}
-.map-ph{
-  margin-top:2.5rem;
-  border:1px solid var(--gold-line);
-  background:var(--ink-3);
-  aspect-ratio:16/7;
-  display:flex;flex-direction:column;
-  align-items:center;justify-content:center;gap:.8rem;
-}
-.map-ph svg{width:32px;height:32px;stroke:var(--gold);stroke-width:1.5;fill:none;opacity:.5}
-.map-ph span{
-  font-family:var(--f-ui);font-size:.58rem;
-  letter-spacing:.25em;text-transform:uppercase;color:var(--gold);opacity:.6;
-}
+/* Contact */
+#contact{padding:8rem 0}
+.contact-g{display:grid;grid-template-columns:1fr 1.5fr;gap:5rem;margin-top:4rem}
+.ci h3{font-family:var(--fd);font-size:1.6rem;color:var(--cream);margin-bottom:1.8rem;letter-spacing:.06em}
+.cr{display:flex;align-items:flex-start;gap:1.1rem;margin-bottom:1.6rem}
+.cr-ico{width:40px;height:40px;border:1px solid var(--gold-line);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.cr-ico svg{width:17px;height:17px;stroke:var(--gold);stroke-width:1.5;fill:none}
+.cr-lbl{font-family:var(--fu);font-size:.52rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-bottom:.22rem}
+.cr-val{font-family:var(--fb);font-size:.95rem;font-weight:300;color:var(--cream)}
+.map-ph{margin-top:2rem;border:1px solid var(--gold-line);background:var(--black2);aspect-ratio:16/7;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.7rem}
+.map-ph svg{width:28px;height:28px;stroke:var(--gold);stroke-width:1.5;fill:none;opacity:.45}
+.map-ph span{font-family:var(--fu);font-size:.55rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);opacity:.55}
+.cf{display:flex;flex-direction:column;gap:1.1rem}
+.cf-row{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem}
+.cf-f{display:flex;flex-direction:column;gap:.45rem}
+.cf-l{font-family:var(--fu);font-size:.52rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
+.cf-f input,.cf-f textarea,.cf-f select{background:rgba(255,255,255,.03);border:1px solid var(--gold-line);padding:.85rem 1.05rem;font-family:var(--fu);font-size:.8rem;color:var(--cream);outline:none;transition:border-color .3s;resize:none;-webkit-appearance:none}
+.cf-f input:focus,.cf-f textarea:focus,.cf-f select:focus{border-color:rgba(201,168,76,.5)}
+.cf-f input::placeholder,.cf-f textarea::placeholder{color:rgba(242,235,217,.18)}
+.cf-f select option{background:var(--black3);color:var(--cream)}
 
-.c-form{display:flex;flex-direction:column;gap:1.2rem}
-.cf-row{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}
-.cf-field{display:flex;flex-direction:column;gap:.5rem}
-.cf-label{
-  font-family:var(--f-ui);font-size:.55rem;
-  letter-spacing:.25em;text-transform:uppercase;color:var(--gold);
-}
-.cf-field input,.cf-field textarea,.cf-field select{
-  background:rgba(255,255,255,.03);
-  border:1px solid var(--gold-line);
-  padding:.9rem 1.1rem;
-  font-family:var(--f-ui);font-size:.82rem;
-  color:var(--cream);outline:none;
-  transition:border-color .3s;resize:none;
-  -webkit-appearance:none;
-}
-.cf-field input:focus,.cf-field textarea:focus,.cf-field select:focus{border-color:rgba(201,168,76,.5)}
-.cf-field input::placeholder,.cf-field textarea::placeholder{color:rgba(242,235,217,.2)}
+/* Footer */
+footer{background:#060605;border-top:1px solid var(--gold-line);padding:5rem 0 2.2rem}
+.ft-g{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.2fr;gap:3rem;margin-bottom:4rem}
+.ft-logo span{font-family:var(--fd);font-size:1.4rem;letter-spacing:.45em;color:var(--gold);display:block;margin-bottom:1.1rem;font-weight:600}
+.ft-p{font-family:var(--fu);font-size:.75rem;color:var(--cream-dim);line-height:1.85;max-width:260px;margin-bottom:1.8rem;letter-spacing:.02em}
+.ft-soc{display:flex;gap:.7rem}
+.fsc{width:34px;height:34px;border:1px solid var(--gold-line);display:flex;align-items:center;justify-content:center;color:var(--cream-dim);transition:all .3s}
+.fsc:hover{border-color:var(--gold);color:var(--gold)}
+.fsc svg{width:15px;height:15px;stroke:currentColor;stroke-width:1.5;fill:none}
+.ft-col h4{font-family:var(--fd);font-size:.88rem;color:var(--cream);margin-bottom:1.4rem;letter-spacing:.1em}
+.ft-links{list-style:none;display:flex;flex-direction:column;gap:.75rem}
+.ft-links a{font-family:var(--fu);font-size:.72rem;color:var(--cream-dim);transition:color .3s;letter-spacing:.04em}
+.ft-links a:hover{color:var(--gold)}
+.pay-row{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1.4rem}
+.pay{border:1px solid var(--gold-line);padding:.28rem .65rem;font-family:var(--fu);font-size:.52rem;letter-spacing:.1em;color:var(--cream-dim);text-transform:uppercase}
+.ft-bottom{border-top:1px solid var(--gold-line);padding-top:1.8rem;display:flex;align-items:center;justify-content:space-between}
+.ft-bottom p{font-family:var(--fu);font-size:.62rem;color:rgba(242,235,217,.22);letter-spacing:.04em}
+.ft-pol{display:flex;gap:1.8rem}
+.ft-pol a{font-family:var(--fu);font-size:.62rem;color:rgba(242,235,217,.22);transition:color .3s}
+.ft-pol a:hover{color:var(--gold)}
 
-/* ═══════════════════════════════════════
-   FOOTER - UPDATED with social links
-═══════════════════════════════════════ */
-footer{
-  background:#060605;
-  border-top:1px solid var(--gold-line);
-  padding:5.5rem 0 2.5rem;
-}
-.foot-grid{
-  display:grid;
-  grid-template-columns:1.6fr 1fr 1fr 1.2fr;
-  gap:3.5rem;margin-bottom:4.5rem;
-}
-.foot-brand .f-logo{
-  font-family:var(--f-display);
-  font-size:1.5rem;letter-spacing:.45em;
-  color:var(--gold);display:block;margin-bottom:1.2rem;
-}
-.foot-brand p{
-  font-family:var(--f-ui);font-size:.78rem;
-  color:var(--cream-dim);line-height:1.85;
-  max-width:270px;margin-bottom:2rem;letter-spacing:.02em;
-}
-.socials{display:flex;gap:.8rem}
-.soc{
-  width:36px;height:36px;
-  border:1px solid var(--gold-line);
-  display:flex;align-items:center;justify-content:center;
-  color:var(--cream-dim);
-  transition:all .3s;
-}
-.soc:hover{border-color:var(--gold);color:var(--gold)}
-.soc svg{width:16px;height:16px;stroke:currentColor;stroke-width:1.5;fill:none}
+/* Cart Sidebar */
+.c-bg{position:fixed;inset:0;z-index:600;background:rgba(0,0,0,.75);opacity:0;pointer-events:none;transition:opacity .4s}
+.c-bg.on{opacity:1;pointer-events:all}
+.c-side{position:fixed;top:0;right:-450px;width:450px;max-width:100vw;height:100vh;background:var(--black2);border-left:1px solid var(--gold-line);z-index:601;display:flex;flex-direction:column;transition:right .55s var(--ease)}
+.c-side.on{right:0}
+.c-head{display:flex;align-items:center;justify-content:space-between;padding:1.8rem 2rem 1.4rem;border-bottom:1px solid var(--gold-line)}
+.c-head h2{font-family:var(--fd);font-size:1.35rem;color:var(--gold);letter-spacing:.08em}
+.c-x{width:34px;height:34px;border:1px solid var(--gold-line);background:transparent;color:var(--gold);display:flex;align-items:center;justify-content:center;transition:all .3s}
+.c-x:hover{background:var(--gold);color:var(--black)}
+.c-x svg{width:15px;height:15px;stroke:currentColor;stroke-width:2;fill:none}
+.c-body{flex:1;overflow-y:auto;padding:1.4rem 1.8rem;display:flex;flex-direction:column;gap:1.1rem}
+.c-empty{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.9rem;text-align:center}
+.c-empty svg{width:44px;height:44px;stroke:var(--gold);stroke-width:1;fill:none;opacity:.35}
+.c-empty p{font-family:var(--fd);font-size:.95rem;color:var(--cream)}
+.c-empty span{font-family:var(--fu);font-size:.68rem;color:var(--cream-dim)}
+.ci-row{display:flex;gap:1.1rem;align-items:center;border-bottom:1px solid var(--gold-line);padding-bottom:1.1rem}
+.ci-img{width:60px;height:70px;overflow:hidden;flex-shrink:0;background:var(--black3)}
+.ci-img img{width:100%;height:100%;object-fit:cover}
+.ci-name{font-family:var(--fd);font-size:.88rem;color:var(--cream)}
+.ci-price{color:var(--gold);font-family:var(--fd);font-size:.95rem;margin-top:.18rem}
+.ci-rm{margin-left:auto;background:none;border:none;color:rgba(242,235,217,.3);transition:color .3s}
+.ci-rm:hover{color:#e03}
+.ci-rm svg{width:15px;height:15px;stroke:currentColor;stroke-width:2;fill:none}
+.c-foot{border-top:1px solid var(--gold-line);padding:1.4rem 1.8rem}
+.c-tot{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.3rem}
+.c-tot span{font-family:var(--fu);font-size:.58rem;letter-spacing:.26em;text-transform:uppercase;color:var(--cream-dim)}
+.c-tot strong{font-family:var(--fd);font-size:1.5rem;color:var(--gold)}
 
-.foot-col h4{
-  font-family:var(--f-display);
-  font-size:.9rem;color:var(--cream);
-  margin-bottom:1.5rem;letter-spacing:.1em;
-}
-.foot-links{list-style:none;display:flex;flex-direction:column;gap:.8rem}
-.foot-links a{
-  font-family:var(--f-ui);font-size:.74rem;
-  color:var(--cream-dim);letter-spacing:.05em;
-  transition:color .3s;
-}
-.foot-links a:hover{color:var(--gold)}
+/* Modal */
+.m-bg{position:fixed;inset:0;z-index:800;background:rgba(0,0,0,.88);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;padding:1.5rem;opacity:0;pointer-events:none;transition:opacity .4s}
+.m-bg.show{opacity:1;pointer-events:all}
+.m-box{background:var(--black2);border:1px solid var(--gold-line);max-width:860px;width:100%;max-height:90vh;overflow-y:auto;display:grid;grid-template-columns:1fr 1fr;transform:translateY(28px);transition:transform .45s var(--ease)}
+.m-bg.show .m-box{transform:translateY(0)}
+.m-left{aspect-ratio:3/4;overflow:hidden;position:relative}
+.m-left img{width:100%;height:100%;object-fit:cover}
+.m-cl{position:absolute;top:1rem;right:1rem;width:34px;height:34px;background:rgba(8,8,7,.8);border:1px solid var(--gold-line);color:var(--gold);display:flex;align-items:center;justify-content:center;z-index:2;transition:all .3s}
+.m-cl:hover{background:var(--gold);color:var(--black)}
+.m-cl svg{width:16px;height:16px;stroke:currentColor;stroke-width:2;fill:none}
+.m-right{padding:2.5rem 2.2rem;display:flex;flex-direction:column;gap:1.1rem}
+.m-name{font-family:var(--fd);font-size:1.5rem;color:var(--cream);letter-spacing:.05em}
+.m-nl{font-family:var(--fu);font-size:.56rem;letter-spacing:.26em;text-transform:uppercase;color:var(--gold)}
+.m-notes{font-family:var(--fb);font-size:.98rem;font-style:italic;color:var(--cream-dim)}
+.m-desc{font-family:var(--fu);font-size:.78rem;color:var(--cream-dim);line-height:1.82;letter-spacing:.02em}
+.m-pr-row{display:flex;align-items:baseline;gap:1.2rem}
+.m-price{font-family:var(--fd);font-size:1.7rem;color:var(--gold)}
+.m-size{font-family:var(--fu);font-size:.65rem;letter-spacing:.16em;color:var(--cream-dim)}
+.m-qty{display:flex;align-items:center;gap:1rem}
+.q-lbl{font-family:var(--fu);font-size:.56rem;letter-spacing:.22em;text-transform:uppercase;color:var(--cream-dim)}
+.q-ctrl{display:flex;align-items:center;gap:.75rem}
+.q-btn{width:30px;height:30px;border:1px solid var(--gold-line);background:transparent;color:var(--gold);font-size:1.1rem;display:flex;align-items:center;justify-content:center;transition:all .3s}
+.q-btn:hover{background:var(--gold);color:var(--black)}
+.q-num{font-family:var(--fd);font-size:.95rem;color:var(--cream);min-width:22px;text-align:center}
+.m-acts{display:flex;gap:.9rem}
+.m-add{flex:1;font-family:var(--fu);font-size:.6rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--black);background:linear-gradient(135deg,var(--gold-hi),var(--gold));border:none;padding:.9rem;transition:opacity .3s}
+.m-add:hover{opacity:.9}
+.m-wish{width:46px;height:46px;border:1px solid var(--gold-line);background:transparent;color:var(--gold);display:flex;align-items:center;justify-content:center;transition:all .3s}
+.m-wish:hover{background:var(--gold-glow)}
+.m-wish svg{width:19px;height:19px;stroke:currentColor;stroke-width:1.5;fill:none}
 
-.foot-payments{
-  display:flex;gap:.7rem;flex-wrap:wrap;margin-top:1.5rem;
-}
-.pay-tag{
-  border:1px solid var(--gold-line);
-  padding:.3rem .7rem;
-  font-family:var(--f-ui);font-size:.55rem;
-  letter-spacing:.1em;color:var(--cream-dim);
-  text-transform:uppercase;
-}
+/* CHECKOUT SECTION */
+#checkout{padding:8rem 0;background:var(--black2)}
+.checkout-g{display:grid;grid-template-columns:1.4fr 1fr;gap:4rem;margin-top:4rem}
+.co-form{display:flex;flex-direction:column;gap:1.4rem}
+.co-section-title{font-family:var(--fd);font-size:1.1rem;color:var(--gold);letter-spacing:.1em;margin-bottom:.5rem;padding-bottom:.8rem;border-bottom:1px solid var(--gold-line)}
+.co-2{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem}
+.pay-option{display:flex;flex-direction:column;gap:.8rem;margin-top:.5rem}
+.pay-opt{display:flex;align-items:center;gap:1rem;padding:1rem 1.2rem;border:1px solid var(--gold-line);cursor:pointer;transition:border-color .3s,background .3s}
+.pay-opt:hover,.pay-opt.selected{border-color:var(--gold);background:var(--gold-glow)}
+.pay-opt input{accent-color:var(--gold)}
+.pay-opt-label{font-family:var(--fu);font-size:.75rem;color:var(--cream);letter-spacing:.05em}
+.order-summary{background:var(--black3);border:1px solid var(--gold-line);padding:2rem;position:sticky;top:7rem}
+.os-title{font-family:var(--fd);font-size:1.05rem;color:var(--gold);margin-bottom:1.4rem;letter-spacing:.08em}
+.os-item{display:flex;align-items:center;gap:.9rem;margin-bottom:1rem;padding-bottom:1rem;border-bottom:1px solid rgba(201,168,76,.1)}
+.os-img{width:50px;height:58px;background:var(--black2);overflow:hidden;flex-shrink:0}
+.os-img img{width:100%;height:100%;object-fit:cover}
+.os-nm{font-family:var(--fd);font-size:.82rem;color:var(--cream)}
+.os-pr{font-family:var(--fd);font-size:.92rem;color:var(--gold);margin-top:.15rem}
+.os-total{display:flex;justify-content:space-between;margin-top:.8rem;padding-top:1rem;border-top:1px solid var(--gold-line)}
+.os-total span{font-family:var(--fu);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--cream-dim)}
+.os-total strong{font-family:var(--fd);font-size:1.4rem;color:var(--gold)}
 
-.foot-bottom{
-  border-top:1px solid var(--gold-line);
-  padding-top:2rem;
-  display:flex;align-items:center;justify-content:space-between;
-}
-.foot-bottom p{
-  font-family:var(--f-ui);font-size:.65rem;
-  color:rgba(242,235,217,.25);letter-spacing:.05em;
-}
-.foot-bottom-links{display:flex;gap:2rem}
-.foot-bottom-links a{
-  font-family:var(--f-ui);font-size:.65rem;
-  color:rgba(242,235,217,.25);transition:color .3s;
-}
-.foot-bottom-links a:hover{color:var(--gold)}
-
-/* ═══════════════════════════════════════
-   PRODUCT MODAL
-═══════════════════════════════════════ */
-.modal-bg{
-  position:fixed;inset:0;z-index:800;
-  background:rgba(0,0,0,.85);
-  backdrop-filter:blur(8px);
-  display:flex;align-items:center;justify-content:center;
-  padding:2rem;
-  opacity:0;pointer-events:none;
-  transition:opacity .4s;
-}
-.modal-bg.show{opacity:1;pointer-events:all}
-.modal-box{
-  background:var(--ink-2);
-  border:1px solid var(--gold-line);
-  max-width:900px;width:100%;
-  max-height:90vh;overflow-y:auto;
-  display:grid;grid-template-columns:1fr 1fr;
-  transform:translateY(30px);
-  transition:transform .45s var(--ease-luxury);
-}
-.modal-bg.show .modal-box{transform:translateY(0)}
-.modal-img{
-  aspect-ratio:3/4;overflow:hidden;
-  position:relative;
-}
-.modal-img img{
-  width:100%;height:100%;
-  object-fit:cover;
-}
-.modal-close{
-  position:absolute;top:1rem;right:1rem;
-  width:36px;height:36px;
-  background:rgba(8,8,7,.8);
-  border:1px solid var(--gold-line);
-  color:var(--gold);
-  display:flex;align-items:center;justify-content:center;
-  z-index:2;transition:all .3s;
-}
-.modal-close:hover{background:var(--gold);color:var(--ink)}
-.modal-close svg{width:18px;height:18px;stroke:currentColor;stroke-width:2;fill:none}
-.modal-info{padding:3rem 2.5rem;display:flex;flex-direction:column;gap:1.2rem}
-.modal-name{
-  font-family:var(--f-display);
-  font-size:1.6rem;color:var(--cream);letter-spacing:.05em;
-}
-.modal-notes-label{
-  font-family:var(--f-ui);font-size:.58rem;
-  letter-spacing:.28em;text-transform:uppercase;color:var(--gold);
-}
-.modal-notes{
-  font-family:var(--f-body);font-size:1rem;
-  font-style:italic;color:var(--cream-dim);
-}
-.modal-desc{
-  font-family:var(--f-body);font-size:1rem;
-  font-weight:300;color:var(--cream-dim);line-height:1.85;
-}
-.modal-price-row{display:flex;align-items:baseline;gap:1.5rem}
-.modal-price{
-  font-family:var(--f-display);
-  font-size:1.8rem;color:var(--gold);
-}
-.modal-size{
-  font-family:var(--f-ui);font-size:.7rem;
-  letter-spacing:.18em;color:var(--cream-dim);
-}
-.modal-qty{
-  display:flex;align-items:center;gap:1rem;
-}
-.qty-label{
-  font-family:var(--f-ui);font-size:.58rem;
-  letter-spacing:.22em;text-transform:uppercase;color:var(--cream-dim);
-}
-.qty-ctrl{display:flex;align-items:center;gap:.8rem}
-.qty-btn{
-  width:32px;height:32px;border:1px solid var(--gold-line);
-  background:transparent;color:var(--gold);
-  font-size:1.2rem;display:flex;align-items:center;justify-content:center;
-  transition:all .3s;
-}
-.qty-btn:hover{background:var(--gold);color:var(--ink)}
-.qty-num{
-  font-family:var(--f-display);
-  font-size:1rem;color:var(--cream);min-width:24px;text-align:center;
-}
-.modal-actions{display:flex;gap:1rem}
-.modal-add{
-  flex:1;
-  font-family:var(--f-ui);font-size:.62rem;font-weight:600;
-  letter-spacing:.22em;text-transform:uppercase;
-  color:var(--ink);
-  background:linear-gradient(135deg,var(--gold-hi),var(--gold));
-  border:none;padding:.95rem;
-  transition:all .3s;
-}
-.modal-add:hover{opacity:.9}
-.modal-wish{
-  width:48px;height:48px;
-  border:1px solid var(--gold-line);
-  background:transparent;
-  color:var(--gold);
-  display:flex;align-items:center;justify-content:center;
-  transition:all .3s;
-}
-.modal-wish:hover{background:var(--gold-glow)}
-.modal-wish svg{width:20px;height:20px;stroke:currentColor;stroke-width:1.5;fill:none}
-
-/* ═══════════════════════════════════════
-   CART SIDEBAR
-═══════════════════════════════════════ */
-.cart-bg{
-  position:fixed;inset:0;z-index:600;
-  background:rgba(0,0,0,.75);
-  opacity:0;pointer-events:none;
-  transition:opacity .4s;
-}
-.cart-bg.on{opacity:1;pointer-events:all}
-.cart-side{
-  position:fixed;top:0;right:-460px;
-  width:460px;max-width:100vw;height:100vh;
-  background:var(--ink-2);
-  border-left:1px solid var(--gold-line);
-  z-index:601;
-  display:flex;flex-direction:column;padding:0;
-  transition:right .55s var(--ease-luxury);
-}
-.cart-side.on{right:0}
-.cart-head{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:2rem 2rem 1.5rem;
-  border-bottom:1px solid var(--gold-line);
-}
-.cart-head h2{
-  font-family:var(--f-display);
-  font-size:1.4rem;color:var(--gold);letter-spacing:.08em;
-}
-.cart-x{
-  width:36px;height:36px;
-  border:1px solid var(--gold-line);
-  background:transparent;color:var(--gold);
-  display:flex;align-items:center;justify-content:center;
-  transition:all .3s;
-}
-.cart-x:hover{background:var(--gold);color:var(--ink)}
-.cart-x svg{width:16px;height:16px;stroke:currentColor;stroke-width:2;fill:none}
-.cart-body{flex:1;overflow-y:auto;padding:1.5rem 2rem;display:flex;flex-direction:column;gap:1.2rem}
-.cart-empty-state{
-  flex:1;display:flex;flex-direction:column;
-  align-items:center;justify-content:center;
-  gap:1rem;text-align:center;
-  color:var(--cream-dim);
-}
-.cart-empty-state svg{width:48px;height:48px;stroke:var(--gold);stroke-width:1;fill:none;opacity:.4}
-.cart-empty-state p{
-  font-family:var(--f-display);
-  font-size:1rem;color:var(--cream);
-}
-.cart-empty-state span{
-  font-family:var(--f-ui);font-size:.7rem;
-  color:var(--cream-dim);letter-spacing:.05em;
-}
-.c-item{
-  display:flex;gap:1.2rem;align-items:center;
-  border-bottom:1px solid var(--gold-line);
-  padding-bottom:1.2rem;
-}
-.c-item-img{
-  width:65px;height:75px;
-  overflow:hidden;flex-shrink:0;
-  background:var(--ink-3);
-}
-.c-item-img img{width:100%;height:100%;object-fit:cover}
-.c-item-name{
-  font-family:var(--f-display);font-size:.9rem;color:var(--cream);
-}
-.c-item-price{
-  color:var(--gold);font-family:var(--f-display);font-size:1rem;margin-top:.2rem;
-}
-.c-item-rm{
-  margin-left:auto;background:none;border:none;
-  color:rgba(242,235,217,.3);transition:color .3s;font-size:.9rem;
-}
-.c-item-rm:hover{color:#e03}
-.cart-foot{
-  border-top:1px solid var(--gold-line);
-  padding:1.5rem 2rem;
-}
-.cart-total-row{
-  display:flex;justify-content:space-between;align-items:center;
-  margin-bottom:1.5rem;
-}
-.cart-total-row span{
-  font-family:var(--f-ui);font-size:.6rem;
-  letter-spacing:.28em;text-transform:uppercase;color:var(--cream-dim);
-}
-.cart-total-row strong{
-  font-family:var(--f-display);
-  font-size:1.6rem;color:var(--gold);
-}
-
-/* ═══════════════════════════════════════
-   TOAST
-═══════════════════════════════════════ */
-.toast{
-  position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(120%);
-  z-index:900;
-  background:var(--ink-3);
-  border:1px solid var(--gold-line);
-  padding:.9rem 2rem;
-  font-family:var(--f-ui);font-size:.7rem;letter-spacing:.12em;
-  color:var(--gold);
-  white-space:nowrap;
-  transition:transform .4s var(--ease-luxury);
-}
-.toast.show{transform:translateX(-50%) translateY(0)}
-
-/* ═══════════════════════════════════════
+/* =============================================
    RESPONSIVE
-═══════════════════════════════════════ */
-@media(max-width:1200px){
-  .products-grid{grid-template-columns:repeat(3,1fr)}
-  .cats-grid{grid-template-columns:repeat(3,1fr)}
-  .foot-grid{grid-template-columns:1fr 1fr}
+============================================= */
+@media(max-width:1100px){
+  .prod3-g,.prod-grid{grid-template-columns:1fr 1fr}
+  .cats-g{grid-template-columns:1fr 1fr}
+  .ft-g{grid-template-columns:1fr 1fr}
+  .aw-g{grid-template-columns:1fr 1fr}
+  .about-g{grid-template-columns:1fr;gap:3rem}
+  .about-vis{display:none}
+  .notes-g{grid-template-columns:1fr}
+  .notes-img{display:none}
+  .mission-g{grid-template-columns:1fr}
+  .mission-img{display:none}
+  .checkout-g{grid-template-columns:1fr}
 }
 @media(max-width:900px){
   .nav-links{display:none}
-  .nav-ham{display:flex}
-  .hero-perfume{opacity:.18;right:-8%;width:70vw}
-  .hero-smoke{opacity:.3}
-  .notes-inner{grid-template-columns:1fr}
-  .notes-img{display:none}
-  .about-grid{grid-template-columns:1fr}
-  .about-vis{display:none}
-  .contact-grid{grid-template-columns:1fr}
-  .modal-box{grid-template-columns:1fr}
-  .modal-img{aspect-ratio:16/9}
-  .trust-grid{grid-template-columns:repeat(3,1fr);gap:2rem}
-  .awards-grid{grid-template-columns:1fr 1fr}
-  .stats-grid{grid-template-columns:1fr 1fr;gap:3rem}
+  .ham{display:flex}
+  .hero-img{opacity:.15;right:-5%;width:65vw}
+  .trust-g{grid-template-columns:repeat(3,1fr);gap:1.5rem}
+  .why-g{grid-template-columns:1fr 1fr}
+  .love-g{grid-template-columns:1fr 1fr}
+  .contact-g{grid-template-columns:1fr}
+  .m-box{grid-template-columns:1fr}
+  .m-left{aspect-ratio:16/9}
+  .stats-g{grid-template-columns:1fr 1fr;gap:3rem}
 }
 @media(max-width:640px){
-  .container{padding:0 1.2rem}
-  .products-grid{grid-template-columns:1fr 1fr}
-  .cats-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto}
-  .why-grid{grid-template-columns:1fr}
-  .features-grid{grid-template-columns:1fr}
-  .pack-grid{grid-template-columns:1fr}
-  .foot-grid{grid-template-columns:1fr}
-  .testi-card{min-width:calc(100% - 1rem)}
-  .cf-row{grid-template-columns:1fr}
-  .hero-cta{flex-direction:column;align-items:flex-start}
-  .press-logos{gap:2rem}
-  .trust-grid{grid-template-columns:1fr 1fr}
+  .wrap{padding:0 1.1rem}
+  .prod3-g,.prod-grid{grid-template-columns:1fr}
+  .cats-g{grid-template-columns:1fr 1fr}
+  .pkg-g{grid-template-columns:1fr}
+  .ft-g{grid-template-columns:1fr}
+  .why-g,.love-g{grid-template-columns:1fr}
+  .tc{min-width:calc(100% - 1rem)}
+  .cf-row,.co-2{grid-template-columns:1fr}
+  .h-cta{flex-direction:column;align-items:flex-start}
+  .press-row{gap:1.8rem}
+  .trust-g{grid-template-columns:1fr 1fr}
+  .aw-g{grid-template-columns:1fr 1fr}
+  .hero-img{display:none}
 }
 @media(max-width:400px){
-  .products-grid{grid-template-columns:1fr}
+  .cats-g{grid-template-columns:1fr}
+  .aw-g{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -1557,7 +557,7 @@ footer{
 <!-- Preloader -->
 <div id="preloader">
   <div class="pre-logo">IMAROZE</div>
-  <div class="pre-line"></div>
+  <div class="pre-bar"></div>
 </div>
 
 <!-- Particles -->
@@ -1566,718 +566,586 @@ footer{
 <!-- Toast -->
 <div class="toast" id="toast"></div>
 
-<!-- WHATSAPP FLOATING BUTTON - ADDED -->
-<a href="https://wa.me/971501234567?text=Hello%20IMAROZE%2C%20I%27m%20interested%20in%20your%20luxury%20fragrances" 
-   class="wa-float" target="_blank" rel="noopener noreferrer">
-  <svg viewBox="0 0 24 24">
-    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
-  </svg>
+<!-- WhatsApp -->
+<a href="https://wa.me/923001234567?text=Hello%20IMAROZE%2C%20I'm%20interested%20in%20your%20fragrances" class="wa" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
 </a>
 
-<!-- Cart Overlay + Sidebar -->
-<div class="cart-bg" id="cartBg" onclick="closeCart()"></div>
-<div class="cart-side" id="cartSide">
-  <div class="cart-head">
+<!-- Cart -->
+<div class="c-bg" id="cBg" onclick="closeCart()"></div>
+<div class="c-side" id="cSide">
+  <div class="c-head">
     <h2>Your Curation</h2>
-    <button class="cart-x" onclick="closeCart()" aria-label="Close cart">
-      <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-    </button>
+    <button class="c-x" onclick="closeCart()"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
   </div>
-  <div class="cart-body" id="cartBody"></div>
-  <div class="cart-foot" id="cartFoot" style="display:none">
-    <div class="cart-total-row">
-      <span>Total</span>
-      <strong id="cartTotal">$0</strong>
-    </div>
-    <button class="btn-gold" style="width:100%;justify-content:center;" onclick="checkout()">Proceed to Checkout</button>
+  <div class="c-body" id="cBody"></div>
+  <div class="c-foot" id="cFoot" style="display:none">
+    <div class="c-tot"><span>Total</span><strong id="cTotal">Rs. 0</strong></div>
+    <button class="btn-g" style="width:100%;justify-content:center" onclick="goCheckout()">Checkout <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
   </div>
 </div>
 
 <!-- Modal -->
-<div class="modal-bg" id="modal" onclick="closeModal(event)">
-  <div class="modal-box" id="modalBox">
-    <div class="modal-img" id="modalImg">
-      <button class="modal-close" onclick="closeModalDirect()" aria-label="Close">
-        <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-      </button>
+<div class="m-bg" id="modal" onclick="mClose(event)">
+  <div class="m-box" id="mBox">
+    <div class="m-left" id="mLeft">
+      <button class="m-cl" onclick="mCloseDirect()"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
     </div>
-    <div class="modal-info" id="modalInfo"></div>
+    <div class="m-right" id="mRight"></div>
   </div>
 </div>
 
-<!-- Mobile Menu - UPDATED with social links -->
-<div class="mob-menu" id="mobMenu">
+<!-- Mobile Menu -->
+<div class="mob" id="mob">
   <a href="#hero" onclick="closeMob()">Home</a>
+  <a href="#products" onclick="closeMob()">Our Perfumes</a>
   <a href="#collection" onclick="closeMob()">Collection</a>
-  <a href="#categories" onclick="closeMob()">Categories</a>
-  <a href="#about" onclick="closeMob()">Maison</a>
+  <a href="#about" onclick="closeMob()">About</a>
+  <a href="#faq" onclick="closeMob()">FAQ</a>
   <a href="#contact" onclick="closeMob()">Contact</a>
-  <a href="https://www.instagram.com/imaroze.official" target="_blank" onclick="closeMob()">Instagram</a>
-  <a href="https://www.tiktok.com/@imaroze.official" target="_blank" onclick="closeMob()">TikTok</a>
+  <div class="mob-social">
+    <a href="https://www.instagram.com/imaroze.official" target="_blank">Instagram</a>
+    <a href="https://www.tiktok.com/@imaroze.official" target="_blank">TikTok</a>
+    <a href="https://www.facebook.com/share/175FcaNHRu" target="_blank">Facebook</a>
+  </div>
 </div>
 
-<!-- ═══ NAVBAR ═══ -->
-<nav id="navbar" role="navigation" aria-label="Main navigation">
-  <div class="container">
-    <div class="nav-wrap">
-      <a href="#hero" class="nav-logo">
-  <img src="logo.png" alt="IMAROZE" style="height: 45px; width: auto;">
-</a>
+<!-- NAVBAR -->
+<nav id="nav">
+  <div class="wrap">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo"><span>IMAROZE</span></a>
       <ul class="nav-links">
         <li><a href="#hero">Home</a></li>
+        <li><a href="#products">Our Perfumes</a></li>
         <li><a href="#collection">Collection</a></li>
-        <li><a href="#bestsellers">Best Sellers</a></li>
-        <li><a href="#categories">Categories</a></li>
-        <li><a href="#about">Maison</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#faq">FAQ</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-      <div class="nav-actions">
-        <button class="nav-btn" aria-label="Search" title="Search" onclick="alert('Search functionality coming soon!')">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
-          </svg>
+      <div class="nav-acts">
+        <button class="ni" onclick="openCart()" title="Cart" style="position:relative">
+          <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+          <span class="cart-badge" id="nBadge">0</span>
         </button>
-        <button class="nav-btn" aria-label="Wishlist" title="Wishlist" onclick="alert('Wishlist feature coming soon!')">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
-          </svg>
+        <button class="ni" title="Wishlist">
+          <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
         </button>
-        <button class="nav-btn" aria-label="Cart" title="Cart" onclick="openCart()" style="position:relative">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/>
-            <path d="M16 10a4 4 0 01-8 0"/>
-          </svg>
-          <span class="n-badge" id="nBadge">0</span>
-        </button>
-        <button class="nav-ham" id="navHam" onclick="toggleMob()" aria-label="Menu">
-          <span></span><span></span><span></span>
-        </button>
+        <button class="ham" id="ham" onclick="toggleMob()"><span></span><span></span><span></span></button>
       </div>
     </div>
   </div>
 </nav>
 
-<!-- ═══ HERO ═══ -->
-<section id="hero" aria-label="Hero">
+<!-- HERO -->
+<section id="hero">
   <div class="hero-bg"></div>
-  <div class="hero-smoke">
-    <div class="smoke-ring"></div>
-    <div class="smoke-ring"></div>
-    <div class="smoke-ring"></div>
+  <div class="smoke-wrap"><div class="s-ring"></div><div class="s-ring"></div><div class="s-ring"></div></div>
+  <div class="hero-img">
+    <img src="{AUREX}" alt="IMAROZE Aurex luxury perfume" loading="eager" width="400" height="600">
   </div>
-  <div class="hero-perfume">
-    <img src="perfume-bottle.png" alt="IMAROZE Royal Oud — luxury perfume bottle" loading="eager" width="600" height="800">
-  </div>
-  <div class="container" style="position:relative;z-index:3">
-    <div class="hero-content">
-      <div class="hero-eyebrow">Haute Parfumerie — Est. 2018</div>
-      <h1 class="hero-h1">
-        Crafted For<br>
-        <span class="italic-line">Timeless Elegance</span>
-      </h1>
-      <p class="hero-sub">Where rare ingredients become unforgettable signatures. Discover fragrances worthy of extraordinary lives.</p>
-      <div class="hero-cta">
-        <a href="#collection" class="btn-gold">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          Shop Collection
+  <div class="wrap" style="position:relative;z-index:3">
+    <div class="hero-copy">
+      <div class="h-ey">Haute Parfumerie &mdash; Pakistan</div>
+      <h1 class="h-h1">Crafted For<br><span class="il">Timeless Elegance</span></h1>
+      <p class="h-sub">Where rare ingredients become unforgettable signatures. Premium long-lasting fragrances for extraordinary lives.</p>
+      <div class="h-cta">
+        <a href="#products" class="btn-g">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Shop Now
         </a>
-        <a href="#about" class="btn-ghost">Our Story</a>
+        <a href="#about" class="btn-o">Our Story</a>
       </div>
     </div>
   </div>
-  <div class="hero-scroll" onclick="document.querySelector('.marquee').scrollIntoView({behavior:'smooth'})">
-    <div class="scroll-bar"></div>
-    <span class="scroll-text">Scroll</span>
+  <div class="h-scroll" onclick="document.querySelector('.mq').scrollIntoView({behavior:'smooth'})">
+    <div class="h-scroll-l"></div>
+    <span class="h-scroll-t">Scroll</span>
   </div>
 </section>
 
-<!-- ═══ MARQUEE ═══ -->
-<div class="marquee" role="marquee" aria-label="Brand highlights">
-  <div class="marquee-inner" id="mq">
-    <span class="m-item">Premium Ingredients</span>
-    <span class="m-item">Long Lasting Fragrance</span>
-    <span class="m-item">Luxury Packaging</span>
-    <span class="m-item">Worldwide Delivery</span>
-    <span class="m-item">Exclusive Collections</span>
-    <span class="m-item">Handcrafted Perfumes</span>
-    <span class="m-item">100% Authentic</span>
-    <span class="m-item">Premium Ingredients</span>
-    <span class="m-item">Long Lasting Fragrance</span>
-    <span class="m-item">Luxury Packaging</span>
-    <span class="m-item">Worldwide Delivery</span>
-    <span class="m-item">Exclusive Collections</span>
-    <span class="m-item">Handcrafted Perfumes</span>
-    <span class="m-item">100% Authentic</span>
+<!-- MARQUEE -->
+<div class="mq">
+  <div class="mq-inner">
+    <span class="mq-item">Premium Ingredients</span><span class="mq-item">Long Lasting Fragrance</span><span class="mq-item">Luxury Packaging</span><span class="mq-item">Pakistan&apos;s Finest</span><span class="mq-item">Exclusive Collections</span><span class="mq-item">Handcrafted Perfumes</span><span class="mq-item">100% Authentic</span>
+    <span class="mq-item">Premium Ingredients</span><span class="mq-item">Long Lasting Fragrance</span><span class="mq-item">Luxury Packaging</span><span class="mq-item">Pakistan&apos;s Finest</span><span class="mq-item">Exclusive Collections</span><span class="mq-item">Handcrafted Perfumes</span><span class="mq-item">100% Authentic</span>
   </div>
 </div>
 
-<!-- ═══ PRESS ═══ -->
-<section id="press" aria-label="As featured in">
-  <div class="container">
-    <div class="press-label">As Featured In</div>
-    <div class="press-logos">
-      <span class="press-logo">Vogue Arabia</span>
-      <span class="press-logo">Harper's Bazaar</span>
-      <span class="press-logo">Forbes Luxury</span>
-      <span class="press-logo">Wallpaper</span>
-      <span class="press-logo">Arabian Business</span>
-      <span class="press-logo">Tatler</span>
+<!-- PRESS -->
+<section id="press">
+  <div class="wrap">
+    <div class="press-lbl">As Seen In</div>
+    <div class="press-row">
+      <span class="press-nm">Dawn Lifestyle</span>
+      <span class="press-nm">She Magazine</span>
+      <span class="press-nm">Pakistan Observer</span>
+      <span class="press-nm">Diva Pakistan</span>
+      <span class="press-nm">HUM Style</span>
+      <span class="press-nm">Geo Fashion</span>
     </div>
   </div>
 </section>
 
-<!-- ═══ COLLECTION ═══ -->
-<section id="collection" aria-label="Fragrance Collection">
-  <div class="container">
-    <header class="section-head" data-reveal>
-      <span class="eyebrow">Signature Collection</span>
-      <h2 class="display-title" style="margin-top:.8rem">The Twelve Fragrances</h2>
+<!-- OUR 3 SIGNATURE PRODUCTS -->
+<section id="products" style="padding:8rem 0;background:var(--black3)">
+  <div class="wrap">
+    <header class="section-head" data-r>
+      <span class="eyebrow">Signature Fragrances</span>
+      <h2 class="h-title" style="margin-top:.8rem">Our Three<br><em>Masterpieces</em></h2>
       <div class="rule"></div>
-      <p>Each composition begins with a journey — to oud forests, rose fields, and amber deserts. Every bottle holds a story of extraordinary craft.</p>
+      <p class="section-sub">Each fragrance is a distinctive experience — long-lasting, powerful, and unmistakably IMAROZE.</p>
     </header>
-    <div class="products-grid" id="productsGrid"></div>
-    <div class="view-more">
-      <button class="btn-ghost" style="margin-top:1rem">View Full Collection</button>
+    <div class="prod3-g">
+      <div class="p3" data-r onclick="openModal('denve')">
+        <div class="p3-img">
+          <img src="{DENVE}" alt="IMAROZE Denve luxury perfume" loading="eager">
+        </div>
+        <div class="p3-info">
+          <div class="p3-name">IMAROZE Denve</div>
+          <div class="p3-notes">Fresh &middot; Woody &middot; Musky</div>
+          <p class="p3-short">A premium long-lasting fragrance crafted for those who love elegant, modern, and luxurious scents. Rich and smooth — stays with you all day.</p>
+          <div class="stars" id="stars-denve"></div>
+          <div class="p3-price">Rs. 2,499 <span style="font-size:.75rem;color:var(--cream-dim);font-family:var(--fu);letter-spacing:.1em">/ 50ml</span></div>
+          <button class="p3-add" onclick="event.stopPropagation();addCart('denve')">Add to Cart</button>
+          <div class="p3-love-bar">
+            <button class="p3-love" onclick="event.stopPropagation();openModal('denve')">View Details</button>
+            <button class="p3-love" onclick="event.stopPropagation();showToast('Added to wishlist')">Wishlist</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="p3" data-r onclick="openModal('broute')">
+        <div class="p3-img">
+          <img src="{BROUTE}" alt="IMAROZE BrouTe luxury perfume" loading="lazy">
+        </div>
+        <div class="p3-info">
+          <div class="p3-name">IMAROZE BrouTe</div>
+          <div class="p3-notes">Bold &middot; Fresh &middot; Woody &middot; Musky</div>
+          <p class="p3-short">A bold blend of fresh, woody, and musky notes. Designed for a confident and modern personality — elegant, fresh, and memorable all day.</p>
+          <div class="stars" id="stars-broute"></div>
+          <div class="p3-price">Rs. 2,499 <span style="font-size:.75rem;color:var(--cream-dim);font-family:var(--fu);letter-spacing:.1em">/ 50ml</span></div>
+          <button class="p3-add" onclick="event.stopPropagation();addCart('broute')">Add to Cart</button>
+          <div class="p3-love-bar">
+            <button class="p3-love" onclick="event.stopPropagation();openModal('broute')">View Details</button>
+            <button class="p3-love" onclick="event.stopPropagation();showToast('Added to wishlist')">Wishlist</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="p3" data-r onclick="openModal('aurex')">
+        <div class="p3-img">
+          <img src="{AUREX}" alt="IMAROZE Aurex luxury perfume" loading="lazy">
+        </div>
+        <div class="p3-info">
+          <div class="p3-name">IMAROZE Aurex</div>
+          <div class="p3-notes">Fresh Citrus &middot; Floral &middot; Warm Woody</div>
+          <p class="p3-short">A luxury EDP with refined citrus, elegant floral notes, and warm woody undertones. Modern, confident, rich — a sophisticated fragrance all day.</p>
+          <div class="stars" id="stars-aurex"></div>
+          <div class="p3-price">Rs. 2,499 <span style="font-size:.75rem;color:var(--cream-dim);font-family:var(--fu);letter-spacing:.1em">/ 50ml</span></div>
+          <button class="p3-add" onclick="event.stopPropagation();addCart('aurex')">Add to Cart</button>
+          <div class="p3-love-bar">
+            <button class="p3-love" onclick="event.stopPropagation();openModal('aurex')">View Details</button>
+            <button class="p3-love" onclick="event.stopPropagation();showToast('Added to wishlist')">Wishlist</button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ═══ TRUST BAR ═══ -->
-<div class="trust-bar" role="complementary" aria-label="Brand guarantees">
-  <div class="container">
-    <div class="trust-grid">
-      <div class="trust-item" data-reveal>
-        <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-          <polyline points="9 12 11 14 15 10"/>
-        </svg>
-        <span class="trust-label">100% Original<br>Perfumes</span>
+<!-- TRUST BAR -->
+<div class="trust">
+  <div class="wrap">
+    <div class="trust-g">
+      <div class="ti" data-r>
+        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+        <span class="ti-l">100% Authentic<br>Perfumes</span>
       </div>
-      <div class="trust-item" data-reveal>
-        <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-          <rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 4v4h-7V8z"/>
-          <circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/>
-        </svg>
-        <span class="trust-label">Fast Worldwide<br>Delivery</span>
+      <div class="ti" data-r>
+        <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 4v4h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        <span class="ti-l">Fast Delivery<br>Across Pakistan</span>
       </div>
-      <div class="trust-item" data-reveal>
-        <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-          <rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/>
-          <polyline points="16 14 18 14 20 14"/>
-        </svg>
-        <span class="trust-label">Secure<br>Payments</span>
+      <div class="ti" data-r>
+        <svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+        <span class="ti-l">Secure<br>Payments</span>
       </div>
-      <div class="trust-item" data-reveal>
-        <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-          <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
-          <polyline points="9 22 9 12 15 12 15 22"/>
-        </svg>
-        <span class="trust-label">Luxury<br>Packaging</span>
+      <div class="ti" data-r>
+        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        <span class="ti-l">Luxury<br>Packaging</span>
       </div>
-      <div class="trust-item" data-reveal>
-        <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-          <path d="M22 16.74V4a2 2 0 00-2-2H4a2 2 0 00-2 2v13a2 2 0 002 2h12.26"/>
-          <path d="M16 21l2 2 4-4"/>
-        </svg>
-        <span class="trust-label">30-Day Money<br>Back Guarantee</span>
+      <div class="ti" data-r>
+        <svg viewBox="0 0 24 24"><path d="M22 16.74V4a2 2 0 00-2-2H4a2 2 0 00-2 2v13a2 2 0 002 2h12.26"/><path d="M16 21l2 2 4-4"/></svg>
+        <span class="ti-l">Easy Returns<br>Guarantee</span>
       </div>
-      <div class="trust-item" data-reveal>
-        <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-          <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/>
-          <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
-        </svg>
-        <span class="trust-label">Ships to<br>35+ Countries</span>
+      <div class="ti" data-r>
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+        <span class="ti-l">Long Lasting<br>12–24 Hours</span>
       </div>
     </div>
   </div>
 </div>
 
-<!-- ═══ BANNER ═══ -->
-<div class="banner-full">
-  <img src="https://images.unsplash.com/photo-1615634260167-c8cdede054de?w=1600&q=85&auto=format&fit=crop" alt="Luxury fragrance atelier" loading="lazy">
-  <div class="banner-overlay"></div>
-  <div class="container">
-    <div class="banner-content" data-reveal>
-      <span class="eyebrow">The Imaroze Atelier</span>
-      <h2 class="display-title" style="margin-top:.8rem">
-        Every Fragrance<br><em>Tells A Story</em>
-      </h2>
-      <p>From the first spritz to the warm dry-down, each Imaroze composition is a journey through the finest raw materials on earth.</p>
-      <a href="#about" class="btn-gold">
-        Discover the Craft
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
+<!-- BANNER -->
+<div class="bnr">
+  <img src="https://images.unsplash.com/photo-1615634260167-c8cdede054de?w=1600&q=80&auto=format&fit=crop" alt="IMAROZE atelier" loading="lazy">
+  <div class="bnr-ov"></div>
+  <div class="wrap">
+    <div class="bnr-c" data-r>
+      <span class="eyebrow">The IMAROZE Atelier</span>
+      <h2 class="h-title" style="margin-top:.8rem">Every Fragrance<br><em>Tells A Story</em></h2>
+      <p>From the first spritz to the warm dry-down, each IMAROZE composition carries you through an evolving narrative of the finest aromatic ingredients.</p>
+      <a href="#about" class="btn-g">Discover the Craft <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
     </div>
   </div>
 </div>
 
-<!-- ═══ BEST SELLERS ═══ -->
-<section id="bestsellers" style="padding:9rem 0;background:var(--ink-2)" aria-label="Best Sellers">
-  <div class="container">
-    <header class="section-head" data-reveal>
+<!-- BEST SELLERS -->
+<section id="bs">
+  <div class="wrap">
+    <header class="section-head" data-r>
       <span class="eyebrow">Most Coveted</span>
-      <h2 class="display-title" style="margin-top:.8rem">Best Sellers</h2>
+      <h2 class="h-title" style="margin-top:.8rem">Best Sellers</h2>
       <div class="rule"></div>
     </header>
-    <div style="overflow:hidden">
-      <div id="bsTrack" style="display:flex;gap:1.5rem;animation:marquee 28s linear infinite;width:max-content"></div>
-    </div>
+  </div>
+  <div class="bs-track">
+    <div class="bs-row" id="bsRow"></div>
   </div>
 </section>
 
-<!-- ═══ CATEGORIES ═══ -->
-<section id="categories" aria-label="Fragrance Categories">
-  <div class="container">
-    <header class="section-head" data-reveal>
+<!-- CATEGORIES -->
+<section id="cats">
+  <div class="wrap">
+    <header class="section-head" data-r>
       <span class="eyebrow">Browse By Collection</span>
-      <h2 class="display-title" style="margin-top:.8rem">Fragrance Families</h2>
+      <h2 class="h-title" style="margin-top:.8rem">Fragrance Families</h2>
       <div class="rule"></div>
     </header>
-    <div class="cats-grid">
-      <div class="cat-card" data-reveal tabindex="0" role="button" aria-label="Oud Collection">
-        <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=400&q=80&auto=format&fit=crop" alt="Oud Collection" loading="lazy">
-        <div class="cat-info">
-          <div class="cat-name">Oud</div>
-          <div class="cat-count">18 Fragrances</div>
-        </div>
+    <div class="cats-g">
+      <div class="cat" data-r>
+        <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=500&q=80&auto=format&fit=crop" alt="Oud Collection" loading="lazy">
+        <div class="cat-inf"><div class="cat-nm">Oud &amp; Oriental</div><div class="cat-ct">Rich &amp; Intense</div></div>
       </div>
-      <div class="cat-card" data-reveal tabindex="0" role="button" aria-label="Arabic Collection">
-        <img src="https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=400&q=80&auto=format&fit=crop" alt="Arabic Collection" loading="lazy">
-        <div class="cat-info">
-          <div class="cat-name">Arabic</div>
-          <div class="cat-count">12 Fragrances</div>
-        </div>
+      <div class="cat" data-r>
+        <img src="https://images.unsplash.com/photo-1595425970377-c9703cf48b6d?w=500&q=80&auto=format&fit=crop" alt="Floral Collection" loading="lazy">
+        <div class="cat-inf"><div class="cat-nm">Floral &amp; Fresh</div><div class="cat-ct">Light &amp; Elegant</div></div>
       </div>
-      <div class="cat-card" data-reveal tabindex="0" role="button" aria-label="Luxury Collection">
-        <img src="https://images.unsplash.com/photo-1473188588951-666fce8e7c68?w=400&q=80&auto=format&fit=crop" alt="Luxury Collection" loading="lazy">
-        <div class="cat-info">
-          <div class="cat-name">Luxury</div>
-          <div class="cat-count">24 Fragrances</div>
-        </div>
-      </div>
-      <div class="cat-card" data-reveal tabindex="0" role="button" aria-label="Men Collection">
-        <img src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=400&q=80&auto=format&fit=crop" alt="Men's Collection" loading="lazy">
-        <div class="cat-info">
-          <div class="cat-name">Pour Homme</div>
-          <div class="cat-count">16 Fragrances</div>
-        </div>
-      </div>
-      <div class="cat-card" data-reveal tabindex="0" role="button" aria-label="Women Collection">
-        <img src="https://images.unsplash.com/photo-1595425970377-c9703cf48b6d?w=400&q=80&auto=format&fit=crop" alt="Women's Collection" loading="lazy">
-        <div class="cat-info">
-          <div class="cat-name">Pour Femme</div>
-          <div class="cat-count">20 Fragrances</div>
-        </div>
-      </div>
-      <div class="cat-card" data-reveal tabindex="0" role="button" aria-label="Unisex Collection">
-        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80&auto=format&fit=crop" alt="Unisex Collection" loading="lazy">
-        <div class="cat-info">
-          <div class="cat-name">Unisex</div>
-          <div class="cat-count">14 Fragrances</div>
-        </div>
+      <div class="cat" data-r>
+        <img src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=500&q=80&auto=format&fit=crop" alt="Woody Collection" loading="lazy">
+        <div class="cat-inf"><div class="cat-nm">Woody &amp; Musky</div><div class="cat-ct">Bold &amp; Modern</div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══ STATS ═══ -->
-<div class="stats-strip">
-  <div class="container">
-    <div class="stats-grid">
-      <div data-reveal><span class="stat-num" data-target="50000">0</span><div class="stat-label">Discerning Clients</div></div>
-      <div data-reveal><span class="stat-num" data-target="120">0</span><div class="stat-label">Unique Compositions</div></div>
-      <div data-reveal><span class="stat-num" data-target="35">0</span><div class="stat-label">Countries Served</div></div>
-      <div data-reveal><span class="stat-num" data-target="6">0</span><div class="stat-label">Years of Mastery</div></div>
+<!-- STATS -->
+<div class="stats">
+  <div class="wrap">
+    <div class="stats-g">
+      <div data-r><span class="st-num" data-t="5000">0</span><div class="st-lbl">Happy Customers</div></div>
+      <div data-r><span class="st-num" data-t="3">0</span><div class="st-lbl">Signature Fragrances</div></div>
+      <div data-r><span class="st-num" data-t="24">0</span><div class="st-lbl">Hours Longevity</div></div>
+      <div data-r><span class="st-num" data-t="100">0</span><div class="st-lbl">% Authentic</div></div>
     </div>
   </div>
 </div>
 
-<!-- ═══ WHY IMAROZE ═══ -->
-<section id="why" aria-label="Why choose Imaroze">
-  <div class="container">
-    <header class="section-head" data-reveal>
+<!-- WHY IMAROZE -->
+<section id="why">
+  <div class="wrap">
+    <header class="section-head" data-r>
       <span class="eyebrow">Our Promise</span>
-      <h2 class="display-title" style="margin-top:.8rem">The Imaroze Difference</h2>
+      <h2 class="h-title" style="margin-top:.8rem">The IMAROZE Difference</h2>
       <div class="rule"></div>
     </header>
-    <div class="why-grid">
-      <div class="why-item" data-reveal>
-        <div class="why-icon">
-          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
-        </div>
-        <div class="why-title">Certified Premium Ingredients</div>
-        <p class="why-desc">Every ingredient is ethically sourced and certified — Cambodian oud, Taif rose, Omani frankincense. Absolute purity, no compromise.</p>
-      </div>
-      <div class="why-item" data-reveal>
-        <div class="why-icon">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        </div>
-        <div class="why-title">12 to 24 Hours Longevity</div>
-        <p class="why-desc">Our Eau de Parfum concentrations carry an extraordinary sillage — a single application announces your presence for a full day.</p>
-      </div>
-      <div class="why-item" data-reveal>
-        <div class="why-icon">
-          <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 4v4h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-        </div>
-        <div class="why-title">Global Express Delivery</div>
-        <p class="why-desc">Insured express shipping to 35+ countries. Each order arrives in a black lacquered gift box sealed with our golden wax stamp.</p>
-      </div>
-      <div class="why-item" data-reveal>
-        <div class="why-icon">
-          <svg viewBox="0 0 24 24"><path d="M20 7H4a2 2 0 00-2 2v10a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
-        </div>
-        <div class="why-title">Bespoke Luxury Packaging</div>
-        <p class="why-desc">Handcrafted presentation boxes, Swarovski-clasp ribbons, and a personal fragrance card — making every unboxing a ceremony.</p>
-      </div>
-      <div class="why-item" data-reveal>
-        <div class="why-icon">
-          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-        </div>
-        <div class="why-title">Limited Edition Exclusives</div>
-        <p class="why-desc">Private collection releases available only to registered Imaroze patrons — numbered, signed bottles of rarest oud and rose absolutes.</p>
-      </div>
-      <div class="why-item" data-reveal>
-        <div class="why-icon">
-          <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
-        </div>
-        <div class="why-title">White-Glove Client Care</div>
-        <p class="why-desc">Dedicated fragrance concierge service. Custom blending consultations. Engraving. Returns handled with absolute discretion.</p>
-      </div>
+    <div class="why-g">
+      <div class="w-item" data-r><div class="w-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div><div class="w-title">Certified Premium Ingredients</div><p class="w-desc">Every ingredient is carefully selected — high-grade perfume oils, aromatic compounds, and rich accord bases for a bold and memorable sillage.</p></div>
+      <div class="w-item" data-r><div class="w-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div class="w-title">12 to 24 Hours Longevity</div><p class="w-desc">Our Eau de Parfum concentration carries an extraordinary sillage — a single application announces your presence for a full day, effortlessly.</p></div>
+      <div class="w-item" data-r><div class="w-icon"><svg viewBox="0 0 24 24"><path d="M20 7H4a2 2 0 00-2 2v10a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg></div><div class="w-title">Luxury Packaging</div><p class="w-desc">Each bottle arrives beautifully packaged — an ideal gift or personal luxury that reflects the premium quality inside.</p></div>
+      <div class="w-item" data-r><div class="w-icon"><svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 4v4h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div><div class="w-title">Fast Delivery in Pakistan</div><p class="w-desc">Quick, reliable delivery across all major cities in Pakistan. Track your order every step of the way.</p></div>
+      <div class="w-item" data-r><div class="w-icon"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><div class="w-title">For Men &amp; Women</div><p class="w-desc">Our fragrances transcend gender — crafted for the modern individual who wears confidence as their signature.</p></div>
+      <div class="w-item" data-r><div class="w-icon"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div><div class="w-title">Customer First</div><p class="w-desc">We stand behind every bottle. Easy returns, dedicated support via WhatsApp, and absolute commitment to your satisfaction.</p></div>
     </div>
   </div>
 </section>
 
-<!-- ═══ FRAGRANCE NOTES ═══ -->
-<section id="notes-section" aria-label="Fragrance Notes">
-  <div class="container">
-    <div class="notes-inner">
-      <div class="notes-img" data-reveal="left">
-        <img src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?w=700&q=85&auto=format&fit=crop" alt="Fragrance ingredients — raw oud and rose petals" loading="lazy">
+<!-- NOTES PYRAMID -->
+<section id="notes">
+  <div class="wrap">
+    <div class="notes-g">
+      <div class="notes-img" data-r="l">
+        <img src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?w=700&q=82&auto=format&fit=crop" alt="Fragrance ingredients — oud and rose" loading="lazy">
       </div>
-      <div data-reveal="right">
+      <div data-r="r">
         <span class="eyebrow">Olfactory Architecture</span>
-        <h2 class="display-title" style="margin-top:.8rem;text-align:left">The Notes<br><em>Pyramid</em></h2>
-        <div class="rule" style="margin:1.6rem 0"></div>
-        <p style="font-family:var(--f-body);font-size:1rem;font-weight:300;color:var(--cream-dim);margin-bottom:2.5rem;letter-spacing:.02em;line-height:1.9">Every Imaroze fragrance is composed across three acts — each layer revealing itself as the previous fades, creating an evolving narrative on the skin.</p>
-        <div class="notes-pyramid">
-          <div class="notes-tier">
-            <div class="tier-label">Top Notes — First 30 Minutes</div>
-            <div class="tier-notes">Bergamot, Cardamom, Pink Pepper, Neroli</div>
-          </div>
-          <div class="notes-tier">
-            <div class="tier-label">Heart Notes — 1 to 4 Hours</div>
-            <div class="tier-notes">Taif Rose, Turkish Rose, Iris, Jasmine Sambac</div>
-          </div>
-          <div class="notes-tier">
-            <div class="tier-label">Base Notes — 8 to 24 Hours</div>
-            <div class="tier-notes">Cambodian Oud, Sandalwood, Amber, White Musk, Labdanum</div>
-          </div>
-        </div>
+        <h2 class="h-title" style="margin-top:.8rem;text-align:left">The Fragrance<br><em>Pyramid</em></h2>
+        <div class="rule" style="margin:1.5rem 0"></div>
+        <p style="font-family:var(--fu);font-size:.8rem;color:var(--cream-dim);margin-bottom:2rem;line-height:1.85;letter-spacing:.02em">Every IMAROZE fragrance unfolds in three acts — each layer revealing itself as the previous fades, creating an evolving story on your skin that lasts all day.</p>
+        <div class="tier"><div class="tier-lbl">Top Notes &mdash; First 30 Minutes</div><div class="tier-notes">Bergamot, Cardamom, Pink Pepper, Fresh Citrus</div></div>
+        <div class="tier"><div class="tier-lbl">Heart Notes &mdash; 1 to 4 Hours</div><div class="tier-notes">Jasmine, Rose, Iris, Musky Florals</div></div>
+        <div class="tier"><div class="tier-lbl">Base Notes &mdash; 8 to 24 Hours</div><div class="tier-notes">Sandalwood, Oud, Amber, White Musk, Vetiver</div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══ TESTIMONIALS ═══ -->
-<section id="testimonials" aria-label="Client Reviews">
-  <div class="container">
-    <header class="section-head" data-reveal>
-      <span class="eyebrow">Client Reviews</span>
-      <h2 class="display-title" style="margin-top:.8rem">Words of Distinction</h2>
+<!-- WHY YOU'LL LOVE IT -->
+<section id="love">
+  <div class="wrap">
+    <header class="section-head" data-r>
+      <span class="eyebrow">Why You'll Love It</span>
+      <h2 class="h-title" style="margin-top:.8rem">Made For<br><em>Extraordinary Lives</em></h2>
+      <div class="rule"></div>
+    </header>
+    <div class="love-g">
+      <div class="lv" data-r><div class="lv-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div><div class="lv-t">Long-Lasting Luxury</div><p class="lv-d">Premium EDP concentration with strong performance that stays with you all day.</p></div></div>
+      <div class="lv" data-r><div class="lv-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div><div class="lv-t">Premium EDP Concentration</div><p class="lv-d">High-grade fragrance oils for rich, bold, and unforgettable scent projection.</p></div></div>
+      <div class="lv" data-r><div class="lv-icon"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div><div><div class="lv-t">Perfect Balance of Notes</div><p class="lv-d">Fresh, floral, and woody — each composition is carefully balanced for elegance.</p></div></div>
+      <div class="lv" data-r><div class="lv-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg></div><div><div class="lv-t">Suitable for All Occasions</div><p class="lv-d">Daily wear, office, evenings, and special events — IMAROZE fits every moment.</p></div></div>
+      <div class="lv" data-r><div class="lv-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div><div><div class="lv-t">For Men &amp; Women</div><p class="lv-d">Unisex appeal — a signature scent that defines your personality, not your gender.</p></div></div>
+      <div class="lv" data-r><div class="lv-icon"><svg viewBox="0 0 24 24"><path d="M20 7H4a2 2 0 00-2 2v10a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg></div><div><div class="lv-t">Elegant Signature Impression</div><p class="lv-d">Crafted with premium fragrance oils — every application leaves a lasting first impression.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testi" style="padding:8rem 0;background:var(--black2)">
+  <div class="wrap">
+    <header class="section-head" data-r>
+      <span class="eyebrow">Customer Reviews</span>
+      <h2 class="h-title" style="margin-top:.8rem">Words of Distinction</h2>
       <div class="rule"></div>
     </header>
     <div class="testi-slider">
-      <div class="testi-track" id="testiTrack"></div>
+      <div class="testi-track" id="tTrack"></div>
     </div>
-    <div class="slider-nav">
-      <button class="s-btn" onclick="prevTesti()" aria-label="Previous review">
-        <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
-      </button>
-      <div class="s-dots" id="testiDots"></div>
-      <button class="s-btn" onclick="nextTesti()" aria-label="Next review">
-        <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
-      </button>
+    <div class="s-nav">
+      <button class="s-btn" onclick="prevT()"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></button>
+      <div class="s-dots" id="tDots"></div>
+      <button class="s-btn" onclick="nextT()"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></button>
     </div>
   </div>
 </section>
 
-<!-- ═══ ABOUT ═══ -->
-<section id="about" aria-label="About Imaroze">
-  <div class="container">
-    <div class="about-grid">
-      <div class="about-vis" data-reveal="left">
-        <img src="https://images.unsplash.com/photo-1566207474742-de921626ad0c?w=700&q=85&auto=format&fit=crop" alt="Imaroze perfume atelier — master perfumer at work" loading="lazy">
-        <div class="about-badge">
-          <span class="y">6</span>
-          <span class="l">Years</span>
-        </div>
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap">
+    <div class="about-g">
+      <div class="about-vis" data-r="l">
+        <img src="https://images.unsplash.com/photo-1566207474742-de921626ad0c?w=700&q=82&auto=format&fit=crop" alt="IMAROZE perfume atelier" loading="lazy">
+        <div class="about-badge"><span class="ab-y">6+</span><span class="ab-l">Years</span></div>
       </div>
-      <div data-reveal="right">
+      <div data-r="r">
         <span class="eyebrow">Our Heritage</span>
-        <h2 class="display-title" style="margin-top:.8rem;text-align:left">
-          The Art Behind<br><em>Every Bottle</em>
-        </h2>
-        <div class="rule" style="margin:1.6rem 0"></div>
-        <p class="about-body">Imaroze was founded on a conviction: that a fragrance should transcend scent — it should be identity. Established in Dubai's historic Deira Gold Souk district in 2018, our atelier draws on a thousand-year tradition of Arabic perfumery reinterpreted for the contemporary world.</p>
-        <p class="about-body">Each composition undergoes an 18-month development cycle. Our master perfumer sources personally — Cambodian oud from sustainable forests, Taif rose from Saudi Arabia's high-altitude farms, Omani silver frankincense harvested in its brief summer window.</p>
-        <p class="about-body">The result: fragrances that are not merely worn, but lived in. Imaroze clients describe finding their "olfactory identity" — a personal signature that becomes inseparable from who they are.</p>
-        <div class="about-sig">Rania Al-Farsi</div>
-        <div class="about-sig-role">Founder & Creative Director — IMAROZE</div>
-        <div style="margin-top:2.5rem;display:flex;gap:1rem">
-          <a href="#contact" class="btn-gold">
-            Book a Consultation
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-          <a href="#collection" class="btn-ghost">View Collection</a>
+        <h2 class="h-title" style="margin-top:.8rem;text-align:left">Welcome to<br><em>IMAROZE Perfume</em></h2>
+        <div class="rule" style="margin:1.5rem 0"></div>
+        <p class="ab-body">IMAROZE Perfume is a modern fragrance house from Pakistan dedicated to creating signature scents, luxury Arabic-inspired perfumes, and French-inspired fragrances that define elegance, confidence, and individuality.</p>
+        <p class="ab-body">Our perfumes are designed for people who value premium quality, strong projection, and long-lasting fragrance performance. We use carefully selected high-grade perfume oils and aromatic ingredients to deliver a rich, bold, and unforgettable scent experience.</p>
+        <p class="ab-body">Whether you are looking for a luxury gift, a daily wear fragrance, or a premium signature scent, IMAROZE brings you world-class quality at an affordable luxury level — crafted right here in Pakistan.</p>
+        <div class="ab-sig">IMAROZE Perfume</div>
+        <div class="ab-role">Premium Luxury Fragrance House &mdash; Pakistan</div>
+        <div style="margin-top:2.2rem;display:flex;gap:1rem">
+          <a href="#contact" class="btn-g">Get In Touch <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <a href="#products" class="btn-o">Shop Now</a>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══ PACKAGING ═══ -->
-<section id="packaging" aria-label="Luxury Packaging">
-  <div class="container">
-    <header class="section-head" data-reveal>
+<!-- MISSION -->
+<section id="mission">
+  <div class="wrap">
+    <header class="section-head" data-r>
+      <span class="eyebrow">Our Purpose</span>
+      <h2 class="h-title" style="margin-top:.8rem">Our Mission</h2>
+      <div class="rule"></div>
+      <p class="section-sub">Our mission at IMAROZE Perfume is to become a leading luxury fragrance brand in Pakistan and globally, known for delivering long-lasting, high-performance perfumes and attars.</p>
+    </header>
+    <div class="mission-g">
+      <ul class="mission-list">
+        <li>Develop premium luxury perfumes and signature fragrances with international standards.</li>
+        <li>Provide long-lasting perfume oils with strong sillage and projection that stays all day.</li>
+        <li>Make affordable luxury perfumes accessible without compromising on quality or elegance.</li>
+        <li>Build a trusted and recognized brand in the fragrance and perfume industry of Pakistan.</li>
+        <li>Continuously innovate in Arabic, French, and niche perfume blends for modern tastes.</li>
+        <li>Redefine luxury by offering scents that reflect confidence, style, and personality.</li>
+        <li>Make every fragrance a powerful identity statement for the wearer.</li>
+      </ul>
+      <div class="mission-img" data-r="r">
+        <img src="{AUREX}" alt="IMAROZE mission" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PACKAGING -->
+<section id="pkg">
+  <div class="wrap">
+    <header class="section-head" data-r>
       <span class="eyebrow">Presentation</span>
-      <h2 class="display-title" style="margin-top:.8rem">The Unboxing Ceremony</h2>
+      <h2 class="h-title" style="margin-top:.8rem">The Unboxing Ceremony</h2>
       <div class="rule"></div>
-      <p>Every Imaroze order is a gift before it is opened — black lacquer, gold foil, and a personal fragrance note for the recipient.</p>
+      <p class="section-sub">Every IMAROZE order is a gift before it is opened — premium packaging, elegant presentation, a sensory experience from the very first touch.</p>
     </header>
-    <div class="pack-grid">
-      <div class="pack-item" data-reveal>
-        <img src="https://images.unsplash.com/photo-1523293182086-7651a899d37f?w=600&q=80&auto=format&fit=crop" alt="Imaroze luxury gift box" loading="lazy">
-        <div class="pack-overlay">
-          <div class="pack-title">The Lacquer Box</div>
-          <div class="pack-sub">Hand-finished black lacquer with gold foil</div>
-        </div>
+    <div class="pkg-g">
+      <div class="pk" data-r>
+        <img src="{DENVE}" alt="IMAROZE Denve packaging" loading="lazy">
+        <div class="pk-ov"><div class="pk-t">Denve</div><div class="pk-s">Matte Black &middot; Gold Ornate Cap</div></div>
       </div>
-      <div class="pack-item" data-reveal>
-        <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=600&q=80&auto=format&fit=crop" alt="Imaroze perfume bottle detail" loading="lazy">
-        <div class="pack-overlay">
-          <div class="pack-title">The Bottle</div>
-          <div class="pack-sub">Hand-blown glass with 24k gold cap</div>
-        </div>
+      <div class="pk" data-r>
+        <img src="{BROUTE}" alt="IMAROZE BrouTe packaging" loading="lazy">
+        <div class="pk-ov"><div class="pk-t">BrouTe</div><div class="pk-s">Rose Crystal &middot; Golden Petal Cap</div></div>
       </div>
-      <div class="pack-item" data-reveal>
-        <img src="https://images.unsplash.com/photo-1619994403073-2cec844b8e63?w=600&q=80&auto=format&fit=crop" alt="Imaroze wax seal and ribbon" loading="lazy">
-        <div class="pack-overlay">
-          <div class="pack-title">The Seal</div>
-          <div class="pack-sub">Handpoured wax seal with Imaroze crest</div>
-        </div>
+      <div class="pk" data-r>
+        <img src="{AUREX}" alt="IMAROZE Aurex packaging" loading="lazy">
+        <div class="pk-ov"><div class="pk-t">Aurex</div><div class="pk-s">Matte Black &middot; Crystal Clear Cap</div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══ AWARDS ═══ -->
-<section id="awards" aria-label="Awards and Recognition">
-  <div class="container">
-    <header class="section-head" data-reveal>
+<!-- AWARDS -->
+<section id="awards">
+  <div class="wrap">
+    <header class="section-head" data-r>
       <span class="eyebrow">Recognition</span>
-      <h2 class="display-title" style="margin-top:.8rem">Awards & Accolades</h2>
+      <h2 class="h-title" style="margin-top:.8rem">Awards &amp; Accolades</h2>
       <div class="rule"></div>
     </header>
-    <div class="awards-grid">
-      <div class="award-item" data-reveal>
-        <div class="award-icon">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
-        </div>
-        <div class="award-name">Best Luxury Fragrance</div>
-        <div class="award-org">Middle East Fragrance Awards 2023</div>
-      </div>
-      <div class="award-item" data-reveal>
-        <div class="award-icon">
-          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-        </div>
-        <div class="award-name">Editor's Choice Award</div>
-        <div class="award-org">Vogue Arabia — Scent of the Year</div>
-      </div>
-      <div class="award-item" data-reveal>
-        <div class="award-icon">
-          <svg viewBox="0 0 24 24"><path d="M6 9H4.5a2.5 2.5 0 010-5H6"/><path d="M18 9h1.5a2.5 2.5 0 000-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0012 0V2z"/></svg>
-        </div>
-        <div class="award-name">Top Luxury Brand 2023</div>
-        <div class="award-org">Forbes Middle East</div>
-      </div>
-      <div class="award-item" data-reveal>
-        <div class="award-icon">
-          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        </div>
-        <div class="award-name">Excellence in Craftsmanship</div>
-        <div class="award-org">International Fragrance Foundation</div>
-      </div>
+    <div class="aw-g">
+      <div class="aw" data-r><div class="aw-ico"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><div class="aw-name">Best Luxury Fragrance</div><div class="aw-org">Pakistan Fragrance Awards 2024</div></div>
+      <div class="aw" data-r><div class="aw-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></div><div class="aw-name">Top Emerging Brand</div><div class="aw-org">She Magazine &mdash; Best of 2023</div></div>
+      <div class="aw" data-r><div class="aw-ico"><svg viewBox="0 0 24 24"><path d="M18 2H6v7a6 6 0 0012 0V2z"/><path d="M6 9H4.5a2.5 2.5 0 010-5H6"/><path d="M18 9h1.5a2.5 2.5 0 000-5H18"/><path d="M4 22h16"/></svg></div><div class="aw-name">Customer Choice Award</div><div class="aw-org">HUM Style &mdash; Reader's Picks</div></div>
+      <div class="aw" data-r><div class="aw-ico"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div class="aw-name">Excellence in Craftsmanship</div><div class="aw-org">Diva Pakistan &mdash; Luxury Edition</div></div>
     </div>
   </div>
 </section>
 
-<!-- ═══ NEWSLETTER ═══ -->
-<section id="newsletter" aria-label="Newsletter subscription">
-  <div class="container">
-    <div class="nl-inner" data-reveal>
-      <span class="eyebrow" style="justify-content:center;margin-bottom:1rem">Inner Circle</span>
-      <h2 class="display-title">Join the Inner Circle</h2>
+<!-- FAQ -->
+<section id="faq" style="background:var(--black2)">
+  <div class="wrap">
+    <header class="section-head" data-r>
+      <span class="eyebrow">Common Questions</span>
+      <h2 class="h-title" style="margin-top:.8rem">Frequently Asked<br><em>Questions</em></h2>
       <div class="rule"></div>
-      <p style="font-family:var(--f-body);font-size:1rem;font-weight:300;color:var(--cream-dim);line-height:1.85">Be the first to discover private collection launches, invitation-only events, and exclusive Imaroze patron privileges.</p>
-      <div class="nl-form" role="form">
-        <input class="nl-input" type="email" id="nlEmail" placeholder="Your email address" aria-label="Email address">
-        <button class="nl-btn" onclick="subscribeNL()">Subscribe</button>
+    </header>
+    <div class="faq-list" id="faqList"></div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section id="nl">
+  <div class="wrap">
+    <div class="nl-in" data-r>
+      <span class="eyebrow" style="justify-content:center;margin-bottom:.9rem">Inner Circle</span>
+      <h2 class="h-title">Join the Inner Circle</h2>
+      <div class="rule"></div>
+      <p style="font-family:var(--fu);font-size:.8rem;color:var(--cream-dim);line-height:1.85">Be the first to discover new fragrances, exclusive launches, and special offers for IMAROZE patrons in Pakistan and beyond.</p>
+      <div class="nl-form">
+        <input class="nl-inp" type="email" id="nlEmail" placeholder="Your email address">
+        <button class="nl-sub" onclick="subscribeNL()">Subscribe</button>
       </div>
-      <p class="nl-note">Absolute discretion. No third-party sharing. Unsubscribe any time.</p>
+      <p class="nl-note">No spam. Absolute discretion. Unsubscribe any time.</p>
     </div>
   </div>
 </section>
 
-<!-- ═══ CONTACT ═══ - UPDATED with Google Sheets -->
-<section id="contact" aria-label="Contact Imaroze">
-  <div class="container">
-    <header class="section-head" data-reveal>
-      <span class="eyebrow">Contact Us</span>
-      <h2 class="display-title" style="margin-top:.8rem">Speak With Our Concierge</h2>
+<!-- CONTACT -->
+<section id="contact">
+  <div class="wrap">
+    <header class="section-head" data-r>
+      <span class="eyebrow">Reach Out</span>
+      <h2 class="h-title" style="margin-top:.8rem">Contact IMAROZE</h2>
       <div class="rule"></div>
     </header>
-    <div class="contact-grid">
-      <div data-reveal="left">
+    <div class="contact-g">
+      <div data-r="l">
         <h3>We are at your service</h3>
-        <div class="c-row">
-          <div class="c-ico"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-          <div>
-            <div class="c-row-label">Address</div>
-            <div class="c-row-val">The Perfume Quarter, Al Barsha First<br>Dubai, United Arab Emirates</div>
-          </div>
-        </div>
-        <div class="c-row">
-          <div class="c-ico"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.01 2.19 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/></svg></div>
-          <div>
-            <div class="c-row-label">Phone / WhatsApp</div>
-            <div class="c-row-val">+971 4 000 0000</div>
-          </div>
-        </div>
-        <div class="c-row">
-          <div class="c-ico"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
-          <div>
-            <div class="c-row-label">Email</div>
-            <div class="c-row-val">concierge@imaroze.com</div>
-          </div>
-        </div>
-        <div class="c-row">
-          <div class="c-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-          <div>
-            <div class="c-row-label">Hours</div>
-            <div class="c-row-val">Mon – Sat: 10:00 – 20:00<br>Sunday: 12:00 – 18:00</div>
-          </div>
-        </div>
-        <div class="map-ph" role="img" aria-label="Map placeholder">
-          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          <span>View on Google Maps</span>
-        </div>
+        <div class="cr"><div class="cr-ico"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div><div class="cr-lbl">Address</div><div class="cr-val">Pakistan (Online Nationwide Delivery)</div></div></div>
+        <div class="cr"><div class="cr-ico"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.01 2.19 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/></svg></div><div><div class="cr-lbl">WhatsApp / Phone</div><div class="cr-val">+92 300 000 0000</div></div></div>
+        <div class="cr"><div class="cr-ico"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div><div class="cr-lbl">Email</div><div class="cr-val">info@imaroze.com</div></div></div>
+        <div class="cr"><div class="cr-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div><div class="cr-lbl">Hours</div><div class="cr-val">Mon &ndash; Sat: 10:00 &ndash; 20:00<br>Sunday: 12:00 &ndash; 18:00</div></div></div>
+        <div class="cr"><div class="cr-ico"><svg viewBox="0 0 24 24"><path d="M21 2H3v16h5l3 3 3-3h7V2z"/><line x1="9" y1="10" x2="9" y2="10"/><line x1="12" y1="10" x2="12" y2="10"/><line x1="15" y1="10" x2="15" y2="10"/></svg></div><div><div class="cr-lbl">Social Media</div><div class="cr-val"><a href="https://instagram.com/imaroze.official" style="color:var(--gold)" target="_blank">@imaroze.official</a> on Instagram &amp; TikTok</div></div></div>
+        <div class="map-ph"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Find Us Online</span></div>
       </div>
-      <div data-reveal="right">
-        <div class="c-form">
-          <div class="cf-row">
-            <div class="cf-field">
-              <label class="cf-label" for="cf-first">First Name</label>
-              <input type="text" id="cf-first" placeholder="Your first name">
-            </div>
-            <div class="cf-field">
-              <label class="cf-label" for="cf-last">Last Name</label>
-              <input type="text" id="cf-last" placeholder="Your last name">
-            </div>
+      <div data-r="r">
+        <div class="cf">
+          <div class="co-2">
+            <div class="cf-f"><label class="cf-l">First Name</label><input type="text" id="cf1" placeholder="Your first name"></div>
+            <div class="cf-f"><label class="cf-l">Last Name</label><input type="text" id="cf2" placeholder="Your last name"></div>
           </div>
-          <div class="cf-field">
-            <label class="cf-label" for="cf-email">Email Address</label>
-            <input type="email" id="cf-email" placeholder="your@email.com">
+          <div class="cf-f"><label class="cf-l">Email Address</label><input type="email" id="cf3" placeholder="your@email.com"></div>
+          <div class="cf-f"><label class="cf-l">Phone / WhatsApp</label><input type="tel" id="cf4" placeholder="+92 300 0000000"></div>
+          <div class="cf-f"><label class="cf-l">Enquiry Type</label>
+            <select id="cf5"><option value="" disabled selected>Select enquiry type</option><option>Product Information</option><option>Order Enquiry</option><option>Custom Fragrance</option><option>Corporate Gifting</option><option>Wholesale Enquiry</option><option>General Question</option></select>
           </div>
-          <div class="cf-field">
-            <label class="cf-label" for="cf-subject">Enquiry Type</label>
-            <select id="cf-subject">
-              <option value="" disabled selected>Select an enquiry type</option>
-              <option>Product Information</option>
-              <option>Custom Bespoke Fragrance</option>
-              <option>Corporate Gifting</option>
-              <option>Wholesale Enquiry</option>
-              <option>General Question</option>
-            </select>
-          </div>
-          <div class="cf-field">
-            <label class="cf-label" for="cf-msg">Message</label>
-            <textarea id="cf-msg" rows="5" placeholder="How may we assist you?"></textarea>
-          </div>
-          <button class="btn-gold" onclick="sendContact()">
-            Send Enquiry
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </button>
+          <div class="cf-f"><label class="cf-l">Message</label><textarea id="cf6" rows="5" placeholder="How may we assist you?"></textarea></div>
+          <button class="btn-g" onclick="sendContact()">Send Enquiry <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══ FOOTER ═══ - UPDATED with social media links -->
+<!-- FOOTER -->
 <footer>
-  <div class="container">
-    <div class="foot-grid">
-      <div class="foot-brand">
-              <a href="#" class="f-logo">
-  <img src="logo.png" alt="IMAROZE" style="height: 40px; width: auto;">
-</a>
-        <p>Haute parfumerie from the heart of Dubai. Every fragrance is a story — crafted for those who wear their identity with conviction.</p>
-        <div class="socials">
-          <a href="https://www.instagram.com/imaroze.official" class="soc" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-            <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-          </a>
-          <a href="https://www.facebook.com/share/175FcaNHRu" class="soc" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-            <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
-          </a>
-          <a href="https://www.tiktok.com/@imaroze.official" class="soc" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
-            <svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.75a4.85 4.85 0 01-1.01-.06z"/></svg>
-          </a>
+  <div class="wrap">
+    <div class="ft-g">
+      <div>
+        <div class="ft-logo"><span>IMAROZE</span></div>
+        <p class="ft-p">Discover our signature collection of luxury perfumes, featuring long-lasting fragrances, premium perfume oils, and elegant scents designed to leave a lasting impression.</p>
+        <div class="ft-soc">
+          <a href="https://www.instagram.com/imaroze.official" class="fsc" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+          <a href="https://www.facebook.com/share/175FcaNHRu" class="fsc" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+          <a href="https://www.tiktok.com/@imaroze.official" class="fsc" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 106.33 6.34V8.69a8.18 8.18 0 004.78 1.52V6.75a4.85 4.85 0 01-1.01-.06z"/></svg></a>
+          <a href="https://wa.me/923001234567" class="fsc" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg></a>
         </div>
       </div>
-      <div class="foot-col">
-        <h4>Collections</h4>
-        <ul class="foot-links">
-          <li><a href="#">Oud Collection</a></li>
-          <li><a href="#">Arabic Collection</a></li>
-          <li><a href="#">Pour Homme</a></li>
-          <li><a href="#">Pour Femme</a></li>
-          <li><a href="#">Luxury Editions</a></li>
-          <li><a href="#">New Arrivals</a></li>
+      <div class="ft-col">
+        <h4>Our Fragrances</h4>
+        <ul class="ft-links">
+          <li><a href="#products">IMAROZE Denve</a></li>
+          <li><a href="#products">IMAROZE BrouTe</a></li>
+          <li><a href="#products">IMAROZE Aurex</a></li>
+          <li><a href="#cats">Oud Collection</a></li>
+          <li><a href="#cats">Floral Collection</a></li>
+          <li><a href="#cats">New Arrivals</a></li>
         </ul>
       </div>
-      <div class="foot-col">
-        <h4>Maison</h4>
-        <ul class="foot-links">
-          <li><a href="#">Our Heritage</a></li>
-          <li><a href="#">Master Perfumer</a></li>
-          <li><a href="#">Sustainability</a></li>
-          <li><a href="#">Press</a></li>
-          <li><a href="#">Careers</a></li>
-          <li><a href="#">Stockists</a></li>
+      <div class="ft-col">
+        <h4>IMAROZE</h4>
+        <ul class="ft-links">
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#mission">Our Mission</a></li>
+          <li><a href="#awards">Awards</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="https://instagram.com/imaroze.official" target="_blank">Instagram</a></li>
+          <li><a href="https://tiktok.com/@imaroze.official" target="_blank">TikTok</a></li>
         </ul>
       </div>
-      <div class="foot-col">
-        <h4>Client Care</h4>
-        <ul class="foot-links">
-          <li><a href="#">Shipping Policy</a></li>
-          <li><a href="#">Returns</a></li>
-          <li><a href="#">Track Order</a></li>
-          <li><a href="#">FAQ</a></li>
-          <li><a href="#">Privacy Policy</a></li>
-          <li><a href="#">Terms of Service</a></li>
+      <div class="ft-col">
+        <h4>Customer Care</h4>
+        <ul class="ft-links">
+          <li><a href="#contact">Contact Us</a></li>
+          <li><a href="#faq">Shipping Info</a></li>
+          <li><a href="#faq">Returns Policy</a></li>
+          <li><a href="#faq">Track Order</a></li>
+          <li><a href="#faq">Privacy Policy</a></li>
+          <li><a href="#faq">Terms &amp; Conditions</a></li>
         </ul>
-        <div class="foot-payments">
-          <span class="pay-tag">Visa</span>
-          <span class="pay-tag">Mastercard</span>
-          <span class="pay-tag">Amex</span>
-          <span class="pay-tag">PayPal</span>
-          <span class="pay-tag">Apple Pay</span>
+        <div class="pay-row">
+          <span class="pay">Cash</span>
+          <span class="pay">JazzCash</span>
+          <span class="pay">EasyPaisa</span>
+          <span class="pay">Bank</span>
         </div>
       </div>
     </div>
-    <div class="foot-bottom">
-      <p>© 2024 Imaroze Haute Parfumerie. All rights reserved.</p>
-      <div class="foot-bottom-links">
+    <div class="ft-bottom">
+      <p>&copy; 2024 IMAROZE Perfume. All rights reserved. Made with passion in Pakistan.</p>
+      <div class="ft-pol">
         <a href="#">Privacy</a>
         <a href="#">Terms</a>
         <a href="#">Cookies</a>
@@ -2287,310 +1155,284 @@ footer{
 </footer>
 
 <script>
-// ─── PRODUCTS DATA ───
-const PRODUCT_IMAGE = "perfume-bottle.png";
+// ─── IMAGE DATA ───
+const IMG = {
+  denve:  "{DENVE}",
+  broute: "{BROUTE}",
+  aurex:  "{AUREX}"
+};
 
-const PRODUCTS = [
-  { id:1, name:'Royal Oud', price:185, size:'100ml', badge:'Best Seller', badgeType:'badge-bs', img:PRODUCT_IMAGE, notes:'Cambodian Oud · Saffron · Amber', desc:'Regal and commanding — Cambodian agarwood aged 50 years forms the heart of this composition.', stars:5 },
-  { id:2, name:'Black Gold', price:220, size:'100ml', badge:'Limited', badgeType:'badge-ltd', img:PRODUCT_IMAGE, notes:'Black Truffle · Oud · Leather', desc:'A bold collision of black truffle accord, dark Laotian oud, and tobacco leaf.', stars:5 },
-  { id:3, name:'Imperial Musk', price:165, size:'50ml', badge:'New', badgeType:'badge-new', img:PRODUCT_IMAGE, notes:'White Musk · Cashmere · Iris', desc:'White Egyptian musk intertwined with cashmere wood.', stars:5 },
-  { id:4, name:'Amber Signature', price:195, size:'100ml', badge:null, badgeType:'', img:PRODUCT_IMAGE, notes:'Golden Amber · Benzoin · Vanilla', desc:'Warm, resinous, and profoundly sensual amber composition.', stars:5 },
-  { id:5, name:'Midnight Noir', price:210, size:'100ml', badge:'Best Seller', badgeType:'badge-bs', img:PRODUCT_IMAGE, notes:'Midnight Oud · Smoke · Leather', desc:'Inspired by the darkness before dawn.', stars:5 },
-  { id:6, name:'Arabian Velvet', price:175, size:'100ml', badge:'New', badgeType:'badge-new', img:PRODUCT_IMAGE, notes:'Taif Rose · Oud · Saffron', desc:'Quintessential Arabic luxury fragrance.', stars:5 },
-  { id:7, name:'Prestige Gold', price:240, size:'100ml', badge:'Limited', badgeType:'badge-ltd', img:PRODUCT_IMAGE, notes:'Neroli · Sandalwood · Golden Amber', desc:'The pinnacle of the Imaroze collection.', stars:5 },
-  { id:8, name:'Royal Amber', price:155, size:'50ml', badge:null, badgeType:'', img:PRODUCT_IMAGE, notes:'Labdanum · Patchouli · Vetiver', desc:'A meditation on warmth.', stars:4 },
-  { id:9, name:'Desert Rose', price:185, size:'100ml', badge:'New', badgeType:'badge-new', img:PRODUCT_IMAGE, notes:'Damascus Rose · Oud · Jasmine', desc:'Damascus rose absolute at extraordinary concentration.', stars:5 },
-  { id:10, name:'Platinum Oud', price:260, size:'100ml', badge:'Limited', badgeType:'badge-ltd', img:PRODUCT_IMAGE, notes:'Hindi Oud · Bergamot · Musk', desc:'30-year aged Hindi oud from Bangladesh.', stars:5 },
-  { id:11, name:'Sapphire Musk', price:145, size:'50ml', badge:'New', badgeType:'badge-new', img:PRODUCT_IMAGE, notes:'Violet · White Musk · Sandalwood', desc:'Cool, crystalline, and effortlessly modern.', stars:4 },
-  { id:12, name:'Eternal Gold', price:215, size:'100ml', badge:'Best Seller', badgeType:'badge-bs', img:PRODUCT_IMAGE, notes:'Myrrh · Frankincense · Amber', desc:'Omani silver frankincense and Ethiopian myrrh.', stars:5 },
-  { id:13, name:'Oud Noir', price:230, size:'100ml', badge:'Best Seller', badgeType:'badge-bs', img:PRODUCT_IMAGE, notes:'Dark Oud · Incense', desc:'Deep, mysterious, and long-lasting.', stars:5 },
-  { id:14, name:'Golden Rose', price:190, size:'100ml', badge:'New', badgeType:'badge-new', img:PRODUCT_IMAGE, notes:'Bulgarian Rose · Amber', desc:'The finest Bulgarian rose absolute.', stars:5 },
-  { id:15, name:'White Oud', price:205, size:'100ml', badge:'Limited', badgeType:'badge-ltd', img:PRODUCT_IMAGE, notes:'White Oud · Musk', desc:'A lighter, more ethereal take on traditional oud.', stars:5 }
+// ─── PRODUCTS ───
+const PRODS = {
+  denve:  { name:'IMAROZE Denve',  price:2499, size:'50ml', notes:'Fresh · Woody · Musky', desc:'A premium long-lasting fragrance crafted for those who love elegant, modern, and luxurious scents. Designed with high-quality perfume oils, it delivers a rich and smooth aroma that stays with you all day. Perfect for daily wear, special occasions, and signature scent lovers.', stars:5 },
+  broute: { name:'IMAROZE BrouTe', price:2499, size:'50ml', notes:'Bold · Fresh · Woody · Musky', desc:'IMAROZE BrouTe is a premium long-lasting fragrance crafted with a bold blend of fresh, woody, and musky notes. Designed for a confident and modern personality, it delivers an elegant scent that stays fresh and memorable all day.', stars:5 },
+  aurex:  { name:'IMAROZE Aurex',  price:2499, size:'50ml', notes:'Fresh Citrus · Floral · Warm Woody', desc:'IMAROZE Aurex is a luxury long-lasting Eau De Parfum crafted with a refined blend of fresh citrus, elegant floral notes, and warm woody undertones. Designed for a modern, confident personality, it delivers a rich and sophisticated fragrance that stays with you all day.', stars:5 }
+};
+
+const TESTIS = [
+  { text:'IMAROZE Denve is honestly one of the best fragrances I have tried from a Pakistani brand. The longevity is incredible — I wore it to a wedding and was still getting compliments 10 hours later.', name:'Ahsan Raza', loc:'Lahore, Pakistan' },
+  { text:'BrouTe is bold, fresh, and exactly what I needed as a daily signature. People at my office ask me every single day what I am wearing. Absolutely love it — worth every rupee.', name:'Sana Malik', loc:'Karachi, Pakistan' },
+  { text:'Aurex is sophisticated and elegant. The citrus opening is refreshing and the woody base lasts all day. I have gifted it to my father and my brother — both loved it instantly.', name:'Zara Ahmed', loc:'Islamabad, Pakistan' },
+  { text:'Finally a Pakistani perfume brand that competes with international quality. IMAROZE packaging is premium, delivery was fast, and the fragrance is genuinely world-class.', name:'Hassan Tariq', loc:'Rawalpindi, Pakistan' }
 ];
 
-const TESTIMONIALS = [
-  { text:'Royal Oud is unlike anything else on the market. IMAROZE belongs in that conversation at half the price.', name:'Khalid Al-Mansour', loc:'Dubai, UAE' },
-  { text:'The depth and evolution over 18 hours on skin is simply masterful.', name:'James Whitfield', loc:'London, UK' },
-  { text:'Imaroze understands the Arabian tradition at the highest level.', name:'Leila Al-Rashid', loc:'Riyadh, KSA' }
+const FAQS = [
+  { q:'How long do IMAROZE perfumes last?', a:'Our fragrances are designed to provide long-lasting performance, typically lasting 12 to 24 hours depending on skin type and environment. They are formulated with premium EDP concentration for maximum longevity.' },
+  { q:'Are IMAROZE perfumes suitable for daily use?', a:'Yes. Our perfumes are carefully formulated for both daily wear and special occasions. The balanced composition works beautifully in offices, casual settings, and formal events.' },
+  { q:'Do you offer perfumes for both men and women?', a:'Yes. We offer fragrances for men, women, and unisex preferences. Denve, BrouTe, and Aurex all have a versatile character that works beautifully for any gender.' },
+  { q:'How should I store my perfume?', a:'Keep your perfume in a cool, dry place away from direct sunlight and excessive heat. Avoid storing in bathrooms as humidity can affect the fragrance composition over time.' },
+  { q:'Are IMAROZE perfumes suitable as gifts?', a:'Absolutely. Our elegant packaging and premium fragrances make them an excellent gift choice for weddings, Eid, birthdays, anniversaries, and corporate occasions.' },
+  { q:'Which perfume is best for special occasions?', a:'Aurex and Denve are especially popular for evening wear and special events due to their rich, sophisticated profiles. BrouTe is perfect for confident daily wear.' },
+  { q:'Do you deliver across Pakistan?', a:'Yes, we deliver to all major cities and areas across Pakistan. Orders are typically dispatched within 1-2 business days.' }
 ];
 
 // ─── CART ───
 let cart = [];
+let mQty = 1;
+let mId = null;
 
 function buildStars(n) {
-  return Array(5).fill(0).map((_,i)=>`<svg class="star-svg${i>=n?' empty':''}" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>`).join('');
+  return Array(5).fill(0).map((_,i)=>
+    `<svg class="star${i>=n?' e':''}" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>`
+  ).join('');
 }
 
-function renderProducts() {
-  const grid = document.getElementById('productsGrid');
-  if(!grid) return;
-  grid.innerHTML = PRODUCTS.map((p,i) => `
-    <article class="p-card" onclick="openModal(${p.id})">
-      ${p.badge ? `<span class="p-badge ${p.badgeType}">${p.badge}</span>` : ''}
-      <div class="p-img">
-        <img src="${p.img}" alt="${p.name}" loading="lazy">
-        <button class="p-wish" onclick="event.stopPropagation();toggleWish(this)">❤️</button>
-        <div class="p-overlay"><button class="p-quick" onclick="event.stopPropagation();addToCart(${p.id})">Quick Add</button></div>
-      </div>
-      <div class="p-info">
-        <div class="p-name">Imaroze ${p.name}</div>
-        <div class="p-notes">${p.notes}</div>
-        <div class="p-meta"><span class="p-price">$${p.price}</span><span class="p-size">${p.size}</span></div>
-        <div class="p-stars">${buildStars(p.stars)}</div>
-        <button class="p-add" onclick="event.stopPropagation();addToCart(${p.id})">Add to Cart</button>
-      </div>
-    </article>
-  `).join('');
+function initStars() {
+  ['denve','broute','aurex'].forEach(id => {
+    const el = document.getElementById('stars-'+id);
+    if(el) el.innerHTML = buildStars(5);
+  });
 }
 
-function renderBS() {
-  const track = document.getElementById('bsTrack');
+// Best Sellers strip
+function initBS() {
+  const row = document.getElementById('bsRow');
+  if(!row) return;
+  const keys = ['denve','broute','aurex','denve','broute','aurex'];
+  row.innerHTML = keys.map(k => {
+    const p = PRODS[k];
+    return `<div class="bs-item" onclick="openModal('${k}')">
+      <img src="${IMG[k]}" alt="${p.name}" loading="lazy">
+      <div class="bs-name">${p.name}</div>
+      <div class="bs-price">Rs. ${p.price.toLocaleString()}</div>
+    </div>`;
+  }).join('');
+}
+
+// Testimonials
+let tIdx=0, tPV=()=>window.innerWidth<640?1:2;
+function initTestis() {
+  const track = document.getElementById('tTrack');
+  const dots  = document.getElementById('tDots');
   if(!track) return;
-  const best = PRODUCTS.filter(p => p.badge === 'Best Seller');
-  track.innerHTML = [...best, ...best].map(p => `
-    <div style="min-width:200px;background:var(--ink-3);border:1px solid var(--gold-line);padding:1rem;text-align:center;cursor:pointer" onclick="openModal(${p.id})">
-      <img src="${p.img}" alt="${p.name}" style="width:100%;height:140px;object-fit:cover;margin-bottom:0.5rem">
-      <div style="font-family:var(--f-display);font-size:0.85rem">${p.name}</div>
-      <div style="color:var(--gold)">$${p.price}</div>
-    </div>
-  `).join('');
-}
-
-function renderTestimonials() {
-  const track = document.getElementById('testiTrack');
-  if(!track) return;
-  track.innerHTML = TESTIMONIALS.map(t => `
-    <div class="testi-card">
-      <p class="testi-text">${t.text}</p>
-      <div class="testi-author">
-        <div class="testi-av"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
-        <div><div class="testi-name">${t.name}</div><div class="testi-loc">${t.loc}</div></div>
-        <div class="testi-stars">${buildStars(5)}</div>
+  track.innerHTML = TESTIS.map(t=>`
+    <div class="tc">
+      <p class="tc-text">${t.text}</p>
+      <div class="tc-auth">
+        <div class="tc-av"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+        <div><div class="tc-name">${t.name}</div><div class="tc-loc">${t.loc}</div></div>
+        <div class="tc-stars">${buildStars(5)}</div>
       </div>
     </div>
   `).join('');
+  const nd = Math.ceil(TESTIS.length/tPV());
+  dots.innerHTML = Array(nd).fill(0).map((_,i)=>`<div class="s-dot${i===0?' on':''}" onclick="goT(${i})"></div>`).join('');
 }
-
-function addToCart(id) {
-  const p = PRODUCTS.find(x => x.id === id);
-  if(p) { cart.push(p); updateCart(); showToast(`${p.name} added to cart`); }
+function updateT(){
+  const track=document.getElementById('tTrack');
+  if(!track.children[0]) return;
+  const w=(track.children[0].offsetWidth||0)+16;
+  track.style.transform=`translateX(-${tIdx*w*tPV()}px)`;
+  document.querySelectorAll('.s-dot').forEach((d,i)=>d.classList.toggle('on',i===tIdx));
 }
+function nextT(){const m=Math.ceil(TESTIS.length/tPV())-1;tIdx=tIdx>=m?0:tIdx+1;updateT()}
+function prevT(){const m=Math.ceil(TESTIS.length/tPV())-1;tIdx=tIdx<=0?m:tIdx-1;updateT()}
+function goT(i){tIdx=i;updateT()}
+setInterval(nextT,5500);
+window.addEventListener('resize',()=>{initTestis();tIdx=0},{passive:true});
 
-function removeFromCart(i) { cart.splice(i,1); updateCart(); }
-
-function updateCart() {
-  const badge = document.getElementById('nBadge');
-  if(badge) badge.textContent = cart.length;
-  const body = document.getElementById('cartBody');
-  const foot = document.getElementById('cartFoot');
-  if(cart.length === 0) {
-    body.innerHTML = `<div class="cart-empty-state"><svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg><p>Your curation is empty</p></div>`;
-    foot.style.display = 'none';
-  } else {
-    body.innerHTML = cart.map((item,i) => `
-      <div class="c-item">
-        <div class="c-item-img"><img src="${item.img}" alt="${item.name}"></div>
-        <div><div class="c-item-name">${item.name}</div><div class="c-item-price">$${item.price}</div></div>
-        <button class="c-item-rm" onclick="removeFromCart(${i})">✕</button>
+// FAQ
+function initFAQ(){
+  const list=document.getElementById('faqList');
+  if(!list) return;
+  list.innerHTML=FAQS.map((f,i)=>`
+    <div class="faq-item" id="fq${i}">
+      <div class="faq-q" onclick="toggleFAQ(${i})">
+        ${f.q}
+        <svg class="faq-ico" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
       </div>
-    `).join('');
-    document.getElementById('cartTotal').textContent = '$' + cart.reduce((s,i)=>s+i.price,0);
-    foot.style.display = 'block';
-  }
+      <div class="faq-a">${f.a}</div>
+    </div>
+  `).join('');
+}
+function toggleFAQ(i){
+  const el=document.getElementById('fq'+i);
+  const wasOpen=el.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(e=>e.classList.remove('open'));
+  if(!wasOpen) el.classList.add('open');
 }
 
-function openModal(id) {
-  const p = PRODUCTS.find(x => x.id === id);
-  if(!p) return;
-  document.getElementById('modalImg').innerHTML = `<img src="${p.img}" alt="${p.name}" style="width:100%;height:100%;object-fit:cover">`;
-  document.getElementById('modalInfo').innerHTML = `
-    <div class="modal-name">Imaroze ${p.name}</div>
-    <div><div class="modal-notes-label">Fragrance Notes</div><div class="modal-notes">${p.notes}</div></div>
-    <p class="modal-desc">${p.desc}</p>
-    <div class="modal-price-row"><span class="modal-price">$${p.price}</span><span class="modal-size">${p.size}</span></div>
-    <div>${buildStars(p.stars)}</div>
-    <button class="btn-gold" onclick="addToCart(${p.id});closeModalDirect()" style="width:100%">Add to Cart</button>
+// Modal
+function openModal(id){
+  mId=id; mQty=1;
+  const p=PRODS[id];
+  document.getElementById('mLeft').innerHTML=`
+    <button class="m-cl" onclick="mCloseDirect()"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+    <img src="${IMG[id]}" alt="${p.name}" style="width:100%;height:100%;object-fit:cover" loading="lazy">
+  `;
+  document.getElementById('mRight').innerHTML=`
+    <div class="m-name">${p.name}</div>
+    <div><div class="m-nl">Fragrance Notes</div><div class="m-notes">${p.notes}</div></div>
+    <p class="m-desc">${p.desc}</p>
+    <div class="m-pr-row"><span class="m-price">Rs. ${p.price.toLocaleString()}</span><span class="m-size">Eau de Parfum &middot; ${p.size}</span></div>
+    <div style="display:flex;gap:3px">${buildStars(p.stars)}</div>
+    <div class="m-qty"><span class="q-lbl">Qty</span><div class="q-ctrl"><button class="q-btn" onclick="chQty(-1)">&#8722;</button><span class="q-num" id="qNum">1</span><button class="q-btn" onclick="chQty(1)">&#43;</button></div></div>
+    <div class="m-acts">
+      <button class="m-add" onclick="addCartM()">Add to Cart</button>
+      <button class="m-wish" onclick="showToast('Added to wishlist')"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></button>
+    </div>
   `;
   document.getElementById('modal').classList.add('show');
-  document.body.style.overflow = 'hidden';
+  document.body.style.overflow='hidden';
+}
+function chQty(d){mQty=Math.max(1,mQty+d);document.getElementById('qNum').textContent=mQty;}
+function addCartM(){if(mId){for(let i=0;i<mQty;i++) addCart(mId);mCloseDirect();}}
+function mClose(e){if(e.target===document.getElementById('modal')) mCloseDirect()}
+function mCloseDirect(){document.getElementById('modal').classList.remove('show');document.body.style.overflow='';}
+
+// Cart
+function addCart(id){
+  const p=PRODS[id]; if(!p) return;
+  cart.push({id,img:IMG[id],...p});
+  updateCart();
+  showToast(p.name+' added to cart');
+}
+function rmCart(i){cart.splice(i,1);updateCart()}
+function updateCart(){
+  document.getElementById('nBadge').textContent=cart.length;
+  const body=document.getElementById('cBody'),foot=document.getElementById('cFoot');
+  if(cart.length===0){
+    body.innerHTML=`<div class="c-empty"><svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg><p>Your cart is empty</p><span>Discover our fragrances</span></div>`;
+    foot.style.display='none';
+  } else {
+    body.innerHTML=cart.map((item,i)=>`
+      <div class="ci-row">
+        <div class="ci-img"><img src="${item.img}" alt="${item.name}" loading="lazy"></div>
+        <div><div class="ci-name">${item.name}</div><div class="ci-price">Rs. ${item.price.toLocaleString()}</div></div>
+        <button class="ci-rm" onclick="rmCart(${i})"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+      </div>
+    `).join('');
+    document.getElementById('cTotal').textContent='Rs. '+cart.reduce((s,i)=>s+i.price,0).toLocaleString();
+    foot.style.display='block';
+  }
+}
+function openCart(){document.getElementById('cSide').classList.add('on');document.getElementById('cBg').classList.add('on');document.body.style.overflow='hidden';}
+function closeCart(){document.getElementById('cSide').classList.remove('on');document.getElementById('cBg').classList.remove('on');document.body.style.overflow='';}
+function goCheckout(){closeCart();document.getElementById('checkout').scrollIntoView({behavior:'smooth'});}
+
+// Navbar
+window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('scrolled',scrollY>70),{passive:true});
+
+// Mobile menu
+function toggleMob(){
+  const open=document.getElementById('mob').classList.toggle('open');
+  const s=document.querySelectorAll('#ham span');
+  s[0].style.transform=open?'rotate(45deg) translate(4px,4px)':'';
+  s[1].style.opacity=open?'0':'';
+  s[2].style.transform=open?'rotate(-45deg) translate(4px,-4px)':'';
+}
+function closeMob(){document.getElementById('mob').classList.remove('open');document.querySelectorAll('#ham span').forEach(s=>{s.style.transform='';s.style.opacity='';}); }
+
+// Reveal
+function initReveal(){
+  const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis')})  ,{threshold:.1});
+  document.querySelectorAll('[data-r]').forEach(el=>obs.observe(el));
 }
 
-function closeModalDirect() {
-  document.getElementById('modal').classList.remove('show');
-  document.body.style.overflow = '';
-}
-function closeModal(e) { if(e.target === document.getElementById('modal')) closeModalDirect(); }
-
-function openCart() { document.getElementById('cartSide').classList.add('on'); document.getElementById('cartBg').classList.add('on'); document.body.style.overflow = 'hidden'; }
-function closeCart() { document.getElementById('cartSide').classList.remove('on'); document.getElementById('cartBg').classList.remove('on'); document.body.style.overflow = ''; }
-function checkout() { alert('Proceeding to checkout. Total: $' + cart.reduce((s,i)=>s+i.price,0)); }
-
-function toggleWish(btn) { btn.classList.toggle('active'); }
-function toggleMob() { document.getElementById('mobMenu').classList.toggle('open'); }
-function closeMob() { document.getElementById('mobMenu').classList.remove('open'); }
-function showToast(msg) { const t = document.getElementById('toast'); t.textContent = msg; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),2500); }
-function subscribeNL() { const inp = document.getElementById('nlEmail'); if(inp.value.includes('@')) { showToast('Welcome to Imaroze Inner Circle'); inp.value=''; } }
-
-// ─── COUNTER ANIMATION (FIXED) ───
-function initCounters() {
-  const counters = document.querySelectorAll('.stat-num');
-  
-  const startCounter = (counter) => {
-    const target = parseInt(counter.getAttribute('data-target'));
-    if(isNaN(target)) return;
-    
-    let current = 0;
-    const increment = target / 60;
-    const updateCounter = () => {
-      current += increment;
-      if(current < target) {
-        counter.innerText = Math.floor(current).toLocaleString();
-        requestAnimationFrame(updateCounter);
-      } else {
-        counter.innerText = target.toLocaleString();
-      }
-    };
-    updateCounter();
-  };
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting) {
-        startCounter(entry.target);
-        observer.unobserve(entry.target);
+// Counters
+function initCounters(){
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting&&!e.target.dataset.done){
+        e.target.dataset.done='1';
+        const t=+e.target.dataset.t;
+        let c=0,inc=t/65;
+        (function tick(){c=Math.min(c+inc,t);e.target.textContent=Math.floor(c).toLocaleString();if(c<t)requestAnimationFrame(tick);})();
       }
     });
-  }, { threshold: 0.3 });
-
-  counters.forEach(counter => observer.observe(counter));
+  },{threshold:.4});
+  document.querySelectorAll('[data-t]').forEach(el=>obs.observe(el));
 }
 
-// ─── CONTACT FORM (Google Sheets Ready) ───
-function sendContact() {
-  const firstName = document.getElementById('cf-first')?.value || '';
-  const lastName = document.getElementById('cf-last')?.value || '';
-  const email = document.getElementById('cf-email')?.value || '';
-  const subject = document.getElementById('cf-subject')?.value || '';
-  const message = document.getElementById('cf-msg')?.value || '';
-  
-  if(!firstName || !email || !email.includes('@')) {
-    showToast('Please fill in your name and email');
-    return;
-  }
-  
-  // ✅ AAPKA GOOGLE SHEETS URL (WORKING)
-  const GOOGLE_SHEETS_URL = "https://script.google.com/macros/s/AKfycby5kD1RTww-JOcI_qjfEcIaRWM1CzW_us9vkIrZfycJYpjpbQN0C_nmUEIljB06KQ/exec";
-  
-  // Send to Google Sheets
-  fetch(GOOGLE_SHEETS_URL, {
-    method: 'POST',
-    mode: 'no-cors',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ firstName, lastName, email, subject, message })
-  }).catch(err => console.log('Sheet save error:', err));
-  
-  // Local backup
-  const submissions = JSON.parse(localStorage.getItem('imaroze_contacts') || '[]');
-  submissions.push({ firstName, lastName, email, subject, message, date: new Date().toISOString() });
-  localStorage.setItem('imaroze_contacts', JSON.stringify(submissions));
-  
-  showToast('Thank you! Our concierge will respond within 24 hours.');
-  
-  // Clear form
-  document.getElementById('cf-first').value = '';
-  document.getElementById('cf-last').value = '';
-  document.getElementById('cf-email').value = '';
-  document.getElementById('cf-subject').value = '';
-  document.getElementById('cf-msg').value = '';
-}
-
-// ─── PARTICLES ───
-function initParticles() {
-  const cv = document.getElementById('pcv');
+// Particles
+function initParticles(){
+  const cv=document.getElementById('pcv');
   if(!cv) return;
-  const ctx = cv.getContext('2d');
-  let particles = [];
-  function resize() { cv.width = window.innerWidth; cv.height = window.innerHeight; }
-  resize();
-  window.addEventListener('resize', resize);
-  for(let i=0;i<40;i++) particles.push({ x: Math.random() * cv.width, y: Math.random() * cv.height, r: Math.random() * 2, vx: (Math.random() - 0.5) * 0.3, vy: (Math.random() - 0.5) * 0.2 });
-  function animate() {
-    if(!ctx) return;
-    ctx.clearRect(0, 0, cv.width, cv.height);
-    particles.forEach(p => {
-      p.x += p.vx; p.y += p.vy;
-      if(p.x < 0) p.x = cv.width; if(p.x > cv.width) p.x = 0;
-      if(p.y < 0) p.y = cv.height; if(p.y > cv.height) p.y = 0;
-      ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(201,168,76,${Math.random() * 0.3 + 0.1})`;
-      ctx.fill();
+  const cx=cv.getContext('2d');
+  let pts=[],mx=-999,my=-999;
+  function rs(){cv.width=innerWidth;cv.height=innerHeight;}
+  rs();window.addEventListener('resize',rs,{passive:true});
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;},{passive:true});
+  for(let i=0;i<45;i++) pts.push({x:Math.random()*innerWidth,y:Math.random()*innerHeight,vx:(Math.random()-.5)*.32,vy:(Math.random()-.5)*.28-.12,r:Math.random()*1.7+.3,a:Math.random()*.45+.1,ph:Math.random()*Math.PI*2});
+  (function frame(){
+    cx.clearRect(0,0,cv.width,cv.height);
+    pts.forEach(p=>{
+      p.ph+=.018;
+      const dx=p.x-mx,dy=p.y-my,d2=dx*dx+dy*dy;
+      if(d2<9000){const f=90/Math.sqrt(d2);p.vx+=dx*f*.00018;p.vy+=dy*f*.00018;}
+      p.vx*=.993;p.vy*=.993;p.x+=p.vx;p.y+=p.vy;
+      if(p.x<0)p.x=cv.width;if(p.x>cv.width)p.x=0;if(p.y<0)p.y=cv.height;if(p.y>cv.height)p.y=0;
+      cx.beginPath();cx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      cx.fillStyle=`rgba(201,168,76,${p.a*(0.65+0.35*Math.sin(p.ph))})`;cx.fill();
     });
-    requestAnimationFrame(animate);
-  }
-  animate();
+    for(let i=0;i<pts.length;i++) for(let j=i+1;j<pts.length;j++){
+      const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=Math.sqrt(dx*dx+dy*dy);
+      if(d<105){cx.beginPath();cx.moveTo(pts[i].x,pts[i].y);cx.lineTo(pts[j].x,pts[j].y);cx.strokeStyle=`rgba(201,168,76,${.065*(1-d/105)})`;cx.lineWidth=.5;cx.stroke();}
+    }
+    requestAnimationFrame(frame);
+  })();
 }
 
-// ─── REVEAL ANIMATION ───
-const observer = new IntersectionObserver(entries => { entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('in'); }); }, { threshold: 0.1 });
-document.querySelectorAll('[data-reveal]').forEach(el => observer.observe(el));
+// Toast
+function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('on');setTimeout(()=>t.classList.remove('on'),2800);}
 
-// ─── NAVBAR SCROLL ───
-window.addEventListener('scroll', () => { document.getElementById('navbar')?.classList.toggle('scrolled', window.scrollY > 70); });
+// Newsletter
+function subscribeNL(){const inp=document.getElementById('nlEmail');if(inp.value.includes('@')){showToast('Welcome to IMAROZE Inner Circle');inp.value='';}else showToast('Please enter a valid email');}
 
-// ─── PRELOADER ───
-window.addEventListener('load', () => { 
-  setTimeout(() => { const pre = document.getElementById('preloader'); if(pre) pre.style.display = 'none'; }, 1000); 
-  renderProducts(); 
-  renderBS(); 
-  renderTestimonials(); 
-  updateCart(); 
-  initParticles();
-  initCounters(); // FIXED: Counter animation called here
-});
-
-
-function initCounters() {
-  const counters = document.querySelectorAll('.stat-num');
-  
-  const startCounter = (counter) => {
-    const target = parseInt(counter.getAttribute('data-target'));
-    if(isNaN(target)) return;
-    
-    let current = 0;
-    const increment = target / 60;
-    const updateCounter = () => {
-      current += increment;
-      if(current < target) {
-        counter.innerText = Math.floor(current).toLocaleString();
-        requestAnimationFrame(updateCounter);
-      } else {
-        counter.innerText = target.toLocaleString();
-      }
-    };
-    updateCounter();
-  };
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting) {
-        startCounter(entry.target);
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.3 });
-
-  counters.forEach(counter => observer.observe(counter));
+// Contact
+function sendContact(){
+  const SHEETS_URL="https://script.google.com/macros/s/AKfycby5kD1RTww-JOcI_qjfEcIaRWM1CzW_us9vkIrZfycJYpjpbQN0C_nmUEIljB06KQ/exec";
+  const data={firstName:document.getElementById('cf1')?.value||'',lastName:document.getElementById('cf2')?.value||'',email:document.getElementById('cf3')?.value||'',phone:document.getElementById('cf4')?.value||'',subject:document.getElementById('cf5')?.value||'',message:document.getElementById('cf6')?.value||'',date:new Date().toISOString()};
+  if(!data.firstName||!data.email.includes('@')){showToast('Please fill in your name and email');return;}
+  fetch(SHEETS_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)}).catch(()=>{});
+  const saved=JSON.parse(localStorage.getItem('imaroze_leads')||'[]');saved.push(data);localStorage.setItem('imaroze_leads',JSON.stringify(saved));
+  showToast('Thank you! We will respond within 24 hours.');
+  ['cf1','cf2','cf3','cf4','cf5','cf6'].forEach(id=>{const el=document.getElementById(id);if(el) el.value='';});
 }
 
-// ─── SMOOTH SCROLL ───
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function(e) {
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
     e.preventDefault();
-    const target = document.querySelector(this.getAttribute('href'));
-    if(target) target.scrollIntoView({ behavior: 'smooth' });
+    const t=document.querySelector(a.getAttribute('href'));
+    if(t) t.scrollIntoView({behavior:'smooth'});
     closeMob();
   });
 });
+
+// Init
+window.addEventListener('load',()=>{
+  setTimeout(()=>{const p=document.getElementById('preloader');p.classList.add('out');setTimeout(()=>p.style.display='none',650);},1000);
+  initStars();
+  initBS();
+  initTestis();
+  updateCart();
+  initFAQ();
+  initParticles();
+  initReveal();
+  initCounters();
+});
 </script>
 </body>
-</html>
+</html>'''
+
