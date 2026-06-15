@@ -614,7 +614,9 @@ footer{background:#060605;border-top:1px solid var(--gold-line);padding:5rem 0 2
 <nav id="nav">
   <div class="wrap">
     <div class="nav-inner">
-      <a href="logo.png" class="nav-logo"><span>IMAROZE</span></a>
+      <a href="logo.png" class="nav-logo">
+         <img src="logo.png" alt="IMAROZE" style="height: 45px; width: auto;">
+
       <ul class="nav-links">
         <li><a href="#hero">Home</a></li>
         <li><a href="#products">Our Perfumes</a></li>
@@ -803,41 +805,16 @@ footer{background:#060605;border-top:1px solid var(--gold-line);padding:5rem 0 2
 <!-- BEST SELLERS -->
 <section id="bs">
   <div class="wrap">
-    <header class="section-head vis" data-r="">
+    <header class="section-head" data-r>
       <span class="eyebrow">Most Coveted</span>
       <h2 class="h-title" style="margin-top:.8rem">Best Sellers</h2>
       <div class="rule"></div>
     </header>
   </div>
   <div class="bs-track">
-    <div class="bs-row" id="bsRow"><div class="bs-item" onclick="openModal('denve')">
-      <img src="{DENVE}" alt="IMAROZE Denve" loading="lazy">
-      <div class="bs-name">IMAROZE Denve</div>
-      <div class="bs-price">Rs. 2,499</div>
-    </div><div class="bs-item" onclick="openModal('broute')">
-      <img src="BROUTE.png" alt="IMAROZE BrouTe" loading="lazy">
-      <div class="bs-name">IMAROZE BrouTe</div>
-      <div class="bs-price">Rs. 2,499</div>
-    </div><div class="bs-item" onclick="openModal('aurex')">
-      <img src="{AUREX}" alt="IMAROZE Aurex" loading="lazy">
-      <div class="bs-name">IMAROZE Aurex</div>
-      <div class="bs-price">Rs. 2,499</div>
-    </div><div class="bs-item" onclick="openModal('denve')">
-      <img src="{DENVE}" alt="IMAROZE Denve" loading="lazy">
-      <div class="bs-name">IMAROZE Denve</div>
-      <div class="bs-price">Rs. 2,499</div>
-    </div><div class="bs-item" onclick="openModal('broute')">
-      <img src="BROUTE.png" alt="IMAROZE BrouTe" loading="lazy">
-      <div class="bs-name">IMAROZE BrouTe</div>
-      <div class="bs-price">Rs. 2,499</div>
-    </div><div class="bs-item" onclick="openModal('aurex')">
-      <img src="{AUREX}" alt="IMAROZE Aurex" loading="lazy">
-      <div class="bs-name">IMAROZE Aurex</div>
-      <div class="bs-price">Rs. 2,499</div>
-    </div></div>
+    <div class="bs-row" id="bsRow"></div>
   </div>
 </section>
-
 <!-- CATEGORIES -->
 <section id="cats">
   <div class="wrap">
@@ -1119,6 +1096,8 @@ footer{background:#060605;border-top:1px solid var(--gold-line);padding:5rem 0 2
     <div class="ft-g">
       <div>
         <div class="ft-logo"><span>IMAROZE</span></div>
+           <img src="logo.png" alt="IMAROZE" style="height: 40px; width: auto;">
+
         <p class="ft-p">Discover our signature collection of luxury perfumes, featuring long-lasting fragrances, premium perfume oils, and elegant scents designed to leave a lasting impression.</p>
         <div class="ft-soc">
           <a href="https://www.instagram.com/imaroze.official" class="fsc" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
@@ -1232,7 +1211,12 @@ function initStars() {
 function initBS() {
   const row = document.getElementById('bsRow');
   if(!row) return;
-  const keys = ['denve','broute','aurex','denve','broute','aurex'];
+ const keys = ['denve', 'broute', 'aurex', 'denve', 'broute', 'aurex'];
+ const IMG = {
+  denve: "images/denve.jpg",
+  broute: "images/broute.jpg",
+  aurex: "images/aurex.jpg"
+};
   row.innerHTML = keys.map(k => {
     const p = PRODS[k];
     return `<div class="bs-item" onclick="openModal('${k}')">
