@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IMAROZE | FAQ</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ========== PRELOADER ========== -->
+<div id="preloader">
+  <div class="logo">IMAROZE</div>
+  <div class="bar"></div>
+</div>
+
+<!-- ========== WHATSAPP ========== -->
+<a href="https://wa.me/923001234567" class="whatsapp-float" target="_blank" rel="noopener">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
+</a>
+
+<!-- ========== NAVBAR ========== -->
+<nav id="navbar">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="images/logo.png" alt="IMAROZE">
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Perfumes</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="faq.html" class="active">FAQ</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="cart.html" class="nav-btn">🛒 <span class="cart-badge">0</span></a>
+        <button class="hamburger" onclick="toggleMob()"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ========== MOBILE MENU ========== -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" onclick="closeMob()">Home</a>
+  <a href="products.html" onclick="closeMob()">Perfumes</a>
+  <a href="about.html" onclick="closeMob()">About</a>
+  <a href="faq.html" onclick="closeMob()">FAQ</a>
+  <a href="contact.html" onclick="closeMob()">Contact</a>
+  <div class="social-links">
+    <a href="https://www.instagram.com/imaroze.official" target="_blank">Instagram</a>
+    <a href="https://www.tiktok.com/@imaroze.official" target="_blank">TikTok</a>
+    <a href="https://www.facebook.com/share/175FcaNHRu" target="_blank">Facebook</a>
+  </div>
+</div>
+
+<!-- ========== FAQ ========== -->
+<section style="padding:8rem 0 4rem 0;background:var(--black2)">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Common Questions</span>
+      <h2>Frequently Asked<br><em>Questions</em></h2>
+      <div class="rule"></div>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFAQ(this)">How long do IMAROZE perfumes last? <span class="plus">+</span></div>
+        <div class="faq-answer">Our fragrances are designed to provide long-lasting performance, typically lasting 12 to 24 hours depending on skin type and environment. They are formulated with premium EDP concentration for maximum longevity.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFAQ(this)">Are IMAROZE perfumes suitable for daily use? <span class="plus">+</span></div>
+        <div class="faq-answer">Yes. Our perfumes are carefully formulated for both daily wear and special occasions. The balanced composition works beautifully in offices, casual settings, and formal events.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFAQ(this)">Do you offer perfumes for both men and women? <span class="plus">+</span></div>
+        <div class="faq-answer">Yes. Denve, BrouTe, and Aurex all have a versatile character that works beautifully for any gender.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFAQ(this)">Are IMAROZE perfumes suitable as gifts? <span class="plus">+</span></div>
+        <div class="faq-answer">Absolutely. Our elegant packaging and premium fragrances make them an excellent gift choice for weddings, Eid, birthdays, and corporate occasions.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFAQ(this)">Do you deliver across Pakistan? <span class="plus">+</span></div>
+        <div class="faq-answer">Yes, we deliver to all major cities and areas across Pakistan. Orders are typically dispatched within 1-2 business days.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo"><img src="images/logo.png" alt="IMAROZE"></a>
+        <p>Premium luxury fragrances crafted in Pakistan. Long-lasting, elegant, and unforgettable.</p>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/imaroze.official" target="_blank">📷</a>
+          <a href="https://www.facebook.com/share/175FcaNHRu" target="_blank">📘</a>
+          <a href="https://www.tiktok.com/@imaroze.official" target="_blank">🎵</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Fragrances</h4>
+        <ul>
+          <li><a href="products.html">IMAROZE Denve</a></li>
+          <li><a href="products.html">IMAROZE BrouTe</a></li>
+          <li><a href="products.html">IMAROZE Aurex</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms &amp; Conditions</a></li>
+          <li><a href="#">Returns Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 IMAROZE Perfume. All rights reserved.</p>
+      <div class="links">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
