@@ -3,8 +3,687 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>IMAROZE | Contact Us</title>
+<meta name="description" content="IMAROZE Perfume — Contact us for enquiries about luxury fragrances, orders, and custom perfumes.">
+<title>IMAROZE | Contact Us — Luxury Perfumes Pakistan</title>
 <link rel="stylesheet" href="style.css">
+<style>
+/* ========== CONTACT PAGE STYLES ========== */
+#contact-page {
+  padding: 10rem 0 5rem 0;
+  background: var(--black2);
+  min-height: 70vh;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 4rem;
+  margin-top: 2rem;
+}
+
+@media (max-width: 992px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
+
+/* ========== CONTACT INFO ========== */
+.contact-info h3 {
+  font-family: var(--fd);
+  font-size: 1.4rem;
+  color: var(--cream);
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.06em;
+}
+
+.contact-info .info-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-family: var(--fu);
+  font-size: 0.85rem;
+  color: var(--cream-dim);
+  padding: 0.8rem 0;
+  border-bottom: 1px solid rgba(201,168,76,0.05);
+  transition: all 0.3s;
+}
+
+.contact-info .info-row:hover {
+  color: var(--cream);
+  padding-left: 0.5rem;
+}
+
+.contact-info .info-row strong {
+  font-size: 1.1rem;
+  color: var(--gold);
+  min-width: 30px;
+}
+
+.contact-info .social-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.contact-info .social-links a {
+  font-family: var(--fu);
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border: 1px solid var(--gold-line);
+  padding: 0.6rem 1.2rem;
+  transition: all 0.3s;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.contact-info .social-links a:hover {
+  background: rgba(201,168,76,0.06);
+  border-color: var(--gold);
+}
+
+/* ========== CONTACT FORM ========== */
+.contact-form .form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+@media (max-width: 500px) {
+  .contact-form .form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.contact-form .form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+}
+
+.contact-form .form-field label {
+  font-family: var(--fu);
+  font-size: 0.5rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.contact-form .form-field input,
+.contact-form .form-field textarea,
+.contact-form .form-field select {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--gold-line);
+  padding: 0.9rem 1rem;
+  font-family: var(--fu);
+  font-size: 0.8rem;
+  color: var(--cream);
+  outline: none;
+  transition: border-color 0.3s;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.contact-form .form-field input:focus,
+.contact-form .form-field textarea:focus,
+.contact-form .form-field select:focus {
+  border-color: var(--gold);
+}
+
+.contact-form .form-field input::placeholder,
+.contact-form .form-field textarea::placeholder {
+  color: rgba(239,232,216,0.2);
+}
+
+.contact-form .form-field select option {
+  background: var(--black3);
+  color: var(--cream);
+}
+
+.contact-form .btn-gold {
+  width: 100%;
+  justify-content: center;
+  margin-top: 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--fu);
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #080807;
+  background: linear-gradient(135deg, #DABF6E, #C9A84C, #A8893A);
+  padding: 1rem 2.5rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.contact-form .btn-gold:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(201,168,76,0.3);
+}
+
+/* ========== FORM SUCCESS ========== */
+.form-success {
+  display: none;
+  text-align: center;
+  padding: 2rem;
+  border: 1px solid var(--gold);
+  background: rgba(201,168,76,0.05);
+  border-radius: 4px;
+}
+
+.form-success .success-icon {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+.form-success h3 {
+  font-family: var(--fd);
+  font-size: 1.3rem;
+  color: var(--cream);
+  margin-bottom: 0.5rem;
+}
+
+.form-success p {
+  font-family: var(--fu);
+  font-size: 0.85rem;
+  color: var(--cream-dim);
+  line-height: 1.8;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+  #contact-page {
+    padding: 8rem 0 3rem 0;
+  }
+  
+  .contact-grid {
+    gap: 2rem;
+  }
+  
+  .contact-info h3 {
+    font-size: 1.2rem;
+  }
+  
+  .contact-info .info-row {
+    font-size: 0.8rem;
+    padding: 0.6rem 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-info .social-links {
+    gap: 0.6rem;
+  }
+  
+  .contact-info .social-links a {
+    font-size: 0.5rem;
+    padding: 0.4rem 0.8rem;
+  }
+}
+
+/* ============================================================
+   NAVBAR
+============================================================ */
+#navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 500;
+  padding: 1.2rem 0;
+  transition: all 0.4s;
+  background: rgba(8,8,7,0.96);
+  backdrop-filter: blur(24px);
+  border-bottom: 1px solid var(--gold-line);
+}
+
+#navbar.scrolled {
+  background: rgba(8,8,7,0.98);
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo img {
+  height: 40px;
+  width: auto;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2.2rem;
+  list-style: none;
+}
+
+.nav-links a {
+  font-family: var(--fu);
+  font-size: 0.55rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--cream-dim);
+  transition: color 0.3s;
+  position: relative;
+  text-decoration: none;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transition: transform 0.35s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--gold);
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  transform: scaleX(1);
+}
+
+.nav-actions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.nav-btn {
+  color: var(--cream-dim);
+  font-size: 1.1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.3s;
+  text-decoration: none;
+}
+
+.nav-btn:hover {
+  color: var(--gold);
+}
+
+.cart-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: var(--gold);
+  color: #080807;
+  font-family: var(--fu);
+  font-size: 0.4rem;
+  font-weight: 700;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 1.5px;
+  background: var(--gold);
+  transition: all 0.3s;
+}
+
+@media (max-width: 900px) {
+  .nav-links {
+    display: none;
+  }
+  .hamburger {
+    display: flex;
+  }
+}
+
+/* Mobile Menu */
+.mobile-menu {
+  position: fixed;
+  inset: 0;
+  background: rgba(8,8,7,0.98);
+  backdrop-filter: blur(30px);
+  z-index: 499;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  transform: translateX(100%);
+  transition: transform 0.5s;
+}
+
+.mobile-menu.open {
+  transform: translateX(0);
+}
+
+.mobile-menu a {
+  font-family: var(--fd);
+  font-size: 1.3rem;
+  color: var(--cream);
+  transition: color 0.3s;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+}
+
+.mobile-menu a:hover {
+  color: var(--gold);
+}
+
+.mobile-menu .social-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.mobile-menu .social-links a {
+  font-family: var(--fu);
+  font-size: 0.5rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border: 1px solid var(--gold-line);
+  padding: 0.5rem 1.2rem;
+  transition: all 0.3s;
+  text-decoration: none;
+}
+
+.mobile-menu .social-links a:hover {
+  background: rgba(201,168,76,0.06);
+}
+
+/* ============================================================
+   TOAST
+============================================================ */
+.toast {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(120%);
+  z-index: 900;
+  background: var(--black3);
+  border: 1px solid var(--gold-line);
+  padding: 0.8rem 2rem;
+  font-family: var(--fu);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+  white-space: nowrap;
+  transition: transform 0.4s ease;
+  border-radius: 30px;
+}
+
+.toast.show {
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ============================================================
+   WHATSAPP
+============================================================ */
+.whatsapp-float {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 52px;
+  height: 52px;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 400;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  transition: transform 0.3s;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.06);
+}
+
+.whatsapp-float svg {
+  width: 28px;
+  height: 28px;
+  fill: white;
+}
+
+/* ============================================================
+   PRELOADER
+============================================================ */
+#preloader {
+  position: fixed;
+  inset: 0;
+  background: #080807;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  transition: opacity 0.6s;
+}
+
+#preloader.hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#preloader .logo {
+  font-family: 'Cinzel', serif;
+  font-size: 1.8rem;
+  letter-spacing: 0.5em;
+  color: #C9A84C;
+}
+
+#preloader .bar {
+  width: 140px;
+  height: 1px;
+  background: var(--black3);
+  position: relative;
+  overflow: hidden;
+}
+
+#preloader .bar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, #C9A84C, transparent);
+  animation: sweep 1.8s ease-in-out infinite;
+}
+
+@keyframes sweep {
+  to {
+    left: 100%;
+  }
+}
+
+/* ============================================================
+   FOOTER
+============================================================ */
+footer {
+  background: #050504;
+  border-top: 1px solid var(--gold-line);
+  padding: 4rem 0 1.5rem;
+  margin-top: 0;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr 1.2fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+@media (max-width: 992px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+.footer-brand .logo img {
+  height: 38px;
+  width: auto;
+  margin-bottom: 1rem;
+}
+
+.footer-brand p {
+  font-family: var(--fu);
+  font-size: 0.72rem;
+  color: var(--cream-dim);
+  line-height: 1.8;
+  max-width: 280px;
+  margin-bottom: 1.2rem;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+}
+
+.footer-socials a {
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--gold-line);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--cream-dim);
+  transition: all 0.3s;
+  text-decoration: none;
+}
+
+.footer-socials a:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+  background: rgba(201,168,76,0.05);
+}
+
+.footer-socials a svg {
+  width: 15px;
+  height: 15px;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  fill: none;
+}
+
+.footer-col h4 {
+  font-family: var(--fd);
+  font-size: 0.85rem;
+  color: var(--cream);
+  margin-bottom: 1.2rem;
+  letter-spacing: 0.08em;
+}
+
+.footer-col ul {
+  list-style: none;
+}
+
+.footer-col ul li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-col ul a {
+  font-family: var(--fu);
+  font-size: 0.68rem;
+  color: var(--cream-dim);
+  transition: color 0.3s;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+}
+
+.footer-col ul a:hover {
+  color: var(--gold);
+}
+
+.footer-bottom {
+  border-top: 1px solid var(--gold-line);
+  padding-top: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-bottom p {
+  font-family: var(--fu);
+  font-size: 0.55rem;
+  color: rgba(239,232,216,0.2);
+  letter-spacing: 0.04em;
+}
+
+.footer-bottom-links {
+  display: flex;
+  gap: 1.8rem;
+}
+
+.footer-bottom-links a {
+  font-family: var(--fu);
+  font-size: 0.55rem;
+  color: rgba(239,232,216,0.2);
+  transition: color 0.3s;
+  text-decoration: none;
+}
+
+.footer-bottom-links a:hover {
+  color: var(--gold);
+}
+
+@media (max-width: 768px) {
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+  .footer-bottom-links {
+    gap: 1.2rem;
+  }
+}
+</style>
 </head>
 <body>
 
@@ -37,7 +716,7 @@
         <li><a href="contact.html" class="active">Contact</a></li>
       </ul>
       <div class="nav-actions">
-        <a href="cart.html" class="nav-btn">🛒 <span class="cart-badge">0</span></a>
+        <a href="cart.html" class="nav-btn" style="position:relative">🛒 <span class="cart-badge" id="cartBadge">0</span></a>
         <button class="hamburger" onclick="toggleMob()"><span></span><span></span><span></span></button>
       </div>
     </div>
@@ -59,31 +738,48 @@
 </div>
 
 <!-- ========== CONTACT ========== -->
-<section style="padding:8rem 0 4rem 0;background:var(--black2)">
+<section id="contact-page">
   <div class="container">
     <div class="section-head">
       <span class="eyebrow">Reach Out</span>
       <h2>Contact IMAROZE</h2>
       <div class="rule"></div>
+      <p class="section-sub">We're here to help. Reach out to us for any enquiries about our luxury fragrances.</p>
     </div>
+    
     <div class="contact-grid">
+      <!-- Contact Info -->
       <div class="contact-info">
         <h3>We are at your service</h3>
-        <div class="info-row"><strong>📍</strong> Pakistan (Online Nationwide Delivery)</div>
-        <div class="info-row"><strong>📞</strong> +92 300 0000000</div>
-        <div class="info-row"><strong>✉️</strong> info@imaroze.com</div>
-        <div class="info-row"><strong>🕐</strong> Mon–Sat: 10am–8pm</div>
+        <div class="info-row">
+          <strong>📍</strong> Pakistan (Online Nationwide Delivery)
+        </div>
+        <div class="info-row">
+          <strong>📞</strong> +92 300 0000000
+        </div>
+        <div class="info-row">
+          <strong>✉️</strong> info@imaroze.com
+        </div>
+        <div class="info-row">
+          <strong>🕐</strong> Mon–Sat: 10am–8pm
+        </div>
+        <div class="info-row">
+          <strong>💬</strong> <a href="https://wa.me/923001234567" target="_blank" style="color:var(--gold)">Chat on WhatsApp</a>
+        </div>
+        
         <div class="social-links">
           <a href="https://www.instagram.com/imaroze.official" target="_blank">📷 Instagram</a>
           <a href="https://www.tiktok.com/@imaroze.official" target="_blank">🎵 TikTok</a>
           <a href="https://www.facebook.com/share/175FcaNHRu" target="_blank">📘 Facebook</a>
         </div>
       </div>
+      
+      <!-- Contact Form -->
       <div class="contact-form">
-        <form id="contactForm" onsubmit="sendContactForm(event)">
+        <form id="contactForm">
           <div class="form-row">
             <div class="form-field">
-              <label>First Name</label>
+              <label>First Name *</label>
               <input type="text" id="cfFirst" placeholder="Your first name" required>
             </div>
             <div class="form-field">
@@ -91,14 +787,17 @@
               <input type="text" id="cfLast" placeholder="Your last name">
             </div>
           </div>
+          
           <div class="form-field">
-            <label>Email Address</label>
+            <label>Email Address *</label>
             <input type="email" id="cfEmail" placeholder="your@email.com" required>
           </div>
+          
           <div class="form-field">
             <label>Phone / WhatsApp</label>
             <input type="tel" id="cfPhone" placeholder="+92 300 0000000">
           </div>
+          
           <div class="form-field">
             <label>Enquiry Type</label>
             <select id="cfSubject">
@@ -107,14 +806,24 @@
               <option value="Custom Fragrance">Custom Fragrance</option>
               <option value="Corporate Gifting">Corporate Gifting</option>
               <option value="Wholesale">Wholesale</option>
+              <option value="General Question">General Question</option>
             </select>
           </div>
+          
           <div class="form-field">
-            <label>Message</label>
+            <label>Message *</label>
             <textarea id="cfMessage" rows="5" placeholder="How may we assist you?" required></textarea>
           </div>
-          <button type="submit" class="btn-gold">Send Enquiry</button>
+          
+          <button type="submit" class="btn-gold">Send Enquiry →</button>
         </form>
+        
+        <!-- Success Message -->
+        <div class="form-success" id="formSuccess">
+          <div class="success-icon">✅</div>
+          <h3>Message Sent!</h3>
+          <p>Thank you for contacting IMAROZE. Our team will respond within 24 hours.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -128,9 +837,10 @@
         <a href="index.html" class="logo"><img src="images/logo.png" alt="IMAROZE"></a>
         <p>Premium luxury fragrances crafted in Pakistan. Long-lasting, elegant, and unforgettable.</p>
         <div class="footer-socials">
-          <a href="https://www.instagram.com/imaroze.official" target="_blank">📷</a>
-          <a href="https://www.facebook.com/share/175FcaNHRu" target="_blank">📘</a>
-          <a href="https://www.tiktok.com/@imaroze.official" target="_blank">🎵</a>
+          <a href="https://www.instagram.com/imaroze.official" target="_blank"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+          <a href="https://www.facebook.com/share/175FcaNHRu" target="_blank"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+          <a href="https://www.tiktok.com/@imaroze.official" target="_blank"><svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 106.33 6.34V8.69a8.18 8.18 0 004.78 1.52V6.75a4.85 4.85 0 01-1.01-.06z"/></svg></a>
+          <a href="https://wa.me/923001234567" target="_blank"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg></a>
         </div>
       </div>
       <div class="footer-col">
@@ -159,8 +869,8 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© 2024 IMAROZE Perfume. All rights reserved.</p>
-      <div class="links">
+      <p>© 2026 IMAROZE Perfume. All rights reserved. Made with passion in Pakistan.</p>
+      <div class="footer-bottom-links">
         <a href="#">Privacy</a>
         <a href="#">Terms</a>
         <a href="#">Cookies</a>
@@ -169,6 +879,120 @@
   </div>
 </footer>
 
-<script src="script.js"></script>
+<!-- ========== SCRIPTS ========== -->
+<script>
+// ========== PRELOADER ==========
+window.addEventListener('load', function() {
+  setTimeout(() => {
+    document.getElementById('preloader').classList.add('hide');
+    setTimeout(() => document.getElementById('preloader').style.display = 'none', 600);
+  }, 1000);
+});
+
+// ========== NAVBAR ==========
+window.addEventListener('scroll', function() {
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 70);
+});
+
+// ========== MOBILE MENU ==========
+function toggleMob() {
+  const menu = document.getElementById('mobileMenu');
+  menu.classList.toggle('open');
+  const spans = document.querySelectorAll('.hamburger span');
+  if (menu.classList.contains('open')) {
+    spans[0].style.transform = 'rotate(45deg) translate(4px,4px)';
+    spans[1].style.opacity = '0';
+    spans[2].style.transform = 'rotate(-45deg) translate(4px,-4px)';
+  } else {
+    spans.forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
+  }
+}
+
+function closeMob() {
+  document.getElementById('mobileMenu').classList.remove('open');
+  document.querySelectorAll('.hamburger span').forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
+}
+
+// ========== TOAST ==========
+function showToast(message) {
+  let toast = document.getElementById('toast');
+  if (!toast) {
+    toast = document.createElement('div');
+    toast.id = 'toast';
+    toast.className = 'toast';
+    document.body.appendChild(toast);
+  }
+  toast.textContent = message;
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 3000);
+}
+
+// ========== CART ==========
+function updateCartBadge() {
+  const cart = JSON.parse(localStorage.getItem('imaroze_cart') || '[]');
+  const badges = document.querySelectorAll('.cart-badge');
+  badges.forEach(badge => {
+    badge.textContent = cart.length;
+  });
+}
+
+// ========== GOOGLE SHEETS CONTACT FORM ==========
+const SHEETS_URL = "https://script.google.com/macros/s/AKfycby5kD1RTww-JOcI_qjfEcIaRWM1CzW_us9vkIrZfycJYpjpbQN0C_nmUEIljB06KQ/exec";
+
+document.getElementById('contactForm')?.addEventListener('submit', function(e) {
+  e.preventDefault();
+  
+  const firstName = document.getElementById('cfFirst').value.trim();
+  const lastName = document.getElementById('cfLast').value.trim();
+  const email = document.getElementById('cfEmail').value.trim();
+  const phone = document.getElementById('cfPhone').value.trim();
+  const subject = document.getElementById('cfSubject').value;
+  const message = document.getElementById('cfMessage').value.trim();
+  
+  if (!firstName || !email || !message) {
+    showToast('Please fill in all required fields');
+    return;
+  }
+  
+  const data = {
+    firstName: firstName,
+    lastName: lastName,
+    email: email,
+    phone: phone,
+    subject: subject,
+    message: message,
+    date: new Date().toISOString()
+  };
+  
+  // Send to Google Sheets
+  fetch(SHEETS_URL, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data)
+  }).catch(() => {});
+  
+  // Save to localStorage (backup)
+  const saved = JSON.parse(localStorage.getItem('imaroze_leads') || '[]');
+  saved.push(data);
+  localStorage.setItem('imaroze_leads', JSON.stringify(saved));
+  
+  // Show success
+  document.getElementById('contactForm').style.display = 'none';
+  document.getElementById('formSuccess').style.display = 'block';
+  
+  showToast('Thank you! We will respond within 24 hours.');
+  
+  // Reset form after 5 seconds
+  setTimeout(() => {
+    document.getElementById('contactForm').reset();
+    document.getElementById('contactForm').style.display = 'block';
+    document.getElementById('formSuccess').style.display = 'none';
+  }, 5000);
+});
+
+// ========== INIT ==========
+updateCartBadge();
+</script>
 </body>
 </html>
