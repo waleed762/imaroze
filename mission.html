@@ -14,62 +14,12 @@
   min-height: 70vh;
 }
 
-.mission-hero {
-  text-align: center;
-  margin-bottom: 4rem;
-}
-
-.mission-hero .eyebrow {
-  font-family: var(--fu);
-  font-size: 0.55rem;
-  font-weight: 500;
-  letter-spacing: 0.5em;
-  text-transform: uppercase;
-  color: var(--gold);
-  display: inline-flex;
-  align-items: center;
-  gap: 0.8rem;
-}
-
-.mission-hero .eyebrow::before {
-  content: '';
-  width: 32px;
-  height: 1px;
-  background: var(--gold);
-}
-
-.mission-hero h1 {
-  font-family: var(--fd);
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  font-weight: 400;
-  margin: 1rem 0;
-  color: var(--cream);
-  letter-spacing: 0.02em;
-}
-
-.mission-hero h1 span {
-  color: var(--gold);
-  font-style: italic;
-  font-family: var(--fb);
-}
-
-.mission-hero p {
-  font-family: var(--fu);
-  font-size: 0.9rem;
-  color: var(--cream-dim);
-  max-width: 700px;
-  margin: 0 auto;
-  line-height: 1.9;
-  letter-spacing: 0.02em;
-}
-
-/* ========== MISSION GRID ========== */
 .mission-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  margin-top: 3rem;
+  gap: 5rem;
   align-items: center;
+  margin-top: 2rem;
 }
 
 @media (max-width: 992px) {
@@ -77,42 +27,6 @@
     grid-template-columns: 1fr;
     gap: 3rem;
   }
-}
-
-/* ========== MISSION LIST ========== */
-.mission-list {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.mission-list li {
-  display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-  font-family: var(--fu);
-  font-size: 0.85rem;
-  color: var(--cream-dim);
-  line-height: 1.8;
-  padding: 0.8rem 1rem;
-  border-left: 2px solid var(--gold);
-  transition: all 0.3s;
-  background: rgba(255,255,255,0.02);
-  border-radius: 4px;
-}
-
-.mission-list li:hover {
-  background: rgba(201,168,76,0.05);
-  padding-left: 1.5rem;
-}
-
-.mission-list li::before {
-  content: '◆';
-  color: var(--gold);
-  font-size: 0.6rem;
-  flex-shrink: 0;
-  margin-top: 0.3rem;
 }
 
 /* ========== MISSION IMAGE ========== */
@@ -150,61 +64,119 @@
   letter-spacing: 0.05em;
 }
 
-/* ========== MISSION VALUES ========== */
-.mission-values {
-  margin-top: 4rem;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-  border-top: 1px solid var(--gold-line);
-  padding-top: 4rem;
-}
-
-@media (max-width: 768px) {
-  .mission-values {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-@media (max-width: 480px) {
-  .mission-values {
-    grid-template-columns: 1fr;
-  }
-}
-
-.mission-value {
-  text-align: center;
-  padding: 1.5rem;
-  border: 1px solid var(--gold-line);
-  background: var(--black2);
-  border-radius: 4px;
-  transition: all 0.3s;
-}
-
-.mission-value:hover {
-  border-color: var(--gold);
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(201,168,76,0.05);
-}
-
-.mission-value .value-icon {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
-}
-
-.mission-value h4 {
-  font-family: var(--fd);
-  font-size: 0.95rem;
-  color: var(--cream);
-  margin-bottom: 0.3rem;
-  letter-spacing: 0.04em;
-}
-
-.mission-value p {
+/* ========== MISSION CONTENT ========== */
+.mission-content .eyebrow {
   font-family: var(--fu);
-  font-size: 0.72rem;
+  font-size: 0.55rem;
+  font-weight: 500;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.mission-content .eyebrow::before {
+  content: '';
+  width: 32px;
+  height: 1px;
+  background: var(--gold);
+}
+
+.mission-content h2 {
+  font-family: var(--fd);
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  font-weight: 400;
+  margin: 0.5rem 0 1rem;
+  color: var(--cream);
+}
+
+.mission-content h2 span {
+  color: var(--gold);
+  font-style: italic;
+  font-family: var(--fb);
+}
+
+.mission-content .rule {
+  width: 50px;
+  height: 1px;
+  background: var(--gold);
+  margin: 1rem 0;
+}
+
+.mission-content p {
+  font-family: var(--fu);
+  font-size: 0.85rem;
   color: var(--cream-dim);
-  line-height: 1.7;
+  line-height: 1.9;
+  margin-bottom: 1rem;
+  letter-spacing: 0.02em;
+}
+
+.mission-content .signature {
+  font-family: var(--fb);
+  font-size: 1.5rem;
+  font-style: italic;
+  color: var(--gold);
+  margin: 1.5rem 0 0.5rem;
+  font-weight: 300;
+}
+
+.mission-cta {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+.mission-cta .btn-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--fu);
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #080807;
+  background: linear-gradient(135deg, #DABF6E, #C9A84C, #A8893A);
+  padding: 1rem 2.5rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.mission-cta .btn-gold:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(201,168,76,0.3);
+}
+
+.mission-cta .btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--fu);
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--cream);
+  background: transparent;
+  border: 1px solid var(--gold-line);
+  padding: 1rem 2.5rem;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.mission-cta .btn-ghost:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+  background: rgba(201,168,76,0.06);
 }
 
 /* ========== RESPONSIVE ========== */
@@ -213,23 +185,12 @@
     padding: 8rem 0 3rem 0;
   }
   
-  .mission-hero h1 {
-    font-size: clamp(2rem, 4vw, 2.8rem);
+  .mission-content h2 {
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
   }
   
-  .mission-hero p {
+  .mission-content p {
     font-size: 0.8rem;
-  }
-  
-  .mission-list li {
-    font-size: 0.78rem;
-    padding: 0.6rem 0.8rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .mission-hero h1 {
-    font-size: 1.6rem;
   }
   
   .mission-image .image-badge {
@@ -237,6 +198,25 @@
     right: -0.8rem;
     font-size: 0.7rem;
     padding: 0.5rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .mission-cta {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .mission-cta .btn-gold,
+  .mission-cta .btn-ghost {
+    text-align: center;
+    justify-content: center;
+    padding: 0.9rem 1.5rem;
+    font-size: 0.55rem;
+  }
+  
+  .mission-content h2 {
+    font-size: 1.4rem;
   }
 }
 
@@ -706,13 +686,13 @@ footer {
   <div class="container">
     <div class="nav-inner">
       <a href="index.html" class="nav-logo">
-        <img src="logo.png" alt="IMAROZE">
+        <img src="images/logo.png" alt="IMAROZE">
       </a>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="products.html">Perfumes</a></li>
         <li><a href="about.html">About</a></li>
-        <li><a href="mission.html">Our Mission</a></li>
+        <li><a href="mission.html" class="active">Our Mission</a></li>
         <li><a href="faq.html">FAQ</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
@@ -742,48 +722,35 @@ footer {
 <!-- ========== MISSION PAGE ========== -->
 <section id="mission-page">
   <div class="container">
-    <!-- Mission Hero -->
-    <div class="mission-hero">
-      <div class="eyebrow">Our Purpose</div>
-      <h1>Our <span>Mission</span></h1>
-      <div class="rule" style="margin:1rem auto"></div>
-      <p>Our mission at IMAROZE Perfume is to become a leading luxury fragrance brand in Pakistan and globally, known for delivering long-lasting, high-performance perfumes and attars.</p>
-    </div>
-
-    <!-- Mission Grid -->
     <div class="mission-grid">
-      <ul class="mission-list">
-        <li>Develop premium luxury perfumes and signature fragrances with international standards.</li>
-        <li>Provide long-lasting perfume oils with strong sillage and projection that stays all day.</li>
-        <li>Make affordable luxury perfumes accessible without compromising on quality or elegance.</li>
-        <li>Build a trusted and recognized brand in the fragrance and perfume industry of Pakistan.</li>
-        <li>Continuously innovate in Arabic, French, and niche perfume blends for modern tastes.</li>
-        <li>Redefine luxury by offering scents that reflect confidence, style, and personality.</li>
-        <li>Make every fragrance a powerful identity statement for the wearer.</li>
-      </ul>
-      
+      <!-- Mission Image -->
       <div class="mission-image">
-        <img src="AUREX.png" alt="IMAROZE Mission">
-        <!-- <div class="image-badge">✦ Premium</div> -->
+        <img src="images/AUREX.png" alt="IMAROZE Mission">
+        <div class="image-badge">✦ Our Purpose</div>
       </div>
-    </div>
-
-    <!-- Mission Values -->
-    <div class="mission-values">
-      <div class="mission-value">
-        <div class="value-icon">✦</div>
-        <h4>Premium Quality</h4>
-        <p>International standards with carefully selected high-grade ingredients.</p>
-      </div>
-      <div class="mission-value">
-        <div class="value-icon">✦</div>
-        <h4>Long-Lasting</h4>
-        <p>12-24 hours longevity with strong sillage and projection.</p>
-      </div>
-      <div class="mission-value">
-        <div class="value-icon">✦</div>
-        <h4>Affordable Luxury</h4>
-        <p>World-class quality at accessible prices for everyone.</p>
+      
+      <!-- Mission Content -->
+      <div class="mission-content">
+        <div class="eyebrow">Our Purpose</div>
+        <h2>Our <span>Mission</span></h2>
+        <div class="rule"></div>
+        
+        <p>Our mission at IMAROZE Perfume is to become a leading luxury fragrance brand in Pakistan and globally, known for delivering long-lasting, high-performance perfumes and attars.</p>
+        
+        <p>We are committed to developing premium luxury perfumes and signature fragrances that meet international standards. Our focus is on providing long-lasting perfume oils with strong sillage and projection that stays with you all day, making every application a memorable experience.</p>
+        
+        <p>We believe that luxury should be accessible. That's why we strive to make affordable luxury perfumes available without compromising on quality or elegance. Every bottle of IMAROZE perfume is crafted with carefully selected high-grade ingredients, ensuring a rich, bold, and unforgettable scent experience.</p>
+        
+        <p>Our goal is to build a trusted and recognized brand in the fragrance and perfume industry of Pakistan. We continuously innovate in Arabic, French, and niche perfume blends to cater to modern tastes while honoring traditional craftsmanship.</p>
+        
+        <p>At IMAROZE Perfume, we aim to redefine luxury by offering scents that reflect confidence, style, and personality. We believe that every fragrance should be a powerful identity statement for the wearer — a signature that speaks before you do.</p>
+        
+        <div class="signature">— IMAROZE Perfume</div>
+        
+        <div class="mission-cta">
+          <a href="products.html" class="btn-gold">Shop Now</a>
+          <a href="about.html" class="btn-ghost">Learn More</a>
+        </div>
       </div>
     </div>
   </div>
@@ -794,7 +761,7 @@ footer {
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a href="index.html" class="logo"><img src="logo.png" alt="IMAROZE"></a>
+        <a href="index.html" class="logo"><img src="images/logo.png" alt="IMAROZE"></a>
         <p>Premium luxury fragrances crafted in Pakistan. Long-lasting, elegant, and unforgettable.</p>
         <div class="footer-socials">
           <a href="https://www.instagram.com/imaroze.official" target="_blank"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
@@ -881,20 +848,6 @@ function updateCartBadge() {
   badges.forEach(badge => {
     badge.textContent = cart.length;
   });
-}
-
-// ========== TOAST ==========
-function showToast(message) {
-  let toast = document.getElementById('toast');
-  if (!toast) {
-    toast = document.createElement('div');
-    toast.id = 'toast';
-    toast.className = 'toast';
-    document.body.appendChild(toast);
-  }
-  toast.textContent = message;
-  toast.classList.add('show');
-  setTimeout(() => toast.classList.remove('show'), 2500);
 }
 
 // ========== INIT ==========
