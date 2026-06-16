@@ -76,268 +76,6 @@ button{border:none;cursor:pointer;font-family:inherit}
 .mobile-menu .social-links a{font-family:var(--fu);font-size:0.5rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);border:1px solid var(--gold-line);padding:0.5rem 1.2rem;transition:all 0.3s}
 .mobile-menu .social-links a:hover{background:rgba(201,168,76,0.06)}
 
-/* ========== HERO (Professional - No Auto Animation) ========== */
-/* ========== HERO (ENHANCED PROFESSIONAL) ========== */
-#hero {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  position: relative;
-  overflow: hidden;
-  background: var(--black);
-  padding-top: 80px;
-}
-
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse 70% 60% at 75% 45%, rgba(201,168,76,0.06) 0%, transparent 60%),
-    radial-gradient(ellipse 50% 50% at 25% 65%, rgba(201,168,76,0.03) 0%, transparent 50%);
-  pointer-events: none;
-}
-
-/* Subtle gold particles */
-.hero-bg::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image:
-    radial-gradient(1px 1px at 20% 30%, rgba(201,168,76,0.15), transparent),
-    radial-gradient(1px 1px at 40% 70%, rgba(201,168,76,0.1), transparent),
-    radial-gradient(1px 1px at 60% 20%, rgba(201,168,76,0.12), transparent),
-    radial-gradient(1px 1px at 80% 80%, rgba(201,168,76,0.08), transparent),
-    radial-gradient(1px 1px at 10% 90%, rgba(201,168,76,0.1), transparent),
-    radial-gradient(1px 1px at 90% 10%, rgba(201,168,76,0.06), transparent);
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  pointer-events: none;
-}
-
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: center;
-  position: relative;
-  z-index: 2;
-}
-
-@media (max-width: 992px) {
-  .hero-grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    text-align: center;
-  }
-}
-
-/* ========== HERO CONTENT ========== */
-.hero-content {
-  max-width: 580px;
-}
-
-@media (max-width: 992px) {
-  .hero-content {
-    max-width: 100%;
-  }
-}
-
-.hero-tag {
-  font-family: var(--fu);
-  font-size: 0.55rem;
-  font-weight: 400;
-  letter-spacing: 0.6em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 1.5rem;
-  opacity: 0.8;
-}
-
-.hero-title {
-  font-family: var(--fd);
-  line-height: 1.05;
-  margin-bottom: 1.5rem;
-}
-
-.hero-title-main {
-  display: block;
-  font-size: clamp(2.2rem, 5vw, 4rem);
-  font-weight: 400;
-  color: var(--cream);
-  letter-spacing: 0.02em;
-}
-
-.hero-title-accent {
-  display: block;
-  font-size: clamp(2.8rem, 6.5vw, 5.2rem);
-  font-weight: 300;
-  font-style: italic;
-  color: var(--gold);
-  font-family: var(--fb);
-  letter-spacing: 0.01em;
-  margin-top: 0.2rem;
-  position: relative;
-}
-
-.hero-title-accent::after {
-  content: '';
-  position: absolute;
-  bottom: -0.5rem;
-  left: 0;
-  width: 60px;
-  height: 2px;
-  background: var(--gold);
-}
-
-@media (max-width: 992px) {
-  .hero-title-accent::after {
-    left: 50%;
-    transform: translateX(-50%);
-  }
-}
-
-.hero-desc {
-  font-family: var(--fb);
-  font-size: 1.05rem;
-  font-weight: 300;
-  color: var(--cream-dim);
-  line-height: 1.85;
-  max-width: 420px;
-  margin-bottom: 2.2rem;
-  letter-spacing: 0.03em;
-}
-
-@media (max-width: 992px) {
-  .hero-desc {
-    max-width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
-
-/* ========== HERO BUTTONS ========== */
-.hero-buttons {
-  display: flex;
-  gap: 1.2rem;
-  flex-wrap: wrap;
-  margin-bottom: 2.5rem;
-}
-
-@media (max-width: 992px) {
-  .hero-buttons {
-    justify-content: center;
-  }
-}
-
-.btn-primary {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  font-family: var(--fu);
-  font-size: 0.6rem;
-  font-weight: 600;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: #080807;
-  background: linear-gradient(135deg, #DABF6E, #C9A84C, #A8893A);
-  padding: 1rem 2.8rem;
-  border: none;
-  cursor: pointer;
-  transition: all 0.4s ease;
-  text-decoration: none;
-  position: relative;
-  overflow: hidden;
-}
-
-.btn-primary::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: rgba(255,255,255,0.1);
-  transform: translateX(-100%);
-  transition: transform 0.6s ease;
-}
-
-.btn-primary:hover::before {
-  transform: translateX(0);
-}
-
-.btn-primary:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 40px rgba(201,168,76,0.3);
-}
-
-.btn-secondary {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  font-family: var(--fu);
-  font-size: 0.6rem;
-  font-weight: 500;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: var(--cream);
-  background: transparent;
-  border: 1px solid rgba(201,168,76,0.2);
-  padding: 1rem 2.8rem;
-  cursor: pointer;
-  transition: all 0.4s ease;
-  text-decoration: none;
-}
-
-.btn-secondary:hover {
-  border-color: var(--gold);
-  color: var(--gold);
-  background: rgba(201,168,76,0.05);
-}
-
-/* ========== HERO TRUST ========== */
-.hero-trust {
-  display: flex;
-  gap: 2rem;
-  flex-wrap: wrap;
-  padding-top: 0.5rem;
-}
-
-.hero-trust span {
-  font-family: var(--fu);
-  font-size: 0.5rem;
-  font-weight: 400;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--cream-dim);
-  opacity: 0.5;
-  position: relative;
-}
-
-.hero-trust span::after {
-  content: '';
-  position: absolute;
-  right: -1rem;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 1px;
-  height: 12px;
-  background: rgba(201,168,76,0.15);
-}
-
-.hero-trust span:last-child::after {
-  display: none;
-}
-
-@media (max-width: 480px) {
-  .hero-trust {
-    gap: 1.2rem;
-  }
-  .hero-trust span {
-    font-size: 0.42rem;
-  }
-  .hero-trust span::after {
-    right: -0.6rem;
-    height: 8px;
-  }
-}
-
 /* ========== HERO WITH BACKGROUND IMAGE ========== */
 #hero {
   min-height: 100vh;
@@ -771,39 +509,6 @@ button{border:none;cursor:pointer;font-family:inherit}
   }
 }
 
-/* ========== RESPONSIVE ========== */
-@media (max-width: 992px) {
-  .hero-title-main {
-    font-size: clamp(2rem, 4vw, 2.8rem);
-  }
-  .hero-title-accent {
-    font-size: clamp(2.4rem, 5vw, 3.8rem);
-  }
-  .hero-desc {
-    font-size: 0.95rem;
-  }
-  .hero-tag {
-    font-size: 0.5rem;
-  }
-}
-
-
-@media (max-width: 480px) {
-  .hero-buttons {
-    flex-direction: column;
-    align-items: center;
-  }
-  .btn-primary, .btn-secondary {
-    width: 100%;
-    justify-content: center;
-    padding: 0.9rem 1.5rem;
-    font-size: 0.55rem;
-  }
-  .hero-trust {
-    justify-content: center;
-  }
-}
-
 /* ========== MARQUEE ========== */
 .marquee-section{background:linear-gradient(90deg,#A8893A,#C9A84C,#DABF6E,#C9A84C,#A8893A);background-size:200% 100%;padding:0.8rem 0;overflow:hidden;animation:shimmerBg 5s ease-in-out infinite}
 @keyframes shimmerBg{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
@@ -813,6 +518,24 @@ button{border:none;cursor:pointer;font-family:inherit}
 .marquee-item::before{content:'◆';margin-right:1.8rem;opacity:0.3;font-size:0.4rem;vertical-align:middle}
 .marquee-item:hover{transform:scale(1.05)}
 @keyframes marqueeScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ========== FEATURED PRODUCTS ========== */
+#featured{padding:5rem 0;background:var(--black3)}
+.products-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+@media(max-width:992px){.products-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.products-grid{grid-template-columns:1fr}}
+
+.product-card{background:var(--black2);border:1px solid var(--gold-line);overflow:hidden;transition:all 0.4s;cursor:pointer}
+.product-card:hover{border-color:rgba(201,168,76,0.4);transform:translateY(-8px);box-shadow:0 20px 60px rgba(201,168,76,0.08)}
+.product-card .img{aspect-ratio:3/4;overflow:hidden;background:linear-gradient(145deg,#100f0a,#1a1810)}
+.product-card .img img{width:100%;height:100%;object-fit:cover;transition:transform 0.7s}
+.product-card:hover .img img{transform:scale(1.04)}
+.product-card .info{padding:1.5rem}
+.product-card .info h3{font-family:var(--fd);font-size:1rem;color:var(--cream);letter-spacing:0.04em;margin-bottom:0.2rem}
+.product-card .info .notes{font-family:var(--fu);font-size:0.5rem;color:var(--gold);text-transform:uppercase;letter-spacing:0.12em}
+.product-card .info .price{font-family:var(--fd);font-size:1.2rem;color:var(--gold);margin-top:0.5rem}
+.product-card .info .btn-add{width:100%;font-family:var(--fu);font-size:0.5rem;font-weight:600;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);background:transparent;border:1px solid var(--gold-line);padding:0.7rem;transition:all 0.3s;cursor:pointer;margin-top:0.8rem}
+.product-card .info .btn-add:hover{background:var(--gold);color:#080807}
 
 /* ========== PRODUCT MODAL ========== */
 .product-modal {
@@ -1089,6 +812,7 @@ button{border:none;cursor:pointer;font-family:inherit}
     gap: 1rem;
   }
 }
+
 /* ========== BEST SELLERS ========== */
 #bestsellers {
   padding: 5rem 0;
@@ -1101,7 +825,6 @@ button{border:none;cursor:pointer;font-family:inherit}
   margin-top: 1.5rem;
 }
 
-/* Track with smooth infinite scroll */
 .bs-track {
   display: flex;
   gap: 1.5rem;
@@ -1152,13 +875,11 @@ button{border:none;cursor:pointer;font-family:inherit}
   margin-top: 0.3rem;
 }
 
-/* Slow, smooth infinite scroll - Screen ke andar */
 @keyframes bsScroll {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
 
-/* ========== BEST SELLERS RESPONSIVE ========== */
 @media (max-width: 768px) {
   .bs-item {
     min-width: 160px;
@@ -1326,11 +1047,8 @@ footer{background:#050504;border-top:1px solid var(--gold-line);padding:4rem 0 1
 
 <!-- ========== HERO ========== -->
 <section id="hero">
-  <!-- Background Image -->
   <div class="hero-bg-image"></div>
   <div class="hero-overlay"></div>
-  
-  <!-- Gold Glow Effect -->
   <div class="hero-glow-effect"></div>
   
   <div class="container">
@@ -1343,8 +1061,8 @@ footer{background:#050504;border-top:1px solid var(--gold-line);padding:4rem 0 1
         </h1>
         <p class="hero-desc">Premium long-lasting fragrances crafted with rare ingredients. Discover your signature scent.</p>
         <div class="hero-buttons">
-          <a href="products.html" class="btn-primary">Shop Now</a> 
-            <a href="about.html" class="btn-secondary">Our Story</a>
+          <a href="products.html" class="btn-primary">Shop Now</a>
+          <a href="about.html" class="btn-secondary">Our Story</a>
         </div>
         <div class="hero-trust">
           <span>✦ 100% Authentic</span>
@@ -1355,14 +1073,13 @@ footer{background:#050504;border-top:1px solid var(--gold-line);padding:4rem 0 1
       <div class="hero-visual">
         <div class="hero-image-wrapper">
           <div class="hero-glow"></div>
-          <!-- <img src="DENVEBG.png" alt="IMAROZE Denve" class="hero-image">
-          <div class="hero-badge">Best Seller</div> -->
+          <img src="DENVE.png" alt="IMAROZE Denve" class="hero-image">
+          <div class="hero-badge">Best Seller</div>
         </div>
       </div>
     </div>
   </div>
   
-  <!-- Scroll Indicator -->
   <div class="hero-scroll-indicator">
     <span>Scroll</span>
     <div class="scroll-line"></div>
@@ -1386,6 +1103,18 @@ footer{background:#050504;border-top:1px solid var(--gold-line);padding:4rem 0 1
     <span class="marquee-item">Handcrafted Perfumes</span>
   </div>
 </div>
+
+<!-- ========== FEATURED PRODUCTS ========== -->
+<section id="featured">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Signature Collection</span>
+      <h2>Our Three<br><em>Masterpieces</em></h2>
+      <div class="rule"></div>
+    </div>
+    <div class="products-grid" id="featuredGrid"></div>
+  </div>
+</section>
 
 <!-- ========== PRODUCT POPUP MODAL ========== -->
 <div class="product-modal" id="productModal">
@@ -1434,7 +1163,29 @@ footer{background:#050504;border-top:1px solid var(--gold-line);padding:4rem 0 1
   </div>
 </section>
 
-
+<!-- ========== STATS ========== -->
+<section id="stats">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <span class="number" data-count="5000">0</span>
+        <span class="label">Happy Customers</span>
+      </div>
+      <div class="stat-item">
+        <span class="number" data-count="3">0</span>
+        <span class="label">Signature Fragrances</span>
+      </div>
+      <div class="stat-item">
+        <span class="number" data-count="24">0</span>
+        <span class="label">Hours Longevity</span>
+      </div>
+      <div class="stat-item">
+        <span class="number" data-count="100">0</span>
+        <span class="label">% Authentic</span>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- ========== PACKAGING ========== -->
 <section id="packaging">
@@ -1470,29 +1221,7 @@ footer{background:#050504;border-top:1px solid var(--gold-line);padding:4rem 0 1
     </div>
   </div>
 </section>
-<!-- ========== STATS ========== -->
-<section id="stats">
-  <div class="container">
-    <div class="stats-grid">
-      <div class="stat-item">
-        <span class="number" data-count="5000">0</span>
-        <span class="label">Happy Customers</span>
-      </div>
-      <div class="stat-item">
-        <span class="number" data-count="3">0</span>
-        <span class="label">Signature Fragrances</span>
-      </div>
-      <div class="stat-item">
-        <span class="number" data-count="24">0</span>
-        <span class="label">Hours Longevity</span>
-      </div>
-      <div class="stat-item">
-        <span class="number" data-count="100">0</span>
-        <span class="label">% Authentic</span>
-      </div>
-    </div>
-  </div>
-</section>
+
 <!-- ========== NEWSLETTER ========== -->
 <section id="newsletter">
   <div class="container">
@@ -1629,7 +1358,6 @@ function showToast(msg) {
   setTimeout(() => t.classList.remove('show'), 2500);
 }
 
-// ========== FEATURED PRODUCTS ==========
 // ========== FEATURED PRODUCTS WITH POPUP ==========
 const products = [
   { 
@@ -1673,7 +1401,93 @@ if(grid) {
   `).join('');
 }
 
-// ========== BEST SELLERS (FIXED) ==========
+// ========== MODAL FUNCTIONS ==========
+let currentModalProduct = null;
+let modalQuantity = 1;
+
+const productData = {
+  denve: {
+    id: 'denve',
+    name: 'IMAROZE Denve',
+    price: 2499,
+    size: '50ml',
+    notes: 'Fresh · Woody · Musky',
+    desc: 'A premium long-lasting fragrance crafted for those who love elegant, modern, and luxurious scents. Designed with high-quality perfume oils, it delivers a rich and smooth aroma that stays with you all day. Perfect for daily wear, special occasions, and signature scent lovers.',
+    img: 'DENVE.png',
+    stars: '★★★★★'
+  },
+  broute: {
+    id: 'broute',
+    name: 'IMAROZE BrouTe',
+    price: 2499,
+    size: '50ml',
+    notes: 'Bold · Fresh · Woody · Musky',
+    desc: 'A bold blend of fresh, woody, and musky notes. Designed for a confident and modern personality — elegant, fresh, and memorable all day.',
+    img: 'BROUTE.png',
+    stars: '★★★★★'
+  },
+  aurex: {
+    id: 'aurex',
+    name: 'IMAROZE Aurex',
+    price: 2499,
+    size: '50ml',
+    notes: 'Fresh Citrus · Floral · Warm Woody',
+    desc: 'A luxury EDP with refined citrus, elegant floral notes, and warm woody undertones. Modern, confident, rich — a sophisticated fragrance all day.',
+    img: 'AUREX.png',
+    stars: '★★★★★'
+  }
+};
+
+function openModal(productId) {
+  const p = productData[productId];
+  if (!p) return;
+
+  currentModalProduct = p;
+  modalQuantity = 1;
+
+  document.getElementById('modalImg').src = p.img;
+  document.getElementById('modalImg').alt = p.name;
+  document.getElementById('modalName').textContent = p.name;
+  document.getElementById('modalNotes').textContent = p.notes;
+  document.getElementById('modalDesc').textContent = p.desc;
+  document.getElementById('modalPrice').textContent = 'Rs. ' + p.price.toLocaleString();
+  document.getElementById('modalQty').textContent = modalQuantity;
+  document.querySelector('.modal-stars').textContent = p.stars;
+
+  document.getElementById('productModal').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('productModal').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+function changeQty(delta) {
+  modalQuantity = Math.max(1, modalQuantity + delta);
+  document.getElementById('modalQty').textContent = modalQuantity;
+}
+
+function addFromModal() {
+  if (!currentModalProduct) return;
+  
+  for (let i = 0; i < modalQuantity; i++) {
+    addToCart(currentModalProduct.id);
+  }
+  
+  closeModal();
+  showToast(currentModalProduct.name + ' added to cart ✨');
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    closeModal();
+  }
+});
+
+document.querySelector('.modal-overlay')?.addEventListener('click', closeModal);
+
+// ========== BEST SELLERS ==========
 const bsProducts = [
   { name: 'IMAROZE BrouTe', price: 2499, img: 'BROUTE.png' },
   { name: 'IMAROZE Aurex', price: 2499, img: 'AUREX.png' },
@@ -1683,7 +1497,6 @@ const bsProducts = [
   { name: 'IMAROZE Denve', price: 2499, img: 'DENVE.png' }
 ];
 
-// Double the items for seamless infinite scroll
 const bsDouble = [...bsProducts, ...bsProducts];
 
 const track = document.getElementById('bsTrack');
@@ -1717,7 +1530,6 @@ function animateCounters() {
   });
 }
 
-// Trigger counters when stats section is visible
 const statsObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if(entry.isIntersecting) {
