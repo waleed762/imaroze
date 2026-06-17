@@ -183,9 +183,7 @@
   }
 }
 
-/* ============================================================
-   NAVBAR
-============================================================ */
+/* ========== NAVBAR ========== */
 #navbar {
   position: fixed;
   top: 0;
@@ -222,7 +220,7 @@
 
 .nav-links a {
   font-family: var(--fu);
-  font-size: 0.55rem;
+  font-size: 0.6rem;
   font-weight: 500;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -262,7 +260,7 @@
 
 .nav-btn {
   color: var(--cream-dim);
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   background: none;
   border: none;
   cursor: pointer;
@@ -282,10 +280,10 @@
   background: var(--gold);
   color: #080807;
   font-family: var(--fu);
-  font-size: 0.4rem;
+  font-size: 0.45rem;
   font-weight: 700;
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -305,7 +303,7 @@
 .hamburger span {
   display: block;
   width: 24px;
-  height: 1.5px;
+  height: 2px;
   background: var(--gold);
   transition: all 0.3s;
 }
@@ -319,7 +317,7 @@
   }
 }
 
-/* Mobile Menu */
+/* ========== MOBILE MENU ========== */
 .mobile-menu {
   position: fixed;
   inset: 0;
@@ -341,7 +339,7 @@
 
 .mobile-menu a {
   font-family: var(--fd);
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   color: var(--cream);
   transition: color 0.3s;
   letter-spacing: 0.08em;
@@ -362,12 +360,12 @@
 
 .mobile-menu .social-links a {
   font-family: var(--fu);
-  font-size: 0.5rem;
+  font-size: 0.55rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--gold);
   border: 1px solid var(--gold-line);
-  padding: 0.5rem 1.2rem;
+  padding: 0.6rem 1.2rem;
   transition: all 0.3s;
   text-decoration: none;
 }
@@ -816,7 +814,7 @@ window.addEventListener('load', function() {
   }, 1000);
 });
 
-// ========== NAVBAR ==========
+// ========== NAVBAR SCROLL ==========
 window.addEventListener('scroll', function() {
   document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 70);
 });
@@ -838,26 +836,6 @@ function toggleMob() {
 function closeMob() {
   document.getElementById('mobileMenu').classList.remove('open');
   document.querySelectorAll('.hamburger span').forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
-}
-
-// ========== FAQ TOGGLE ==========
-function toggleFAQ(element) {
-  const item = element.closest('.faq-item');
-  const isOpen = item.classList.contains('open');
-  
-  // Close all other items
-  document.querySelectorAll('.faq-item').forEach(el => {
-    if (el !== item) {
-      el.classList.remove('open');
-    }
-  });
-  
-  // Toggle current item
-  if (isOpen) {
-    item.classList.remove('open');
-  } else {
-    item.classList.add('open');
-  }
 }
 
 // ========== CART BADGE ==========
