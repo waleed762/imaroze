@@ -14,15 +14,50 @@
   min-height: 70vh;
 }
 
+.section-head .eyebrow {
+  font-family: var(--fu);
+  font-size: 0.7rem;  /* Pehle 0.55rem */
+  font-weight: 500;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.section-head h2 {
+  font-family: var(--fd);
+  font-size: clamp(2.2rem, 4vw, 3.2rem);  /* Pehle 2rem-3rem */
+  font-weight: 400;
+  margin-top: 0.8rem;
+  color: var(--cream);
+  letter-spacing: 0.04em;
+}
+
+.section-head h2 em {
+  font-style: italic;
+  color: var(--gold);
+  font-family: var(--fb);
+}
+
+.section-head .rule {
+  width: 50px;
+  height: 2px;  /* Pehle 1px */
+  background: var(--gold);
+  margin: 1.2rem auto;
+}
+
 .section-sub {
   font-family: var(--fu);
-  font-size: 0.85rem;
-  color: var(--cream-dim);
+  font-size: 0.95rem;  /* Pehle 0.85rem */
+  color: var(--cream);  /* Pehle cream-dim */
   max-width: 520px;
   margin: 0.8rem auto 0;
   line-height: 1.85;
   letter-spacing: 0.03em;
   text-align: center;
+  font-weight: 300;
 }
 
 /* ========== PRODUCTS GRID ========== */
@@ -88,7 +123,7 @@
   top: 1rem;
   left: 1rem;
   font-family: var(--fu);
-  font-size: 0.45rem;
+  font-size: 0.5rem;  /* Pehle 0.45rem */
   font-weight: 600;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -116,7 +151,7 @@
   transition: all 0.3s;
   cursor: pointer;
   z-index: 2;
-  font-size: 0.9rem;
+  font-size: 1rem;  /* Pehle 0.9rem */
 }
 
 .product-card .img .wishlist-btn:hover {
@@ -132,7 +167,7 @@
 
 .product-card .info h3 {
   font-family: var(--fd);
-  font-size: 1.05rem;
+  font-size: 1.15rem;  /* Pehle 1.05rem */
   color: var(--cream);
   letter-spacing: 0.04em;
   margin-bottom: 0.2rem;
@@ -140,7 +175,7 @@
 
 .product-card .info .notes {
   font-family: var(--fu);
-  font-size: 0.5rem;
+  font-size: 0.55rem;  /* Pehle 0.5rem */
   color: var(--gold);
   text-transform: uppercase;
   letter-spacing: 0.12em;
@@ -149,26 +184,27 @@
 
 .product-card .info .desc {
   font-family: var(--fu);
-  font-size: 0.75rem;
-  color: var(--cream-dim);
-  line-height: 1.7;
+  font-size: 0.8rem;  /* Pehle 0.75rem */
+  color: var(--cream);  /* Pehle cream-dim */
+  line-height: 1.8;
   margin-bottom: 0.8rem;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  font-weight: 300;
 }
 
 .product-card .info .price {
   font-family: var(--fd);
-  font-size: 1.2rem;
+  font-size: 1.3rem;  /* Pehle 1.2rem */
   color: var(--gold);
   margin-bottom: 0.8rem;
 }
 
 .product-card .info .price small {
   font-family: var(--fu);
-  font-size: 0.6rem;
+  font-size: 0.65rem;  /* Pehle 0.6rem */
   color: var(--cream-dim);
   font-weight: 300;
 }
@@ -180,8 +216,8 @@
 }
 
 .product-card .info .stars svg {
-  width: 14px;
-  height: 14px;
+  width: 15px;  /* Pehle 14px */
+  height: 15px;
   fill: var(--gold);
 }
 
@@ -192,14 +228,14 @@
 .product-card .info .btn-add {
   width: 100%;
   font-family: var(--fu);
-  font-size: 0.5rem;
+  font-size: 0.55rem;  /* Pehle 0.5rem */
   font-weight: 600;
   letter-spacing: 0.25em;
   text-transform: uppercase;
   color: var(--gold);
   background: transparent;
   border: 1px solid var(--gold-line);
-  padding: 0.7rem;
+  padding: 0.8rem;  /* Pehle 0.7rem */
   transition: all 0.3s;
   cursor: pointer;
   border-radius: 4px;
@@ -220,14 +256,14 @@
 .product-card .info .product-actions button {
   flex: 1;
   font-family: var(--fu);
-  font-size: 0.45rem;
+  font-size: 0.5rem;  /* Pehle 0.45rem */
   font-weight: 500;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--cream-dim);
   background: transparent;
   border: 1px solid var(--gold-line);
-  padding: 0.6rem;
+  padding: 0.7rem;  /* Pehle 0.6rem */
   transition: all 0.3s;
   cursor: pointer;
   border-radius: 4px;
@@ -352,7 +388,7 @@
 
 .modal-notes-label {
   font-family: var(--fu);
-  font-size: 0.55rem;
+  font-size: 0.6rem;  /* Pehle 0.55rem */
   font-weight: 600;
   letter-spacing: 0.3em;
   text-transform: uppercase;
@@ -369,10 +405,11 @@
 
 .modal-desc {
   font-family: var(--fu);
-  font-size: 0.82rem;
-  color: var(--cream-dim);
+  font-size: 0.85rem;  /* Pehle 0.82rem */
+  color: var(--cream);
   line-height: 1.85;
   letter-spacing: 0.02em;
+  font-weight: 300;
 }
 
 .modal-price-row {
@@ -527,7 +564,7 @@
 }
 
 /* ============================================================
-   NAVBAR
+   NAVBAR (ENHANCED)
 ============================================================ */
 #navbar {
   position: fixed;
@@ -553,7 +590,7 @@
 }
 
 .nav-logo img {
-  height: 40px;
+  height: 42px;  /* Pehle 40px */
   width: auto;
 }
 
@@ -565,11 +602,11 @@
 
 .nav-links a {
   font-family: var(--fu);
-  font-size: 0.55rem;
+  font-size: 0.6rem;  /* Pehle 0.55rem */
   font-weight: 500;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--cream-dim);
+  color: var(--cream);
   transition: color 0.3s;
   position: relative;
   text-decoration: none;
@@ -581,7 +618,7 @@
   bottom: -2px;
   left: 0;
   right: 0;
-  height: 1px;
+  height: 1.5px;  /* Pehle 1px */
   background: var(--gold);
   transform: scaleX(0);
   transition: transform 0.35s;
@@ -604,8 +641,8 @@
 }
 
 .nav-btn {
-  color: var(--cream-dim);
-  font-size: 1.1rem;
+  color: var(--cream);
+  font-size: 1.2rem;  /* Pehle 1.1rem */
   background: none;
   border: none;
   cursor: pointer;
@@ -625,10 +662,10 @@
   background: var(--gold);
   color: #080807;
   font-family: var(--fu);
-  font-size: 0.4rem;
+  font-size: 0.45rem;  /* Pehle 0.4rem */
   font-weight: 700;
-  width: 16px;
-  height: 16px;
+  width: 18px;  /* Pehle 16px */
+  height: 18px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -648,7 +685,7 @@
 .hamburger span {
   display: block;
   width: 24px;
-  height: 1.5px;
+  height: 2px;  /* Pehle 1.5px */
   background: var(--gold);
   transition: all 0.3s;
 }
@@ -684,7 +721,7 @@
 
 .mobile-menu a {
   font-family: var(--fd);
-  font-size: 1.3rem;
+  font-size: 1.5rem;  /* Pehle 1.3rem */
   color: var(--cream);
   transition: color 0.3s;
   letter-spacing: 0.08em;
@@ -705,12 +742,12 @@
 
 .mobile-menu .social-links a {
   font-family: var(--fu);
-  font-size: 0.5rem;
+  font-size: 0.55rem;  /* Pehle 0.5rem */
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--gold);
   border: 1px solid var(--gold-line);
-  padding: 0.5rem 1.2rem;
+  padding: 0.6rem 1.2rem;
   transition: all 0.3s;
   text-decoration: none;
 }
@@ -732,7 +769,7 @@
   border: 1px solid var(--gold-line);
   padding: 0.8rem 2rem;
   font-family: var(--fu);
-  font-size: 0.68rem;
+  font-size: 0.7rem;  /* Pehle 0.68rem */
   letter-spacing: 0.1em;
   color: var(--gold);
   white-space: nowrap;
@@ -751,8 +788,8 @@
   position: fixed;
   bottom: 24px;
   right: 24px;
-  width: 52px;
-  height: 52px;
+  width: 55px;  /* Pehle 52px */
+  height: 55px;
   background: #25D366;
   border-radius: 50%;
   display: flex;
@@ -768,8 +805,8 @@
 }
 
 .whatsapp-float svg {
-  width: 28px;
-  height: 28px;
+  width: 30px;  /* Pehle 28px */
+  height: 30px;
   fill: white;
 }
 
@@ -796,14 +833,14 @@
 
 #preloader .logo {
   font-family: 'Cinzel', serif;
-  font-size: 1.8rem;
+  font-size: 2rem;  /* Pehle 1.8rem */
   letter-spacing: 0.5em;
   color: #C9A84C;
 }
 
 #preloader .bar {
-  width: 140px;
-  height: 1px;
+  width: 160px;  /* Pehle 140px */
+  height: 2px;  /* Pehle 1px */
   background: var(--black3);
   position: relative;
   overflow: hidden;
@@ -857,14 +894,14 @@ footer {
 }
 
 .footer-brand .logo img {
-  height: 38px;
+  height: 40px;  /* Pehle 38px */
   width: auto;
   margin-bottom: 1rem;
 }
 
 .footer-brand p {
   font-family: var(--fu);
-  font-size: 0.72rem;
+  font-size: 0.78rem;  /* Pehle 0.72rem */
   color: var(--cream-dim);
   line-height: 1.8;
   max-width: 280px;
@@ -878,8 +915,8 @@ footer {
 }
 
 .footer-socials a {
-  width: 34px;
-  height: 34px;
+  width: 36px;  /* Pehle 34px */
+  height: 36px;
   border: 1px solid var(--gold-line);
   border-radius: 50%;
   display: flex;
@@ -899,7 +936,7 @@ footer {
 
 .footer-col h4 {
   font-family: var(--fd);
-  font-size: 0.85rem;
+  font-size: 0.9rem;  /* Pehle 0.85rem */
   color: var(--cream);
   margin-bottom: 1.2rem;
   letter-spacing: 0.08em;
@@ -915,7 +952,7 @@ footer {
 
 .footer-col ul a {
   font-family: var(--fu);
-  font-size: 0.68rem;
+  font-size: 0.72rem;  /* Pehle 0.68rem */
   color: var(--cream-dim);
   transition: color 0.3s;
   letter-spacing: 0.03em;
@@ -938,7 +975,7 @@ footer {
 
 .footer-bottom p {
   font-family: var(--fu);
-  font-size: 0.55rem;
+  font-size: 0.6rem;  /* Pehle 0.55rem */
   color: rgba(239,232,216,0.2);
   letter-spacing: 0.04em;
 }
@@ -950,7 +987,7 @@ footer {
 
 .footer-bottom .links a {
   font-family: var(--fu);
-  font-size: 0.55rem;
+  font-size: 0.6rem;  /* Pehle 0.55rem */
   color: rgba(239,232,216,0.2);
   transition: color 0.3s;
   text-decoration: none;
@@ -982,8 +1019,8 @@ footer {
 <!-- ========== TOAST ========== -->
 <div class="toast" id="toast"></div>
 
-<!-- ========== WHATSAPP ========== -->
-<a href="https://wa.me/923001234567" class="whatsapp-float" target="_blank" rel="noopener">
+<!-- ========== WHATSAPP (UPDATED) ========== -->
+<a href="https://wa.me/923069116087" class="whatsapp-float" target="_blank" rel="noopener">
   <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
 </a>
 
@@ -996,7 +1033,7 @@ footer {
       </a>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
-        <li><a href="products.html">Perfumes</a></li>
+        <li><a href="products.html" class="active">Perfumes</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="mission.html">Our Mission</a></li>
         <li><a href="faq.html">FAQ</a></li>
@@ -1079,39 +1116,47 @@ footer {
         <a href="index.html" class="logo"><img src="logo.png" alt="IMAROZE"></a>
         <p>Premium luxury fragrances crafted in Pakistan. Long-lasting, elegant, and unforgettable.</p>
         <div class="footer-socials">
-          <a href="https://www.instagram.com/imaroze.official" target="_blank">📷</a>
-          <a href="https://www.facebook.com/share/175FcaNHRu" target="_blank">📘</a>
-          <a href="https://www.tiktok.com/@imaroze.official" target="_blank">🎵</a>
+          <a href="https://www.instagram.com/imaroze.official" target="_blank"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+          <a href="https://www.facebook.com/share/175FcaNHRu" target="_blank"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+          <a href="https://www.tiktok.com/@imaroze.official" target="_blank"><svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 106.33 6.34V8.69a8.18 8.18 0 004.78 1.52V6.75a4.85 4.85 0 01-1.01-.06z"/></svg></a>
+          <a href="https://wa.me/923069116087" target="_blank"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg></a>
         </div>
       </div>
       <div class="footer-col">
-        <h4>Fragrances</h4>
+        <h4>Our Fragrances</h4>
         <ul>
           <li><a href="products.html">IMAROZE Denve</a></li>
           <li><a href="products.html">IMAROZE BrouTe</a></li>
           <li><a href="products.html">IMAROZE Aurex</a></li>
+          <li><a href="products.html">Oud Collection</a></li>
+          <li><a href="products.html">Floral Collection</a></li>
+          <li><a href="products.html">New Arrivals</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Company</h4>
+        <h4>IMAROZE</h4>
         <ul>
           <li><a href="about.html">About Us</a></li>
+          <li><a href="mission.html">Our Mission</a></li>
           <li><a href="faq.html">FAQ</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="https://www.instagram.com/imaroze.official" target="_blank">Instagram</a></li>
+          <li><a href="https://www.tiktok.com/@imaroze.official" target="_blank">TikTok</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Support</h4>
+        <h4>Customer Care</h4>
         <ul>
-          <li><a href="#">Privacy Policy</a></li>
-          <li><a href="#">Terms &amp; Conditions</a></li>
-          <li><a href="#">Returns Policy</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="faq.html">Shipping Info</a></li>
+          <li><a href="faq.html">Returns Policy</a></li>
+          <li><a href="faq.html">Privacy Policy</a></li>
+          <li><a href="faq.html">Terms &amp; Conditions</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© 2024 IMAROZE Perfume. All rights reserved.</p>
-      <div class="links">
+      <p>© 2026 IMAROZE Perfume. All rights reserved. Made with passion in Pakistan.</p>
+      <div class="footer-bottom-links">
         <a href="#">Privacy</a>
         <a href="#">Terms</a>
         <a href="#">Cookies</a>
@@ -1301,7 +1346,7 @@ const allProducts = [
     notes: 'Bold · Fresh · Woody · Musky', 
     desc: 'A bold blend of fresh, woody, and musky notes. Designed for a confident and modern personality — elegant, fresh, and memorable all day.',
     stars: 5,
-    badge: ''  // ✅ HATAYA GAYA (khali rakha)
+    badge: ''
   },
   { 
     id: 'aurex', 
@@ -1312,7 +1357,7 @@ const allProducts = [
     notes: 'Citrus · Floral · Woody', 
     desc: 'Refined citrus, elegant floral notes, and warm woody undertones. Modern, confident, rich — a sophisticated fragrance all day.',
     stars: 5,
-    badge: ''  // ✅ HATAYA GAYA (khali rakha)
+    badge: ''
   }
 ];
 
