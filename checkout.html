@@ -970,7 +970,7 @@ window.addEventListener('load', function() {
   }, 1000);
 });
 
-// ========== NAVBAR ==========
+// ========== NAVBAR SCROLL ==========
 window.addEventListener('scroll', function() {
   document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 70);
 });
@@ -994,27 +994,9 @@ function closeMob() {
   document.querySelectorAll('.hamburger span').forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
 }
 
-// ========== TOAST ==========
-function showToast(message) {
-  let toast = document.getElementById('toast');
-  if (!toast) {
-    toast = document.createElement('div');
-    toast.id = 'toast';
-    toast.className = 'toast';
-    document.body.appendChild(toast);
-  }
-  toast.textContent = message;
-  toast.classList.add('show');
-  setTimeout(() => toast.classList.remove('show'), 2500);
-}
-
-// ========== CART FUNCTIONS ==========
-function getCartItems() {
-  return JSON.parse(localStorage.getItem('imaroze_cart') || '[]');
-}
-
+// ========== CART BADGE ==========
 function updateCartBadge() {
-  const cart = getCartItems();
+  const cart = JSON.parse(localStorage.getItem('imaroze_cart') || '[]');
   const badges = document.querySelectorAll('.cart-badge');
   badges.forEach(badge => {
     badge.textContent = cart.length;
