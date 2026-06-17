@@ -526,9 +526,7 @@
   }
 }
 
-/* ============================================================
-   NAVBAR (SAME AS INDEX)
-============================================================ */
+/* ========== NAVBAR ========== */
 #navbar {
   position: fixed;
   top: 0;
@@ -565,7 +563,7 @@
 
 .nav-links a {
   font-family: var(--fu);
-  font-size: 0.55rem;
+  font-size: 0.6rem;
   font-weight: 500;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -605,7 +603,7 @@
 
 .nav-btn {
   color: var(--cream-dim);
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   background: none;
   border: none;
   cursor: pointer;
@@ -625,10 +623,10 @@
   background: var(--gold);
   color: #080807;
   font-family: var(--fu);
-  font-size: 0.4rem;
+  font-size: 0.45rem;
   font-weight: 700;
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -648,7 +646,7 @@
 .hamburger span {
   display: block;
   width: 24px;
-  height: 1.5px;
+  height: 2px;
   background: var(--gold);
   transition: all 0.3s;
 }
@@ -662,7 +660,7 @@
   }
 }
 
-/* Mobile Menu */
+/* ========== MOBILE MENU ========== */
 .mobile-menu {
   position: fixed;
   inset: 0;
@@ -684,7 +682,7 @@
 
 .mobile-menu a {
   font-family: var(--fd);
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   color: var(--cream);
   transition: color 0.3s;
   letter-spacing: 0.08em;
@@ -705,12 +703,12 @@
 
 .mobile-menu .social-links a {
   font-family: var(--fu);
-  font-size: 0.5rem;
+  font-size: 0.55rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--gold);
   border: 1px solid var(--gold-line);
-  padding: 0.5rem 1.2rem;
+  padding: 0.6rem 1.2rem;
   transition: all 0.3s;
   text-decoration: none;
 }
@@ -988,6 +986,7 @@ footer {
 </a>
 
 <!-- ========== NAVBAR ========== -->
+<!-- ========== HEADER / NAVBAR ========== -->
 <nav id="navbar">
   <div class="container">
     <div class="nav-inner">
@@ -996,15 +995,20 @@ footer {
       </a>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
-        <li><a href="products.html" class="active">Perfumes</a></li>
         <li><a href="about.html">About</a></li>
+        <li><a href="products.html">Perfumes</a></li>
         <li><a href="mission.html">Our Mission</a></li>
         <li><a href="faq.html">FAQ</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
       <div class="nav-actions">
-        <a href="cart.html" class="nav-btn" style="position:relative">🛒 <span class="cart-badge" id="cartBadge">0</span></a>
-        <button class="hamburger" onclick="toggleMob()"><span></span><span></span><span></span></button>
+        <a href="cart.html" class="nav-btn" style="position:relative">
+          🛒
+          <span class="cart-badge" id="cartBadge">0</span>
+        </a>
+        <button class="hamburger" onclick="toggleMob()">
+          <span></span><span></span><span></span>
+        </button>
       </div>
     </div>
   </div>
@@ -1013,8 +1017,8 @@ footer {
 <!-- ========== MOBILE MENU ========== -->
 <div class="mobile-menu" id="mobileMenu">
   <a href="index.html" onclick="closeMob()">Home</a>
+    <a href="about.html" onclick="closeMob()">About</a>
   <a href="products.html" onclick="closeMob()">Perfumes</a>
-  <a href="about.html" onclick="closeMob()">About</a>
   <a href="mission.html" onclick="closeMob()">Our Mission</a>
   <a href="faq.html" onclick="closeMob()">FAQ</a>
   <a href="contact.html" onclick="closeMob()">Contact</a>
@@ -1138,7 +1142,7 @@ window.addEventListener('load', function() {
   }, 1000);
 });
 
-// ========== NAVBAR ==========
+// ========== NAVBAR SCROLL ==========
 window.addEventListener('scroll', function() {
   document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 70);
 });
@@ -1162,38 +1166,7 @@ function closeMob() {
   document.querySelectorAll('.hamburger span').forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
 }
 
-// ========== TOAST ==========
-function showToast(message) {
-  let toast = document.getElementById('toast');
-  if (!toast) {
-    toast = document.createElement('div');
-    toast.id = 'toast';
-    toast.className = 'toast';
-    document.body.appendChild(toast);
-  }
-  toast.textContent = message;
-  toast.classList.add('show');
-  setTimeout(() => toast.classList.remove('show'), 2500);
-}
-
-// ========== CART FUNCTIONS ==========
-function addToCart(id) {
-  const products = {
-    denve: { id:'denve', name:'IMAROZE Denve', price:2499, img:'DENVE.png' },
-    broute: { id:'broute', name:'IMAROZE BrouTe', price:2499, img:'BROUTE.png' },
-    aurex: { id:'aurex', name:'IMAROZE Aurex', price:2499, img:'AUREX.png' }
-  };
-  
-  const p = products[id];
-  if (!p) return;
-  
-  let cart = JSON.parse(localStorage.getItem('imaroze_cart') || '[]');
-  cart.push(p);
-  localStorage.setItem('imaroze_cart', JSON.stringify(cart));
-  updateCartBadge();
-  showToast(p.name + ' added to cart ✨');
-}
-
+// ========== CART BADGE ==========
 function updateCartBadge() {
   const cart = JSON.parse(localStorage.getItem('imaroze_cart') || '[]');
   const badges = document.querySelectorAll('.cart-badge');
@@ -1202,6 +1175,8 @@ function updateCartBadge() {
   });
 }
 
+
+  
 // ========== STARS ==========
 function buildStars(n) {
   return Array(5).fill(0).map((_, i) => 
