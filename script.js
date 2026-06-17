@@ -13,22 +13,17 @@ window.addEventListener('load', function() {
   }
 });
 
-// ─── NAVBAR SCROLL ───
+// ========== NAVBAR SCROLL ==========
 window.addEventListener('scroll', function() {
-  const nav = document.getElementById('navbar');
-  if (nav) {
-    nav.classList.toggle('scrolled', window.scrollY > 70);
-  }
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 70);
 });
 
-// ─── MOBILE MENU ───
+// ========== MOBILE MENU ==========
 function toggleMob() {
   const menu = document.getElementById('mobileMenu');
-  if (menu) {
-    menu.classList.toggle('open');
-  }
+  menu.classList.toggle('open');
   const spans = document.querySelectorAll('.hamburger span');
-  if (menu && menu.classList.contains('open')) {
+  if (menu.classList.contains('open')) {
     spans[0].style.transform = 'rotate(45deg) translate(4px,4px)';
     spans[1].style.opacity = '0';
     spans[2].style.transform = 'rotate(-45deg) translate(4px,-4px)';
@@ -38,40 +33,11 @@ function toggleMob() {
 }
 
 function closeMob() {
-  const menu = document.getElementById('mobileMenu');
-  if (menu) {
-    menu.classList.remove('open');
-  }
-  document.querySelectorAll('.hamburger span').forEach(s => {
-    s.style.transform = '';
-    s.style.opacity = '';
-  });
+  document.getElementById('mobileMenu').classList.remove('open');
+  document.querySelectorAll('.hamburger span').forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
 }
 
-// ─── CART FUNCTIONS ───
-const PRODUCTS_DATA = {
-  denve: { id: 'denve', name: 'IMAROZE Denve', price: 2499, img: 'images/DENVE.png' },
-  broute: { id: 'broute', name: 'IMAROZE BrouTe', price: 2499, img: 'images/BROUTE.png' },
-  aurex: { id: 'aurex', name: 'IMAROZE Aurex', price: 2499, img: 'images/AUREX.png' }
-};
-
-function addToCart(productId) {
-  const product = PRODUCTS_DATA[productId];
-  if (!product) return;
-  let cart = JSON.parse(localStorage.getItem('imaroze_cart') || '[]');
-  cart.push(product);
-  localStorage.setItem('imaroze_cart', JSON.stringify(cart));
-  updateCartBadge();
-  showToast(product.name + ' added to cart ✨');
-}
-
-function removeFromCart(index) {
-  let cart = JSON.parse(localStorage.getItem('imaroze_cart') || '[]');
-  cart.splice(index, 1);
-  localStorage.setItem('imaroze_cart', JSON.stringify(cart));
-  updateCartBadge();
-}
-
+// ========== CART BADGE ==========
 function updateCartBadge() {
   const cart = JSON.parse(localStorage.getItem('imaroze_cart') || '[]');
   const badges = document.querySelectorAll('.cart-badge');
@@ -79,6 +45,7 @@ function updateCartBadge() {
     badge.textContent = cart.length;
   });
 }
+
 
 function getCartItems() {
   return JSON.parse(localStorage.getItem('imaroze_cart') || '[]');
