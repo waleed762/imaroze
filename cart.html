@@ -23,6 +23,7 @@
   padding: 4rem 2rem;
   border: 1px solid var(--gold-line);
   background: var(--black2);
+  border-radius: 4px;
 }
 
 .cart-empty .empty-icon {
@@ -33,14 +34,14 @@
 
 .cart-empty h3 {
   font-family: var(--fd);
-  font-size: 1.5rem;
+  font-size: 1.6rem;  /* Pehle 1.5rem */
   color: var(--cream);
   margin-bottom: 0.5rem;
 }
 
 .cart-empty p {
   font-family: var(--fu);
-  font-size: 0.85rem;
+  font-size: 0.95rem;  /* Pehle 0.85rem */
   color: var(--cream-dim);
   margin-bottom: 1.5rem;
 }
@@ -48,7 +49,7 @@
 .cart-empty .btn-gold {
   display: inline-block;
   font-family: var(--fu);
-  font-size: 0.6rem;
+  font-size: 0.7rem;  /* Pehle 0.6rem */
   font-weight: 600;
   letter-spacing: 0.3em;
   text-transform: uppercase;
@@ -59,6 +60,7 @@
   cursor: pointer;
   transition: all 0.4s ease;
   text-decoration: none;
+  border-radius: 4px;
 }
 
 .cart-empty .btn-gold:hover {
@@ -106,14 +108,14 @@
 
 .cart-item-row .item-name {
   font-family: var(--fd);
-  font-size: 1.1rem;
+  font-size: 1.2rem;  /* Pehle 1.1rem */
   color: var(--cream);
   letter-spacing: 0.04em;
 }
 
 .cart-item-row .item-price {
   font-family: var(--fd);
-  font-size: 1.2rem;
+  font-size: 1.3rem;  /* Pehle 1.2rem */
   color: var(--gold);
   margin-top: 0.3rem;
 }
@@ -122,7 +124,7 @@
   background: none;
   border: none;
   color: rgba(239,232,216,0.2);
-  font-size: 1.4rem;
+  font-size: 1.6rem;  /* Pehle 1.4rem */
   cursor: pointer;
   transition: all 0.3s;
   padding: 0.5rem;
@@ -154,7 +156,7 @@
 
 .cart-summary .cart-total span {
   font-family: var(--fu);
-  font-size: 0.65rem;
+  font-size: 0.75rem;  /* Pehle 0.65rem */
   font-weight: 600;
   letter-spacing: 0.25em;
   text-transform: uppercase;
@@ -163,7 +165,7 @@
 
 .cart-summary .cart-total strong {
   font-family: var(--fd);
-  font-size: 1.8rem;
+  font-size: 2rem;  /* Pehle 1.8rem */
   color: var(--gold);
 }
 
@@ -175,7 +177,7 @@
   align-items: center;
   gap: 0.6rem;
   font-family: var(--fu);
-  font-size: 0.6rem;
+  font-size: 0.7rem;  /* Pehle 0.6rem */
   font-weight: 600;
   letter-spacing: 0.3em;
   text-transform: uppercase;
@@ -186,6 +188,7 @@
   cursor: pointer;
   transition: all 0.4s ease;
   text-decoration: none;
+  border-radius: 4px;
 }
 
 .cart-summary .btn-gold:hover {
@@ -227,15 +230,23 @@
   }
   
   .cart-item-row .item-name {
-    font-size: 0.95rem;
-  }
-  
-  .cart-item-row .item-price {
     font-size: 1rem;
   }
   
+  .cart-item-row .item-price {
+    font-size: 1.1rem;
+  }
+  
   .cart-summary .cart-total strong {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
+  }
+  
+  .cart-empty h3 {
+    font-size: 1.3rem;
+  }
+  
+  .cart-empty p {
+    font-size: 0.85rem;
   }
 }
 
@@ -257,15 +268,15 @@
   }
   
   .cart-item-row .item-name {
-    font-size: 0.85rem;
-  }
-  
-  .cart-item-row .item-price {
     font-size: 0.9rem;
   }
   
+  .cart-item-row .item-price {
+    font-size: 0.95rem;
+  }
+  
   .cart-item-row .item-remove {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
   }
   
   .cart-summary {
@@ -273,16 +284,24 @@
   }
   
   .cart-summary .cart-total strong {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
+  }
+  
+  .cart-summary .cart-total span {
+    font-size: 0.65rem;
   }
   
   .cart-empty h3 {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
+  }
+  
+  .cart-empty p {
+    font-size: 0.8rem;
   }
 }
 
 /* ============================================================
-   NAVBAR (If not in style.css)
+   NAVBAR (ENHANCED)
 ============================================================ */
 #navbar {
   position: fixed;
@@ -308,7 +327,7 @@
 }
 
 .nav-logo img {
-  height: 40px;
+  height: 42px;
   width: auto;
 }
 
@@ -320,7 +339,7 @@
 
 .nav-links a {
   font-family: var(--fu);
-  font-size: 0.55rem;
+  font-size: 0.6rem;
   font-weight: 500;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -336,7 +355,7 @@
   bottom: -2px;
   left: 0;
   right: 0;
-  height: 1px;
+  height: 1.5px;
   background: var(--gold);
   transform: scaleX(0);
   transition: transform 0.35s;
@@ -360,7 +379,7 @@
 
 .nav-btn {
   color: var(--cream-dim);
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   background: none;
   border: none;
   cursor: pointer;
@@ -380,10 +399,10 @@
   background: var(--gold);
   color: #080807;
   font-family: var(--fu);
-  font-size: 0.4rem;
+  font-size: 0.45rem;
   font-weight: 700;
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -403,7 +422,7 @@
 .hamburger span {
   display: block;
   width: 24px;
-  height: 1.5px;
+  height: 2px;
   background: var(--gold);
   transition: all 0.3s;
 }
@@ -439,7 +458,7 @@
 
 .mobile-menu a {
   font-family: var(--fd);
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   color: var(--cream);
   transition: color 0.3s;
   letter-spacing: 0.08em;
@@ -460,12 +479,12 @@
 
 .mobile-menu .social-links a {
   font-family: var(--fu);
-  font-size: 0.5rem;
+  font-size: 0.55rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--gold);
   border: 1px solid var(--gold-line);
-  padding: 0.5rem 1.2rem;
+  padding: 0.6rem 1.2rem;
   transition: all 0.3s;
   text-decoration: none;
 }
@@ -505,14 +524,14 @@ footer {
 }
 
 .footer-brand .logo img {
-  height: 38px;
+  height: 40px;
   width: auto;
   margin-bottom: 1rem;
 }
 
 .footer-brand p {
   font-family: var(--fu);
-  font-size: 0.72rem;
+  font-size: 0.78rem;
   color: var(--cream-dim);
   line-height: 1.8;
   max-width: 280px;
@@ -526,8 +545,8 @@ footer {
 }
 
 .footer-socials a {
-  width: 34px;
-  height: 34px;
+  width: 36px;
+  height: 36px;
   border: 1px solid var(--gold-line);
   border-radius: 50%;
   display: flex;
@@ -547,7 +566,7 @@ footer {
 
 .footer-col h4 {
   font-family: var(--fd);
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   color: var(--cream);
   margin-bottom: 1.2rem;
   letter-spacing: 0.08em;
@@ -563,7 +582,7 @@ footer {
 
 .footer-col ul a {
   font-family: var(--fu);
-  font-size: 0.68rem;
+  font-size: 0.72rem;
   color: var(--cream-dim);
   transition: color 0.3s;
   letter-spacing: 0.03em;
@@ -586,7 +605,7 @@ footer {
 
 .footer-bottom p {
   font-family: var(--fu);
-  font-size: 0.55rem;
+  font-size: 0.6rem;
   color: rgba(239,232,216,0.2);
   letter-spacing: 0.04em;
 }
@@ -598,7 +617,7 @@ footer {
 
 .footer-bottom .links a {
   font-family: var(--fu);
-  font-size: 0.55rem;
+  font-size: 0.6rem;
   color: rgba(239,232,216,0.2);
   transition: color 0.3s;
   text-decoration: none;
@@ -625,8 +644,8 @@ footer {
   position: fixed;
   bottom: 24px;
   right: 24px;
-  width: 52px;
-  height: 52px;
+  width: 55px;
+  height: 55px;
   background: #25D366;
   border-radius: 50%;
   display: flex;
@@ -642,8 +661,8 @@ footer {
 }
 
 .whatsapp-float svg {
-  width: 28px;
-  height: 28px;
+  width: 30px;
+  height: 30px;
   fill: white;
 }
 
@@ -670,14 +689,14 @@ footer {
 
 #preloader .logo {
   font-family: 'Cinzel', serif;
-  font-size: 1.8rem;
+  font-size: 2rem;
   letter-spacing: 0.5em;
   color: #C9A84C;
 }
 
 #preloader .bar {
-  width: 140px;
-  height: 1px;
+  width: 160px;
+  height: 2px;
   background: var(--black3);
   position: relative;
   overflow: hidden;
@@ -699,6 +718,31 @@ footer {
     left: 100%;
   }
 }
+
+/* ============================================================
+   TOAST
+============================================================ */
+.toast {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(120%);
+  z-index: 900;
+  background: var(--black3);
+  border: 1px solid var(--gold-line);
+  padding: 0.8rem 2rem;
+  font-family: var(--fu);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+  white-space: nowrap;
+  transition: transform 0.4s ease;
+  border-radius: 30px;
+}
+
+.toast.show {
+  transform: translateX(-50%) translateY(0);
+}
 </style>
 </head>
 <body>
@@ -712,8 +756,8 @@ footer {
 <!-- ========== TOAST ========== -->
 <div class="toast" id="toast"></div>
 
-<!-- ========== WHATSAPP ========== -->
-<a href="https://wa.me/923001234567" class="whatsapp-float" target="_blank" rel="noopener">
+<!-- ========== WHATSAPP (UPDATED) ========== -->
+<a href="https://wa.me/923069116087" class="whatsapp-float" target="_blank" rel="noopener">
   <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
 </a>
 
@@ -785,7 +829,7 @@ footer {
           <a href="https://www.instagram.com/imaroze.official" target="_blank"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
           <a href="https://www.facebook.com/share/175FcaNHRu" target="_blank"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
           <a href="https://www.tiktok.com/@imaroze.official" target="_blank"><svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 106.33 6.34V8.69a8.18 8.18 0 004.78 1.52V6.75a4.85 4.85 0 01-1.01-.06z"/></svg></a>
-          <a href="https://wa.me/923001234567" target="_blank"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg></a>
+          <a href="https://wa.me/923069116087" target="_blank"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg></a>
         </div>
       </div>
       <div class="footer-col">
@@ -803,8 +847,7 @@ footer {
         <h4>IMAROZE</h4>
         <ul>
           <li><a href="about.html">About Us</a></li>
-          <li><a href="about.html#mission">Our Mission</a></li>
-          <li><a href="about.html#awards">Awards</a></li>
+          <li><a href="mission.html">Our Mission</a></li>
           <li><a href="faq.html">FAQ</a></li>
           <li><a href="https://www.instagram.com/imaroze.official" target="_blank">Instagram</a></li>
           <li><a href="https://www.tiktok.com/@imaroze.official" target="_blank">TikTok</a></li>
@@ -888,7 +931,6 @@ function getCartItems() {
 function removeFromCart(index) {
   const cart = getCartItems();
   
-  // Remove item animation
   const rows = document.querySelectorAll('.cart-item-row');
   if (rows[index]) {
     rows[index].classList.add('removing');
