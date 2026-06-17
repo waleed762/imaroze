@@ -745,9 +745,9 @@
 }
 
 /* ============================================================
-   WHATSAPP
+   
 ============================================================ */
-.whatsapp-float {
+.-float {
   position: fixed;
   bottom: 24px;
   right: 24px;
@@ -763,11 +763,11 @@
   transition: transform 0.3s;
 }
 
-.whatsapp-float:hover {
+.-float:hover {
   transform: scale(1.06);
 }
 
-.whatsapp-float svg {
+.-float svg {
   width: 28px;
   height: 28px;
   fill: white;
@@ -982,8 +982,8 @@ footer {
 <!-- ========== TOAST ========== -->
 <div class="toast" id="toast"></div>
 
-<!-- ========== WHATSAPP ========== -->
-<a href="https://wa.me/923069116087" class="whatsapp-float" target="_blank" rel="noopener">
+<!-- ==========  ========== -->
+<a href="https://wa.me/923069116087" class="-float" target="_blank" rel="noopener">
   <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
 </a>
 
@@ -992,7 +992,7 @@ footer {
   <div class="container">
     <div class="nav-inner">
       <a href="index.html" class="nav-logo">
-        <img src="images/logo.png" alt="IMAROZE">
+        <img src="logo.png" alt="IMAROZE">
       </a>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
@@ -1076,7 +1076,7 @@ footer {
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a href="index.html" class="logo"><img src="images/logo.png" alt="IMAROZE"></a>
+        <a href="index.html" class="logo"><img src="logo.png" alt="IMAROZE"></a>
         <p>Premium luxury fragrances crafted in Pakistan. Long-lasting, elegant, and unforgettable.</p>
         <div class="footer-socials">
           <a href="https://www.instagram.com/imaroze.official" target="_blank"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
@@ -1179,9 +1179,9 @@ function showToast(message) {
 // ========== CART FUNCTIONS ==========
 function addToCart(id) {
   const products = {
-    denve: { id:'denve', name:'IMAROZE Denve', price:2499, img:'images/DENVE.png' },
-    broute: { id:'broute', name:'IMAROZE BrouTe', price:2499, img:'images/BROUTE.png' },
-    aurex: { id:'aurex', name:'IMAROZE Aurex', price:2499, img:'images/AUREX.png' }
+    denve: { id:'denve', name:'IMAROZE Denve', price:2499, img:'DENVE.png' },
+    broute: { id:'broute', name:'IMAROZE BrouTe', price:2499, img:'BROUTE.png' },
+    aurex: { id:'aurex', name:'IMAROZE Aurex', price:2499, img:'AUREX.png' }
   };
   
   const p = products[id];
@@ -1221,7 +1221,7 @@ const productData = {
     size: '50ml',
     notes: 'Fresh · Woody · Musky',
     desc: 'A premium long-lasting fragrance crafted for those who love elegant, modern, and luxurious scents. Designed with high-quality perfume oils, it delivers a rich and smooth aroma that stays with you all day. Perfect for daily wear, special occasions, and signature scent lovers.',
-    img: 'images/DENVE.png',
+    img: 'DENVE.png',
     stars: 5
   },
   broute: {
@@ -1231,7 +1231,7 @@ const productData = {
     size: '50ml',
     notes: 'Bold · Fresh · Woody · Musky',
     desc: 'A bold blend of fresh, woody, and musky notes. Designed for a confident and modern personality — elegant, fresh, and memorable all day.',
-    img: 'images/BROUTE.png',
+    img: 'BROUTE.png',
     stars: 5
   },
   aurex: {
@@ -1241,7 +1241,7 @@ const productData = {
     size: '50ml',
     notes: 'Fresh Citrus · Floral · Warm Woody',
     desc: 'A luxury EDP with refined citrus, elegant floral notes, and warm woody undertones. Modern, confident, rich — a sophisticated fragrance all day.',
-    img: 'images/AUREX.png',
+    img: 'AUREX.png',
     stars: 5
   }
 };
@@ -1294,7 +1294,7 @@ const allProducts = [
     name: 'IMAROZE Denve', 
     price: 2499, 
     size: '50ml', 
-    img: 'images/DENVE.png', 
+    img: 'DENVE.png', 
     notes: 'Fresh · Woody · Musky', 
     desc: 'A premium long-lasting fragrance crafted for those who love elegant, modern, and luxurious scents. Rich and smooth — stays with you all day.',
     stars: 5,
@@ -1305,7 +1305,7 @@ const allProducts = [
     name: 'IMAROZE BrouTe', 
     price: 2499, 
     size: '50ml', 
-    img: 'images/BROUTE.png', 
+    img: 'BROUTE.png', 
     notes: 'Bold · Fresh · Woody · Musky', 
     desc: 'A bold blend of fresh, woody, and musky notes. Designed for a confident and modern personality — elegant, fresh, and memorable all day.',
     stars: 5,
@@ -1316,7 +1316,7 @@ const allProducts = [
     name: 'IMAROZE Aurex', 
     price: 2499, 
     size: '50ml', 
-    img: 'images/AUREX.png', 
+    img: 'AUREX.png', 
     notes: 'Citrus · Floral · Woody', 
     desc: 'Refined citrus, elegant floral notes, and warm woody undertones. Modern, confident, rich — a sophisticated fragrance all day.',
     stars: 5,
