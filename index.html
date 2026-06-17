@@ -1087,179 +1087,145 @@ button{border:none;cursor:pointer;font-family:inherit}
 .stat-item .number{font-family:var(--fd);font-size:clamp(2.5rem,4vw,3.8rem);color:var(--gold);display:block;font-weight:400}
 .stat-item .label{font-family:var(--fu);font-size:0.55rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--cream-dim);margin-top:0.3rem}
 
-/* ========== VIDEO SECTION ========== */
+/* ========== VIDEO SECTION (PROFESSIONAL) ========== */
 #video-section {
+  padding: 4rem 0;
+  background: var(--black2);
   position: relative;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-  background: var(--black);
+}
+
+.video-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .video-container {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
+  position: relative;
+  aspect-ratio: 16/9;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--gold-line);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
 }
 
 .video-container video {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: brightness(0.45) saturate(0.6);
-  transform: scale(1.02);
+  display: block;
 }
 
-/* Video Overlay */
 .video-overlay {
   position: absolute;
   inset: 0;
-  z-index: 1;
-  background:
-    linear-gradient(135deg, rgba(8,8,7,0.7) 0%, rgba(8,8,7,0.3) 50%, rgba(8,8,7,0.7) 100%);
-}
-
-/* Video Content */
-.video-content {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  padding: 5rem 0;
-}
-
-.video-text {
-  max-width: 580px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.video-eyebrow {
-  font-family: var(--fu);
-  font-size: 0.55rem;
-  font-weight: 400;
-  letter-spacing: 0.6em;
-  text-transform: uppercase;
-  color: var(--gold);
-  display: inline-block;
-  margin-bottom: 1.5rem;
-}
-
-.video-text h2 {
-  font-family: var(--fd);
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  font-weight: 400;
-  color: var(--cream);
-  line-height: 1.1;
-  letter-spacing: 0.02em;
-}
-
-.video-text h2 em {
-  font-style: italic;
-  color: var(--gold);
-  font-family: var(--fb);
-}
-
-.video-rule {
-  width: 50px;
-  height: 1px;
-  background: var(--gold);
-  margin: 1.2rem auto;
-}
-
-.video-text p {
-  font-family: var(--fu);
-  font-size: 0.9rem;
-  color: var(--cream-dim);
-  line-height: 1.8;
-  max-width: 440px;
-  margin: 0 auto 1.8rem;
-}
-
-.video-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  font-family: var(--fu);
-  font-size: 0.6rem;
-  font-weight: 600;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: #080807;
-  background: linear-gradient(135deg, #DABF6E, #C9A84C, #A8893A);
-  padding: 0.9rem 2.5rem;
-  border: none;
-  cursor: pointer;
+  background: rgba(8,8,7,0.2);
   transition: all 0.4s ease;
 }
 
-.video-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 40px rgba(201,168,76,0.3);
+.video-container:hover .video-overlay {
+  background: rgba(8,8,7,0.1);
 }
 
-/* Video Controls (Play/Pause) */
-.video-controls {
+/* ===== PLAY BUTTON ===== */
+.video-play-btn {
   position: absolute;
-  bottom: 2rem;
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%);
-  z-index: 3;
-  display: flex;
-  gap: 1.5rem;
-  align-items: center;
-  opacity: 0.3;
-  transition: opacity 0.4s;
-}
-
-.video-controls:hover {
-  opacity: 1;
-}
-
-.video-controls .play-btn {
-  width: 50px;
-  height: 50px;
+  transform: translate(-50%, -50%);
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
-  border: 1px solid rgba(201,168,76,0.3);
-  background: rgba(8,8,7,0.6);
+  background: rgba(201,168,76,0.15);
+  border: 2px solid rgba(201,168,76,0.4);
   color: var(--gold);
-  font-size: 1.2rem;
+  font-size: 1.8rem;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s;
+  transition: all 0.4s ease;
+  backdrop-filter: blur(4px);
+  z-index: 2;
 }
 
-.video-controls .play-btn:hover {
+.video-play-btn:hover {
+  background: rgba(201,168,76,0.25);
   border-color: var(--gold);
-  background: rgba(201,168,76,0.1);
+  transform: translate(-50%, -50%) scale(1.1);
+  box-shadow: 0 0 40px rgba(201,168,76,0.15);
 }
 
-.video-progress {
-  width: 200px;
-  height: 3px;
-  background: rgba(255,255,255,0.2);
-  border-radius: 2px;
-  cursor: pointer;
-  position: relative;
+.video-play-btn .play-icon {
+  margin-left: 4px;
 }
 
-.video-progress .progress-bar {
-  width: 0%;
-  height: 100%;
-  background: var(--gold);
-  border-radius: 2px;
-  transition: width 0.1s linear;
+/* ===== VIDEO CAPTION ===== */
+.video-caption {
+  text-align: center;
+  margin-top: 1.5rem;
 }
 
-.video-time {
+.video-caption .caption-eyebrow {
   font-family: var(--fu);
   font-size: 0.5rem;
-  color: var(--cream-dim);
-  letter-spacing: 0.1em;
+  font-weight: 400;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: inline-block;
+  margin-bottom: 0.3rem;
 }
 
+.video-caption h3 {
+  font-family: var(--fd);
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: var(--cream);
+  letter-spacing: 0.04em;
+}
+
+.video-caption h3 span {
+  color: var(--gold);
+  font-style: italic;
+  font-family: var(--fb);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  #video-section {
+    padding: 2rem 0;
+  }
+  
+  .video-play-btn {
+    width: 55px;
+    height: 55px;
+    font-size: 1.4rem;
+  }
+  
+  .video-caption h3 {
+    font-size: 1rem;
+  }
+  
+  .video-caption .caption-eyebrow {
+    font-size: 0.45rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .video-play-btn {
+    width: 45px;
+    height: 45px;
+    font-size: 1rem;
+  }
+  
+  .video-caption h3 {
+    font-size: 0.85rem;
+  }
+  
+  .video-wrapper {
+    padding: 0 0.5rem;
+  }
+}
 /* ========== RESPONSIVE ========== */
 @media (max-width: 768px) {
   .video-text h2 {
@@ -1292,8 +1258,7 @@ button{border:none;cursor:pointer;font-family:inherit}
     height: 40px;
     font-size: 1rem;
   }
-}
-/* ========== NEWSLETTER ========== */
+}/* ========== NEWSLETTER ========== */
 #newsletter{padding:5rem 0;background:linear-gradient(135deg,#0e0d09,#1a1810);position:relative}
 .newsletter-inner{max-width:520px;margin:0 auto;text-align:center;position:relative;z-index:2}
 .newsletter-inner .badge{font-family:var(--fu);font-size:0.55rem;font-weight:500;letter-spacing:0.45em;text-transform:uppercase;color:var(--gold);border:1px solid var(--gold-line);padding:0.4rem 1.5rem;display:inline-block;margin-bottom:1rem}
@@ -1552,29 +1517,25 @@ footer{background:#050504;border-top:1px solid var(--gold-line);padding:4rem 0 1
   </div>
 </section>
 
-<!-- ========== VIDEO SECTION ========== -->
+<!-- ========== VIDEO SECTION (PROFESSIONAL) ========== -->
 <section id="video-section">
-  <div class="video-overlay"></div>
-  <div class="video-container">
-    <video autoplay muted loop playsinline id="brandVideo">
-      <source src="brand-video.mp4" type="video/mp4">
-      <!-- Agar video load na ho toh fallback image -->
-      <img src="video-fallback.jpg" alt="IMAROZE">
-    </video>
-  </div>
-  <!-- <div class="video-content">
-    <div class="container">
-      <div class="video-text">
-        <span class="video-eyebrow">✦ Experience IMAROZE</span>
-        <h2>Luxury in<br><em>Every Drop</em></h2>
-        <div class="video-rule"></div>
-        <p>Watch the artistry behind our signature fragrances — from rare ingredients to the final bottle.</p>
-        <button class="video-btn" onclick="toggleVideo()">
-          <span id="videoBtnText">⏸ Pause</span>
-        </button>
+  <div class="container">
+    <div class="video-wrapper">
+      <div class="video-container">
+        <video autoplay muted loop playsinline id="brandVideo">
+          <source src="brand-video.mp4" type="video/mp4">
+        </video>
+        <div class="video-overlay"></div>
+        <!-- <button class="video-play-btn" onclick="toggleVideo()">
+          <span id="playIcon">▶</span>
+        </button> -->
+      </div>
+      <div class="video-caption">
+        <span class="caption-eyebrow">✦ Experience IMAROZE</span>
+        <h3>Luxury in <span>Every Drop</span></h3>
       </div>
     </div>
-  </div> -->
+  </div>
 </section>
 <!-- ========== NEWSLETTER ========== -->
 <section id="newsletter">
