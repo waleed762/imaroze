@@ -64,10 +64,10 @@
   letter-spacing: 0.05em;
 }
 
-/* ========== MISSION CONTENT ========== */
+/* ========== MISSION CONTENT (ENHANCED FONTS) ========== */
 .mission-content .eyebrow {
   font-family: var(--fu);
-  font-size: 0.55rem;
+  font-size: 0.7rem;  /* Pehle 0.55rem */
   font-weight: 500;
   letter-spacing: 0.5em;
   text-transform: uppercase;
@@ -86,10 +86,11 @@
 
 .mission-content h2 {
   font-family: var(--fd);
-  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  font-size: clamp(2.2rem, 4vw, 3.2rem);  /* Pehle 1.8rem - 2.8rem */
   font-weight: 400;
   margin: 0.5rem 0 1rem;
   color: var(--cream);
+  letter-spacing: 0.04em;
 }
 
 .mission-content h2 span {
@@ -100,23 +101,24 @@
 
 .mission-content .rule {
   width: 50px;
-  height: 1px;
+  height: 2px;  /* Pehle 1px */
   background: var(--gold);
   margin: 1rem 0;
 }
 
 .mission-content p {
   font-family: var(--fu);
-  font-size: 0.85rem;
-  color: var(--cream-dim);
-  line-height: 1.9;
+  font-size: 0.95rem;  /* Pehle 0.85rem */
+  color: var(--cream);
+  line-height: 2;  /* Pehle 1.9 */
   margin-bottom: 1rem;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.03em;
+  font-weight: 300;
 }
 
 .mission-content .signature {
   font-family: var(--fb);
-  font-size: 1.5rem;
+  font-size: 1.8rem;  /* Pehle 1.5rem */
   font-style: italic;
   color: var(--gold);
   margin: 1.5rem 0 0.5rem;
@@ -135,7 +137,7 @@
   align-items: center;
   gap: 0.6rem;
   font-family: var(--fu);
-  font-size: 0.6rem;
+  font-size: 0.7rem;  /* Pehle 0.6rem */
   font-weight: 600;
   letter-spacing: 0.3em;
   text-transform: uppercase;
@@ -159,7 +161,7 @@
   align-items: center;
   gap: 0.6rem;
   font-family: var(--fu);
-  font-size: 0.6rem;
+  font-size: 0.7rem;  /* Pehle 0.6rem */
   font-weight: 500;
   letter-spacing: 0.3em;
   text-transform: uppercase;
@@ -186,11 +188,15 @@
   }
   
   .mission-content h2 {
-    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-size: clamp(1.8rem, 3.5vw, 2.4rem);
   }
   
   .mission-content p {
-    font-size: 0.8rem;
+    font-size: 0.85rem;
+  }
+  
+  .mission-content .eyebrow {
+    font-size: 0.6rem;
   }
   
   .mission-image .image-badge {
@@ -212,10 +218,18 @@
     text-align: center;
     justify-content: center;
     padding: 0.9rem 1.5rem;
-    font-size: 0.55rem;
+    font-size: 0.6rem;
   }
   
   .mission-content h2 {
+    font-size: 1.6rem;
+  }
+  
+  .mission-content p {
+    font-size: 0.8rem;
+  }
+  
+  .mission-content .signature {
     font-size: 1.4rem;
   }
 }
@@ -259,7 +273,7 @@
 
 .nav-links a {
   font-family: var(--fu);
-  font-size: 0.55rem;
+  font-size: 0.6rem;  /* Pehle 0.55rem - bara */
   font-weight: 500;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -299,7 +313,7 @@
 
 .nav-btn {
   color: var(--cream-dim);
-  font-size: 1.1rem;
+  font-size: 1.2rem;  /* Pehle 1.1rem - bara */
   background: none;
   border: none;
   cursor: pointer;
@@ -319,10 +333,10 @@
   background: var(--gold);
   color: #080807;
   font-family: var(--fu);
-  font-size: 0.4rem;
+  font-size: 0.45rem;  /* Pehle 0.4rem - bara */
   font-weight: 700;
-  width: 16px;
-  height: 16px;
+  width: 18px;  /* Pehle 16px - bara */
+  height: 18px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -342,7 +356,7 @@
 .hamburger span {
   display: block;
   width: 24px;
-  height: 1.5px;
+  height: 2px;  /* Pehle 1.5px - bara */
   background: var(--gold);
   transition: all 0.3s;
 }
@@ -378,7 +392,7 @@
 
 .mobile-menu a {
   font-family: var(--fd);
-  font-size: 1.3rem;
+  font-size: 1.5rem;  /* Pehle 1.3rem - bara */
   color: var(--cream);
   transition: color 0.3s;
   letter-spacing: 0.08em;
@@ -399,12 +413,12 @@
 
 .mobile-menu .social-links a {
   font-family: var(--fu);
-  font-size: 0.5rem;
+  font-size: 0.55rem;  /* Pehle 0.5rem - bara */
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--gold);
   border: 1px solid var(--gold-line);
-  padding: 0.5rem 1.2rem;
+  padding: 0.6rem 1.2rem;
   transition: all 0.3s;
   text-decoration: none;
 }
@@ -426,7 +440,7 @@
   border: 1px solid var(--gold-line);
   padding: 0.8rem 2rem;
   font-family: var(--fu);
-  font-size: 0.68rem;
+  font-size: 0.7rem;  /* Pehle 0.68rem - bara */
   letter-spacing: 0.1em;
   color: var(--gold);
   white-space: nowrap;
@@ -445,8 +459,8 @@
   position: fixed;
   bottom: 24px;
   right: 24px;
-  width: 52px;
-  height: 52px;
+  width: 55px;  /* Pehle 52px - bara */
+  height: 55px;
   background: #25D366;
   border-radius: 50%;
   display: flex;
@@ -462,8 +476,8 @@
 }
 
 .whatsapp-float svg {
-  width: 28px;
-  height: 28px;
+  width: 30px;  /* Pehle 28px - bara */
+  height: 30px;
   fill: white;
 }
 
@@ -490,14 +504,14 @@
 
 #preloader .logo {
   font-family: 'Cinzel', serif;
-  font-size: 1.8rem;
+  font-size: 2rem;  /* Pehle 1.8rem - bara */
   letter-spacing: 0.5em;
   color: #C9A84C;
 }
 
 #preloader .bar {
-  width: 140px;
-  height: 1px;
+  width: 160px;  /* Pehle 140px - bara */
+  height: 2px;  /* Pehle 1px - bara */
   background: var(--black3);
   position: relative;
   overflow: hidden;
@@ -551,14 +565,14 @@ footer {
 }
 
 .footer-brand .logo img {
-  height: 38px;
+  height: 40px;  /* Pehle 38px - bara */
   width: auto;
   margin-bottom: 1rem;
 }
 
 .footer-brand p {
   font-family: var(--fu);
-  font-size: 0.72rem;
+  font-size: 0.78rem;  /* Pehle 0.72rem - bara */
   color: var(--cream-dim);
   line-height: 1.8;
   max-width: 280px;
@@ -572,8 +586,8 @@ footer {
 }
 
 .footer-socials a {
-  width: 34px;
-  height: 34px;
+  width: 36px;  /* Pehle 34px - bara */
+  height: 36px;
   border: 1px solid var(--gold-line);
   border-radius: 50%;
   display: flex;
@@ -593,7 +607,7 @@ footer {
 
 .footer-col h4 {
   font-family: var(--fd);
-  font-size: 0.85rem;
+  font-size: 0.9rem;  /* Pehle 0.85rem - bara */
   color: var(--cream);
   margin-bottom: 1.2rem;
   letter-spacing: 0.08em;
@@ -609,7 +623,7 @@ footer {
 
 .footer-col ul a {
   font-family: var(--fu);
-  font-size: 0.68rem;
+  font-size: 0.72rem;  /* Pehle 0.68rem - bara */
   color: var(--cream-dim);
   transition: color 0.3s;
   letter-spacing: 0.03em;
@@ -632,7 +646,7 @@ footer {
 
 .footer-bottom p {
   font-family: var(--fu);
-  font-size: 0.55rem;
+  font-size: 0.6rem;  /* Pehle 0.55rem - bara */
   color: rgba(239,232,216,0.2);
   letter-spacing: 0.04em;
 }
@@ -644,7 +658,7 @@ footer {
 
 .footer-bottom-links a {
   font-family: var(--fu);
-  font-size: 0.55rem;
+  font-size: 0.6rem;  /* Pehle 0.55rem - bara */
   color: rgba(239,232,216,0.2);
   transition: color 0.3s;
   text-decoration: none;
@@ -686,7 +700,7 @@ footer {
   <div class="container">
     <div class="nav-inner">
       <a href="index.html" class="nav-logo">
-        <img src="logo.png" alt="IMAROZE">
+        <img src="images/logo.png" alt="IMAROZE">
       </a>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
@@ -725,8 +739,7 @@ footer {
     <div class="mission-grid">
       <!-- Mission Image -->
       <div class="mission-image">
-        <img src="AUREX.png" alt="IMAROZE Mission">
-        <!-- <div class="image-badge">✦ Our Purpose</div> -->
+        <img src="images/AUREX.png" alt="IMAROZE Mission">
       </div>
       
       <!-- Mission Content -->
@@ -736,17 +749,13 @@ footer {
         <div class="rule"></div>
         
         <p>Our mission at IMAROZE Perfume is to become a leading luxury fragrance brand in Pakistan and globally, known for delivering long-lasting, high-performance perfumes and attars.</p>
-        <p> We aim to </p>
         
-        <p>Develop premium luxury perfumes and signature fragrances with international standards
-Provide long-lasting perfume oils with strong sillage and projection
-Make affordable luxury perfumes accessible without compromising quality
-Build a trusted brand in the fragrance and perfume industry
-Continuously innovate in Arabic, French, and niche perfume blends</p>
+        <p>We aim to develop premium luxury perfumes and signature fragrances with international standards, provide long-lasting perfume oils with strong sillage and projection, and make affordable luxury perfumes accessible without compromising quality.</p>
         
-        <p>At IMAROZE Perfume, our goal is to redefine luxury by offering scents that reflect confidence, style, and personality, making every fragrance a powerful identity statement. </p>
+        <p>We are committed to building a trusted brand in the fragrance and perfume industry of Pakistan, while continuously innovating in Arabic, French, and niche perfume blends to cater to modern tastes.</p>
         
-                
+        <p>At IMAROZE Perfume, our goal is to redefine luxury by offering scents that reflect confidence, style, and personality, making every fragrance a powerful identity statement.</p>
+        
         <div class="signature">— IMAROZE Perfume</div>
         
         <div class="mission-cta">
@@ -763,7 +772,7 @@ Continuously innovate in Arabic, French, and niche perfume blends</p>
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a href="index.html" class="logo"><img src="logo.png" alt="IMAROZE"></a>
+        <a href="index.html" class="logo"><img src="images/logo.png" alt="IMAROZE"></a>
         <p>Premium luxury fragrances crafted in Pakistan. Long-lasting, elegant, and unforgettable.</p>
         <div class="footer-socials">
           <a href="https://www.instagram.com/imaroze.official" target="_blank"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
