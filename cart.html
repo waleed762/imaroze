@@ -34,14 +34,14 @@
 
 .cart-empty h3 {
   font-family: var(--fd);
-  font-size: 1.6rem;  /* Pehle 1.5rem */
+  font-size: 1.6rem;
   color: var(--cream);
   margin-bottom: 0.5rem;
 }
 
 .cart-empty p {
   font-family: var(--fu);
-  font-size: 0.95rem;  /* Pehle 0.85rem */
+  font-size: 0.95rem;
   color: var(--cream-dim);
   margin-bottom: 1.5rem;
 }
@@ -49,7 +49,7 @@
 .cart-empty .btn-gold {
   display: inline-block;
   font-family: var(--fu);
-  font-size: 0.7rem;  /* Pehle 0.6rem */
+  font-size: 0.7rem;
   font-weight: 600;
   letter-spacing: 0.3em;
   text-transform: uppercase;
@@ -108,14 +108,14 @@
 
 .cart-item-row .item-name {
   font-family: var(--fd);
-  font-size: 1.2rem;  /* Pehle 1.1rem */
+  font-size: 1.2rem;
   color: var(--cream);
   letter-spacing: 0.04em;
 }
 
 .cart-item-row .item-price {
   font-family: var(--fd);
-  font-size: 1.3rem;  /* Pehle 1.2rem */
+  font-size: 1.3rem;
   color: var(--gold);
   margin-top: 0.3rem;
 }
@@ -124,7 +124,7 @@
   background: none;
   border: none;
   color: rgba(239,232,216,0.2);
-  font-size: 1.6rem;  /* Pehle 1.4rem */
+  font-size: 1.6rem;
   cursor: pointer;
   transition: all 0.3s;
   padding: 0.5rem;
@@ -156,7 +156,7 @@
 
 .cart-summary .cart-total span {
   font-family: var(--fu);
-  font-size: 0.75rem;  /* Pehle 0.65rem */
+  font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.25em;
   text-transform: uppercase;
@@ -165,7 +165,7 @@
 
 .cart-summary .cart-total strong {
   font-family: var(--fd);
-  font-size: 2rem;  /* Pehle 1.8rem */
+  font-size: 2rem;
   color: var(--gold);
 }
 
@@ -177,7 +177,7 @@
   align-items: center;
   gap: 0.6rem;
   font-family: var(--fu);
-  font-size: 0.7rem;  /* Pehle 0.6rem */
+  font-size: 0.7rem;
   font-weight: 600;
   letter-spacing: 0.3em;
   text-transform: uppercase;
@@ -301,7 +301,7 @@
 }
 
 /* ============================================================
-   NAVBAR (ENHANCED)
+   NAVBAR
 ============================================================ */
 #navbar {
   position: fixed;
@@ -555,13 +555,20 @@ footer {
   color: var(--cream-dim);
   transition: all 0.3s;
   text-decoration: none;
-  font-size: 1rem;
 }
 
 .footer-socials a:hover {
   border-color: var(--gold);
   color: var(--gold);
   background: rgba(201,168,76,0.05);
+}
+
+.footer-socials a svg {
+  width: 16px;
+  height: 16px;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  fill: none;
 }
 
 .footer-col h4 {
@@ -756,7 +763,7 @@ footer {
 <!-- ========== TOAST ========== -->
 <div class="toast" id="toast"></div>
 
-<!-- ========== WHATSAPP (UPDATED) ========== -->
+<!-- ========== WHATSAPP ========== -->
 <a href="https://wa.me/923069116087" class="whatsapp-float" target="_blank" rel="noopener">
   <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
 </a>
@@ -971,22 +978,43 @@ function renderCart() {
     return;
   }
   
-  container.innerHTML = cart.map((item, i) => `
-    <div class="cart-item-row">
-      <div class="item-img">
-        <img src="${item.img || 'default.jpg'}" alt="${item.name}" loading="lazy">
+  container.innerHTML = cart.map((item, i) => {
+    // ✅ FIX: Correct image path with fallback
+    const imgPath = item.img || 'default.jpg';
+    return `
+      <div class="cart-item-row">
+        <div class="item-img">
+          <img src="${imgPath}" alt="${item.name}" loading="lazy" onerror="this.src='default.jpg'">
+        </div>
+        <div class="item-details">
+          <div class="item-name">${item.name}</div>
+          <div class="item-price">Rs. ${item.price.toLocaleString()}</div>
+        </div>
+        <button class="item-remove" onclick="removeFromCart(${i})" aria-label="Remove item">✕</button>
       </div>
-      <div class="item-details">
-        <div class="item-name">${item.name}</div>
-        <div class="item-price">Rs. ${item.price.toLocaleString()}</div>
-      </div>
-      <button class="item-remove" onclick="removeFromCart(${i})" aria-label="Remove item">✕</button>
-    </div>
-  `).join('');
+    `;
+  }).join('');
   
   const total = cart.reduce((s, i) => s + i.price, 0);
   document.getElementById('cartTotalPrice').textContent = 'Rs. ' + total.toLocaleString();
   summary.style.display = 'block';
+}
+
+// ========== ADD TO CART (for testing) ==========
+function addToCart(id) {
+  const products = {
+    denve: { id:'denve', name:'IMAROZE Denve', price:2499, img:'DENVE.png' },
+    broute: { id:'broute', name:'IMAROZE BrouTe', price:2499, img:'BROUTE.png' },
+    aurex: { id:'aurex', name:'IMAROZE Aurex', price:2499, img:'AUREX.png' }
+  };
+  const p = products[id];
+  if(!p) return;
+  let cart = JSON.parse(localStorage.getItem('imaroze_cart') || '[]');
+  cart.push(p);
+  localStorage.setItem('imaroze_cart', JSON.stringify(cart));
+  renderCart();
+  updateCartBadge();
+  showToast(p.name + ' added to cart ✨');
 }
 
 // ========== INIT ==========
