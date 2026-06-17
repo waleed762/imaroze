@@ -3,8 +3,215 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>IMAROZE | About Us</title>
+<meta name="description" content="IMAROZE Perfume — A premium luxury fragrance house in Pakistan. Discover our story, heritage, and signature perfumes.">
+<title>IMAROZE | About Us — Luxury Perfumes Pakistan</title>
 <link rel="stylesheet" href="style.css">
+<style>
+/* ========== ABOUT PAGE STYLES (ENHANCED) ========== */
+#about-page {
+  padding: 10rem 0 5rem 0;
+  background: var(--black);
+  min-height: 70vh;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+@media (max-width: 992px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
+
+/* ========== ABOUT IMAGE ========== */
+.about-image {
+  position: relative;
+  aspect-ratio: 4/5;
+  border: 1px solid var(--gold-line);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.about-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.85) saturate(0.9);
+  transition: transform 0.7s ease;
+}
+
+.about-image:hover img {
+  transform: scale(1.02);
+}
+
+/* ========== ABOUT CONTENT (ENHANCED FONTS) ========== */
+.about-content .eyebrow {
+  font-family: var(--fu);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.about-content .eyebrow::before {
+  content: '';
+  width: 32px;
+  height: 1px;
+  background: var(--gold);
+}
+
+.about-content h2 {
+  font-family: var(--fd);
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-weight: 400;
+  margin: 0.5rem 0 1rem;
+  color: var(--cream);
+  letter-spacing: 0.04em;
+}
+
+.about-content h2 span {
+  color: var(--gold);
+  font-style: italic;
+  font-family: var(--fb);
+}
+
+.about-content .rule {
+  width: 50px;
+  height: 2px;
+  background: var(--gold);
+  margin: 1rem 0;
+}
+
+.about-content p {
+  font-family: var(--fu);
+  font-size: 1rem;  /* Pehle 0.82rem - ab 1rem */
+  color: var(--cream);
+  line-height: 2;  /* Pehle 1.9 */
+  margin-bottom: 1rem;
+  letter-spacing: 0.03em;
+  font-weight: 300;
+}
+
+.about-content .signature {
+  font-family: var(--fb);
+  font-size: 1.8rem;
+  font-style: italic;
+  color: var(--gold);
+  margin: 1.5rem 0 0.5rem;
+  font-weight: 300;
+}
+
+.about-cta {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+.about-cta .btn-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--fu);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #080807;
+  background: linear-gradient(135deg, #DABF6E, #C9A84C, #A8893A);
+  padding: 1rem 2.5rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.about-cta .btn-gold:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(201,168,76,0.3);
+}
+
+.about-cta .btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--fu);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--cream);
+  background: transparent;
+  border: 1px solid var(--gold-line);
+  padding: 1rem 2.5rem;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.about-cta .btn-ghost:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+  background: rgba(201,168,76,0.06);
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+  #about-page {
+    padding: 8rem 0 3rem 0;
+  }
+  
+  .about-content h2 {
+    font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+  }
+  
+  .about-content p {
+    font-size: 0.9rem;
+  }
+  
+  .about-content .eyebrow {
+    font-size: 0.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-cta {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .about-cta .btn-gold,
+  .about-cta .btn-ghost {
+    text-align: center;
+    justify-content: center;
+    padding: 0.9rem 1.5rem;
+    font-size: 0.6rem;
+  }
+  
+  .about-content h2 {
+    font-size: 1.6rem;
+  }
+  
+  .about-content p {
+    font-size: 0.85rem;
+  }
+  
+  .about-content .signature {
+    font-size: 1.4rem;
+  }
+}
+</style>
 </head>
 <body>
 
@@ -13,6 +220,9 @@
   <div class="logo">IMAROZE</div>
   <div class="bar"></div>
 </div>
+
+<!-- ========== TOAST ========== -->
+<div class="toast" id="toast"></div>
 
 <!-- ========== WHATSAPP ========== -->
 <a href="https://wa.me/923001234567" class="whatsapp-float" target="_blank" rel="noopener">
@@ -30,12 +240,12 @@
         <li><a href="index.html">Home</a></li>
         <li><a href="products.html">Perfumes</a></li>
         <li><a href="about.html" class="active">About</a></li>
-        <li><a href="mission.html" class="active">Our Mission</a></li>
+        <li><a href="mission.html">Our Mission</a></li>
         <li><a href="faq.html">FAQ</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
       <div class="nav-actions">
-        <a href="cart.html" class="nav-btn">🛒 <span class="cart-badge">0</span></a>
+        <a href="cart.html" class="nav-btn" style="position:relative">🛒 <span class="cart-badge" id="cartBadge">0</span></a>
         <button class="hamburger" onclick="toggleMob()"><span></span><span></span><span></span></button>
       </div>
     </div>
@@ -47,7 +257,7 @@
   <a href="index.html" onclick="closeMob()">Home</a>
   <a href="products.html" onclick="closeMob()">Perfumes</a>
   <a href="about.html" onclick="closeMob()">About</a>
-    <a href="mission.html" onclick="closeMob()">Our Mission</a>
+  <a href="mission.html" onclick="closeMob()">Our Mission</a>
   <a href="faq.html" onclick="closeMob()">FAQ</a>
   <a href="contact.html" onclick="closeMob()">Contact</a>
   <div class="social-links">
@@ -58,22 +268,27 @@
 </div>
 
 <!-- ========== ABOUT ========== -->
-<section style="padding:8rem 0 4rem 0">
+<section id="about-page">
   <div class="container">
     <div class="about-grid">
       <div class="about-image">
         <img src="about.png" alt="IMAROZE Atelier">
-        <!-- <div class="badge">6+ Years</div> -->
       </div>
       <div class="about-content">
         <div class="eyebrow">Our Heritage</div>
         <h2>Welcome to<br><span>IMAROZE Perfume</span></h2>
-        <div class="rule" style="margin:1rem 0"></div>
+        <div class="rule"></div>
+        
         <p>Welcome to IMAROZE Perfume, a premium luxury perfume brand in Pakistan offering high-quality, long-lasting perfumes, attar, and eau de parfum collections for men and women.</p>
+        
         <p>IMAROZE Perfume is a modern fragrance house dedicated to creating signature scents, luxury Arabic perfumes, and French-inspired fragrances that define elegance, confidence, and individuality. Our perfumes are designed for people who value premium quality, strong projection, and long-lasting fragrance performance.</p>
+        
         <p>We use carefully selected high-grade perfume oils and aromatic ingredients to deliver a rich, bold, and unforgettable scent experience. Every bottle represents craftsmanship, luxury, and modern fragrance innovation.</p>
+        
         <p>Whether you are looking for a luxury gift perfume, daily wear fragrance, or premium signature scent, IMAROZE Perfume brings you world-class quality at an affordable luxury level.</p>
+        
         <div class="signature">— IMAROZE Perfume</div>
+        
         <div class="about-cta">
           <a href="products.html" class="btn-gold">Shop Now</a>
           <a href="contact.html" class="btn-ghost">Get In Touch</a>
@@ -112,8 +327,7 @@
         <h4>IMAROZE</h4>
         <ul>
           <li><a href="about.html">About Us</a></li>
-          <li><a href="about.html#mission">Our Mission</a></li>
-          <li><a href="about.html#awards">Awards</a></li>
+          <li><a href="mission.html">Our Mission</a></li>
           <li><a href="faq.html">FAQ</a></li>
           <li><a href="https://www.instagram.com/imaroze.official" target="_blank">Instagram</a></li>
           <li><a href="https://www.tiktok.com/@imaroze.official" target="_blank">TikTok</a></li>
@@ -141,6 +355,66 @@
   </div>
 </footer>
 
+<!-- ========== SCRIPTS ========== -->
 <script src="script.js"></script>
+<script>
+// ========== PRELOADER ==========
+window.addEventListener('load', function() {
+  setTimeout(() => {
+    document.getElementById('preloader').classList.add('hide');
+    setTimeout(() => document.getElementById('preloader').style.display = 'none', 600);
+  }, 1000);
+});
+
+// ========== NAVBAR ==========
+window.addEventListener('scroll', function() {
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 70);
+});
+
+// ========== MOBILE MENU ==========
+function toggleMob() {
+  const menu = document.getElementById('mobileMenu');
+  menu.classList.toggle('open');
+  const spans = document.querySelectorAll('.hamburger span');
+  if (menu.classList.contains('open')) {
+    spans[0].style.transform = 'rotate(45deg) translate(4px,4px)';
+    spans[1].style.opacity = '0';
+    spans[2].style.transform = 'rotate(-45deg) translate(4px,-4px)';
+  } else {
+    spans.forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
+  }
+}
+
+function closeMob() {
+  document.getElementById('mobileMenu').classList.remove('open');
+  document.querySelectorAll('.hamburger span').forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
+}
+
+// ========== CART ==========
+function updateCartBadge() {
+  const cart = JSON.parse(localStorage.getItem('imaroze_cart') || '[]');
+  const badges = document.querySelectorAll('.cart-badge');
+  badges.forEach(badge => {
+    badge.textContent = cart.length;
+  });
+}
+
+// ========== TOAST ==========
+function showToast(message) {
+  let toast = document.getElementById('toast');
+  if (!toast) {
+    toast = document.createElement('div');
+    toast.id = 'toast';
+    toast.className = 'toast';
+    document.body.appendChild(toast);
+  }
+  toast.textContent = message;
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 2500);
+}
+
+// ========== INIT ==========
+updateCartBadge();
+</script>
 </body>
 </html>
