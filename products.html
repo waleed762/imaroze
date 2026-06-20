@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="IMAROZE Perfume — Explore our premium collection of luxury fragrances. Shop Denve, BrouTe, Aurex. Long-lasting Eau De Parfum.">
-<title>IMAROZE | Our Perfumes — Luxury Fragrances</title>
+<meta name="description" content="IMAROZE Perfume — Launching with 20% Discount! Explore our premium collection of luxury fragrances. Shop Denve, BrouTe, Aurex.">
+<title>IMAROZE | Our Perfumes — 20% Launch Discount</title>
 <link rel="stylesheet" href="style.css">
 <style>
 /* ========== PRODUCTS PAGE STYLES ========== */
@@ -12,6 +12,54 @@
   padding: 10rem 0 5rem 0;
   background: var(--black3);
   min-height: 70vh;
+}
+
+/* ========== LAUNCH DISCOUNT BANNER ========== */
+.launch-banner {
+  background: linear-gradient(135deg, #A8893A, #C9A84C, #DABF6E);
+  padding: 1rem 0;
+  text-align: center;
+  margin-bottom: 2rem;
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+}
+
+.launch-banner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.launch-banner .banner-text {
+  font-family: var(--fd);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #080807;
+  letter-spacing: 0.08em;
+  position: relative;
+  z-index: 1;
+}
+
+.launch-banner .banner-text .highlight {
+  font-size: 1.4rem;
+  color: #fff;
+  text-shadow: 0 0 20px rgba(255,255,255,0.2);
+}
+
+.launch-banner .banner-text small {
+  font-family: var(--fu);
+  font-size: 0.6rem;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  opacity: 0.8;
 }
 
 .section-sub {
@@ -56,12 +104,36 @@
   transition: all 0.4s ease;
   cursor: pointer;
   border-radius: 4px;
+  position: relative;
 }
 
 .product-card:hover {
   border-color: rgba(201,168,76,0.4);
   transform: translateY(-8px);
   box-shadow: 0 20px 60px rgba(201,168,76,0.08);
+}
+
+/* ========== DISCOUNT BADGE ========== */
+.discount-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 3;
+  background: #e74c3c;
+  color: #fff;
+  font-family: var(--fu);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 0.3rem 0.8rem;
+  border-radius: 4px;
+  box-shadow: 0 4px 15px rgba(231,76,60,0.3);
+  animation: pulseBadge 2s ease-in-out infinite;
+}
+
+@keyframes pulseBadge {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
 }
 
 .product-card .img {
@@ -102,7 +174,7 @@
 /* Wishlist Button */
 .product-card .img .wishlist-btn {
   position: absolute;
-  top: 1rem;
+  bottom: 1rem;
   right: 1rem;
   width: 34px;
   height: 34px;
@@ -159,11 +231,41 @@
   overflow: hidden;
 }
 
+/* ========== PRICE WITH DISCOUNT ========== */
 .product-card .info .price {
   font-family: var(--fd);
   font-size: 1.2rem;
   color: var(--gold);
   margin-bottom: 0.8rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.product-card .info .price .original-price {
+  font-family: var(--fu);
+  font-size: 0.75rem;
+  color: var(--cream-dim);
+  text-decoration: line-through;
+  opacity: 0.6;
+  font-weight: 300;
+}
+
+.product-card .info .price .discounted-price {
+  color: #e74c3c;
+  font-size: 1.2rem;
+}
+
+.product-card .info .price .discount-tag {
+  font-family: var(--fu);
+  font-size: 0.5rem;
+  font-weight: 700;
+  color: #e74c3c;
+  background: rgba(231,76,60,0.1);
+  padding: 0.2rem 0.5rem;
+  border-radius: 2px;
+  border: 1px solid rgba(231,76,60,0.2);
 }
 
 .product-card .info .price small {
@@ -237,293 +339,6 @@
   border-color: var(--gold);
   color: var(--gold);
   background: rgba(201,168,76,0.05);
-}
-
-/* ========== PRODUCT MODAL ========== */
-.product-modal {
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  padding: 1.5rem;
-}
-
-.product-modal.active {
-  display: flex;
-}
-
-.modal-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.88);
-  backdrop-filter: blur(12px);
-  cursor: pointer;
-}
-
-.modal-container {
-  position: relative;
-  background: var(--black2);
-  border: 1px solid var(--gold-line);
-  max-width: 900px;
-  width: 100%;
-  max-height: 90vh;
-  overflow-y: auto;
-  border-radius: 4px;
-  animation: modalFadeIn 0.4s ease;
-}
-
-@keyframes modalFadeIn {
-  from {
-    opacity: 0;
-    transform: scale(0.95) translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1) translateY(0);
-  }
-}
-
-.modal-close {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  width: 38px;
-  height: 38px;
-  background: rgba(8, 8, 7, 0.85);
-  border: 1px solid var(--gold-line);
-  color: var(--gold);
-  font-size: 1.2rem;
-  cursor: pointer;
-  z-index: 10;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s;
-  border-radius: 50%;
-}
-
-.modal-close:hover {
-  background: var(--gold);
-  color: var(--black);
-}
-
-.modal-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0;
-}
-
-@media (max-width: 700px) {
-  .modal-grid {
-    grid-template-columns: 1fr;
-  }
-  .modal-image {
-    aspect-ratio: 16/9;
-  }
-}
-
-.modal-image {
-  aspect-ratio: 3/4;
-  overflow: hidden;
-  background: linear-gradient(145deg, #100f0a, #1a1810);
-}
-
-.modal-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.modal-details {
-  padding: 2.5rem 2.2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-}
-
-.modal-details h2 {
-  font-family: var(--fd);
-  font-size: 1.6rem;
-  color: var(--cream);
-  letter-spacing: 0.05em;
-}
-
-.modal-notes-label {
-  font-family: var(--fu);
-  font-size: 0.55rem;
-  font-weight: 600;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-top: 0.3rem;
-}
-
-.modal-notes {
-  font-family: var(--fb);
-  font-size: 1.05rem;
-  font-style: italic;
-  color: var(--cream-dim);
-}
-
-.modal-desc {
-  font-family: var(--fu);
-  font-size: 0.82rem;
-  color: var(--cream-dim);
-  line-height: 1.85;
-  letter-spacing: 0.02em;
-}
-
-.modal-price-row {
-  display: flex;
-  align-items: baseline;
-  gap: 1.2rem;
-  margin-top: 0.3rem;
-}
-
-.modal-price {
-  font-family: var(--fd);
-  font-size: 1.8rem;
-  color: var(--gold);
-}
-
-.modal-size {
-  font-family: var(--fu);
-  font-size: 0.65rem;
-  letter-spacing: 0.15em;
-  color: var(--cream-dim);
-}
-
-.modal-stars {
-  display: flex;
-  gap: 3px;
-  margin: 0.3rem 0;
-}
-
-.modal-stars svg {
-  width: 18px;
-  height: 18px;
-  fill: var(--gold);
-}
-
-.modal-stars svg.empty {
-  fill: rgba(201,168,76,0.2);
-}
-
-.modal-qty {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  margin-top: 0.3rem;
-}
-
-.qty-label {
-  font-family: var(--fu);
-  font-size: 0.6rem;
-  font-weight: 600;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: var(--cream-dim);
-}
-
-.qty-controls {
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-}
-
-.qty-btn {
-  width: 32px;
-  height: 32px;
-  border: 1px solid var(--gold-line);
-  background: transparent;
-  color: var(--gold);
-  font-size: 1.2rem;
-  cursor: pointer;
-  transition: all 0.3s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 4px;
-}
-
-.qty-btn:hover {
-  background: var(--gold);
-  color: var(--black);
-}
-
-.qty-num {
-  font-family: var(--fd);
-  font-size: 1.1rem;
-  color: var(--cream);
-  min-width: 30px;
-  text-align: center;
-}
-
-.modal-add-btn {
-  width: 100%;
-  font-family: var(--fu);
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: var(--black);
-  background: linear-gradient(135deg, var(--gold-hi), var(--gold), var(--gold-lo));
-  border: none;
-  padding: 1rem;
-  cursor: pointer;
-  transition: all 0.3s;
-  margin-top: 0.5rem;
-  border-radius: 4px;
-}
-
-.modal-add-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(201,168,76,0.3);
-}
-
-@media (max-width: 700px) {
-  .modal-container {
-    max-width: 95%;
-  }
-  .modal-details {
-    padding: 1.8rem 1.5rem;
-  }
-  .modal-details h2 {
-    font-size: 1.3rem;
-  }
-  .modal-price {
-    font-size: 1.5rem;
-  }
-  .modal-close {
-    top: 0.8rem;
-    right: 0.8rem;
-    width: 34px;
-    height: 34px;
-    font-size: 1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .modal-details {
-    padding: 1.2rem 1rem;
-  }
-  .modal-details h2 {
-    font-size: 1.1rem;
-  }
-  .modal-price {
-    font-size: 1.3rem;
-  }
-  .modal-notes {
-    font-size: 0.9rem;
-  }
-  .modal-desc {
-    font-size: 0.75rem;
-  }
-  .modal-qty {
-    gap: 1rem;
-  }
 }
 
 /* ========== NAVBAR ========== */
@@ -743,9 +558,9 @@
 }
 
 /* ============================================================
-   
+   WHATSAPP
 ============================================================ */
-.-float {
+.whatsapp-float {
   position: fixed;
   bottom: 24px;
   right: 24px;
@@ -761,11 +576,11 @@
   transition: transform 0.3s;
 }
 
-.-float:hover {
+.whatsapp-float:hover {
   transform: scale(1.06);
 }
 
-.-float svg {
+.whatsapp-float svg {
   width: 28px;
   height: 28px;
   fill: white;
@@ -980,23 +795,22 @@ footer {
 <!-- ========== TOAST ========== -->
 <div class="toast" id="toast"></div>
 
-<!-- ==========  ========== -->
-<a href="https://wa.me/923069116087" class="-float" target="_blank" rel="noopener">
+<!-- ========== WHATSAPP ========== -->
+<a href="https://wa.me/923069116087" class="whatsapp-float" target="_blank" rel="noopener">
   <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
 </a>
 
 <!-- ========== NAVBAR ========== -->
-<!-- ========== HEADER / NAVBAR ========== -->
 <nav id="navbar">
   <div class="container">
     <div class="nav-inner">
       <a href="index.html" class="nav-logo">
-        <img src="logo.png" alt="IMAROZE">
+        <img src="images/logo.png" alt="IMAROZE">
       </a>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
+        <li><a href="products.html" class="active">Perfumes</a></li>
         <li><a href="about.html">About</a></li>
-        <li><a href="products.html">Perfumes</a></li>
         <li><a href="mission.html">Our Mission</a></li>
         <li><a href="faq.html">FAQ</a></li>
         <li><a href="contact.html">Contact</a></li>
@@ -1017,8 +831,8 @@ footer {
 <!-- ========== MOBILE MENU ========== -->
 <div class="mobile-menu" id="mobileMenu">
   <a href="index.html" onclick="closeMob()">Home</a>
-    <a href="about.html" onclick="closeMob()">About</a>
   <a href="products.html" onclick="closeMob()">Perfumes</a>
+  <a href="about.html" onclick="closeMob()">About</a>
   <a href="mission.html" onclick="closeMob()">Our Mission</a>
   <a href="faq.html" onclick="closeMob()">FAQ</a>
   <a href="contact.html" onclick="closeMob()">Contact</a>
@@ -1033,10 +847,17 @@ footer {
 <section id="products-page">
   <div class="container">
     <div class="section-head">
-      <span class="eyebrow">Our Collection</span>
+      <span class="eyebrow">Launch Offer</span>
       <h2>All<br><em>Fragrances</em></h2>
       <div class="rule"></div>
-      <p class="section-sub">Discover our premium collection of long-lasting luxury fragrances.</p>
+      <!-- Launch Discount Banner -->
+      <div class="launch-banner">
+        <div class="banner-text">
+          🎉 <span class="highlight">20% OFF</span> Launch Discount — Limited Time Offer
+          <small>| Use Code: LAUNCH20</small>
+        </div>
+      </div>
+      <p class="section-sub">Discover our premium collection of long-lasting luxury fragrances at an exclusive launch price.</p>
     </div>
     <div class="products-grid" id="allProductsGrid"></div>
   </div>
@@ -1075,17 +896,18 @@ footer {
   </div>
 </div>
 
+<!-- ========== FOOTER ========== -->
 <footer>
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a href="index.html" class="logo"><img src="logo.png" alt="IMAROZE"></a>
+        <a href="index.html" class="logo"><img src="images/logo.png" alt="IMAROZE"></a>
         <p>Discover our signature collection of luxury perfumes, featuring long-lasting fragrances, premium perfume oils, and elegant scents designed to leave a lasting impression.</p>
         <div class="footer-socials">
           <a href="https://www.instagram.com/imaroze.official" target="_blank"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
           <a href="https://www.facebook.com/share/175FcaNHRu" target="_blank"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
           <a href="https://www.tiktok.com/@imaroze.official" target="_blank"><svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 106.33 6.34V8.69a8.18 8.18 0 004.78 1.52V6.75a4.85 4.85 0 01-1.01-.06z"/></svg></a>
-          <a href="https://wa.me/923001234567" target="_blank"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg></a>
+          <a href="https://wa.me/923069116087" target="_blank"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg></a>
         </div>
       </div>
       <div class="footer-col">
@@ -1103,8 +925,7 @@ footer {
         <h4>IMAROZE</h4>
         <ul>
           <li><a href="about.html">About Us</a></li>
-          <li><a href="about.html#mission">Our Mission</a></li>
-          <li><a href="about.html#awards">Awards</a></li>
+          <li><a href="mission.html">Our Mission</a></li>
           <li><a href="faq.html">FAQ</a></li>
           <li><a href="https://www.instagram.com/imaroze.official" target="_blank">Instagram</a></li>
           <li><a href="https://www.tiktok.com/@imaroze.official" target="_blank">TikTok</a></li>
@@ -1163,7 +984,38 @@ function closeMob() {
   document.querySelectorAll('.hamburger span').forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
 }
 
-// ========== CART BADGE ==========
+// ========== TOAST ==========
+function showToast(message) {
+  let toast = document.getElementById('toast');
+  if (!toast) {
+    toast = document.createElement('div');
+    toast.id = 'toast';
+    toast.className = 'toast';
+    document.body.appendChild(toast);
+  }
+  toast.textContent = message;
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 2500);
+}
+
+// ========== CART FUNCTIONS ==========
+function addToCart(id) {
+  const products = {
+    denve: { id:'denve', name:'IMAROZE Denve', price:2499, img:'images/DENVE.png' },
+    broute: { id:'broute', name:'IMAROZE BrouTe', price:2499, img:'images/BROUTE.png' },
+    aurex: { id:'aurex', name:'IMAROZE Aurex', price:2499, img:'images/AUREX.png' }
+  };
+  
+  const p = products[id];
+  if (!p) return;
+  
+  let cart = JSON.parse(localStorage.getItem('imaroze_cart') || '[]');
+  cart.push(p);
+  localStorage.setItem('imaroze_cart', JSON.stringify(cart));
+  updateCartBadge();
+  showToast(p.name + ' added to cart ✨');
+}
+
 function updateCartBadge() {
   const cart = JSON.parse(localStorage.getItem('imaroze_cart') || '[]');
   const badges = document.querySelectorAll('.cart-badge');
@@ -1172,8 +1024,6 @@ function updateCartBadge() {
   });
 }
 
-
-  
 // ========== STARS ==========
 function buildStars(n) {
   return Array(5).fill(0).map((_, i) => 
@@ -1193,7 +1043,7 @@ const productData = {
     size: '50ml',
     notes: 'Fresh · Woody · Musky',
     desc: 'A premium long-lasting fragrance crafted for those who love elegant, modern, and luxurious scents. Designed with high-quality perfume oils, it delivers a rich and smooth aroma that stays with you all day. Perfect for daily wear, special occasions, and signature scent lovers.',
-    img: 'DENVE.png',
+    img: 'images/DENVE.png',
     stars: 5
   },
   broute: {
@@ -1203,7 +1053,7 @@ const productData = {
     size: '50ml',
     notes: 'Bold · Fresh · Woody · Musky',
     desc: 'A bold blend of fresh, woody, and musky notes. Designed for a confident and modern personality — elegant, fresh, and memorable all day.',
-    img: 'BROUTE.png',
+    img: 'images/BROUTE.png',
     stars: 5
   },
   aurex: {
@@ -1213,7 +1063,7 @@ const productData = {
     size: '50ml',
     notes: 'Fresh Citrus · Floral · Warm Woody',
     desc: 'A luxury EDP with refined citrus, elegant floral notes, and warm woody undertones. Modern, confident, rich — a sophisticated fragrance all day.',
-    img: 'AUREX.png',
+    img: 'images/AUREX.png',
     stars: 5
   }
 };
@@ -1259,14 +1109,16 @@ function addFromModal() {
   showToast(currentModalProduct.name + ' added to cart ✨');
 }
 
-// ========== RENDER PRODUCTS ==========
+// ========== RENDER PRODUCTS WITH DISCOUNT ==========
+// Original prices and discounted prices (20% off)
 const allProducts = [
   { 
     id: 'denve', 
     name: 'IMAROZE Denve', 
-    price: 2499, 
+    price: 2499,
+    originalPrice: 3124,
     size: '50ml', 
-    img: 'DENVE.png', 
+    img: 'images/DENVE.png', 
     notes: 'Fresh · Woody · Musky', 
     desc: 'A premium long-lasting fragrance crafted for those who love elegant, modern, and luxurious scents. Rich and smooth — stays with you all day.',
     stars: 5,
@@ -1275,9 +1127,10 @@ const allProducts = [
   { 
     id: 'broute', 
     name: 'IMAROZE BrouTe', 
-    price: 2499, 
+    price: 2499,
+    originalPrice: 3124,
     size: '50ml', 
-    img: 'BROUTE.png', 
+    img: 'images/BROUTE.png', 
     notes: 'Bold · Fresh · Woody · Musky', 
     desc: 'A bold blend of fresh, woody, and musky notes. Designed for a confident and modern personality — elegant, fresh, and memorable all day.',
     stars: 5,
@@ -1286,9 +1139,10 @@ const allProducts = [
   { 
     id: 'aurex', 
     name: 'IMAROZE Aurex', 
-    price: 2499, 
+    price: 2499,
+    originalPrice: 3124,
     size: '50ml', 
-    img: 'AUREX.png', 
+    img: 'images/AUREX.png', 
     notes: 'Citrus · Floral · Woody', 
     desc: 'Refined citrus, elegant floral notes, and warm woody undertones. Modern, confident, rich — a sophisticated fragrance all day.',
     stars: 5,
@@ -1298,8 +1152,11 @@ const allProducts = [
 
 const grid = document.getElementById('allProductsGrid');
 if (grid) {
-  grid.innerHTML = allProducts.map(p => `
+  grid.innerHTML = allProducts.map(p => {
+    const discount = Math.round(((p.originalPrice - p.price) / p.originalPrice) * 100);
+    return `
     <div class="product-card">
+      <div class="discount-badge">${discount}% OFF</div>
       <div class="img">
         <img src="${p.img}" alt="${p.name}" loading="lazy">
         ${p.badge ? `<span class="product-badge">${p.badge}</span>` : ''}
@@ -1310,7 +1167,12 @@ if (grid) {
         <div class="notes">${p.notes}</div>
         <div class="stars">${buildStars(p.stars)}</div>
         <div class="desc">${p.desc}</div>
-        <div class="price">Rs. ${p.price.toLocaleString()} <small>/ ${p.size}</small></div>
+        <div class="price">
+          <span class="discounted-price">Rs. ${p.price.toLocaleString()}</span>
+          <span class="original-price">Rs. ${p.originalPrice.toLocaleString()}</span>
+          <span class="discount-tag">-${discount}%</span>
+          <small>/ ${p.size}</small>
+        </div>
         <button class="btn-add" onclick="addToCart('${p.id}')">Add to Cart</button>
         <div class="product-actions">
           <button onclick="openModal('${p.id}')">View Details</button>
@@ -1318,7 +1180,7 @@ if (grid) {
         </div>
       </div>
     </div>
-  `).join('');
+  `}).join('');
 }
 
 // ========== CLOSE MODAL ON ESC ==========
