@@ -80,6 +80,7 @@ button{border:none;cursor:pointer;font-family:inherit}
   align-items: baseline;
   gap: 0.6rem;
   flex-wrap: wrap;
+  margin-top: 0.5rem;
 }
 
 .price-discount .discounted {
@@ -632,16 +633,18 @@ button{border:none;cursor:pointer;font-family:inherit}
   position: absolute;
   top: -10px;
   right: -10px;
-  background: var(--gold);
-  color: #080807;
+  background: #e74c3c;
+  color: #fff;
   font-family: var(--fu);
-  font-size: 0.45rem;
+  font-size: 0.55rem;
   font-weight: 700;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   padding: 0.4rem 0.8rem;
   z-index: 3;
   border-radius: 2px;
+  box-shadow: 0 4px 15px rgba(231,76,60,0.3);
+  animation: pulseBadge 2s ease-in-out infinite;
 }
 
 .hero-scroll-indicator {
@@ -738,7 +741,6 @@ button{border:none;cursor:pointer;font-family:inherit}
 .product-card .info{padding:1.5rem}
 .product-card .info h3{font-family:var(--fd);font-size:1rem;color:var(--cream);letter-spacing:0.04em;margin-bottom:0.2rem}
 .product-card .info .notes{font-family:var(--fu);font-size:0.5rem;color:var(--gold);text-transform:uppercase;letter-spacing:0.12em}
-.product-card .info .price-discount{margin-top:0.5rem}
 .product-card .info .btn-add{width:100%;font-family:var(--fu);font-size:0.5rem;font-weight:600;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);background:transparent;border:1px solid var(--gold-line);padding:0.7rem;transition:all 0.3s;cursor:pointer;margin-top:0.8rem}
 .product-card .info .btn-add:hover{background:var(--gold);color:#080807}
 
