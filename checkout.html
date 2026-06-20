@@ -784,7 +784,7 @@ footer {
 <!-- ========== MOBILE MENU ========== -->
 <div class="mobile-menu" id="mobileMenu">
   <a href="index.html" onclick="closeMob()">Home</a>
-    <a href="about.html" onclick="closeMob()">About</a>
+  <a href="about.html" onclick="closeMob()">About</a>
   <a href="products.html" onclick="closeMob()">Perfumes</a>
   <a href="mission.html" onclick="closeMob()">Our Mission</a>
   <a href="faq.html" onclick="closeMob()">FAQ</a>
@@ -953,6 +953,7 @@ footer {
     </div>
   </div>
 </footer>
+
 <!-- ========== SCRIPTS ========== -->
 <script>
 // ========== PRELOADER ==========
@@ -987,11 +988,7 @@ function closeMob() {
   document.querySelectorAll('.hamburger span').forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
 }
 
-// ========== CART FUNCTIONS ==========
-function getCartItems() {
-  return JSON.parse(localStorage.getItem('imaroze_cart') || '[]');
-}
-
+// ========== TOAST FUNCTION ==========
 function showToast(message) {
   let toast = document.getElementById('toast');
   if (!toast) {
@@ -1003,6 +1000,11 @@ function showToast(message) {
   toast.textContent = message;
   toast.classList.add('show');
   setTimeout(() => toast.classList.remove('show'), 2500);
+}
+
+// ========== GET CART ITEMS ==========
+function getCartItems() {
+  return JSON.parse(localStorage.getItem('imaroze_cart') || '[]');
 }
 
 // ========== CART BADGE ==========
@@ -1045,6 +1047,17 @@ function renderCheckout() {
   document.getElementById('checkoutTotal').textContent = 'Rs. ' + total.toLocaleString();
   updateCartBadge();
 }
+
+// ========== FORM SUBMIT ==========
+document.getElementById('checkoutForm')?.addEventListener('submit', function(e) {
+  e.preventDefault();
+  
+  const cart = getCartItems();
+  
+  if (cart.length === 0) {
+    showToast('Your cart is empty!');
+    return;
+  }
   
   const data = {
     firstName: document.getElementById('chFirst').value,
