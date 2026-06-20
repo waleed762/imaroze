@@ -987,9 +987,27 @@ function closeMob() {
   document.querySelectorAll('.hamburger span').forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
 }
 
+// ========== CART FUNCTIONS ==========
+function getCartItems() {
+  return JSON.parse(localStorage.getItem('imaroze_cart') || '[]');
+}
+
+function showToast(message) {
+  let toast = document.getElementById('toast');
+  if (!toast) {
+    toast = document.createElement('div');
+    toast.id = 'toast';
+    toast.className = 'toast';
+    document.body.appendChild(toast);
+  }
+  toast.textContent = message;
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 2500);
+}
+
 // ========== CART BADGE ==========
 function updateCartBadge() {
-  const cart = JSON.parse(localStorage.getItem('imaroze_cart') || '[]');
+  const cart = getCartItems();
   const badges = document.querySelectorAll('.cart-badge');
   badges.forEach(badge => {
     badge.textContent = cart.length;
@@ -1027,17 +1045,6 @@ function renderCheckout() {
   document.getElementById('checkoutTotal').textContent = 'Rs. ' + total.toLocaleString();
   updateCartBadge();
 }
-
-// ========== FORM SUBMIT ==========
-document.getElementById('checkoutForm')?.addEventListener('submit', function(e) {
-  e.preventDefault();
-  
-  const cart = getCartItems();
-  
-  if (cart.length === 0) {
-    showToast('Your cart is empty!');
-    return;
-  }
   
   const data = {
     firstName: document.getElementById('chFirst').value,
