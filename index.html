@@ -51,6 +51,62 @@ button{border:none;cursor:pointer;font-family:inherit}
 .section-head h2 em{font-style:italic;color:var(--gold);font-family:var(--fb)}
 .section-head .rule{width:44px;height:1px;background:var(--gold);margin:1.2rem auto}
 
+/* ========== DISCOUNT BADGE ========== */
+.discount-badge {
+  position: absolute;
+  top: 0.8rem;
+  right: 0.8rem;
+  z-index: 3;
+  background: #e74c3c;
+  color: #fff;
+  font-family: var(--fu);
+  font-size: 0.5rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 0.2rem 0.6rem;
+  border-radius: 3px;
+  box-shadow: 0 4px 15px rgba(231,76,60,0.3);
+  animation: pulseBadge 2s ease-in-out infinite;
+}
+
+@keyframes pulseBadge {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+/* ========== PRICE WITH DISCOUNT ========== */
+.price-discount {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.price-discount .discounted {
+  font-family: var(--fd);
+  font-size: 1.2rem;
+  color: #e74c3c;
+}
+
+.price-discount .original {
+  font-family: var(--fu);
+  font-size: 0.7rem;
+  color: var(--cream-dim);
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+.price-discount .tag {
+  font-family: var(--fu);
+  font-size: 0.45rem;
+  font-weight: 700;
+  color: #e74c3c;
+  background: rgba(231,76,60,0.1);
+  padding: 0.1rem 0.4rem;
+  border-radius: 2px;
+  border: 1px solid rgba(231,76,60,0.2);
+}
+
 /* ========== NAVBAR ========== */
 #navbar {
   position: fixed;
@@ -241,7 +297,8 @@ button{border:none;cursor:pointer;font-family:inherit}
 .mobile-menu .social-links a:hover {
   background: rgba(201,168,76,0.06);
 }
-/* ========== HERO WITH BACKGROUND IMAGE ========== */
+
+/* ========== HERO ========== */
 #hero {
   min-height: 100vh;
   display: flex;
@@ -251,12 +308,10 @@ button{border:none;cursor:pointer;font-family:inherit}
   padding-top: 80px;
 }
 
-/* ===== BACKGROUND IMAGE ===== */
 .hero-bg-image {
   position: absolute;
   inset: 0;
   z-index: 0;
-  /* background-image: url('BG.png'); */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -269,7 +324,6 @@ button{border:none;cursor:pointer;font-family:inherit}
   50% { transform: scale(1.12); }
 }
 
-/* ===== OVERLAY ===== */
 .hero-overlay {
   position: absolute;
   inset: 0;
@@ -279,7 +333,6 @@ button{border:none;cursor:pointer;font-family:inherit}
   backdrop-filter: blur(2px);
 }
 
-/* ===== GOLD GLOW EFFECT ===== */
 .hero-glow-effect {
   position: absolute;
   inset: 0;
@@ -291,7 +344,6 @@ button{border:none;cursor:pointer;font-family:inherit}
   pointer-events: none;
 }
 
-/* Gold Particles (Subtle) */
 .hero-glow-effect::before {
   content: '';
   position: absolute;
@@ -309,7 +361,6 @@ button{border:none;cursor:pointer;font-family:inherit}
   pointer-events: none;
 }
 
-/* ===== HERO CONTENT ===== */
 .hero-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -410,7 +461,6 @@ button{border:none;cursor:pointer;font-family:inherit}
   }
 }
 
-/* ===== HERO BUTTONS ===== */
 .hero-buttons {
   display: flex;
   gap: 1.2rem;
@@ -486,7 +536,6 @@ button{border:none;cursor:pointer;font-family:inherit}
   background: rgba(201,168,76,0.06);
 }
 
-/* ===== HERO TRUST ===== */
 .hero-trust {
   display: flex;
   gap: 2rem;
@@ -533,7 +582,6 @@ button{border:none;cursor:pointer;font-family:inherit}
   }
 }
 
-/* ===== HERO IMAGE ===== */
 .hero-visual {
   display: flex;
   justify-content: center;
@@ -596,7 +644,6 @@ button{border:none;cursor:pointer;font-family:inherit}
   border-radius: 2px;
 }
 
-/* ===== SCROLL INDICATOR ===== */
 .hero-scroll-indicator {
   position: absolute;
   bottom: 2.5rem;
@@ -636,7 +683,6 @@ button{border:none;cursor:pointer;font-family:inherit}
   }
 }
 
-/* ===== RESPONSIVE ===== */
 @media (max-width: 992px) {
   .hero-title-main {
     font-size: clamp(2rem, 4vw, 2.8rem);
@@ -649,9 +695,6 @@ button{border:none;cursor:pointer;font-family:inherit}
   }
   .hero-tag {
     font-size: 0.5rem;
-  }
-  .hero-bg-image {
-    background-position: 60% center;
   }
 }
 
@@ -668,9 +711,6 @@ button{border:none;cursor:pointer;font-family:inherit}
   }
   .hero-trust {
     justify-content: center;
-  }
-  .hero-bg-image {
-    background-position: 70% center;
   }
 }
 
@@ -690,7 +730,7 @@ button{border:none;cursor:pointer;font-family:inherit}
 @media(max-width:992px){.products-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:600px){.products-grid{grid-template-columns:1fr}}
 
-.product-card{background:var(--black2);border:1px solid var(--gold-line);overflow:hidden;transition:all 0.4s;cursor:pointer}
+.product-card{background:var(--black2);border:1px solid var(--gold-line);overflow:hidden;transition:all 0.4s;cursor:pointer;position:relative}
 .product-card:hover{border-color:rgba(201,168,76,0.4);transform:translateY(-8px);box-shadow:0 20px 60px rgba(201,168,76,0.08)}
 .product-card .img{aspect-ratio:3/4;overflow:hidden;background:linear-gradient(145deg,#100f0a,#1a1810)}
 .product-card .img img{width:100%;height:100%;object-fit:cover;transition:transform 0.7s}
@@ -698,347 +738,24 @@ button{border:none;cursor:pointer;font-family:inherit}
 .product-card .info{padding:1.5rem}
 .product-card .info h3{font-family:var(--fd);font-size:1rem;color:var(--cream);letter-spacing:0.04em;margin-bottom:0.2rem}
 .product-card .info .notes{font-family:var(--fu);font-size:0.5rem;color:var(--gold);text-transform:uppercase;letter-spacing:0.12em}
-.product-card .info .price{font-family:var(--fd);font-size:1.2rem;color:var(--gold);margin-top:0.5rem}
+.product-card .info .price-discount{margin-top:0.5rem}
 .product-card .info .btn-add{width:100%;font-family:var(--fu);font-size:0.5rem;font-weight:600;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);background:transparent;border:1px solid var(--gold-line);padding:0.7rem;transition:all 0.3s;cursor:pointer;margin-top:0.8rem}
 .product-card .info .btn-add:hover{background:var(--gold);color:#080807}
 
-/* ========== PRODUCT MODAL ========== */
-.product-modal {
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  padding: 1.5rem;
-}
-
-.product-modal.active {
-  display: flex;
-}
-
-.modal-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.88);
-  backdrop-filter: blur(12px);
-  cursor: pointer;
-}
-
-.modal-container {
-  position: relative;
-  background: var(--black2);
-  border: 1px solid var(--gold-line);
-  max-width: 900px;
-  width: 100%;
-  max-height: 90vh;
-  overflow-y: auto;
-  border-radius: 4px;
-  animation: modalFadeIn 0.4s ease;
-}
-
-@keyframes modalFadeIn {
-  from {
-    opacity: 0;
-    transform: scale(0.95) translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1) translateY(0);
-  }
-}
-
-.modal-close {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  width: 38px;
-  height: 38px;
-  background: rgba(8, 8, 7, 0.85);
-  border: 1px solid var(--gold-line);
-  color: var(--gold);
-  font-size: 1.2rem;
-  cursor: pointer;
-  z-index: 10;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s;
-  border-radius: 50%;
-}
-
-.modal-close:hover {
-  background: var(--gold);
-  color: var(--black);
-}
-
-.modal-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0;
-}
-
-@media (max-width: 700px) {
-  .modal-grid {
-    grid-template-columns: 1fr;
-  }
-  .modal-image {
-    aspect-ratio: 16/9;
-  }
-}
-
-.modal-image {
-  aspect-ratio: 3/4;
-  overflow: hidden;
-  background: linear-gradient(145deg, #100f0a, #1a1810);
-}
-
-.modal-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.modal-details {
-  padding: 2.5rem 2.2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-}
-
-.modal-details h2 {
-  font-family: var(--fd);
-  font-size: 1.6rem;
-  color: var(--cream);
-  letter-spacing: 0.05em;
-}
-
-.modal-notes-label {
-  font-family: var(--fu);
-  font-size: 0.55rem;
-  font-weight: 600;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-top: 0.3rem;
-}
-
-.modal-notes {
-  font-family: var(--fb);
-  font-size: 1.05rem;
-  font-style: italic;
-  color: var(--cream-dim);
-}
-
-.modal-desc {
-  font-family: var(--fu);
-  font-size: 0.82rem;
-  color: var(--cream-dim);
-  line-height: 1.85;
-  letter-spacing: 0.02em;
-}
-
-.modal-price-row {
-  display: flex;
-  align-items: baseline;
-  gap: 1.2rem;
-  margin-top: 0.3rem;
-}
-
-.modal-price {
-  font-family: var(--fd);
-  font-size: 1.8rem;
-  color: var(--gold);
-}
-
-.modal-size {
-  font-family: var(--fu);
-  font-size: 0.65rem;
-  letter-spacing: 0.15em;
-  color: var(--cream-dim);
-}
-
-.modal-stars {
-  font-family: var(--fu);
-  font-size: 1.1rem;
-  color: var(--gold);
-  letter-spacing: 0.1rem;
-}
-
-.modal-qty {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  margin-top: 0.3rem;
-}
-
-.qty-label {
-  font-family: var(--fu);
-  font-size: 0.6rem;
-  font-weight: 600;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: var(--cream-dim);
-}
-
-.qty-controls {
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-}
-
-.qty-btn {
-  width: 32px;
-  height: 32px;
-  border: 1px solid var(--gold-line);
-  background: transparent;
-  color: var(--gold);
-  font-size: 1.2rem;
-  cursor: pointer;
-  transition: all 0.3s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.qty-btn:hover {
-  background: var(--gold);
-  color: var(--black);
-}
-
-.qty-num {
-  font-family: var(--fd);
-  font-size: 1.1rem;
-  color: var(--cream);
-  min-width: 30px;
-  text-align: center;
-}
-
-.modal-add-btn {
-  width: 100%;
-  font-family: var(--fu);
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: var(--black);
-  background: linear-gradient(135deg, var(--gold-hi), var(--gold), var(--gold-lo));
-  border: none;
-  padding: 1rem;
-  cursor: pointer;
-  transition: all 0.3s;
-  margin-top: 0.5rem;
-}
-
-.modal-add-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(201,168,76,0.3);
-}
-
-@media (max-width: 700px) {
-  .modal-container {
-    max-width: 95%;
-  }
-  .modal-details {
-    padding: 1.8rem 1.5rem;
-  }
-  .modal-details h2 {
-    font-size: 1.3rem;
-  }
-  .modal-price {
-    font-size: 1.5rem;
-  }
-  .modal-close {
-    top: 0.8rem;
-    right: 0.8rem;
-    width: 34px;
-    height: 34px;
-    font-size: 1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .modal-details {
-    padding: 1.2rem 1rem;
-  }
-  .modal-details h2 {
-    font-size: 1.1rem;
-  }
-  .modal-price {
-    font-size: 1.3rem;
-  }
-  .modal-notes {
-    font-size: 0.9rem;
-  }
-  .modal-desc {
-    font-size: 0.75rem;
-  }
-  .modal-qty {
-    gap: 1rem;
-  }
-}
-
 /* ========== BEST SELLERS ========== */
-#bestsellers {
-  padding: 5rem 0;
-  background: var(--black2);
-}
-
-.bs-wrapper {
-  overflow: hidden;
-  position: relative;
-  margin-top: 1.5rem;
-}
-
-.bs-track {
-  display: flex;
-  gap: 1.5rem;
-  width: max-content;
-  animation: bsScroll 20s linear infinite;
-}
-
-.bs-track:hover {
-  animation-play-state: paused;
-}
-
-.bs-item {
-  min-width: 200px;
-  max-width: 200px;
-  background: var(--black3);
-  border: 1px solid var(--gold-line);
-  padding: 1.2rem;
-  text-align: center;
-  transition: all 0.3s;
-  cursor: pointer;
-  flex-shrink: 0;
-}
-
-.bs-item:hover {
-  border-color: var(--gold);
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(201,168,76,0.08);
-}
-
-.bs-item img {
-  width: 100%;
-  height: 140px;
-  object-fit: cover;
-  margin-bottom: 0.8rem;
-}
-
-.bs-item .name {
-  font-family: var(--fd);
-  font-size: 0.85rem;
-  color: var(--cream);
-  letter-spacing: 0.04em;
-}
-
-.bs-item .price {
-  font-family: var(--fd);
-  font-size: 1rem;
-  color: var(--gold);
-  margin-top: 0.3rem;
-}
+#bestsellers{padding:5rem 0;background:var(--black2)}
+.bs-wrapper{overflow:hidden;position:relative;margin-top:1.5rem}
+.bs-track{display:flex;gap:1.5rem;width:max-content;animation:bsScroll 20s linear infinite}
+.bs-track:hover{animation-play-state:paused}
+.bs-item{min-width:200px;max-width:200px;background:var(--black3);border:1px solid var(--gold-line);padding:1.2rem;text-align:center;transition:all 0.3s;cursor:pointer;flex-shrink:0;position:relative}
+.bs-item:hover{border-color:var(--gold);transform:translateY(-5px);box-shadow:0 10px 30px rgba(201,168,76,0.08)}
+.bs-item img{width:100%;height:140px;object-fit:cover;margin-bottom:0.8rem}
+.bs-item .name{font-family:var(--fd);font-size:0.85rem;color:var(--cream);letter-spacing:0.04em}
+.bs-item .price{margin-top:0.3rem;display:flex;align-items:baseline;justify-content:center;gap:0.5rem;flex-wrap:wrap}
+.bs-item .price .discounted{font-family:var(--fd);font-size:1rem;color:#e74c3c}
+.bs-item .price .original{font-family:var(--fu);font-size:0.6rem;color:var(--cream-dim);text-decoration:line-through;opacity:0.6}
+.bs-item .price .tag{font-family:var(--fu);font-size:0.4rem;font-weight:700;color:#e74c3c;background:rgba(231,76,60,0.1);padding:0.1rem 0.35rem;border-radius:2px;border:1px solid rgba(231,76,60,0.2)}
+.bs-item .bs-discount-badge{position:absolute;top:0.5rem;right:0.5rem;background:#e74c3c;color:#fff;font-family:var(--fu);font-size:0.4rem;font-weight:700;padding:0.15rem 0.4rem;border-radius:2px}
 
 @keyframes bsScroll {
   0% { transform: translateX(0); }
@@ -1046,37 +763,17 @@ button{border:none;cursor:pointer;font-family:inherit}
 }
 
 @media (max-width: 768px) {
-  .bs-item {
-    min-width: 160px;
-    max-width: 160px;
-    padding: 1rem;
-  }
-  .bs-item img {
-    height: 110px;
-  }
-  .bs-item .name {
-    font-size: 0.75rem;
-  }
-  .bs-item .price {
-    font-size: 0.85rem;
-  }
+  .bs-item{min-width:160px;max-width:160px;padding:1rem}
+  .bs-item img{height:110px}
+  .bs-item .name{font-size:0.75rem}
+  .bs-item .price .discounted{font-size:0.85rem}
 }
 
 @media (max-width: 480px) {
-  .bs-item {
-    min-width: 140px;
-    max-width: 140px;
-    padding: 0.8rem;
-  }
-  .bs-item img {
-    height: 90px;
-  }
-  .bs-item .name {
-    font-size: 0.65rem;
-  }
-  .bs-item .price {
-    font-size: 0.75rem;
-  }
+  .bs-item{min-width:140px;max-width:140px;padding:0.8rem}
+  .bs-item img{height:90px}
+  .bs-item .name{font-size:0.65rem}
+  .bs-item .price .discounted{font-size:0.75rem}
 }
 
 /* ========== STATS ========== */
@@ -1087,178 +784,32 @@ button{border:none;cursor:pointer;font-family:inherit}
 .stat-item .number{font-family:var(--fd);font-size:clamp(2.5rem,4vw,3.8rem);color:var(--gold);display:block;font-weight:400}
 .stat-item .label{font-family:var(--fu);font-size:0.55rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--cream-dim);margin-top:0.3rem}
 
-/* ========== VIDEO SECTION (PROFESSIONAL) ========== */
-#video-section {
-  padding: 4rem 0;
-  background: var(--black2);
-  position: relative;
-}
+/* ========== VIDEO SECTION ========== */
+#video-section{padding:4rem 0;background:var(--black2);position:relative}
+.video-wrapper{max-width:900px;margin:0 auto}
+.video-container{position:relative;aspect-ratio:16/9;border-radius:8px;overflow:hidden;border:1px solid var(--gold-line);box-shadow:0 20px 60px rgba(0,0,0,0.4)}
+.video-container video{width:100%;height:100%;object-fit:cover;display:block}
+.video-overlay{position:absolute;inset:0;background:rgba(8,8,7,0.2);transition:all 0.4s ease}
+.video-container:hover .video-overlay{background:rgba(8,8,7,0.1)}
+.video-play-btn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:70px;height:70px;border-radius:50%;background:rgba(201,168,76,0.15);border:2px solid rgba(201,168,76,0.4);color:var(--gold);font-size:1.8rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.4s ease;backdrop-filter:blur(4px);z-index:2}
+.video-play-btn:hover{background:rgba(201,168,76,0.25);border-color:var(--gold);transform:translate(-50%,-50%) scale(1.1);box-shadow:0 0 40px rgba(201,168,76,0.15)}
+.video-play-btn .play-icon{margin-left:4px}
+.video-caption{text-align:center;margin-top:1.5rem}
+.video-caption .caption-eyebrow{font-family:var(--fu);font-size:0.5rem;font-weight:400;letter-spacing:0.5em;text-transform:uppercase;color:var(--gold);display:inline-block;margin-bottom:0.3rem}
+.video-caption h3{font-family:var(--fd);font-size:1.2rem;font-weight:400;color:var(--cream);letter-spacing:0.04em}
+.video-caption h3 span{color:var(--gold);font-style:italic;font-family:var(--fb)}
 
-.video-wrapper {
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.video-container {
-  position: relative;
-  aspect-ratio: 16/9;
-  border-radius: 8px;
-  overflow: hidden;
-  border: 1px solid var(--gold-line);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
-}
-
-.video-container video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.video-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(8,8,7,0.2);
-  transition: all 0.4s ease;
-}
-
-.video-container:hover .video-overlay {
-  background: rgba(8,8,7,0.1);
-}
-
-/* ===== PLAY BUTTON ===== */
-.video-play-btn {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  background: rgba(201,168,76,0.15);
-  border: 2px solid rgba(201,168,76,0.4);
-  color: var(--gold);
-  font-size: 1.8rem;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.4s ease;
-  backdrop-filter: blur(4px);
-  z-index: 2;
-}
-
-.video-play-btn:hover {
-  background: rgba(201,168,76,0.25);
-  border-color: var(--gold);
-  transform: translate(-50%, -50%) scale(1.1);
-  box-shadow: 0 0 40px rgba(201,168,76,0.15);
-}
-
-.video-play-btn .play-icon {
-  margin-left: 4px;
-}
-
-/* ===== VIDEO CAPTION ===== */
-.video-caption {
-  text-align: center;
-  margin-top: 1.5rem;
-}
-
-.video-caption .caption-eyebrow {
-  font-family: var(--fu);
-  font-size: 0.5rem;
-  font-weight: 400;
-  letter-spacing: 0.5em;
-  text-transform: uppercase;
-  color: var(--gold);
-  display: inline-block;
-  margin-bottom: 0.3rem;
-}
-
-.video-caption h3 {
-  font-family: var(--fd);
-  font-size: 1.2rem;
-  font-weight: 400;
-  color: var(--cream);
-  letter-spacing: 0.04em;
-}
-
-.video-caption h3 span {
-  color: var(--gold);
-  font-style: italic;
-  font-family: var(--fb);
-}
-
-/* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
-  #video-section {
-    padding: 2rem 0;
-  }
-  
-  .video-play-btn {
-    width: 55px;
-    height: 55px;
-    font-size: 1.4rem;
-  }
-  
-  .video-caption h3 {
-    font-size: 1rem;
-  }
-  
-  .video-caption .caption-eyebrow {
-    font-size: 0.45rem;
-  }
+  #video-section{padding:2rem 0}
+  .video-play-btn{width:55px;height:55px;font-size:1.4rem}
+  .video-caption h3{font-size:1rem}
+}
+@media (max-width: 480px) {
+  .video-play-btn{width:45px;height:45px;font-size:1rem}
+  .video-caption h3{font-size:0.85rem}
 }
 
-@media (max-width: 480px) {
-  .video-play-btn {
-    width: 45px;
-    height: 45px;
-    font-size: 1rem;
-  }
-  
-  .video-caption h3 {
-    font-size: 0.85rem;
-  }
-  
-  .video-wrapper {
-    padding: 0 0.5rem;
-  }
-}
-/* ========== RESPONSIVE ========== */
-@media (max-width: 768px) {
-  .video-text h2 {
-    font-size: clamp(2rem, 4vw, 2.8rem);
-  }
-  .video-text p {
-    font-size: 0.8rem;
-  }
-  .video-btn {
-    padding: 0.8rem 2rem;
-    font-size: 0.55rem;
-  }
-  .video-progress {
-    width: 120px;
-  }
-  .video-controls {
-    bottom: 1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .video-text h2 {
-    font-size: 1.6rem;
-  }
-  .video-progress {
-    width: 80px;
-  }
-  .video-controls .play-btn {
-    width: 40px;
-    height: 40px;
-    font-size: 1rem;
-  }
-}/* ========== NEWSLETTER ========== */
+/* ========== NEWSLETTER ========== */
 #newsletter{padding:5rem 0;background:linear-gradient(135deg,#0e0d09,#1a1810);position:relative}
 .newsletter-inner{max-width:520px;margin:0 auto;text-align:center;position:relative;z-index:2}
 .newsletter-inner .badge{font-family:var(--fu);font-size:0.55rem;font-weight:500;letter-spacing:0.45em;text-transform:uppercase;color:var(--gold);border:1px solid var(--gold-line);padding:0.4rem 1.5rem;display:inline-block;margin-bottom:1rem}
@@ -1310,8 +861,7 @@ footer{background:#050504;border-top:1px solid var(--gold-line);padding:4rem 0 1
 #preloader .bar::after{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,var(--gold),transparent);animation:sweep 1.8s ease-in-out infinite}
 @keyframes sweep{to{left:100%}}
 
-/* ========== RESPONSIVE ========== */
-@media(max-width:900px){.nav-links{display:none}.hamburger{display:flex}.hero-image{opacity:0.12;right:-5%;width:65vw}}
+@media(max-width:900px){.nav-links{display:none}.hamburger{display:flex}}
 @media(max-width:768px){.marquee-item{font-size:0.45rem;letter-spacing:0.2em;padding:0 1.2rem}.marquee-item::before{margin-right:1.2rem}}
 @media(max-width:480px){.marquee-item{font-size:0.4rem;letter-spacing:0.15em;padding:0 0.8rem}.marquee-item::before{margin-right:0.8rem}}
 </style>
@@ -1340,7 +890,7 @@ footer{background:#050504;border-top:1px solid var(--gold-line);padding:4rem 0 1
         <img src="logo.png" alt="IMAROZE">
       </a>
       <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html" class="active">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="products.html">Perfumes</a></li>
         <li><a href="mission.html">Our Mission</a></li>
@@ -1363,7 +913,7 @@ footer{background:#050504;border-top:1px solid var(--gold-line);padding:4rem 0 1
 <!-- ========== MOBILE MENU ========== -->
 <div class="mobile-menu" id="mobileMenu">
   <a href="index.html" onclick="closeMob()">Home</a>
-    <a href="about.html" onclick="closeMob()">About</a>
+  <a href="about.html" onclick="closeMob()">About</a>
   <a href="products.html" onclick="closeMob()">Perfumes</a>
   <a href="mission.html" onclick="closeMob()">Our Mission</a>
   <a href="faq.html" onclick="closeMob()">FAQ</a>
@@ -1404,7 +954,7 @@ footer{background:#050504;border-top:1px solid var(--gold-line);padding:4rem 0 1
         <div class="hero-image-wrapper">
           <div class="hero-glow"></div>
           <img src="DENVEBG.png" alt="IMAROZE Denve" class="hero-image">
-          <div class="hero-badge">Best Seller</div>
+          <div class="hero-badge">20% OFF</div>
         </div>
       </div>
     </div>
@@ -1446,39 +996,6 @@ footer{background:#050504;border-top:1px solid var(--gold-line);padding:4rem 0 1
   </div>
 </section>
 
-<!-- ========== PRODUCT POPUP MODAL ========== -->
-<div class="product-modal" id="productModal">
-  <div class="modal-overlay" onclick="closeModal()"></div>
-  <div class="modal-container">
-    <button class="modal-close" onclick="closeModal()">✕</button>
-    <div class="modal-grid">
-      <div class="modal-image">
-        <img id="modalImg" src="" alt="Product">
-      </div>
-      <div class="modal-details">
-        <h2 id="modalName">IMAROZE Denve</h2>
-        <div class="modal-notes-label">FRAGRANCE NOTES</div>
-        <div class="modal-notes" id="modalNotes">Fresh · Woody · Musky</div>
-        <p class="modal-desc" id="modalDesc">A premium long-lasting fragrance crafted for those who love elegant, modern, and luxurious scents.</p>
-        <div class="modal-price-row">
-          <span class="modal-price" id="modalPrice">Rs. 2,499</span>
-          <span class="modal-size">Eau de Parfum · 50ml</span>
-        </div>
-        <div class="modal-stars">★★★★★</div>
-        <div class="modal-qty">
-          <span class="qty-label">QTY</span>
-          <div class="qty-controls">
-            <button class="qty-btn" onclick="changeQty(-1)">−</button>
-            <span class="qty-num" id="modalQty">1</span>
-            <button class="qty-btn" onclick="changeQty(1)">+</button>
-          </div>
-        </div>
-        <button class="modal-add-btn" onclick="addFromModal()">Add to Cart</button>
-      </div>
-    </div>
-  </div>
-</div>
-
 <!-- ========== BEST SELLERS ========== -->
 <section id="bestsellers">
   <div class="container">
@@ -1517,7 +1034,7 @@ footer{background:#050504;border-top:1px solid var(--gold-line);padding:4rem 0 1
   </div>
 </section>
 
-<!-- ========== VIDEO SECTION (PROFESSIONAL) ========== -->
+<!-- ========== VIDEO SECTION ========== -->
 <section id="video-section">
   <div class="container">
     <div class="video-wrapper">
@@ -1526,9 +1043,6 @@ footer{background:#050504;border-top:1px solid var(--gold-line);padding:4rem 0 1
           <source src="brand-video.mp4" type="video/mp4">
         </video>
         <div class="video-overlay"></div>
-        <!-- <button class="video-play-btn" onclick="toggleVideo()">
-          <span id="playIcon">▶</span>
-        </button> -->
       </div>
       <div class="video-caption">
         <span class="caption-eyebrow">✦ Experience IMAROZE</span>
@@ -1537,6 +1051,7 @@ footer{background:#050504;border-top:1px solid var(--gold-line);padding:4rem 0 1
     </div>
   </div>
 </section>
+
 <!-- ========== NEWSLETTER ========== -->
 <section id="newsletter">
   <div class="container">
@@ -1643,7 +1158,30 @@ function closeMob() {
   document.querySelectorAll('.hamburger span').forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
 }
 
-// ========== CART BADGE ==========
+// ========== TOAST ==========
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2500);
+}
+
+// ========== CART FUNCTIONS ==========
+function addToCart(id) {
+  const products = {
+    denve: { id:'denve', name:'IMAROZE Denve', price:2450, img:'DENVE.png' },
+    broute: { id:'broute', name:'IMAROZE BrouTe', price:2000, img:'BROUTE.png' },
+    aurex: { id:'aurex', name:'IMAROZE Aurex', price:3000, img:'AUREX.png' }
+  };
+  const p = products[id];
+  if(!p) return;
+  let cart = JSON.parse(localStorage.getItem('imaroze_cart') || '[]');
+  cart.push(p);
+  localStorage.setItem('imaroze_cart', JSON.stringify(cart));
+  updateCartBadge();
+  showToast(p.name + ' added to cart ✨');
+}
+
 function updateCartBadge() {
   const cart = JSON.parse(localStorage.getItem('imaroze_cart') || '[]');
   const badges = document.querySelectorAll('.cart-badge');
@@ -1652,163 +1190,84 @@ function updateCartBadge() {
   });
 }
 
-function showToast(msg) {
-  const t = document.getElementById('toast');
-  t.textContent = msg;
-  t.classList.add('show');
-  setTimeout(() => t.classList.remove('show'), 2500);
-}
-
-// ========== FEATURED PRODUCTS WITH POPUP ==========
-const products = [
+// ========== FEATURED PRODUCTS (WITH 20% DISCOUNT) ==========
+const featuredProducts = [
   { 
     id:'denve', 
     name:'IMAROZE Denve', 
-    price:2499, 
+    price:2450,
+    originalPrice:3062,
     img:'DENVE.png', 
-    notes:'Fresh · Woody · Musky',
-    desc:'A premium long-lasting fragrance crafted for those who love elegant, modern, and luxurious scents. Designed with high-quality perfume oils, it delivers a rich and smooth aroma that stays with you all day.'
+    notes:'Fresh · Woody · Musky'
   },
   { 
     id:'broute', 
     name:'IMAROZE BrouTe', 
-    price:2499, 
+    price:2000,
+    originalPrice:2500,
     img:'BROUTE.png', 
-    notes:'Bold · Fresh · Woody · Musky',
-    desc:'A bold blend of fresh, woody, and musky notes. Designed for a confident and modern personality — elegant, fresh, and memorable all day.'
+    notes:'Bold · Fresh · Woody · Musky'
   },
   { 
     id:'aurex', 
     name:'IMAROZE Aurex', 
-    price:2499, 
+    price:3000,
+    originalPrice:3750,
     img:'AUREX.png', 
-    notes:'Citrus · Floral · Woody',
-    desc:'A luxury EDP with refined citrus, elegant floral notes, and warm woody undertones. Modern, confident, rich — a sophisticated fragrance all day.'
+    notes:'Citrus · Floral · Woody'
   }
 ];
 
 const grid = document.getElementById('featuredGrid');
 if(grid) {
-  grid.innerHTML = products.map(p => `
-    <div class="product-card" onclick="openModal('${p.id}')">
+  grid.innerHTML = featuredProducts.map(p => {
+    const discount = Math.round(((p.originalPrice - p.price) / p.originalPrice) * 100);
+    return `
+    <div class="product-card" onclick="location.href='products.html'">
+      <div class="discount-badge">${discount}% OFF</div>
       <div class="img"><img src="${p.img}" alt="${p.name}" loading="lazy"></div>
       <div class="info">
         <h3>${p.name}</h3>
         <div class="notes">${p.notes}</div>
-        <div class="price">Rs. ${p.price.toLocaleString()}</div>
+        <div class="price-discount">
+          <span class="discounted">Rs. ${p.price.toLocaleString()}</span>
+          <span class="original">Rs. ${p.originalPrice.toLocaleString()}</span>
+          <span class="tag">-${discount}%</span>
+        </div>
         <button class="btn-add" onclick="event.stopPropagation();addToCart('${p.id}')">Add to Cart</button>
       </div>
     </div>
-  `).join('');
+  `}).join('');
 }
 
-// ========== MODAL FUNCTIONS ==========
-let currentModalProduct = null;
-let modalQuantity = 1;
-
-const productData = {
-  denve: {
-    id: 'denve',
-    name: 'IMAROZE Denve',
-    price: 2499,
-    size: '50ml',
-    notes: 'Fresh · Woody · Musky',
-    desc: 'A premium long-lasting fragrance crafted for those who love elegant, modern, and luxurious scents. Designed with high-quality perfume oils, it delivers a rich and smooth aroma that stays with you all day. Perfect for daily wear, special occasions, and signature scent lovers.',
-    img: 'DENVE.png',
-    stars: '★★★★★'
-  },
-  broute: {
-    id: 'broute',
-    name: 'IMAROZE BrouTe',
-    price: 2499,
-    size: '50ml',
-    notes: 'Bold · Fresh · Woody · Musky',
-    desc: 'A bold blend of fresh, woody, and musky notes. Designed for a confident and modern personality — elegant, fresh, and memorable all day.',
-    img: 'BROUTE.png',
-    stars: '★★★★★'
-  },
-  aurex: {
-    id: 'aurex',
-    name: 'IMAROZE Aurex',
-    price: 2499,
-    size: '50ml',
-    notes: 'Fresh Citrus · Floral · Warm Woody',
-    desc: 'A luxury EDP with refined citrus, elegant floral notes, and warm woody undertones. Modern, confident, rich — a sophisticated fragrance all day.',
-    img: 'AUREX.png',
-    stars: '★★★★★'
-  }
-};
-
-function openModal(productId) {
-  const p = productData[productId];
-  if (!p) return;
-
-  currentModalProduct = p;
-  modalQuantity = 1;
-
-  document.getElementById('modalImg').src = p.img;
-  document.getElementById('modalImg').alt = p.name;
-  document.getElementById('modalName').textContent = p.name;
-  document.getElementById('modalNotes').textContent = p.notes;
-  document.getElementById('modalDesc').textContent = p.desc;
-  document.getElementById('modalPrice').textContent = 'Rs. ' + p.price.toLocaleString();
-  document.getElementById('modalQty').textContent = modalQuantity;
-  document.querySelector('.modal-stars').textContent = p.stars;
-
-  document.getElementById('productModal').classList.add('active');
-  document.body.style.overflow = 'hidden';
-}
-
-function closeModal() {
-  document.getElementById('productModal').classList.remove('active');
-  document.body.style.overflow = '';
-}
-
-function changeQty(delta) {
-  modalQuantity = Math.max(1, modalQuantity + delta);
-  document.getElementById('modalQty').textContent = modalQuantity;
-}
-
-function addFromModal() {
-  if (!currentModalProduct) return;
-  
-  for (let i = 0; i < modalQuantity; i++) {
-    addToCart(currentModalProduct.id);
-  }
-  
-  closeModal();
-  showToast(currentModalProduct.name + ' added to cart ✨');
-}
-
-document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape') {
-    closeModal();
-  }
-});
-
-document.querySelector('.modal-overlay')?.addEventListener('click', closeModal);
-
-// ========== BEST SELLERS ==========
+// ========== BEST SELLERS (WITH 20% DISCOUNT) ==========
 const bsProducts = [
-  { name: 'IMAROZE BrouTe', price: 2499, img: 'BROUTE.png' },
-  { name: 'IMAROZE Aurex', price: 2499, img: 'AUREX.png' },
-  { name: 'IMAROZE Denve', price: 2499, img: 'DENVE.png' },
-  { name: 'IMAROZE BrouTe', price: 2499, img: 'BROUTE.png' },
-  { name: 'IMAROZE Aurex', price: 2499, img: 'AUREX.png' },
-  { name: 'IMAROZE Denve', price: 2499, img: 'DENVE.png' }
+  { name: 'IMAROZE BrouTe', price: 2000, originalPrice: 2500, img: 'BROUTE.png' },
+  { name: 'IMAROZE Aurex', price: 3000, originalPrice: 3750, img: 'AUREX.png' },
+  { name: 'IMAROZE Denve', price: 2450, originalPrice: 3062, img: 'DENVE.png' },
+  { name: 'IMAROZE BrouTe', price: 2000, originalPrice: 2500, img: 'BROUTE.png' },
+  { name: 'IMAROZE Aurex', price: 3000, originalPrice: 3750, img: 'AUREX.png' },
+  { name: 'IMAROZE Denve', price: 2450, originalPrice: 3062, img: 'DENVE.png' }
 ];
 
 const bsDouble = [...bsProducts, ...bsProducts];
 
 const track = document.getElementById('bsTrack');
-if (track) {
-  track.innerHTML = bsDouble.map(p => `
+if(track) {
+  track.innerHTML = bsDouble.map(p => {
+    const discount = Math.round(((p.originalPrice - p.price) / p.originalPrice) * 100);
+    return `
     <div class="bs-item" onclick="location.href='products.html'">
+      <div class="bs-discount-badge">-${discount}%</div>
       <img src="${p.img}" alt="${p.name}" loading="lazy">
       <div class="name">${p.name}</div>
-      <div class="price">Rs. ${p.price.toLocaleString()}</div>
+      <div class="price">
+        <span class="discounted">Rs. ${p.price.toLocaleString()}</span>
+        <span class="original">Rs. ${p.originalPrice.toLocaleString()}</span>
+        <span class="tag">-${discount}%</span>
+      </div>
     </div>
-  `).join('');
+  `}).join('');
 }
 
 // ========== STATS COUNTER ==========
@@ -1854,6 +1313,12 @@ function subscribeNewsletter() {
   }
 }
 
+// ========== VIDEO CONTROLS ==========
+const video = document.getElementById('brandVideo');
+if(video) {
+  video.play().catch(() => {});
+}
+
 // ========== INIT ==========
 updateCartBadge();
 
@@ -1868,65 +1333,8 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
       target.scrollIntoView({ behavior: 'smooth' });
       closeMob();
     }
-
-
-
-    // ========== VIDEO CONTROLS ==========
-let videoPlaying = true;
-const video = document.getElementById('brandVideo');
-
-if (video) {
-  // Auto-play on load
-  video.play().catch(() => {
-    // Auto-play blocked by browser
-    videoPlaying = false;
-  });
-
-  // Video progress update
-  video.addEventListener('timeupdate', function() {
-    const progress = (this.currentTime / this.duration) * 100;
-    const progressBar = document.querySelector('.progress-bar');
-    if (progressBar) {
-      progressBar.style.width = progress + '%';
-    }
-    
-    // Update time display
-    const currentTime = document.getElementById('videoCurrentTime');
-    const duration = document.getElementById('videoDuration');
-    if (currentTime) {
-      currentTime.textContent = formatTime(this.currentTime);
-    }
-    if (duration) {
-      duration.textContent = formatTime(this.duration);
-    }
-  });
-}
-
-function toggleVideo() {
-  const video = document.getElementById('brandVideo');
-  const btnText = document.getElementById('videoBtnText');
-  if (!video) return;
-  
-  if (video.paused) {
-    video.play();
-    videoPlaying = true;
-    if (btnText) btnText.textContent = '⏸ Pause';
-  } else {
-    video.pause();
-    videoPlaying = false;
-    if (btnText) btnText.textContent = '▶ Play';
-  }
-}
-
-function formatTime(seconds) {
-  if (isNaN(seconds)) return '0:00';
-  const mins = Math.floor(seconds / 60);
-  const secs = Math.floor(seconds % 60);
-  return mins + ':' + (secs < 10 ? '0' : '') + secs;
-}
   });
 });
 </script>
-
 </body>
 </html>
