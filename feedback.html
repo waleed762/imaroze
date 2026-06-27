@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="IMAROZE Perfume — Share your feedback and help us improve our luxury fragrances.">
+<title>IMAROZE | Give Feedback</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ========== ROOT ========== */
+:root {
+  --black: #080807;
+  --black2: #0d0c0a;
+  --black3: #14120e;
+  --gold: #C9A84C;
+  --gold-hi: #DABF6E;
+  --gold-lo: #A8893A;
+  --gold-line: rgba(201,168,76,0.15);
+  --cream: #EFE8D8;
+  --cream-dim: rgba(239,232,216,0.5);
+  --fd: 'Cinzel', serif;
+  --fb: 'Cormorant Garamond', serif;
+  --fu: 'Montserrat', sans-serif;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--cream);font-family:var(--fb);font-size:18px;line-height:1.7;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+button{border:none;cursor:pointer;font-family:inherit}
+
+.container{max-width:1320px;margin:0 auto;padding:0 2.5rem}
+@media(max-width:768px){.container{padding:0 1.5rem}}
+@media(max-width:480px){.container{padding:0 1rem}}
+
+/* ========== BUTTONS ========== */
+.btn-gold{display:inline-flex;align-items:center;gap:0.6rem;font-family:var(--fu);font-size:0.6rem;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:#080807;background:linear-gradient(135deg,#DABF6E,#C9A84C,#A8893A);padding:1rem 2.5rem;border:none;cursor:pointer;transition:all 0.4s ease;text-decoration:none}
+.btn-gold:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(201,168,76,0.3)}
+
+.btn-ghost{display:inline-flex;align-items:center;gap:0.6rem;font-family:var(--fu);font-size:0.6rem;font-weight:500;letter-spacing:0.3em;text-transform:uppercase;color:var(--cream);background:transparent;border:1px solid var(--gold-line);padding:1rem 2.5rem;cursor:pointer;transition:all 0.4s ease;text-decoration:none}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold);background:rgba(201,168,76,0.06)}
+
+/* ========== SECTION HEAD ========== */
+.section-head{text-align:center;margin-bottom:3rem}
+.section-head .eyebrow{font-family:var(--fu);font-size:0.55rem;font-weight:500;letter-spacing:0.5em;text-transform:uppercase;color:var(--gold);display:inline-flex;align-items:center;gap:0.8rem}
+.section-head .eyebrow::before{content:'';width:32px;height:1px;background:var(--gold)}
+.section-head h2{font-family:var(--fd);font-size:clamp(2rem,4vw,3rem);font-weight:400;margin-top:0.8rem;letter-spacing:0.04em}
+.section-head h2 em{font-style:italic;color:var(--gold);font-family:var(--fb)}
+.section-head .rule{width:44px;height:1px;background:var(--gold);margin:1.2rem auto}
+.section-head p{font-family:var(--fu);font-size:0.85rem;color:var(--cream-dim);max-width:520px;margin:0.5rem auto 0;line-height:1.8}
+
+/* ========== NAVBAR ========== */
+#navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 500;
+  padding: 1.2rem 0;
+  transition: all 0.4s;
+  background: rgba(8,8,7,0.96);
+  backdrop-filter: blur(24px);
+  border-bottom: 1px solid var(--gold-line);
+}
+
+#navbar.scrolled {
+  background: rgba(8,8,7,0.98);
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo img {
+  height: 40px;
+  width: auto;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2.2rem;
+  list-style: none;
+}
+
+.nav-links a {
+  font-family: var(--fu);
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--cream-dim);
+  transition: color 0.3s;
+  position: relative;
+  text-decoration: none;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transition: transform 0.35s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--gold);
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  transform: scaleX(1);
+}
+
+.nav-actions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.nav-btn {
+  color: var(--cream-dim);
+  font-size: 1.2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.3s;
+  text-decoration: none;
+}
+
+.nav-btn:hover {
+  color: var(--gold);
+}
+
+.cart-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: var(--gold);
+  color: #080807;
+  font-family: var(--fu);
+  font-size: 0.45rem;
+  font-weight: 700;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--gold);
+  transition: all 0.3s;
+}
+
+@media (max-width: 900px) {
+  .nav-links {
+    display: none;
+  }
+  .hamburger {
+    display: flex;
+  }
+}
+
+/* ========== MOBILE MENU ========== */
+.mobile-menu {
+  position: fixed;
+  inset: 0;
+  background: rgba(8,8,7,0.98);
+  backdrop-filter: blur(30px);
+  z-index: 499;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  transform: translateX(100%);
+  transition: transform 0.5s;
+}
+
+.mobile-menu.open {
+  transform: translateX(0);
+}
+
+.mobile-menu a {
+  font-family: var(--fd);
+  font-size: 1.5rem;
+  color: var(--cream);
+  transition: color 0.3s;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+}
+
+.mobile-menu a:hover {
+  color: var(--gold);
+}
+
+.mobile-menu .social-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.mobile-menu .social-links a {
+  font-family: var(--fu);
+  font-size: 0.55rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border: 1px solid var(--gold-line);
+  padding: 0.6rem 1.2rem;
+  transition: all 0.3s;
+  text-decoration: none;
+}
+
+.mobile-menu .social-links a:hover {
+  background: rgba(201,168,76,0.06);
+}
+
+/* ========== FEEDBACK PAGE ========== */
+#feedback-page {
+  padding: 10rem 0 5rem 0;
+  min-height: 70vh;
+  background: var(--black3);
+}
+
+.feedback-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 4rem;
+  margin-top: 2rem;
+  align-items: start;
+}
+
+@media (max-width: 992px) {
+  .feedback-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
+
+/* ========== FEEDBACK FORM ========== */
+.feedback-form {
+  background: var(--black2);
+  border: 1px solid var(--gold-line);
+  padding: 2.5rem;
+  border-radius: 4px;
+}
+
+.feedback-form h3 {
+  font-family: var(--fd);
+  font-size: 1.1rem;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.08em;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid var(--gold-line);
+}
+
+.feedback-form .form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: 1.2rem;
+}
+
+.feedback-form .form-field label {
+  font-family: var(--fu);
+  font-size: 0.5rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.feedback-form .form-field label .required {
+  color: #e74c3c;
+}
+
+.feedback-form .form-field input,
+.feedback-form .form-field select,
+.feedback-form .form-field textarea {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--gold-line);
+  padding: 0.8rem 1rem;
+  font-family: var(--fu);
+  font-size: 0.8rem;
+  color: var(--cream);
+  outline: none;
+  transition: border-color 0.3s;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.feedback-form .form-field input:focus,
+.feedback-form .form-field select:focus,
+.feedback-form .form-field textarea:focus {
+  border-color: var(--gold);
+}
+
+.feedback-form .form-field input::placeholder,
+.feedback-form .form-field textarea::placeholder {
+  color: rgba(239,232,216,0.2);
+}
+
+.feedback-form .form-field select option {
+  background: var(--black2);
+  color: var(--cream);
+}
+
+/* ========== RATING STARS ========== */
+.rating-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.2rem;
+}
+
+.rating-container label {
+  font-family: var(--fu);
+  font-size: 0.5rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.rating-stars {
+  display: flex;
+  gap: 0.5rem;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+}
+
+.rating-stars input {
+  display: none;
+}
+
+.rating-stars label {
+  font-size: 2rem;
+  color: rgba(239,232,216,0.15);
+  cursor: pointer;
+  transition: color 0.2s;
+  font-family: var(--fu);
+}
+
+.rating-stars label:hover,
+.rating-stars label:hover ~ label,
+.rating-stars input:checked ~ label {
+  color: var(--gold);
+}
+
+.rating-text {
+  font-family: var(--fu);
+  font-size: 0.7rem;
+  color: var(--cream-dim);
+  margin-top: 0.2rem;
+  min-height: 1.5rem;
+}
+
+/* ========== SUBMIT BUTTON ========== */
+.feedback-form .btn-submit {
+  width: 100%;
+  font-family: var(--fu);
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #080807;
+  background: linear-gradient(135deg, #DABF6E, #C9A84C, #A8893A);
+  padding: 1rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  border-radius: 4px;
+  margin-top: 0.5rem;
+}
+
+.feedback-form .btn-submit:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(201,168,76,0.3);
+}
+
+/* ========== SUCCESS MESSAGE ========== */
+.success-message {
+  display: none;
+  text-align: center;
+  padding: 2rem;
+  background: rgba(201,168,76,0.05);
+  border: 1px solid var(--gold-line);
+  border-radius: 4px;
+}
+
+.success-message .success-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.success-message h3 {
+  font-family: var(--fd);
+  font-size: 1.3rem;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+}
+
+.success-message p {
+  font-family: var(--fu);
+  font-size: 0.8rem;
+  color: var(--cream-dim);
+  line-height: 1.8;
+}
+
+/* ========== INFO SIDE ========== */
+.feedback-info {
+  background: var(--black2);
+  border: 1px solid var(--gold-line);
+  padding: 2.5rem;
+  border-radius: 4px;
+  position: sticky;
+  top: 7rem;
+}
+
+.feedback-info h3 {
+  font-family: var(--fd);
+  font-size: 1.1rem;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.08em;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid var(--gold-line);
+}
+
+.feedback-info .info-item {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  align-items: flex-start;
+}
+
+.feedback-info .info-icon {
+  font-size: 1.5rem;
+  min-width: 40px;
+  opacity: 0.6;
+}
+
+.feedback-info .info-text {
+  font-family: var(--fu);
+  font-size: 0.75rem;
+  color: var(--cream-dim);
+  line-height: 1.7;
+}
+
+.feedback-info .info-text strong {
+  color: var(--cream);
+  font-weight: 500;
+}
+
+.feedback-info .info-text .highlight {
+  color: var(--gold);
+}
+
+/* ========== TOAST ========== */
+.toast{position:fixed;bottom:1.5rem;left:50%;transform:translateX(-50%) translateY(120%);z-index:900;background:var(--black3);border:1px solid var(--gold-line);padding:0.7rem 1.8rem;font-family:var(--fu);font-size:0.65rem;letter-spacing:0.1em;color:var(--gold);white-space:nowrap;transition:transform 0.4s;border-radius:30px}
+.toast.show{transform:translateX(-50%) translateY(0)}
+
+/* ========== WHATSAPP ========== */
+.whatsapp-float{position:fixed;bottom:24px;right:24px;width:52px;height:52px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;z-index:400;box-shadow:0 4px 20px rgba(0,0,0,0.3);transition:transform 0.3s}
+.whatsapp-float:hover{transform:scale(1.06)}
+.whatsapp-float svg{width:28px;height:28px;fill:white}
+
+/* ========== PRELOADER ========== */
+#preloader{position:fixed;inset:0;background:#080807;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.5rem;transition:opacity 0.6s}
+#preloader.hide{opacity:0;pointer-events:none}
+#preloader .logo{font-family:var(--fd);font-size:1.8rem;letter-spacing:0.5em;color:var(--gold)}
+#preloader .bar{width:140px;height:1px;background:var(--black3);position:relative;overflow:hidden}
+#preloader .bar::after{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,var(--gold),transparent);animation:sweep 1.8s ease-in-out infinite}
+@keyframes sweep{to{left:100%}}
+
+/* ========== FOOTER ========== */
+footer{background:#050504;border-top:1px solid var(--gold-line);padding:4rem 0 1.5rem;margin-top:0}
+.footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.2fr;gap:3rem;margin-bottom:3rem}
+@media(max-width:992px){.footer-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.footer-grid{grid-template-columns:1fr;gap:2rem}}
+.footer-brand .logo img{height:38px;width:auto;margin-bottom:1rem}
+.footer-brand p{font-family:var(--fu);font-size:0.72rem;color:var(--cream-dim);line-height:1.8;max-width:280px;margin-bottom:1.2rem}
+.footer-socials{display:flex;gap:0.7rem;flex-wrap:wrap}
+.footer-socials a{width:34px;height:34px;border:1px solid var(--gold-line);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--cream-dim);transition:all 0.3s}
+.footer-socials a:hover{border-color:var(--gold);color:var(--gold);background:rgba(201,168,76,0.05)}
+.footer-socials a svg{width:14px;height:14px;stroke:currentColor;stroke-width:1.5;fill:none}
+.footer-col h4{font-family:var(--fd);font-size:0.85rem;color:var(--cream);margin-bottom:1.2rem;letter-spacing:0.08em}
+.footer-col ul li{margin-bottom:0.5rem}
+.footer-col ul a{font-family:var(--fu);font-size:0.68rem;color:var(--cream-dim);transition:color 0.3s;letter-spacing:0.03em}
+.footer-col ul a:hover{color:var(--gold)}
+.footer-bottom{border-top:1px solid var(--gold-line);padding-top:1.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.footer-bottom p{font-family:var(--fu);font-size:0.55rem;color:rgba(239,232,216,0.2);letter-spacing:0.04em}
+.footer-bottom-links{display:flex;gap:1.8rem}
+.footer-bottom-links a{font-family:var(--fu);font-size:0.55rem;color:rgba(239,232,216,0.2);transition:color 0.3s}
+.footer-bottom-links a:hover{color:var(--gold)}
+
+@media(max-width:900px){.nav-links{display:none}.hamburger{display:flex}}
+@media(max-width:768px){.feedback-form{padding:1.5rem}.feedback-info{padding:1.5rem}}
+@media(max-width:480px){.feedback-form{padding:1rem}.feedback-info{padding:1rem}}
+</style>
+</head>
+<body>
+
+<!-- ========== PRELOADER ========== -->
+<div id="preloader">
+  <div class="logo">IMAROZE</div>
+  <div class="bar"></div>
+</div>
+
+<!-- ========== TOAST ========== -->
+<div class="toast" id="toast"></div>
+
+<!-- ========== WHATSAPP ========== -->
+<a href="https://wa.me/923069116087?text=Hello%20IMAROZE" class="whatsapp-float" target="_blank">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
+</a>
+
+<!-- ========== HEADER / NAVBAR ========== -->
+<nav id="navbar">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="logo.png" alt="IMAROZE">
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="products.html">Perfumes</a></li>
+        <li><a href="mission.html">Our Mission</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="cart.html" class="nav-btn" style="position:relative">
+          🛒
+          <span class="cart-badge" id="cartBadge">0</span>
+        </a>
+        <button class="hamburger" onclick="toggleMob()">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ========== MOBILE MENU ========== -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" onclick="closeMob()">Home</a>
+  <a href="about.html" onclick="closeMob()">About</a>
+  <a href="products.html" onclick="closeMob()">Perfumes</a>
+  <a href="mission.html" onclick="closeMob()">Our Mission</a>
+  <a href="faq.html" onclick="closeMob()">FAQ</a>
+  <a href="contact.html" onclick="closeMob()">Contact</a>
+  <div class="social-links">
+    <a href="https://www.instagram.com/imaroze.official" target="_blank">Instagram</a>
+    <a href="https://www.tiktok.com/@imaroze.official" target="_blank">TikTok</a>
+    <a href="https://www.facebook.com/share/175FcaNHRu" target="_blank">Facebook</a>
+  </div>
+</div>
+
+<!-- ========== FEEDBACK PAGE ========== -->
+<section id="feedback-page">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">We Value Your Opinion</span>
+      <h2>Share Your<br><em>Feedback</em></h2>
+      <div class="rule"></div>
+      <p>Your feedback helps us create better fragrances and experiences. Thank you for being part of the IMAROZE journey.</p>
+    </div>
+
+    <div class="feedback-grid">
+      <!-- Feedback Form -->
+      <div class="feedback-form" id="feedbackFormContainer">
+        <h3>✧ Tell Us What You Think</h3>
+        <form id="feedbackForm">
+          <div class="form-field">
+            <label>Full Name <span class="required">*</span></label>
+            <input type="text" id="fbName" placeholder="Your full name" required>
+          </div>
+
+          <div class="form-field">
+            <label>Email Address <span class="required">*</span></label>
+            <input type="email" id="fbEmail" placeholder="your@email.com" required>
+          </div>
+
+          <div class="form-field">
+            <label>Which Fragrance Did You Try?</label>
+            <select id="fbProduct">
+              <option value="">Select a fragrance...</option>
+              <option value="IMAROZE Denve">IMAROZE Denve</option>
+              <option value="IMAROZE BrouTe">IMAROZE BrouTe</option>
+              <option value="IMAROZE Aurex">IMAROZE Aurex</option>
+              <option value="Multiple">Multiple / All</option>
+            </select>
+          </div>
+
+          <div class="rating-container">
+            <label>Your Rating <span class="required">*</span></label>
+            <div class="rating-stars" id="ratingStars">
+              <input type="radio" name="rating" id="star5" value="5">
+              <label for="star5">★</label>
+              <input type="radio" name="rating" id="star4" value="4">
+              <label for="star4">★</label>
+              <input type="radio" name="rating" id="star3" value="3">
+              <label for="star3">★</label>
+              <input type="radio" name="rating" id="star2" value="2">
+              <label for="star2">★</label>
+              <input type="radio" name="rating" id="star1" value="1">
+              <label for="star1">★</label>
+            </div>
+            <div class="rating-text" id="ratingText">Select a rating above</div>
+          </div>
+
+          <div class="form-field">
+            <label>Your Feedback <span class="required">*</span></label>
+            <textarea id="fbMessage" rows="4" placeholder="Share your experience with us..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn-submit" id="submitBtn">Submit Feedback →</button>
+        </form>
+
+        <!-- Success Message -->
+        <div class="success-message" id="successMessage">
+          <div class="success-icon">✨</div>
+          <h3>Thank You!</h3>
+          <p>Your feedback has been received. We truly appreciate your time and will use your insights to make IMAROZE even better.</p>
+          <button class="btn-gold" style="margin-top:1.5rem;justify-content:center" onclick="location.href='index.html'">Return Home</button>
+        </div>
+      </div>
+
+      <!-- Info Side -->
+      <div class="feedback-info">
+        <h3>✧ Why Your Voice Matters</h3>
+        <div class="info-item">
+          <span class="info-icon">💎</span>
+          <div class="info-text">
+            <strong>Shape Our Future</strong><br>
+            Your feedback directly influences our new fragrance developments and improvements.
+          </div>
+        </div>
+        <div class="info-item">
+          <span class="info-icon">🌟</span>
+          <div class="info-text">
+            <strong>Be Heard</strong><br>
+            Every review is read by our team. We take your suggestions seriously and respond to every concern.
+          </div>
+        </div>
+        <div class="info-item">
+          <span class="info-icon">🎁</span>
+          <div class="info-text">
+            <strong>Exclusive Perks</strong><br>
+            Active reviewers get early access to new launches and <span class="highlight">special discounts</span>.
+          </div>
+        </div>
+        <div class="info-item">
+          <span class="info-icon">🕊️</span>
+          <div class="info-text">
+            <strong>100% Confidential</strong><br>
+            Your personal information is secure. We never share your data with third parties.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo"><img src="logo.png" alt="IMAROZE"></a>
+        <p>Discover our signature collection of luxury perfumes, featuring long-lasting fragrances, premium perfume oils, and elegant scents designed to leave a lasting impression.</p>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/imaroze.official" target="_blank"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+          <a href="https://www.facebook.com/share/175FcaNHRu" target="_blank"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+          <a href="https://www.tiktok.com/@imaroze.official" target="_blank"><svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 106.33 6.34V8.69a8.18 8.18 0 004.78 1.52V6.75a4.85 4.85 0 01-1.01-.06z"/></svg></a>
+          <a href="https://wa.me/923001234567" target="_blank"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Our Fragrances</h4>
+        <ul>
+          <li><a href="products.html">IMAROZE Denve</a></li>
+          <li><a href="products.html">IMAROZE BrouTe</a></li>
+          <li><a href="products.html">IMAROZE Aurex</a></li>
+          <li><a href="products.html">Oud Collection</a></li>
+          <li><a href="products.html">Floral Collection</a></li>
+          <li><a href="products.html">New Arrivals</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>IMAROZE</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="about.html#mission">Our Mission</a></li>
+          <li><a href="about.html#awards">Awards</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="https://www.instagram.com/imaroze.official" target="_blank">Instagram</a></li>
+          <li><a href="https://www.tiktok.com/@imaroze.official" target="_blank">TikTok</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Customer Care</h4>
+        <ul>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="terms.html">Terms &amp; Conditions</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 IMAROZE Perfume. All rights reserved. Made with passion in Pakistan.</p>
+      <div class="footer-bottom-links">
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ========== SCRIPTS ========== -->
+<script>
+// ========== PRELOADER ==========
+window.addEventListener('load', function() {
+  setTimeout(() => {
+    document.getElementById('preloader').classList.add('hide');
+    setTimeout(() => document.getElementById('preloader').style.display = 'none', 600);
+  }, 1000);
+});
+
+// ========== NAVBAR SCROLL ==========
+window.addEventListener('scroll', function() {
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 70);
+});
+
+// ========== MOBILE MENU ==========
+function toggleMob() {
+  const menu = document.getElementById('mobileMenu');
+  menu.classList.toggle('open');
+  const spans = document.querySelectorAll('.hamburger span');
+  if (menu.classList.contains('open')) {
+    spans[0].style.transform = 'rotate(45deg) translate(4px,4px)';
+    spans[1].style.opacity = '0';
+    spans[2].style.transform = 'rotate(-45deg) translate(4px,-4px)';
+  } else {
+    spans.forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
+  }
+}
+
+function closeMob() {
+  document.getElementById('mobileMenu').classList.remove('open');
+  document.querySelectorAll('.hamburger span').forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
+}
+
+// ========== TOAST ==========
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2500);
+}
+
+// ========== CART BADGE ==========
+function updateCartBadge() {
+  const cart = JSON.parse(localStorage.getItem('imaroze_cart') || '[]');
+  const badges = document.querySelectorAll('.cart-badge');
+  badges.forEach(badge => {
+    badge.textContent = cart.length;
+  });
+}
+
+// ========== RATING STARS ==========
+const ratingLabels = {
+  1: 'Very Poor — We need to do better',
+  2: 'Poor — Not up to our standard',
+  3: 'Good — Decent but room for improvement',
+  4: 'Great — We\'re on the right track',
+  5: 'Excellent — Absolutely love it! ✨'
+};
+
+document.querySelectorAll('input[name="rating"]').forEach(input => {
+  input.addEventListener('change', function() {
+    const text = document.getElementById('ratingText');
+    text.textContent = ratingLabels[this.value] || 'Select a rating above';
+    text.style.color = this.value >= 4 ? 'var(--gold)' : 'var(--cream-dim)';
+  });
+});
+
+// ========== FEEDBACK FORM SUBMIT ==========
+document.getElementById('feedbackForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  
+  const name = document.getElementById('fbName').value.trim();
+  const email = document.getElementById('fbEmail').value.trim();
+  const product = document.getElementById('fbProduct').value;
+  const rating = document.querySelector('input[name="rating"]:checked');
+  const message = document.getElementById('fbMessage').value.trim();
+  
+  // Validation
+  if (!name) {
+    showToast('Please enter your name');
+    return;
+  }
+  if (!email || !email.includes('@')) {
+    showToast('Please enter a valid email');
+    return;
+  }
+  if (!rating) {
+    showToast('Please select a rating');
+    return;
+  }
+  if (!message || message.length < 5) {
+    showToast('Please share your feedback (min 5 characters)');
+    return;
+  }
+  
+  // Collect feedback data
+  const feedbackData = {
+    name: name,
+    email: email,
+    product: product || 'Not specified',
+    rating: parseInt(rating.value),
+    stars: '★'.repeat(parseInt(rating.value)) + '☆'.repeat(5 - parseInt(rating.value)),
+    message: message,
+    date: new Date().toISOString()
+  };
+  
+  // Save to localStorage
+  const feedbacks = JSON.parse(localStorage.getItem('imaroze_feedbacks') || '[]');
+  
+  // Check if this feedback already exists (prevent duplicates)
+  const exists = feedbacks.some(f => 
+    f.name === feedbackData.name && 
+    f.message === feedbackData.message &&
+    f.rating === feedbackData.rating
+  );
+  
+  if (!exists) {
+    feedbacks.push(feedbackData);
+    localStorage.setItem('imaroze_feedbacks', JSON.stringify(feedbacks));
+  }
+  
+  // Show success
+  document.getElementById('feedbackForm').style.display = 'none';
+  document.getElementById('successMessage').style.display = 'block';
+  
+  showToast('Thank you for your feedback! ✨');
+});
+
+// ========== INIT ==========
+updateCartBadge();
+
+// ========== SMOOTH SCROLL ==========
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', function(e) {
+    const href = this.getAttribute('href');
+    if(href === '#') return;
+    e.preventDefault();
+    const target = document.querySelector(href);
+    if(target) {
+      target.scrollIntoView({ behavior: 'smooth' });
+      closeMob();
+    }
+  });
+});
+</script>
+</body>
+</html>
