@@ -819,7 +819,7 @@ document.querySelectorAll('input[name="rating"]').forEach(input => {
   });
 });
 
-// ========== FEEDBACK FORM SUBMIT (LocalStorage Backup) ==========
+// ========== FEEDBACK FORM SUBMIT (LocalStorage + Google Sheets) ==========
 document.getElementById('feedbackForm').addEventListener('submit', function(e) {
   e.preventDefault();
   
@@ -830,22 +830,10 @@ document.getElementById('feedbackForm').addEventListener('submit', function(e) {
   const message = document.getElementById('fbMessage').value.trim();
   
   // Validation
-  if (!name) {
-    showToast('Please enter your name');
-    return;
-  }
-  if (!email || !email.includes('@')) {
-    showToast('Please enter a valid email');
-    return;
-  }
-  if (!rating) {
-    showToast('Please select a rating');
-    return;
-  }
-  if (!message || message.length < 5) {
-    showToast('Please share your feedback (min 5 characters)');
-    return;
-  }
+  if (!name) { showToast('Please enter your name'); return; }
+  if (!email || !email.includes('@')) { showToast('Please enter a valid email'); return; }
+  if (!rating) { showToast('Please select a rating'); return; }
+  if (!message || message.length < 5) { showToast('Please share your feedback (min 5 characters)'); return; }
   
   const feedbackData = {
     id: Date.now(),
@@ -858,12 +846,12 @@ document.getElementById('feedbackForm').addEventListener('submit', function(e) {
     date: new Date().toISOString()
   };
   
-  // Save to LocalStorage
+  // Save to LocalStorage (always works)
   let feedbacks = JSON.parse(localStorage.getItem('imaroze_feedbacks') || '[]');
   feedbacks.push(feedbackData);
   localStorage.setItem('imaroze_feedbacks', JSON.stringify(feedbacks));
   
-  // Also try Google Sheets
+  // Try Google Sheets (optional)
   fetch(API_URL, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -872,11 +860,11 @@ document.getElementById('feedbackForm').addEventListener('submit', function(e) {
   .then(response => response.json())
   .then(result => {
     if (result.success) {
-      console.log('Saved to Google Sheets too!');
+      console.log('✅ Saved to Google Sheets too!');
     }
   })
   .catch(error => {
-    console.log('Google Sheets save failed, but saved in LocalStorage');
+    console.log('⚠️ Google Sheets save failed, but saved in LocalStorage');
   });
   
   // Show success
@@ -884,22 +872,7 @@ document.getElementById('feedbackForm').addEventListener('submit', function(e) {
   document.getElementById('successMessage').style.display = 'block';
   showToast('Thank you for your feedback! ✨');
 });
-// ========== INIT ==========
-updateCartBadge();
-
-// ========== SMOOTH SCROLL ==========
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', function(e) {
-    const href = this.getAttribute('href');
-    if(href === '#') return;
-    e.preventDefault();
-    const target = document.querySelector(href);
-    if(target) {
-      target.scrollIntoView({ behavior: 'smooth' });
-      closeMob();
-    }
   });
-});
 </script>
 </body>
 </html>
