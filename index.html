@@ -1950,51 +1950,63 @@ if(track) {
 // ========== YOUR GOOGLE SHEETS API URL ==========
 const API_URL = 'https://script.google.com/macros/s/AKfycbxKuH5iyWGXBdq5-o_wLn4JNC2dlmqB36Ek1VvevNIODEKM1l1-lSRBxdlvNmC7xy1kGA/exec';
 
-// ========== LIVE FEEDBACK SLIDER (from Google Sheets) ==========
-async function renderFeedbackSlider() {
+// ========== LIVE FEEDBACK SLIDER (LocalStorage only - Always works) ==========
+function renderFeedbackSlider() {
   const track = document.getElementById('feedbackTrack');
   if (!track) return;
 
-  try {
-    const response = await fetch(API_URL);
-    const result = await response.json();
-    
-    let feedbacks = result.success ? result.data : [];
-    
-    // If no feedback, show empty state
-    if (feedbacks.length === 0) {
-      track.innerHTML = `
-        <div style="width:100%;text-align:center;padding:3rem 0;">
-          <div style="font-size:3rem;margin-bottom:1rem;opacity:0.3;">💬</div>
-          <h3 style="font-family:var(--fd);font-size:1.2rem;color:var(--cream);margin-bottom:0.5rem;">No feedback yet</h3>
-          <p style="font-family:var(--fu);font-size:0.8rem;color:var(--cream-dim);">Be the first to share your experience with IMAROZE!</p>
-        </div>
-      `;
-      return;
-    }
+  // Get feedbacks from LocalStorage
+  let feedbacks = JSON.parse(localStorage.getItem('imaroze_feedbacks') || '[]');
 
-    // Build feedback items
-    const feedbackItems = feedbacks.map(fb => {
-      const initial = fb.name ? fb.name.charAt(0).toUpperCase() : '?';
-      const stars = fb.stars || '★★★★★';
-      const msg = fb.message || 'Great experience with IMAROZE!';
-      const date = fb.date ? new Date(fb.date).toLocaleDateString() : 'Verified Customer';
-      
-      return `
-      <div class="feedback-item">
-        <div class="fb-header">
-          <div class="fb-avatar">${initial}</div>
-          <div>
-            <div class="fb-name">${fb.name || 'Anonymous'}</div>
-            <div class="fb-stars">${stars}</div>
-          </div>
-        </div>
-        <div class="fb-msg">${msg}</div>
-        <div class="fb-date">${date}</div>
+  // If no feedback, show empty state
+  if (feedbacks.length === 0) {
+    track.innerHTML = `
+      <div style="width:100%;text-align:center;padding:3rem 0;">
+        <div style="font-size:3rem;margin-bottom:1rem;opacity:0.3;">💬</div>
+        <h3 style="font-family:var(--fd);font-size:1.2rem;color:var(--cream);margin-bottom:0.5rem;">No feedback yet</h3>
+        <p style="font-family:var(--fu);font-size:0.8rem;color:var(--cream-dim);">Be the first to share your experience with IMAROZE!</p>
       </div>
     `;
-    }).join('');
+    return;
+  }
 
+  // Remove duplicates (keep only unique by name+message)
+  const uniqueFeedbacks = [];
+  const seen = new Set();
+  for (const fb of feedbacks) {
+    const key = fb.name + '|' + fb.message;
+    if (!seen.has(key)) {
+      seen.add(key);
+      uniqueFeedbacks.push(fb);
+    }
+  }
+
+  // Build feedback items
+  const feedbackItems = uniqueFeedbacks.map(fb => {
+    const initial = fb.name ? fb.name.charAt(0).toUpperCase() : '?';
+    const stars = fb.stars || '★★★★★';
+    const msg = fb.message || 'Great experience with IMAROZE!';
+    const date = fb.date ? new Date(fb.date).toLocaleDateString() : 'Verified Customer';
+    
+    return `
+    <div class="feedback-item">
+      <div class="fb-header">
+        <div class="fb-avatar">${initial}</div>
+        <div>
+          <div class="fb-name">${fb.name || 'Anonymous'}</div>
+          <div class="fb-stars">${stars}</div>
+        </div>
+      </div>
+      <div class="fb-msg">${msg}</div>
+      <div class="fb-date">${date}</div>
+    </div>
+  `;
+  }).join('');
+
+  // Double the items for infinite scroll effect
+  const doubledItems = feedbackItems + feedbackItems;
+  track.innerHTML = doubledItems;
+}
     // Double the items for infinite scroll effect
     const doubledItems = feedbackItems + feedbackItems;
     track.innerHTML = doubledItems;
