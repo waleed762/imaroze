@@ -1947,30 +1947,39 @@ if(track) {
   `}).join('');
 }
 
-// ========== LIVE FEEDBACK SLIDER (from localStorage) ==========
+// ========== LIVE FEEDBACK SLIDER (from localStorage - NO FAKE DATA) ==========
 function renderFeedbackSlider() {
   const track = document.getElementById('feedbackTrack');
   if (!track) return;
 
-  // Get feedbacks from localStorage
+  // Get feedbacks from localStorage only
   let feedbacks = JSON.parse(localStorage.getItem('imaroze_feedbacks') || '[]');
 
-  // If no feedback in localStorage, use default sample data
+  // If no feedback, show empty state
   if (feedbacks.length === 0) {
-    feedbacks = [
-      { name: 'Ayesha Khan', stars: '★★★★★', message: 'Absolutely love the Denve fragrance! It lasts all day and everyone compliments me. IMAROZE is now my go-to perfume brand!', date: new Date().toISOString() },
-      { name: 'Usman Ali', stars: '★★★★★', message: 'BrouTe is bold and perfect for formal events. The quality is amazing for the price. Highly recommended!', date: new Date().toISOString() },
-      { name: 'Fatima Ahmed', stars: '★★★★★', message: 'Aurex has such a unique scent. Citrus and floral blend is just perfect. Customer service is also top-notch!', date: new Date().toISOString() },
-      { name: 'Hassan Raza', stars: '★★★★★', message: 'Best perfume I have ever used. Long lasting and very elegant. IMAROZE truly delivers luxury.', date: new Date().toISOString() },
-      { name: 'Zara Malik', stars: '★★★★★', message: 'Ordered Denve for my husband and he absolutely loves it! The packaging is beautiful too.', date: new Date().toISOString() },
-      { name: 'Omar Farooq', stars: '★★★★★', message: 'BrouTe is my signature scent now. Fresh, woody and long lasting. Great value for money.', date: new Date().toISOString() }
-    ];
-    // Save default to localStorage
-    localStorage.setItem('imaroze_feedbacks', JSON.stringify(feedbacks));
+    track.innerHTML = `
+      <div style="width:100%;text-align:center;padding:3rem 0;">
+        <div style="font-size:3rem;margin-bottom:1rem;opacity:0.3;">💬</div>
+        <h3 style="font-family:var(--fd);font-size:1.2rem;color:var(--cream);margin-bottom:0.5rem;">No feedback yet</h3>
+        <p style="font-family:var(--fu);font-size:0.8rem;color:var(--cream-dim);">Be the first to share your experience with IMAROZE!</p>
+      </div>
+    `;
+    return;
+  }
+
+  // Remove duplicates (keep only unique by name+message)
+  const uniqueFeedbacks = [];
+  const seen = new Set();
+  for (const fb of feedbacks) {
+    const key = fb.name + '|' + fb.message;
+    if (!seen.has(key)) {
+      seen.add(key);
+      uniqueFeedbacks.push(fb);
+    }
   }
 
   // Build feedback items
-  const feedbackItems = feedbacks.map(fb => {
+  const feedbackItems = uniqueFeedbacks.map(fb => {
     const initial = fb.name ? fb.name.charAt(0).toUpperCase() : '?';
     const stars = fb.stars || '★★★★★';
     const msg = fb.message || fb.msg || 'Great experience with IMAROZE!';
@@ -1994,8 +2003,7 @@ function renderFeedbackSlider() {
   // Double the items for infinite scroll effect
   const doubledItems = feedbackItems + feedbackItems;
   track.innerHTML = doubledItems;
-
-  // If no feedback at all, show empty state
+}  // If no feedback at all, show empty state
   if (feedbacks.length === 0) {
     track.innerHTML = `
       <div class="feedback-empty">
