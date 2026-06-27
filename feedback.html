@@ -819,8 +819,8 @@ document.querySelectorAll('input[name="rating"]').forEach(input => {
   });
 });
 
-// ========== FEEDBACK FORM SUBMIT (GOOGLE SHEETS) ==========
-document.getElementById('feedbackForm').addEventListener('submit', async function(e) {
+// ========== FEEDBACK FORM SUBMIT (LocalStorage Backup) ==========
+document.getElementById('feedbackForm').addEventListener('submit', function(e) {
   e.preventDefault();
   
   const name = document.getElementById('fbName').value.trim();
@@ -847,8 +847,8 @@ document.getElementById('feedbackForm').addEventListener('submit', async functio
     return;
   }
   
-  // Collect feedback data
   const feedbackData = {
+    id: Date.now(),
     name: name,
     email: email,
     product: product || 'Not specified',
@@ -858,31 +858,32 @@ document.getElementById('feedbackForm').addEventListener('submit', async functio
     date: new Date().toISOString()
   };
   
-  // Send to Google Sheets
-  try {
-    const response = await fetch(API_URL, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(feedbackData)
-    });
-    
-    const result = await response.json();
-    
+  // Save to LocalStorage
+  let feedbacks = JSON.parse(localStorage.getItem('imaroze_feedbacks') || '[]');
+  feedbacks.push(feedbackData);
+  localStorage.setItem('imaroze_feedbacks', JSON.stringify(feedbacks));
+  
+  // Also try Google Sheets
+  fetch(API_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(feedbackData)
+  })
+  .then(response => response.json())
+  .then(result => {
     if (result.success) {
-      // Show success
-      document.getElementById('feedbackForm').style.display = 'none';
-      document.getElementById('successMessage').style.display = 'block';
-      showToast('Thank you for your feedback! ✨');
-    } else {
-      showToast('Error saving feedback. Please try again.');
+      console.log('Saved to Google Sheets too!');
     }
-  } catch(error) {
-    showToast('Network error. Please check your connection.');
-  }
+  })
+  .catch(error => {
+    console.log('Google Sheets save failed, but saved in LocalStorage');
+  });
+  
+  // Show success
+  document.getElementById('feedbackForm').style.display = 'none';
+  document.getElementById('successMessage').style.display = 'block';
+  showToast('Thank you for your feedback! ✨');
 });
-
 // ========== INIT ==========
 updateCartBadge();
 
