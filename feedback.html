@@ -872,7 +872,23 @@ document.getElementById('feedbackForm').addEventListener('submit', function(e) {
   document.getElementById('successMessage').style.display = 'block';
   showToast('Thank you for your feedback! ✨');
 });
+
+// ========== INIT ==========
+updateCartBadge();
+
+// ========== SMOOTH SCROLL ==========
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', function(e) {
+    const href = this.getAttribute('href');
+    if(href === '#') return;
+    e.preventDefault();
+    const target = document.querySelector(href);
+    if(target) {
+      target.scrollIntoView({ behavior: 'smooth' });
+      closeMob();
+    }
   });
+});
 </script>
 </body>
 </html>
