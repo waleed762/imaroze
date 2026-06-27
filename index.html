@@ -1562,7 +1562,7 @@ footer{background:#050504;border-top:1px solid var(--gold-line);padding:4rem 0 1
   </div>
 </section>
 
-<!-- ========== FEEDBACK SLIDER (LIVE FROM LOCALSTORAGE) ========== -->
+<!-- ========== FEEDBACK SLIDER (LIVE FROM LOCALSTORAGE - NO FAKE DATA) ========== -->
 <section id="feedback-slider">
   <div class="container">
     <div class="section-head">
@@ -2003,16 +2003,6 @@ function renderFeedbackSlider() {
   // Double the items for infinite scroll effect
   const doubledItems = feedbackItems + feedbackItems;
   track.innerHTML = doubledItems;
-}  // If no feedback at all, show empty state
-  if (feedbacks.length === 0) {
-    track.innerHTML = `
-      <div class="feedback-empty">
-        <div class="empty-icon">💬</div>
-        <h3>No feedback yet</h3>
-        <p>Be the first to share your experience with IMAROZE!</p>
-      </div>
-    `;
-  }
 }
 
 // ========== STATS COUNTER ==========
