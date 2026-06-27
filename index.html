@@ -982,32 +982,6 @@ button{border:none;cursor:pointer;font-family:inherit}
   box-shadow: 0 8px 30px rgba(201,168,76,0.3);
 }
 
-.modal-discount {
-  display: flex;
-  align-items: baseline;
-  gap: 0.8rem;
-  flex-wrap: wrap;
-}
-
-.modal-discount .modal-original {
-  font-family: var(--fu);
-  font-size: 0.8rem;
-  color: var(--cream-dim);
-  text-decoration: line-through;
-  opacity: 0.6;
-}
-
-.modal-discount .modal-tag {
-  font-family: var(--fu);
-  font-size: 0.55rem;
-  font-weight: 700;
-  color: #e74c3c;
-  background: rgba(231,76,60,0.1);
-  padding: 0.15rem 0.5rem;
-  border-radius: 2px;
-  border: 1px solid rgba(231,76,60,0.2);
-}
-
 .modal-price .modal-original-price {
   font-family: var(--fu);
   font-size: 0.8rem;
@@ -1140,6 +1114,220 @@ button{border:none;cursor:pointer;font-family:inherit}
   .video-caption h3{font-size:0.85rem}
 }
 
+/* ========== FEEDBACK SLIDER ========== */
+#feedback-slider {
+  padding: 4rem 0;
+  background: var(--black3);
+  border-top: 1px solid var(--gold-line);
+  border-bottom: 1px solid var(--gold-line);
+}
+
+.feedback-wrapper {
+  overflow: hidden;
+  position: relative;
+  margin-top: 2rem;
+}
+
+.feedback-track {
+  display: flex;
+  gap: 2rem;
+  width: max-content;
+  animation: feedbackScroll 25s linear infinite;
+}
+
+.feedback-track:hover {
+  animation-play-state: paused;
+}
+
+.feedback-item {
+  min-width: 320px;
+  max-width: 320px;
+  background: var(--black2);
+  border: 1px solid var(--gold-line);
+  padding: 1.8rem;
+  border-radius: 4px;
+  transition: all 0.3s;
+  flex-shrink: 0;
+}
+
+.feedback-item:hover {
+  border-color: rgba(201,168,76,0.4);
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(201,168,76,0.06);
+}
+
+.feedback-item .fb-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.8rem;
+}
+
+.feedback-item .fb-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold-lo), var(--gold));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--fd);
+  font-size: 1.2rem;
+  color: #080807;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.feedback-item .fb-name {
+  font-family: var(--fd);
+  font-size: 0.9rem;
+  color: var(--cream);
+  letter-spacing: 0.04em;
+}
+
+.feedback-item .fb-stars {
+  font-family: var(--fu);
+  font-size: 0.9rem;
+  color: var(--gold);
+  letter-spacing: 0.08rem;
+  margin-top: 0.1rem;
+}
+
+.feedback-item .fb-msg {
+  font-family: var(--fu);
+  font-size: 0.8rem;
+  color: var(--cream-dim);
+  line-height: 1.8;
+  font-style: italic;
+  margin-top: 0.3rem;
+}
+
+.feedback-item .fb-msg::before {
+  content: '"';
+  color: var(--gold);
+  opacity: 0.3;
+}
+
+.feedback-item .fb-msg::after {
+  content: '"';
+  color: var(--gold);
+  opacity: 0.3;
+}
+
+.feedback-item .fb-date {
+  font-family: var(--fu);
+  font-size: 0.5rem;
+  color: var(--cream-dim);
+  opacity: 0.3;
+  margin-top: 0.8rem;
+  letter-spacing: 0.05em;
+}
+
+.feedback-empty {
+  text-align: center;
+  padding: 3rem 0;
+  width: 100%;
+}
+
+.feedback-empty .empty-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  opacity: 0.3;
+}
+
+.feedback-empty h3 {
+  font-family: var(--fd);
+  font-size: 1.2rem;
+  color: var(--cream);
+  margin-bottom: 0.5rem;
+}
+
+.feedback-empty p {
+  font-family: var(--fu);
+  font-size: 0.8rem;
+  color: var(--cream-dim);
+}
+
+@keyframes feedbackScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@media (max-width: 768px) {
+  .feedback-item {
+    min-width: 280px;
+    max-width: 280px;
+    padding: 1.5rem;
+  }
+  .feedback-item .fb-avatar {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+  .feedback-item .fb-name {
+    font-size: 0.8rem;
+  }
+  .feedback-item .fb-msg {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .feedback-item {
+    min-width: 260px;
+    max-width: 260px;
+    padding: 1.2rem;
+  }
+  .feedback-item .fb-avatar {
+    width: 36px;
+    height: 36px;
+    font-size: 0.9rem;
+  }
+  .feedback-item .fb-name {
+    font-size: 0.7rem;
+  }
+  .feedback-item .fb-msg {
+    font-size: 0.7rem;
+  }
+  .feedback-item .fb-stars {
+    font-size: 0.8rem;
+  }
+}
+
+/* ========== FEEDBACK BUTTON ========== */
+.btn-feedback {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--fu);
+  font-size: 0.4rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--cream-dim);
+  background: transparent;
+  border: 1px solid var(--gold-line);
+  padding: 0.5rem;
+  transition: all 0.3s;
+  cursor: pointer;
+  border-radius: 2px;
+  flex: 1;
+}
+
+.btn-feedback:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+  background: rgba(201,168,76,0.05);
+}
+
+.btn-feedback svg {
+  width: 14px;
+  height: 14px;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  fill: none;
+}
+
 /* ========== NEWSLETTER ========== */
 #newsletter{padding:5rem 0;background:linear-gradient(135deg,#0e0d09,#1a1810);position:relative}
 .newsletter-inner{max-width:520px;margin:0 auto;text-align:center;position:relative;z-index:2}
@@ -1155,7 +1343,7 @@ button{border:none;cursor:pointer;font-family:inherit}
 .newsletter-note{font-family:var(--fu);font-size:0.55rem;color:rgba(239,232,216,0.2);margin-top:0.9rem}
 
 /* ========== FOOTER ========== */
-footer{background:#050504;border-top:1px solid var(--gold-line);padding:4rem 0 1.5rem;margin-top:3rem}
+footer{background:#050504;border-top:1px solid var(--gold-line);padding:4rem 0 1.5rem;margin-top:0}
 .footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.2fr;gap:3rem;margin-bottom:3rem}
 @media(max-width:992px){.footer-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:600px){.footer-grid{grid-template-columns:1fr;gap:2rem}}
@@ -1374,6 +1562,20 @@ footer{background:#050504;border-top:1px solid var(--gold-line);padding:4rem 0 1
   </div>
 </section>
 
+<!-- ========== FEEDBACK SLIDER (LIVE FROM LOCALSTORAGE) ========== -->
+<section id="feedback-slider">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">What Our Customers Say</span>
+      <h2>Real <em>Reviews</em></h2>
+      <div class="rule"></div>
+    </div>
+    <div class="feedback-wrapper">
+      <div class="feedback-track" id="feedbackTrack"></div>
+    </div>
+  </div>
+</section>
+
 <!-- ========== STATS ========== -->
 <section id="stats">
   <div class="container">
@@ -1453,7 +1655,9 @@ footer{background:#050504;border-top:1px solid var(--gold-line);padding:4rem 0 1
           <li><a href="products.html">IMAROZE Denve</a></li>
           <li><a href="products.html">IMAROZE BrouTe</a></li>
           <li><a href="products.html">IMAROZE Aurex</a></li>
-        
+          <li><a href="products.html">Oud Collection</a></li>
+          <li><a href="products.html">Floral Collection</a></li>
+          <li><a href="products.html">New Arrivals</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -1605,7 +1809,6 @@ function openModal(productId) {
   document.getElementById('modalNotes').textContent = p.notes;
   document.getElementById('modalDesc').textContent = p.desc;
   
-  // Show discounted price with original
   const discount = Math.round(((p.originalPrice - p.price) / p.originalPrice) * 100);
   document.getElementById('modalPrice').innerHTML = 
     'Rs. ' + p.price.toLocaleString() + 
@@ -1648,7 +1851,7 @@ document.addEventListener('keydown', function(e) {
 
 document.querySelector('.modal-overlay')?.addEventListener('click', closeModal);
 
-// ========== FEATURED PRODUCTS (WITH 20% DISCOUNT & VIEW DETAILS) ==========
+// ========== FEATURED PRODUCTS ==========
 const featuredProducts = [
   { 
     id:'denve', 
@@ -1704,14 +1907,17 @@ if(grid) {
         <button class="btn-add" onclick="event.stopPropagation();addToCart('${p.id}')">Add to Cart</button>
         <div class="product-actions">
           <button onclick="event.stopPropagation();openModal('${p.id}')">View Details</button>
-          <button onclick="event.stopPropagation();showToast('Added to wishlist ❤️')">Wishlist</button>
+          <button class="btn-feedback" onclick="event.stopPropagation();location.href='feedback.html'">
+            <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/><path d="M8 10h.01"/><path d="M12 10h.01"/><path d="M16 10h.01"/></svg>
+            Give Feedback
+          </button>
         </div>
       </div>
     </div>
   `}).join('');
 }
 
-// ========== BEST SELLERS (WITH 20% DISCOUNT) ==========
+// ========== BEST SELLERS ==========
 const bsProducts = [
   { name: 'IMAROZE BrouTe', price: 2000, originalPrice: 2500, img: 'BROUTE.png' },
   { name: 'IMAROZE Aurex', price: 3000, originalPrice: 3750, img: 'AUREX.png' },
@@ -1739,6 +1945,66 @@ if(track) {
       </div>
     </div>
   `}).join('');
+}
+
+// ========== LIVE FEEDBACK SLIDER (from localStorage) ==========
+function renderFeedbackSlider() {
+  const track = document.getElementById('feedbackTrack');
+  if (!track) return;
+
+  // Get feedbacks from localStorage
+  let feedbacks = JSON.parse(localStorage.getItem('imaroze_feedbacks') || '[]');
+
+  // If no feedback in localStorage, use default sample data
+  if (feedbacks.length === 0) {
+    feedbacks = [
+      { name: 'Ayesha Khan', stars: '★★★★★', message: 'Absolutely love the Denve fragrance! It lasts all day and everyone compliments me. IMAROZE is now my go-to perfume brand!', date: new Date().toISOString() },
+      { name: 'Usman Ali', stars: '★★★★★', message: 'BrouTe is bold and perfect for formal events. The quality is amazing for the price. Highly recommended!', date: new Date().toISOString() },
+      { name: 'Fatima Ahmed', stars: '★★★★★', message: 'Aurex has such a unique scent. Citrus and floral blend is just perfect. Customer service is also top-notch!', date: new Date().toISOString() },
+      { name: 'Hassan Raza', stars: '★★★★★', message: 'Best perfume I have ever used. Long lasting and very elegant. IMAROZE truly delivers luxury.', date: new Date().toISOString() },
+      { name: 'Zara Malik', stars: '★★★★★', message: 'Ordered Denve for my husband and he absolutely loves it! The packaging is beautiful too.', date: new Date().toISOString() },
+      { name: 'Omar Farooq', stars: '★★★★★', message: 'BrouTe is my signature scent now. Fresh, woody and long lasting. Great value for money.', date: new Date().toISOString() }
+    ];
+    // Save default to localStorage
+    localStorage.setItem('imaroze_feedbacks', JSON.stringify(feedbacks));
+  }
+
+  // Build feedback items
+  const feedbackItems = feedbacks.map(fb => {
+    const initial = fb.name ? fb.name.charAt(0).toUpperCase() : '?';
+    const stars = fb.stars || '★★★★★';
+    const msg = fb.message || fb.msg || 'Great experience with IMAROZE!';
+    const date = fb.date ? new Date(fb.date).toLocaleDateString() : 'Verified Customer';
+    
+    return `
+    <div class="feedback-item">
+      <div class="fb-header">
+        <div class="fb-avatar">${initial}</div>
+        <div>
+          <div class="fb-name">${fb.name || 'Anonymous'}</div>
+          <div class="fb-stars">${stars}</div>
+        </div>
+      </div>
+      <div class="fb-msg">${msg}</div>
+      <div class="fb-date">${date}</div>
+    </div>
+  `;
+  }).join('');
+
+  // Double the items for infinite scroll effect
+  const doubledItems = feedbackItems + feedbackItems;
+  track.innerHTML = doubledItems;
+
+  // If no feedback at all, show empty state
+  if (feedbacks.length === 0) {
+    track.innerHTML = `
+      <div class="feedback-empty">
+        <div class="empty-icon">💬</div>
+        <h3>No feedback yet</h3>
+        <p>Be the first to share your experience with IMAROZE!</p>
+      </div>
+    `;
+  }
 }
 
 // ========== STATS COUNTER ==========
@@ -1792,6 +2058,7 @@ if(video) {
 
 // ========== INIT ==========
 updateCartBadge();
+renderFeedbackSlider(); // Render live feedback slider
 
 // ========== SMOOTH SCROLL ==========
 document.querySelectorAll('a[href^="#"]').forEach(a => {
