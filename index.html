@@ -18,7 +18,7 @@
   --gold-lo: #A8893A;
   --gold-line: rgba(201,168,76,0.15);
   --cream: #EFE8D8;
-  --cream-dim: rgba(239,232,216,0.5);
+  --cream-dim: rgba(239,232,216,0.78);
   --fd: 'Cinzel', serif;
   --fb: 'Cormorant Garamond', serif;
   --fu: 'Montserrat', sans-serif;
@@ -1337,7 +1337,7 @@ button{border:none;cursor:pointer;font-family:inherit}
 .newsletter-form{display:flex;border:1px solid var(--gold-line);margin-top:2rem;transition:border-color 0.3s}
 .newsletter-form:focus-within{border-color:var(--gold)}
 .newsletter-form input{flex:1;background:transparent;border:none;padding:0.9rem 1.2rem;font-family:var(--fu);font-size:0.75rem;color:var(--cream);outline:none}
-.newsletter-form input::placeholder{color:rgba(239,232,216,0.2)}
+.newsletter-form input::placeholder{color:rgba(239,232,216,0.4)}
 .newsletter-form button{font-family:var(--fu);font-size:0.55rem;font-weight:600;letter-spacing:0.25em;text-transform:uppercase;background:var(--gold);color:#080807;border:none;padding:0.9rem 1.8rem;transition:background 0.3s;white-space:nowrap}
 .newsletter-form button:hover{background:var(--gold-hi)}
 .newsletter-note{font-family:var(--fu);font-size:0.55rem;color:rgba(239,232,216,0.2);margin-top:0.9rem}
@@ -1692,6 +1692,9 @@ footer{background:#050504;border-top:1px solid var(--gold-line);padding:4rem 0 1
 
 <!-- ========== SCRIPTS ========== -->
 <script>
+// ========== YOUR GOOGLE SHEETS API URL ==========
+const API_URL = 'https://script.google.com/macros/s/AKfycbxKdWlYN6CEoN6xaDQGZW-7IIGtkxX5T9FtaeD48lvd3oXL44eNhXsKWWdbMeahj6ct/exec';
+
 // ========== PRELOADER ==========
 window.addEventListener('load', function() {
   setTimeout(() => {
@@ -1768,7 +1771,7 @@ const productData = {
     originalPrice: 3062,
     size: '50ml',
     notes: 'Fresh · Woody · Musky',
-    desc: 'A premium long-lasting fragrance crafted for those who love elegant, modern, and luxurious scents. Designed with high-quality perfume oils, it delivers a rich and smooth aroma that stays with you all day. Perfect for daily wear, special occasions, and signature scent lovers.',
+    desc: 'A premium long-lasting fragrance crafted for those who love elegant, modern, and luxurious scents.',
     img: 'DENVE.png',
     stars: '★★★★★'
   },
@@ -1779,7 +1782,7 @@ const productData = {
     originalPrice: 2500,
     size: '50ml',
     notes: 'Bold · Fresh · Woody · Musky',
-    desc: 'A bold blend of fresh, woody, and musky notes. Designed for a confident and modern personality — elegant, fresh, and memorable all day.',
+    desc: 'A bold blend of fresh, woody, and musky notes. Designed for a confident and modern personality.',
     img: 'BROUTE.png',
     stars: '★★★★★'
   },
@@ -1790,7 +1793,7 @@ const productData = {
     originalPrice: 3750,
     size: '50ml',
     notes: 'Fresh Citrus · Floral · Warm Woody',
-    desc: 'A luxury EDP with refined citrus, elegant floral notes, and warm woody undertones. Modern, confident, rich — a sophisticated fragrance all day.',
+    desc: 'A luxury EDP with refined citrus, elegant floral notes, and warm woody undertones.',
     img: 'AUREX.png',
     stars: '★★★★★'
   }
@@ -1834,55 +1837,24 @@ function changeQty(delta) {
 
 function addFromModal() {
   if (!currentModalProduct) return;
-  
   for (let i = 0; i < modalQuantity; i++) {
     addToCart(currentModalProduct.id);
   }
-  
   closeModal();
   showToast(currentModalProduct.name + ' added to cart ✨');
 }
 
 document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape') {
-    closeModal();
-  }
+  if (e.key === 'Escape') { closeModal(); }
 });
 
 document.querySelector('.modal-overlay')?.addEventListener('click', closeModal);
 
 // ========== FEATURED PRODUCTS ==========
 const featuredProducts = [
-  { 
-    id:'denve', 
-    name:'IMAROZE Denve', 
-    price:2450,
-    originalPrice:3062,
-    img:'DENVE.png', 
-    notes:'Fresh · Woody · Musky',
-    desc:'A premium long-lasting fragrance crafted for those who love elegant, modern, and luxurious scents. Rich and smooth — stays with you all day.',
-    stars:'★★★★★'
-  },
-  { 
-    id:'broute', 
-    name:'IMAROZE BrouTe', 
-    price:2000,
-    originalPrice:2500,
-    img:'BROUTE.png', 
-    notes:'Bold · Fresh · Woody · Musky',
-    desc:'A bold blend of fresh, woody, and musky notes. Designed for a confident and modern personality — elegant, fresh, and memorable all day.',
-    stars:'★★★★★'
-  },
-  { 
-    id:'aurex', 
-    name:'IMAROZE Aurex', 
-    price:3000,
-    originalPrice:3750,
-    img:'AUREX.png', 
-    notes:'Citrus · Floral · Woody',
-    desc:'Refined citrus, elegant floral notes, and warm woody undertones. Modern, confident, rich — a sophisticated fragrance all day.',
-    stars:'★★★★★'
-  }
+  { id:'denve', name:'IMAROZE Denve', price:2450, originalPrice:3062, img:'DENVE.png', notes:'Fresh · Woody · Musky', desc:'A premium long-lasting fragrance crafted for those who love elegant, modern, and luxurious scents. Rich and smooth — stays with you all day.', stars:'★★★★★' },
+  { id:'broute', name:'IMAROZE BrouTe', price:2000, originalPrice:2500, img:'BROUTE.png', notes:'Bold · Fresh · Woody · Musky', desc:'A bold blend of fresh, woody, and musky notes. Designed for a confident and modern personality — elegant, fresh, and memorable all day.', stars:'★★★★★' },
+  { id:'aurex', name:'IMAROZE Aurex', price:3000, originalPrice:3750, img:'AUREX.png', notes:'Citrus · Floral · Woody', desc:'Refined citrus, elegant floral notes, and warm woody undertones. Modern, confident, rich — a sophisticated fragrance all day.', stars:'★★★★★' }
 ];
 
 const grid = document.getElementById('featuredGrid');
@@ -1928,7 +1900,6 @@ const bsProducts = [
 ];
 
 const bsDouble = [...bsProducts, ...bsProducts];
-
 const track = document.getElementById('bsTrack');
 if(track) {
   track.innerHTML = bsDouble.map(p => {
@@ -1947,62 +1918,109 @@ if(track) {
   `}).join('');
 }
 
-// ========== LIVE FEEDBACK SLIDER (LocalStorage only) ==========
-function renderFeedbackSlider() {
+// ========== LIVE FEEDBACK SLIDER ==========
+// Fetched directly from Google Sheets (GET) on every page load.
+// This means reviews show on EVERY device and survive cache clears,
+// because the data lives on the server (the Sheet), not in this browser's localStorage.
+function escapeHtml(str) {
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+function renderEmptyFeedback() {
+  const track = document.getElementById('feedbackTrack');
+  if (!track) return;
+  track.style.animation = 'none';
+  track.innerHTML = `
+    <div class="feedback-empty">
+      <div class="empty-icon">💬</div>
+      <h3>No feedback yet</h3>
+      <p>Be the first to share your experience with IMAROZE!</p>
+    </div>
+  `;
+}
+
+function renderFeedbackItems(feedbacks) {
   const track = document.getElementById('feedbackTrack');
   if (!track) return;
 
-  // Get feedbacks from LocalStorage
-  let feedbacks = JSON.parse(localStorage.getItem('imaroze_feedbacks') || '[]');
-
-  // If no feedback, show empty state
-  if (feedbacks.length === 0) {
-    track.innerHTML = `
-      <div style="width:100%;text-align:center;padding:3rem 0;">
-        <div style="font-size:3rem;margin-bottom:1rem;opacity:0.3;">💬</div>
-        <h3 style="font-family:var(--fd);font-size:1.2rem;color:var(--cream);margin-bottom:0.5rem;">No feedback yet</h3>
-        <p style="font-family:var(--fu);font-size:0.8rem;color:var(--cream-dim);">Be the first to share your experience with IMAROZE!</p>
-      </div>
-    `;
+  if (!feedbacks || feedbacks.length === 0) {
+    renderEmptyFeedback();
     return;
   }
 
-  // Remove duplicates (keep only unique by name+message)
+  // Remove duplicates (same name + message)
   const uniqueFeedbacks = [];
   const seen = new Set();
   for (const fb of feedbacks) {
-    const key = fb.name + '|' + fb.message;
+    const key = (fb.name || '') + '|' + (fb.message || '');
     if (!seen.has(key)) {
       seen.add(key);
       uniqueFeedbacks.push(fb);
     }
   }
 
-  // Build feedback items
   const feedbackItems = uniqueFeedbacks.map(fb => {
     const initial = fb.name ? fb.name.charAt(0).toUpperCase() : '?';
     const stars = fb.stars || '★★★★★';
     const msg = fb.message || 'Great experience with IMAROZE!';
-    const date = fb.date ? new Date(fb.date).toLocaleDateString() : 'Verified Customer';
-    
+    let date = 'Verified Customer';
+    if (fb.date) {
+      const d = new Date(fb.date);
+      if (!isNaN(d.getTime())) date = d.toLocaleDateString();
+    }
     return `
     <div class="feedback-item">
       <div class="fb-header">
-        <div class="fb-avatar">${initial}</div>
+        <div class="fb-avatar">${escapeHtml(initial)}</div>
         <div>
-          <div class="fb-name">${fb.name || 'Anonymous'}</div>
-          <div class="fb-stars">${stars}</div>
+          <div class="fb-name">${escapeHtml(fb.name || 'Anonymous')}</div>
+          <div class="fb-stars">${escapeHtml(stars)}</div>
         </div>
       </div>
-      <div class="fb-msg">${msg}</div>
-      <div class="fb-date">${date}</div>
+      <div class="fb-msg">${escapeHtml(msg)}</div>
+      <div class="fb-date">${escapeHtml(date)}</div>
     </div>
   `;
   }).join('');
 
-  // Double the items for infinite scroll effect
-  const doubledItems = feedbackItems + feedbackItems;
-  track.innerHTML = doubledItems;
+  // Only duplicate the items (for the seamless infinite-scroll loop) when there
+  // are enough reviews to make a loop look natural. With few reviews, duplicating
+  // just makes each review appear twice on screen — so show them once, centered,
+  // with the scrolling animation turned off.
+  if (uniqueFeedbacks.length > 3) {
+    track.style.animation = '';
+    track.style.justifyContent = '';
+    track.innerHTML = feedbackItems + feedbackItems;
+  } else {
+    track.style.animation = 'none';
+    track.style.justifyContent = 'center';
+    track.innerHTML = feedbackItems;
+  }
+}
+
+async function renderFeedbackSlider() {
+  const track = document.getElementById('feedbackTrack');
+  if (!track) return;
+
+  try {
+    // Cache-busting query param + no-store so every visit/device gets the latest reviews
+    const res = await fetch(API_URL + '?t=' + Date.now(), { method: 'GET', cache: 'no-store' });
+    const result = await res.json();
+
+    if (result && result.success && Array.isArray(result.data)) {
+      // Most recent first (script.gs already reverses, but sort defensively by date too)
+      renderFeedbackItems(result.data);
+    } else {
+      renderEmptyFeedback();
+    }
+  } catch (error) {
+    console.log('⚠️ Could not load reviews from Google Sheets:', error);
+    renderEmptyFeedback();
+  }
 }
 
 // ========== STATS COUNTER ==========
