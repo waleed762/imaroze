@@ -407,6 +407,13 @@ button{border:none;cursor:pointer;font-family:inherit}
   box-shadow: 0 12px 40px rgba(201,168,76,0.3);
 }
 
+.feedback-form .btn-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
 /* ========== SUCCESS MESSAGE ========== */
 .success-message {
   display: none;
@@ -434,6 +441,24 @@ button{border:none;cursor:pointer;font-family:inherit}
   font-size: 0.8rem;
   color: var(--cream-dim);
   line-height: 1.8;
+}
+
+/* ========== ERROR MESSAGE ========== */
+.error-message {
+  display: none;
+  text-align: center;
+  padding: 1.2rem;
+  background: rgba(231,76,60,0.06);
+  border: 1px solid rgba(231,76,60,0.25);
+  border-radius: 4px;
+  margin-top: 1rem;
+}
+
+.error-message p {
+  font-family: var(--fu);
+  font-size: 0.75rem;
+  color: #e74c3c;
+  line-height: 1.7;
 }
 
 /* ========== INFO SIDE ========== */
@@ -646,6 +671,10 @@ footer{background:#050504;border-top:1px solid var(--gold-line);padding:4rem 0 1
           </div>
 
           <button type="submit" class="btn-submit" id="submitBtn">Submit Feedback →</button>
+
+          <div class="error-message" id="errorMessage">
+            <p>⚠ Could not save your feedback online right now. Please check your internet connection and try again.</p>
+          </div>
         </form>
 
         <!-- Success Message -->
@@ -748,10 +777,9 @@ footer{background:#050504;border-top:1px solid var(--gold-line);padding:4rem 0 1
   </div>
 </footer>
 
-<!-- ========== SCRIPTS ========== -->
 <script>
 // ========== YOUR GOOGLE SHEETS API URL ==========
-const API_URL = 'https://script.google.com/macros/s/AKfycbxKuH5iyWGXBdq5-o_wLn4JNC2dlmqB36Ek1VvevNIODEKM1l1-lSRBxdlvNmC7xy1kGA/exec';
+const API_URL = 'https://script.google.com/macros/s/AKfycbxKdWlYN6CEoN6xaDQGZW-7IIGtkxX5T9FtaeD48lvd3oXL44eNhXsKWWdbMeahj6ct/exec';
 
 // ========== PRELOADER ==========
 window.addEventListener('load', function() {
@@ -797,9 +825,7 @@ function showToast(msg) {
 function updateCartBadge() {
   const cart = JSON.parse(localStorage.getItem('imaroze_cart') || '[]');
   const badges = document.querySelectorAll('.cart-badge');
-  badges.forEach(badge => {
-    badge.textContent = cart.length;
-  });
+  badges.forEach(badge => { badge.textContent = cart.length; });
 }
 
 // ========== RATING STARS ==========
@@ -819,24 +845,27 @@ document.querySelectorAll('input[name="rating"]').forEach(input => {
   });
 });
 
-// ========== FEEDBACK FORM SUBMIT (LocalStorage + Google Sheets) ==========
+// ========== FEEDBACK FORM SUBMIT (Google Sheets is the ONLY storage now) ==========
 document.getElementById('feedbackForm').addEventListener('submit', function(e) {
   e.preventDefault();
-  
+
   const name = document.getElementById('fbName').value.trim();
   const email = document.getElementById('fbEmail').value.trim();
   const product = document.getElementById('fbProduct').value;
   const rating = document.querySelector('input[name="rating"]:checked');
   const message = document.getElementById('fbMessage').value.trim();
-  
+  const submitBtn = document.getElementById('submitBtn');
+  const errorBox = document.getElementById('errorMessage');
+
+  errorBox.style.display = 'none';
+
   // Validation
   if (!name) { showToast('Please enter your name'); return; }
   if (!email || !email.includes('@')) { showToast('Please enter a valid email'); return; }
   if (!rating) { showToast('Please select a rating'); return; }
   if (!message || message.length < 5) { showToast('Please share your feedback (min 5 characters)'); return; }
-  
+
   const feedbackData = {
-    id: Date.now(),
     name: name,
     email: email,
     product: product || 'Not specified',
@@ -845,38 +874,44 @@ document.getElementById('feedbackForm').addEventListener('submit', function(e) {
     message: message,
     date: new Date().toISOString()
   };
-  
-  // Save to LocalStorage (always works)
-  let feedbacks = JSON.parse(localStorage.getItem('imaroze_feedbacks') || '[]');
-  feedbacks.push(feedbackData);
-  localStorage.setItem('imaroze_feedbacks', JSON.stringify(feedbacks));
-  
-  // Try Google Sheets (optional)
+
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Submitting…';
+
+  // IMPORTANT: Content-Type 'text/plain' avoids a CORS preflight (OPTIONS) request.
+  // Google Apps Script web apps do not answer OPTIONS requests, so using
+  // 'application/json' here causes the browser to silently block this request.
+  // Apps Script still reads the raw body fine with JSON.parse(e.postData.contents).
   fetch(API_URL, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
     body: JSON.stringify(feedbackData)
   })
   .then(response => response.json())
   .then(result => {
-    if (result.success) {
-      console.log('✅ Saved to Google Sheets too!');
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Submit Feedback →';
+    if (result && result.success) {
+      document.getElementById('feedbackForm').style.display = 'none';
+      document.getElementById('successMessage').style.display = 'block';
+      showToast('Thank you for your feedback! ✨');
+    } else {
+      errorBox.style.display = 'block';
+      showToast('Could not save feedback. Please try again.');
     }
   })
   .catch(error => {
-    console.log('⚠️ Google Sheets save failed, but saved in LocalStorage');
+    console.log('⚠️ Could not reach Google Sheets:', error);
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Submit Feedback →';
+    errorBox.style.display = 'block';
+    showToast('Network error. Please try again.');
   });
-  
-  // Show success
-  document.getElementById('feedbackForm').style.display = 'none';
-  document.getElementById('successMessage').style.display = 'block';
-  showToast('Thank you for your feedback! ✨');
 });
 
 // ========== INIT ==========
 updateCartBadge();
 
-// ========== SMOOTH SCROLL ==========
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', function(e) {
     const href = this.getAttribute('href');
