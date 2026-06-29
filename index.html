@@ -1562,7 +1562,7 @@ footer{background:#050504;border-top:1px solid var(--gold-line);padding:4rem 0 1
   </div>
 </section>
 
-<!-- ========== FEEDBACK SLIDER (LIVE FROM LOCALSTORAGE - NO FAKE DATA) ========== -->
+<!-- ========== FEEDBACK SLIDER ========== -->
 <section id="feedback-slider">
   <div class="container">
     <div class="section-head">
@@ -1947,10 +1947,7 @@ if(track) {
   `}).join('');
 }
 
-// ========== YOUR GOOGLE SHEETS API URL ==========
-const API_URL = 'https://script.google.com/macros/s/AKfycbxKuH5iyWGXBdq5-o_wLn4JNC2dlmqB36Ek1VvevNIODEKM1l1-lSRBxdlvNmC7xy1kGA/exec';
-
-// ========== LIVE FEEDBACK SLIDER (LocalStorage only - Always works) ==========
+// ========== LIVE FEEDBACK SLIDER (LocalStorage only) ==========
 function renderFeedbackSlider() {
   const track = document.getElementById('feedbackTrack');
   if (!track) return;
@@ -2007,21 +2004,7 @@ function renderFeedbackSlider() {
   const doubledItems = feedbackItems + feedbackItems;
   track.innerHTML = doubledItems;
 }
-    // Double the items for infinite scroll effect
-    const doubledItems = feedbackItems + feedbackItems;
-    track.innerHTML = doubledItems;
-    
-  } catch(error) {
-    console.error('Error loading feedbacks:', error);
-    track.innerHTML = `
-      <div style="width:100%;text-align:center;padding:3rem 0;">
-        <div style="font-size:3rem;margin-bottom:1rem;opacity:0.3;">⚠️</div>
-        <h3 style="font-family:var(--fd);font-size:1.2rem;color:var(--cream);margin-bottom:0.5rem;">Unable to load feedbacks</h3>
-        <p style="font-family:var(--fu);font-size:0.8rem;color:var(--cream-dim);">Please check your connection</p>
-      </div>
-    `;
-  }
-}
+
 // ========== STATS COUNTER ==========
 function animateCounters() {
   const counters = document.querySelectorAll('.stat-item .number');
@@ -2073,7 +2056,7 @@ if(video) {
 
 // ========== INIT ==========
 updateCartBadge();
-renderFeedbackSlider(); // Render live feedback slider
+renderFeedbackSlider();
 
 // ========== SMOOTH SCROLL ==========
 document.querySelectorAll('a[href^="#"]').forEach(a => {
