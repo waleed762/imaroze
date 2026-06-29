@@ -1140,54 +1140,54 @@ button{border:none;cursor:pointer;font-family:inherit}
 }
 
 .feedback-item {
-  min-width: 320px;
-  max-width: 320px;
+  min-width: 350px;
+  max-width: 350px;
   background: var(--black2);
   border: 1px solid var(--gold-line);
-  padding: 1.8rem;
-  border-radius: 4px;
+  padding: 2rem;
+  border-radius: 8px;
   transition: all 0.3s;
   flex-shrink: 0;
 }
 
 .feedback-item:hover {
-  border-color: rgba(201,168,76,0.4);
+  border-color: rgba(201,168,76,0.5);
   transform: translateY(-5px);
-  box-shadow: 0 15px 40px rgba(201,168,76,0.06);
+  box-shadow: 0 15px 40px rgba(201,168,76,0.1);
 }
 
 .feedback-item .fb-header {
   display: flex;
   align-items: center;
   gap: 1rem;
-  margin-bottom: 0.8rem;
+  margin-bottom: 1rem;
 }
 
 .feedback-item .fb-avatar {
-  width: 48px;
-  height: 48px;
+  width: 56px;
+  height: 56px;
   border-radius: 50%;
   background: linear-gradient(135deg, var(--gold-lo), var(--gold));
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: var(--fd);
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   color: #080807;
-  font-weight: 600;
+  font-weight: 700;
   flex-shrink: 0;
 }
 
 .feedback-item .fb-name {
   font-family: var(--fd);
-  font-size: 0.9rem;
+  font-size: 1.1rem;
   color: var(--cream);
   letter-spacing: 0.04em;
 }
 
 .feedback-item .fb-stars {
   font-family: var(--fu);
-  font-size: 0.9rem;
+  font-size: 1.1rem;
   color: var(--gold);
   letter-spacing: 0.08rem;
   margin-top: 0.1rem;
@@ -1195,31 +1195,34 @@ button{border:none;cursor:pointer;font-family:inherit}
 
 .feedback-item .fb-msg {
   font-family: var(--fu);
-  font-size: 0.8rem;
-  color: var(--cream-dim);
-  line-height: 1.8;
+  font-size: 1rem;
+  color: #ffffff;
+  line-height: 1.9;
   font-style: italic;
-  margin-top: 0.3rem;
+  margin-top: 0.5rem;
+  font-weight: 300;
 }
 
 .feedback-item .fb-msg::before {
   content: '"';
   color: var(--gold);
-  opacity: 0.3;
+  opacity: 0.4;
+  font-size: 1.4rem;
 }
 
 .feedback-item .fb-msg::after {
   content: '"';
   color: var(--gold);
-  opacity: 0.3;
+  opacity: 0.4;
+  font-size: 1.4rem;
 }
 
 .feedback-item .fb-date {
   font-family: var(--fu);
-  font-size: 0.5rem;
+  font-size: 0.6rem;
   color: var(--cream-dim);
-  opacity: 0.3;
-  margin-top: 0.8rem;
+  opacity: 0.4;
+  margin-top: 1rem;
   letter-spacing: 0.05em;
 }
 
@@ -1255,42 +1258,45 @@ button{border:none;cursor:pointer;font-family:inherit}
 
 @media (max-width: 768px) {
   .feedback-item {
-    min-width: 280px;
-    max-width: 280px;
+    min-width: 300px;
+    max-width: 300px;
     padding: 1.5rem;
   }
   .feedback-item .fb-avatar {
-    width: 40px;
-    height: 40px;
-    font-size: 1rem;
+    width: 48px;
+    height: 48px;
+    font-size: 1.2rem;
   }
   .feedback-item .fb-name {
-    font-size: 0.8rem;
+    font-size: 1rem;
   }
   .feedback-item .fb-msg {
-    font-size: 0.75rem;
+    font-size: 0.9rem;
+  }
+  .feedback-item .fb-stars {
+    font-size: 1rem;
   }
 }
 
 @media (max-width: 480px) {
   .feedback-item {
-    min-width: 260px;
-    max-width: 260px;
+    min-width: 280px;
+    max-width: 280px;
     padding: 1.2rem;
   }
   .feedback-item .fb-avatar {
-    width: 36px;
-    height: 36px;
-    font-size: 0.9rem;
+    width: 42px;
+    height: 42px;
+    font-size: 1rem;
   }
   .feedback-item .fb-name {
-    font-size: 0.7rem;
+    font-size: 0.9rem;
   }
   .feedback-item .fb-msg {
-    font-size: 0.7rem;
+    font-size: 0.85rem;
   }
   .feedback-item .fb-stars {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
   }
 }
 
