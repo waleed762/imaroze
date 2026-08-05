@@ -7,6 +7,15 @@
 <title>IMAROZE | FAQ — Frequently Asked Questions</title>
 <link rel="stylesheet" href="style.css">
 <style>
+/* ========== AZADI GREEN THEME OVERRIDE ========== */
+:root {
+  --gold: #17A558;
+  --gold-line: rgba(1,65,28,0.4);
+  --gold-hi: #22C55E;
+  --gold-lo: #01411C;
+  --cream-dim: #EDEDED;
+}
+
 /* ========== FAQ PAGE STYLES ========== */
 #faq-page {
   padding: 10rem 0 5rem 0;
@@ -32,12 +41,12 @@
 }
 
 .faq-item:hover {
-  border-color: rgba(201,168,76,0.3);
+  border-color: rgba(1,65,28,0.55);
 }
 
 .faq-item.open {
   border-color: var(--gold);
-  box-shadow: 0 4px 30px rgba(201,168,76,0.05);
+  box-shadow: 0 4px 30px rgba(1,65,28,0.15);
 }
 
 /* ========== FAQ QUESTION ========== */
@@ -371,7 +380,7 @@
 }
 
 .mobile-menu .social-links a:hover {
-  background: rgba(201,168,76,0.06);
+  background: rgba(1,65,28,0.1);
 }
 
 /* ============================================================
@@ -428,7 +437,7 @@
   font-family: 'Cinzel', serif;
   font-size: 1.8rem;
   letter-spacing: 0.5em;
-  color: #C9A84C;
+  color: #17A558;
 }
 
 #preloader .bar {
@@ -446,7 +455,7 @@
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, #C9A84C, transparent);
+  background: linear-gradient(90deg, transparent, #17A558, transparent);
   animation: sweep 1.8s ease-in-out infinite;
 }
 
@@ -524,7 +533,7 @@ footer {
 .footer-socials a:hover {
   border-color: var(--gold);
   color: var(--gold);
-  background: rgba(201,168,76,0.05);
+  background: rgba(1,65,28,0.1);
 }
 
 .footer-col h4 {
@@ -569,7 +578,7 @@ footer {
 .footer-bottom p {
   font-family: var(--fu);
   font-size: 0.55rem;
-  color: rgba(239,232,216,0.2);
+  color: rgba(255,255,255,0.5);
   letter-spacing: 0.04em;
 }
 
@@ -581,7 +590,7 @@ footer {
 .footer-bottom .links a {
   font-family: var(--fu);
   font-size: 0.55rem;
-  color: rgba(239,232,216,0.2);
+  color: rgba(255,255,255,0.5);
   transition: color 0.3s;
   text-decoration: none;
 }
@@ -597,6 +606,55 @@ footer {
   }
   .footer-bottom .links {
     gap: 1.2rem;
+  }
+}
+
+/* ========== DEVELOPER CREDIT ========== */
+.footer-credit {
+  border-top: 1px solid var(--gold-line);
+  margin-top: 1.2rem;
+  padding-top: 1.2rem;
+  text-align: center;
+}
+
+.footer-credit p {
+  font-family: var(--fu);
+  font-size: 0.62rem;
+  letter-spacing: 0.04em;
+  color: rgba(255,255,255,0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.9rem;
+}
+
+.footer-credit .dev-name {
+  color: var(--gold);
+  font-weight: 600;
+}
+
+.footer-credit .dot {
+  color: rgba(255,255,255,0.25);
+}
+
+.footer-credit a {
+  color: rgba(255,255,255,0.65);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-credit a:hover {
+  color: var(--gold);
+}
+
+@media (max-width: 600px) {
+  .footer-credit p {
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  .footer-credit .dot {
+    display: none;
   }
 }
 </style>
@@ -797,6 +855,15 @@ footer {
         <a href="terms.html">Terms</a>
       </div>
     </div>
+    <div class="footer-credit">
+      <p>
+        Designed &amp; Developed by <span class="dev-name">M Waleed Khan</span>
+        <span class="dot">•</span>
+        <a href="tel:+923303564801">0330 3564801</a>
+        <span class="dot">•</span>
+        <a href="mailto:muhmmadwaleedkhan786@gmail.com">muhmmadwaleedkhan786@gmail.com</a>
+      </p>
+    </div>
   </div>
 </footer>
 <!-- ========== SCRIPTS ========== -->
@@ -844,6 +911,14 @@ function updateCartBadge() {
 
 // ========== INIT ==========
 updateCartBadge();
+
+// ========== FAQ TOGGLE ==========
+function toggleFAQ(el) {
+  const item = el.parentElement;
+  const wasOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+  if (!wasOpen) item.classList.add('open');
+}
 </script>
 </body>
 </html>
