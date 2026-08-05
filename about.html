@@ -7,6 +7,15 @@
 <title>IMAROZE | About Us — Luxury Perfumes Pakistan</title>
 <link rel="stylesheet" href="style.css">
 <style>
+/* ========== AZADI GREEN THEME OVERRIDE ========== */
+:root {
+  --gold: #17A558;
+  --gold-line: rgba(1,65,28,0.4);
+  --gold-hi: #22C55E;
+  --gold-lo: #01411C;
+  --cream-dim: #EDEDED;
+}
+
 /* ========== ABOUT PAGE STYLES (ENHANCED) ========== */
 #about-page {
   padding: 10rem 0 5rem 0;
@@ -72,7 +81,7 @@
 .about-content h2 {
   font-family: var(--fd);
   font-size: clamp(2.2rem, 4vw, 3.2rem);
-  font-weight: 400;
+  font-weight: 500;
   margin: 0.5rem 0 1rem;
   color: var(--cream);
   letter-spacing: 0.04em;
@@ -99,6 +108,8 @@
   margin-bottom: 1rem;
   letter-spacing: 0.03em;
   font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 .about-content .signature {
@@ -127,7 +138,7 @@
   letter-spacing: 0.3em;
   text-transform: uppercase;
   color: #080807;
-  background: linear-gradient(135deg, #DABF6E, #C9A84C, #A8893A);
+  background: linear-gradient(135deg, #22C55E, #17A558, #01411C);
   padding: 1rem 2.5rem;
   border: none;
   cursor: pointer;
@@ -138,7 +149,7 @@
 
 .about-cta .btn-gold:hover {
   transform: translateY(-3px);
-  box-shadow: 0 12px 40px rgba(201,168,76,0.3);
+  box-shadow: 0 12px 40px rgba(1,65,28,0.4);
 }
 
 .about-cta .btn-ghost {
@@ -163,7 +174,56 @@
 .about-cta .btn-ghost:hover {
   border-color: var(--gold);
   color: var(--gold);
-  background: rgba(201,168,76,0.06);
+  background: rgba(1,65,28,0.1);
+}
+
+/* ========== DEVELOPER CREDIT ========== */
+.footer-credit {
+  border-top: 1px solid var(--gold-line);
+  margin-top: 1.2rem;
+  padding-top: 1.2rem;
+  text-align: center;
+}
+
+.footer-credit p {
+  font-family: var(--fu);
+  font-size: 0.62rem;
+  letter-spacing: 0.04em;
+  color: rgba(255,255,255,0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.9rem;
+}
+
+.footer-credit .dev-name {
+  color: var(--gold);
+  font-weight: 600;
+}
+
+.footer-credit .dot {
+  color: rgba(255,255,255,0.25);
+}
+
+.footer-credit a {
+  color: rgba(255,255,255,0.65);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-credit a:hover {
+  color: var(--gold);
+}
+
+@media (max-width: 600px) {
+  .footer-credit p {
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  .footer-credit .dot {
+    display: none;
+  }
 }
 
 /* ========== RESPONSIVE ========== */
@@ -353,6 +413,15 @@
         <a href="privacy.html">Privacy</a>
         <a href="terms.html">Terms</a>
       </div>
+    </div>
+    <div class="footer-credit">
+      <p>
+        Designed &amp; Developed by <span class="dev-name">M Waleed Khan</span>
+        <span class="dot">•</span>
+        <a href="tel:+923303564801">0330 3564801</a>
+        <span class="dot">•</span>
+        <a href="mailto:muhmmadwaleedkhan786@gmail.com">muhmmadwaleedkhan786@gmail.com</a>
+      </p>
     </div>
   </div>
 </footer>
