@@ -7,12 +7,12 @@
 <title>IMAROZE | About Us — Luxury Perfumes Pakistan</title>
 <link rel="stylesheet" href="style.css">
 <style>
-/* ========== AZADI GREEN THEME OVERRIDE ========== */
+/* ========== LIGHT GOLDEN THEME OVERRIDE ========== */
 :root {
-  --gold: #17A558;
-  --gold-line: rgba(1,65,28,0.4);
-  --gold-hi: #22C55E;
-  --gold-lo: #01411C;
+  --gold: #E6C875;
+  --gold-line: rgba(230,200,117,0.25);
+  --gold-hi: #F5E3A8;
+  --gold-lo: #B8923A;
   --cream-dim: #EDEDED;
 }
 
@@ -102,9 +102,9 @@
 
 .about-content p {
   font-family: var(--fu);
-  font-size: 1rem;  /* Pehle 0.82rem - ab 1rem */
+  font-size: 1rem;
   color: var(--cream);
-  line-height: 2;  /* Pehle 1.9 */
+  line-height: 2;
   margin-bottom: 1rem;
   letter-spacing: 0.03em;
   font-weight: 300;
@@ -138,7 +138,7 @@
   letter-spacing: 0.3em;
   text-transform: uppercase;
   color: #080807;
-  background: linear-gradient(135deg, #22C55E, #17A558, #01411C);
+  background: linear-gradient(135deg, #F5E3A8, #E6C875, #B8923A);
   padding: 1rem 2.5rem;
   border: none;
   cursor: pointer;
@@ -149,7 +149,7 @@
 
 .about-cta .btn-gold:hover {
   transform: translateY(-3px);
-  box-shadow: 0 12px 40px rgba(1,65,28,0.4);
+  box-shadow: 0 12px 40px rgba(184,146,58,0.4);
 }
 
 .about-cta .btn-ghost {
@@ -174,7 +174,7 @@
 .about-cta .btn-ghost:hover {
   border-color: var(--gold);
   color: var(--gold);
-  background: rgba(1,65,28,0.1);
+  background: rgba(230,200,117,0.1);
 }
 
 /* ========== DEVELOPER CREDIT ========== */
@@ -231,15 +231,15 @@
   #about-page {
     padding: 8rem 0 3rem 0;
   }
-  
+
   .about-content h2 {
     font-size: clamp(1.8rem, 3.5vw, 2.4rem);
   }
-  
+
   .about-content p {
     font-size: 0.9rem;
   }
-  
+
   .about-content .eyebrow {
     font-size: 0.6rem;
   }
@@ -250,7 +250,7 @@
     flex-direction: column;
     align-items: stretch;
   }
-  
+
   .about-cta .btn-gold,
   .about-cta .btn-ghost {
     text-align: center;
@@ -258,15 +258,15 @@
     padding: 0.9rem 1.5rem;
     font-size: 0.6rem;
   }
-  
+
   .about-content h2 {
     font-size: 1.6rem;
   }
-  
+
   .about-content p {
     font-size: 0.85rem;
   }
-  
+
   .about-content .signature {
     font-size: 1.4rem;
   }
@@ -320,7 +320,7 @@
 <!-- ========== MOBILE MENU ========== -->
 <div class="mobile-menu" id="mobileMenu">
   <a href="index.html" onclick="closeMob()">Home</a>
-    <a href="about.html" onclick="closeMob()">About</a>
+  <a href="about.html" onclick="closeMob()">About</a>
   <a href="products.html" onclick="closeMob()">Perfumes</a>
   <a href="mission.html" onclick="closeMob()">Our Mission</a>
   <a href="faq.html" onclick="closeMob()">FAQ</a>
@@ -343,17 +343,17 @@
         <div class="eyebrow">Our Heritage</div>
         <h2>Welcome to<br><span>IMAROZE Perfume</span></h2>
         <div class="rule"></div>
-        
+
         <p>Welcome to IMAROZE Perfume, a premium luxury perfume brand in Pakistan offering high-quality, long-lasting perfumes, attar, and eau de parfum collections for men and women.</p>
-        
+
         <p>IMAROZE Perfume is a modern fragrance house dedicated to creating signature scents, luxury Arabic perfumes, and French-inspired fragrances that define elegance, confidence, and individuality. Our perfumes are designed for people who value premium quality, strong projection, and long-lasting fragrance performance.</p>
-        
+
         <p>We use carefully selected high-grade perfume oils and aromatic ingredients to deliver a rich, bold, and unforgettable scent experience. Every bottle represents craftsmanship, luxury, and modern fragrance innovation.</p>
-        
+
         <p>Whether you are looking for a luxury gift perfume, daily wear fragrance, or premium signature scent, IMAROZE Perfume brings you world-class quality at an affordable luxury level.</p>
-        
+
         <div class="signature">— IMAROZE Perfume</div>
-        
+
         <div class="about-cta">
           <a href="products.html" class="btn-gold">Shop Now</a>
           <a href="contact.html" class="btn-ghost">Get In Touch</a>
@@ -469,8 +469,6 @@ function updateCartBadge() {
     badge.textContent = cart.length;
   });
 }
-
-
 
 // ========== TOAST ==========
 function showToast(message) {
