@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="IMAROZE Perfume — Luxury long-lasting fragrances in Pakistan. Shop Denve, BrouTe, Aurex. Premium Eau De Parfum.">
+<meta name="description" content="IMAROZE Perfume — Luxury long-lasting fragrances in Pakistan. Winter Sale is live! Shop Denve, BrouTe, Aurex. Premium Eau De Parfum.">
 <title>IMAROZE | Luxury Perfumes Pakistan</title>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
 
@@ -58,7 +58,7 @@ button{border:none;cursor:pointer;font-family:inherit}
   right: 0.8rem;
   z-index: 3;
   background: #E6C875;
-  color: #fff;
+  color: #080807;
   font-family: var(--fu);
   font-size: 0.5rem;
   font-weight: 700;
@@ -634,7 +634,7 @@ button{border:none;cursor:pointer;font-family:inherit}
   top: -10px;
   right: -10px;
   background: #E6C875;
-  color: #fff;
+  color: #080807;
   font-family: var(--fu);
   font-size: 0.55rem;
   font-weight: 700;
@@ -1060,7 +1060,7 @@ button{border:none;cursor:pointer;font-family:inherit}
 .bs-item .price .discounted{font-family:var(--fd);font-size:1rem;color:#E6C875}
 .bs-item .price .original{font-family:var(--fu);font-size:0.6rem;color:var(--cream-dim);text-decoration:line-through;opacity:0.6}
 .bs-item .price .tag{font-family:var(--fu);font-size:0.4rem;font-weight:700;color:#E6C875;background:rgba(184,146,58,0.1);padding:0.1rem 0.35rem;border-radius:2px;border:1px solid rgba(184,146,58,0.2)}
-.bs-item .bs-discount-badge{position:absolute;top:0.5rem;right:0.5rem;background:#E6C875;color:#fff;font-family:var(--fu);font-size:0.4rem;font-weight:700;padding:0.15rem 0.4rem;border-radius:2px}
+.bs-item .bs-discount-badge{position:absolute;top:0.5rem;right:0.5rem;background:#E6C875;color:#080807;font-family:var(--fu);font-size:0.4rem;font-weight:700;padding:0.15rem 0.4rem;border-radius:2px}
 
 @keyframes bsScroll {
   0% { transform: translateX(0); }
@@ -1528,7 +1528,7 @@ footer{background:#050504;border-top:1px solid var(--gold-line);padding:4rem 0 1
         <div class="hero-image-wrapper">
           <div class="hero-glow"></div>
           <img src="DENVEBG.png" alt="IMAROZE Denve" class="hero-image">
-          <div class="hero-badge">20% OFF</div>
+          <div class="hero-badge">❄ Winter Sale</div>
         </div>
       </div>
     </div>
@@ -1543,12 +1543,14 @@ footer{background:#050504;border-top:1px solid var(--gold-line);padding:4rem 0 1
 <!-- ========== MARQUEE ========== -->
 <div class="marquee-section">
   <div class="marquee-track">
+    <span class="marquee-item">Winter Sale Live</span>
     <span class="marquee-item">Premium Ingredients</span>
     <span class="marquee-item">Long Lasting Fragrance</span>
     <span class="marquee-item">Luxury Packaging</span>
     <span class="marquee-item">Pakistan's Finest</span>
     <span class="marquee-item">Exclusive Collections</span>
     <span class="marquee-item">Handcrafted Perfumes</span>
+    <span class="marquee-item">Winter Sale Live</span>
     <span class="marquee-item">Premium Ingredients</span>
     <span class="marquee-item">Long Lasting Fragrance</span>
     <span class="marquee-item">Luxury Packaging</span>
@@ -1585,7 +1587,7 @@ footer{background:#050504;border-top:1px solid var(--gold-line);padding:4rem 0 1
         <div class="modal-notes" id="modalNotes">Fresh · Woody · Musky</div>
         <p class="modal-desc" id="modalDesc">A premium long-lasting fragrance crafted for those who love elegant, modern, and luxurious scents.</p>
         <div class="modal-price-row">
-          <span class="modal-price" id="modalPrice">Rs. 2,450</span>
+          <span class="modal-price" id="modalPrice">Rs. 2,150</span>
           <span class="modal-size">Eau de Parfum · 50ml</span>
         </div>
         <div class="modal-stars" id="modalStars">★★★★★</div>
@@ -1802,9 +1804,9 @@ function showToast(msg) {
 // ========== CART FUNCTIONS ==========
 function addToCart(id) {
   const products = {
-    denve: { id:'denve', name:'IMAROZE Denve', price:2450, img:'DENVE.png' },
-    broute: { id:'broute', name:'IMAROZE BrouTe', price:2000, img:'BROUTE.png' },
-    aurex: { id:'aurex', name:'IMAROZE Aurex', price:3000, img:'AUREX.png' }
+    denve: { id:'denve', name:'IMAROZE Denve', price:2150, img:'DENVE.png' },
+    broute: { id:'broute', name:'IMAROZE BrouTe', price:1750, img:'BROUTE.png' },
+    aurex: { id:'aurex', name:'IMAROZE Aurex', price:2750, img:'AUREX.png' }
   };
   const p = products[id];
   if(!p) return;
@@ -1831,8 +1833,8 @@ const productData = {
   denve: {
     id: 'denve',
     name: 'IMAROZE Denve',
-    price: 2450,
-    originalPrice: 3062,
+    price: 2150,
+    originalPrice: 2450,
     size: '50ml',
     notes: 'Fresh · Woody · Musky',
     desc: 'A premium long-lasting fragrance crafted for those who love elegant, modern, and luxurious scents.',
@@ -1842,8 +1844,8 @@ const productData = {
   broute: {
     id: 'broute',
     name: 'IMAROZE BrouTe',
-    price: 2000,
-    originalPrice: 2500,
+    price: 1750,
+    originalPrice: 2000,
     size: '50ml',
     notes: 'Bold · Fresh · Woody · Musky',
     desc: 'A bold blend of fresh, woody, and musky notes. Designed for a confident and modern personality.',
@@ -1853,8 +1855,8 @@ const productData = {
   aurex: {
     id: 'aurex',
     name: 'IMAROZE Aurex',
-    price: 3000,
-    originalPrice: 3750,
+    price: 2750,
+    originalPrice: 3000,
     size: '50ml',
     notes: 'Fresh Citrus · Floral · Warm Woody',
     desc: 'A luxury EDP with refined citrus, elegant floral notes, and warm woody undertones.',
@@ -1916,9 +1918,9 @@ document.querySelector('.modal-overlay')?.addEventListener('click', closeModal);
 
 // ========== FEATURED PRODUCTS ==========
 const featuredProducts = [
-  { id:'denve', name:'IMAROZE Denve', price:2450, originalPrice:3062, img:'DENVE.png', notes:'Fresh · Woody · Musky', desc:'A premium long-lasting fragrance crafted for those who love elegant, modern, and luxurious scents. Rich and smooth — stays with you all day.', stars:'★★★★★' },
-  { id:'broute', name:'IMAROZE BrouTe', price:2000, originalPrice:2500, img:'BROUTE.png', notes:'Bold · Fresh · Woody · Musky', desc:'A bold blend of fresh, woody, and musky notes. Designed for a confident and modern personality — elegant, fresh, and memorable all day.', stars:'★★★★★' },
-  { id:'aurex', name:'IMAROZE Aurex', price:3000, originalPrice:3750, img:'AUREX.png', notes:'Citrus · Floral · Woody', desc:'Refined citrus, elegant floral notes, and warm woody undertones. Modern, confident, rich — a sophisticated fragrance all day.', stars:'★★★★★' }
+  { id:'denve', name:'IMAROZE Denve', price:2150, originalPrice:2450, img:'DENVE.png', notes:'Fresh · Woody · Musky', desc:'A premium long-lasting fragrance crafted for those who love elegant, modern, and luxurious scents. Rich and smooth — stays with you all day.', stars:'★★★★★' },
+  { id:'broute', name:'IMAROZE BrouTe', price:1750, originalPrice:2000, img:'BROUTE.png', notes:'Bold · Fresh · Woody · Musky', desc:'A bold blend of fresh, woody, and musky notes. Designed for a confident and modern personality — elegant, fresh, and memorable all day.', stars:'★★★★★' },
+  { id:'aurex', name:'IMAROZE Aurex', price:2750, originalPrice:3000, img:'AUREX.png', notes:'Citrus · Floral · Woody', desc:'Refined citrus, elegant floral notes, and warm woody undertones. Modern, confident, rich — a sophisticated fragrance all day.', stars:'★★★★★' }
 ];
 
 const grid = document.getElementById('featuredGrid');
@@ -1955,12 +1957,12 @@ if(grid) {
 
 // ========== BEST SELLERS ==========
 const bsProducts = [
-  { name: 'IMAROZE BrouTe', price: 2000, originalPrice: 2500, img: 'BROUTE.png' },
-  { name: 'IMAROZE Aurex', price: 3000, originalPrice: 3750, img: 'AUREX.png' },
-  { name: 'IMAROZE Denve', price: 2450, originalPrice: 3062, img: 'DENVE.png' },
-  { name: 'IMAROZE BrouTe', price: 2000, originalPrice: 2500, img: 'BROUTE.png' },
-  { name: 'IMAROZE Aurex', price: 3000, originalPrice: 3750, img: 'AUREX.png' },
-  { name: 'IMAROZE Denve', price: 2450, originalPrice: 3062, img: 'DENVE.png' }
+  { name: 'IMAROZE BrouTe', price: 1750, originalPrice: 2000, img: 'BROUTE.png' },
+  { name: 'IMAROZE Aurex', price: 2750, originalPrice: 3000, img: 'AUREX.png' },
+  { name: 'IMAROZE Denve', price: 2150, originalPrice: 2450, img: 'DENVE.png' },
+  { name: 'IMAROZE BrouTe', price: 1750, originalPrice: 2000, img: 'BROUTE.png' },
+  { name: 'IMAROZE Aurex', price: 2750, originalPrice: 3000, img: 'AUREX.png' },
+  { name: 'IMAROZE Denve', price: 2150, originalPrice: 2450, img: 'DENVE.png' }
 ];
 
 const bsDouble = [...bsProducts, ...bsProducts];
